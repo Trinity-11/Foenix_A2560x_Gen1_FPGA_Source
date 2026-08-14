@@ -1,4 +1,4 @@
-## License
+# License
 
 Copyright (c) 2018-2026  Stefany Allaire/Foenix Retro Systems/Foenix Labs
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,6 +18,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## The Projects all share the same source in the Root Path "Source", don't be bothered by the sources that lies within each product's directory.
+
 
 To Use you will need the Software Suite Quartus II Version 13.1 to load the project of the following products:
 A2560X (Same as GenX/32bits side) - The boards uses a Cyclone III FPGA
