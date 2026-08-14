@@ -22,7 +22,7 @@ SOFTWARE.
 
 ## The Projects all share the same source in the Root Path "Source", don't be bothered by the sources that lies within each product's directory.
 
-### To Use you will need the Software Suite Quartus II Version 13.1 to load the project of the following products:
+### To Use you will need the Software Suite Quartus II Version 13.1sp1 to load the project of the following products:
 
 A2560X (Same as GenX/32bits side) - The boards uses a Cyclone III FPGA
 
