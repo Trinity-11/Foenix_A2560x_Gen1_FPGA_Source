@@ -1,0 +1,850 @@
+ -- Copyright (C) 1991-2014 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.2V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --					Bank 1:		3.3V
+ --					Bank 2:		3.3V
+ --					Bank 3:		3.3V
+ --					Bank 4:		3.3V
+ --					Bank 5:		3.3V
+ --					Bank 6:		3.3V
+ --					Bank 7:		3.3V
+ --					Bank 8:		3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --					It can also be used to report unused dedicated pins. The connection
+ --					on the board for unused dedicated pins depends on whether this will
+ --					be used in a future design. One example is device migration. When
+ --					using device migration, refer to the device pin-tables. If it is a
+ --					GND pin in the pin table or if it will not be used in a future design
+ --					for another purpose the it MUST be connected to GND. If it is an unused
+ --					dedicated pin, then it can be connected to a valid signal on the board
+ --					(low, high, or toggling) if that signal is required for a different
+ --					revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --					This pin should be connected to GND. It may also be connected  to a
+ --					valid signal  on the board  (low, high, or toggling)  if that signal
+ --					is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --           	    or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+CHIP  "A2560X60Plus_Project"  ASSIGNED TO AN: EP3C120F780C8
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+VCCIO8                       : A2        : power  :                   : 3.3V    : 8         :                
+CPU_BSn_i[3]                 : A3        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_SRAM_BEn_o[0]      : A4        : output : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : A5        : power  :                   : 3.3V    : 8         :                
+LOCAL_MEM_SRAM_BEn_o[3]      : A6        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_PST_i[4]                 : A7        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_FLASH_CS1n_o       : A8        : output : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : A9        : power  :                   : 3.3V    : 8         :                
+CPU_BBn_io                   : A10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TSn_io                   : A11       : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_UPA_i[1]                 : A12       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : A13       : power  :                   : 3.3V    : 8         :                
+GND+                         : A14       :        :                   :         : 8         :                
+OSC_CLK_14_318Mhz_i          : A15       : input  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : A16       : power  :                   : 3.3V    : 7         :                
+CPU_D_io[8]                  : A17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[4]                  : A18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[31]                 : A19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : A20       : power  :                   : 3.3V    : 7         :                
+CPU_A_io[17]                 : A21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[9]                  : A22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[6]                  : A23       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : A24       : power  :                   : 3.3V    : 7         :                
+CPU_CIOUTn_i                 : A25       : input  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_RESET_OUTn_i             : A26       : input  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : A27       : power  :                   : 3.3V    : 7         :                
+VCCIO2                       : AA1       : power  :                   : 3.3V    : 2         :                
+GND                          : AA2       : gnd    :                   :         :           :                
+F_SD_CD_i                    : AA3       : input  : 3.3-V LVCMOS      :         : 2         : Y              
+F_SD_DAT2_io                 : AA4       : input  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[29]             : AA5       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[9]              : AA6       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[27]             : AA7       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_Addy_o[3]             : AA8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+GNDA1                        : AA9       : gnd    :                   :         :           :                
+VRAM_A_DQ_io[16]             : AA10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AA11      : power  :                   : 3.3V    : 3         :                
+VID_B_PIX_o[1]               : AA12      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[7]               : AA13      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[8]               : AA14      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_HSYNC_o                : AA15      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[5]               : AA16      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[7]               : AA17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AA18      : power  :                   : 3.3V    : 4         :                
+IDE_DATA_OEn_o               : AA19      : output : 3.3-V LVCMOS      :         : 4         : Y              
+GNDA4                        : AA20      : gnd    :                   :         :           :                
+IO_D_io[0]                   : AA21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQM_o[3]              : AA22      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[24]             : AA23      : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[25]             : AA24      : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[26]             : AA25      : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[27]             : AA26      : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+GND                          : AA27      : gnd    :                   :         :           :                
+VCCIO5                       : AA28      : power  :                   : 3.3V    : 5         :                
+F_SD_DAT1_io                 : AB1       : input  : 3.3-V LVCMOS      :         : 2         : Y              
+F_SD_DAT0_io                 : AB2       : input  : 3.3-V LVCMOS      :         : 2         : Y              
+F_SD_CLK_o                   : AB3       : output : 3.3-V LVCMOS      :         : 2         : Y              
+F_SD_CMD_o                   : AB4       : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_BEn_o[2]              : AB5       : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[8]              : AB6       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[14]             : AB7       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[4]             : AB8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[0]             : AB9       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[15]            : AB10      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_WEn_o                 : AB11      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[0]               : AB12      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_DE_o                   : AB13      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[6]               : AB14      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_DE_o                   : AB15      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[4]               : AB16      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[8]               : AB17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_RDn_o                     : AB18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[10]                  : AB19      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[4]                   : AB20      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[15]                  : AB21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[5]                   : AB22      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_A_o[7]                : AB23      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[8]                : AB24      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[9]                : AB25      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[11]               : AB26      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_CKE_o                 : AB27      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_CLK_o                 : AB28      : output : 3.3-V LVCMOS      :         : 5         : Y              
+LPC_CLK_32Khz_o              : AC1       : output : 3.3-V LVCMOS      :         : 2         : Y              
+LPC_LAD_io[0]                : AC2       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+F_SD_DAT3_io                 : AC3       : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_BEn_o[3]              : AC4       : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[10]             : AC5       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+GND                          : AC6       : gnd    :                   :         :           :                
+VRAM_A_DQ_io[26]             : AC7       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_BEn_o[0]              : AC8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+GND                          : AC9       : gnd    :                   :         :           :                
+VRAM_A_DQ_io[19]             : AC10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[21]             : AC11      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[0]              : AC12      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+GND                          : AC13      : gnd    :                   :         :           :                
+VID_B_PIX_o[4]               : AC14      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_PIX_o[0]               : AC15      : output : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AC16      : gnd    :                   :         :           :                
+VID_A_PIX_o[9]               : AC17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+ETH_FIFO_SEL_o               : AC18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[6]                   : AC19      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AC20      : gnd    :                   :         :           :                
+IO_D_io[1]                   : AC21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IDE_INTRQ_i                  : AC22      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AC23      : gnd    :                   :         :           :                
+SYSRAM_A_o[2]                : AC24      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[3]                : AC25      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[4]                : AC26      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[5]                : AC27      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[6]                : AC28      : output : 3.3-V LVCMOS      :         : 5         : Y              
+LPC_LAD_io[1]                : AD1       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+LPC_LAD_io[2]                : AD2       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+LPC_LAD_io[3]                : AD3       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[28]             : AD4       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[15]             : AD5       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AD6       : power  :                   : 3.3V    : 3         :                
+VRAM_A_DQ_io[24]             : AD7       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[12]             : AD8       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AD9       : power  :                   : 3.3V    : 3         :                
+VRAM_A_DQ_io[17]             : AD10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[20]             : AD11      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[1]              : AD12      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AD13      : power  :                   : 3.3V    : 3         :                
+VID_B_PIX_o[5]               : AD14      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_PIX_o[1]               : AD15      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AD16      : power  :                   : 3.3V    : 4         :                
+VID_A_PIX_o[10]              : AD17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[1]                    : AD18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[9]                   : AD19      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AD20      : power  :                   : 3.3V    : 4         :                
+IO_D_io[14]                  : AD21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IDE_CS0n_o                   : AD22      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AD23      : power  :                   : 3.3V    : 4         :                
+SYSRAM_WEn_o                 : AD24      : output : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_CASn_o                : AD25      : output : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_A_o[10]               : AD26      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[0]                : AD27      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_A_o[1]                : AD28      : output : 3.3-V LVCMOS      :         : 5         : Y              
+LPC_LFRAMEn_o                : AE1       : output : 3.3-V LVCMOS      :         : 2         : Y              
+LPC_LDRQn_i                  : AE2       : input  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[30]             : AE3       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[31]             : AE4       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_CLK_P_o                : AE5       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[13]             : AE6       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[25]             : AE7       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[9]             : AE8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[1]             : AE9       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[5]              : AE10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[3]              : AE11      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[22]             : AE12      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[3]               : AE13      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_SPD_io                   : AE14      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_VSYNC_o                : AE15      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[3]               : AE16      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[11]              : AE17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[2]                    : AE18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[7]                   : AE19      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[11]                  : AE20      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[2]                   : AE21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IDE_CS1n_o                   : AE22      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_CLK_P_o                : AE23      : output : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQM_o[2]              : AE24      : output : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQ_io[23]             : AE25      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_CS0n_o                : AE26      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_BA0_o                 : AE27      : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_BA1_o                 : AE28      : output : 3.3-V LVCMOS      :         : 5         : Y              
+GND                          : AF1       : gnd    :                   :         :           :                
+LPC_IRQn_io                  : AF2       : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_DQ_io[11]             : AF3       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[12]            : AF4       : output : 3.3-V LVCMOS      :         : 3         : Y              
+F_SD_WP_i                    : AF5       : input  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_OEn_o                 : AF6       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[6]             : AF7       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[17]            : AF8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[2]             : AF9       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[7]              : AF10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[2]              : AF11      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+DBG_TX_o                     : AF12      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[2]               : AF13      : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_SPC_io                   : AF14      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_HP_INT1n_i             : AF15      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+VID_A_PIX_o[2]               : AF16      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[6]                    : AF17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[3]                    : AF18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[8]                   : AF19      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+IDE_DATA_DIR_o               : AF20      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_D_io[13]                  : AF21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+RTC_CSn_o                    : AF22      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IDE_IORDY_i                  : AF23      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQ_io[16]             : AF24      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQ_io[20]             : AF25      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQ_io[21]             : AF26      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_RASn_o                : AF27      : output : 3.3-V LVCMOS      :         : 5         : Y              
+GND                          : AF28      : gnd    :                   :         :           :                
+VCCIO2                       : AG1       : power  :                   : 3.3V    : 2         :                
+GND                          : AG2       : gnd    :                   :         :           :                
+VRAM_A_Addy_o[14]            : AG3       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[11]            : AG4       : output : 3.3-V LVCMOS      :         : 3         : Y              
+GND                          : AG5       : gnd    :                   :         :           :                
+VRAM_A_Addy_o[8]             : AG6       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[5]             : AG7       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[18]            : AG8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+GND                          : AG9       : gnd    :                   :         :           :                
+VRAM_A_DQ_io[6]              : AG10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_DQ_io[23]             : AG11      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_VSYNC_o                : AG12      : output : 3.3-V LVCMOS      :         : 3         : Y              
+GND                          : AG13      : gnd    :                   :         :           :                
+OSC_CLK_40_000Mhz_B_i        : AG14      : input  : 3.3-V LVCMOS      :         : 3         : Y              
+OSC_CLK_65_000Mhz_i          : AG15      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AG16      : gnd    :                   :         :           :                
+IO_A_o[7]                    : AG17      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[4]                    : AG18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+ETH_CSn_o                    : AG19      : output : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AG20      : gnd    :                   :         :           :                
+IO_D_io[3]                   : AG21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+RTC_INTn_i                   : AG22      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[0]                    : AG23      : output : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AG24      : gnd    :                   :         :           :                
+SYSRAM_DQ_io[19]             : AG25      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQ_io[22]             : AG26      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : AG27      : gnd    :                   :         :           :                
+VCCIO5                       : AG28      : power  :                   : 3.3V    : 5         :                
+VCCIO3                       : AH2       : power  :                   : 3.3V    : 3         :                
+VRAM_A_Addy_o[13]            : AH3       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[10]            : AH4       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AH5       : power  :                   : 3.3V    : 3         :                
+VRAM_A_Addy_o[7]             : AH6       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[16]            : AH7       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VRAM_A_Addy_o[19]            : AH8       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AH9       : power  :                   : 3.3V    : 3         :                
+VRAM_A_DQ_io[4]              : AH10      : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+DBG_RX_i                     : AH11      : input  : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_HP_INT1n_i             : AH12      : input  : 3.3-V LVCMOS      :         : 3         : Y              
+VCCIO3                       : AH13      : power  :                   : 3.3V    : 3         :                
+OSC_CLK_25_175Mhz_i          : AH14      : input  : 3.3-V LVCMOS      :         : 3         : Y              
+OSC_CLK_40_000Mhz_A_i        : AH15      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AH16      : power  :                   : 3.3V    : 4         :                
+ETH_IRQn_i                   : AH17      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+IO_A_o[5]                    : AH18      : output : 3.3-V LVCMOS      :         : 4         : Y              
+IO_WRn_o                     : AH19      : output : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AH20      : power  :                   : 3.3V    : 4         :                
+IO_D_io[12]                  : AH21      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+TRINITY_CSn_o                : AH22      : output : 3.3-V LVCMOS      :         : 4         : Y              
+TRINITY_IRQn_i               : AH23      : input  : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AH24      : power  :                   : 3.3V    : 4         :                
+SYSRAM_DQ_io[17]             : AH25      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+SYSRAM_DQ_io[18]             : AH26      : bidir  : 3.3-V LVCMOS      :         : 4         : Y              
+VCCIO4                       : AH27      : power  :                   : 3.3V    : 4         :                
+VCCIO1                       : B1        : power  :                   : 3.3V    : 1         :                
+GND                          : B2        : gnd    :                   :         :           :                
+WIZFI_SPI_INTn_i             : B3        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BSn_i[2]                 : B4        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+GND                          : B5        : gnd    :                   :         :           :                
+LOCAL_MEM_SRAM_BEn_o[2]      : B6        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_CLAn_o                   : B7        : output : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_FLASH_CS0n_o       : B8        : output : 3.3-V LVCMOS      :         : 8         : Y              
+GND                          : B9        : gnd    :                   :         :           :                
+CPU_PST_i[1]                 : B10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TAn_o                    : B11       : output : 3.3-V LVCMOS      :         : 8         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : B12       :        :                   :         : 8         :                
+GND                          : B13       : gnd    :                   :         :           :                
+OSC_CLK_80_000Mhz_A_i        : B14       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+OSC_CLK_33_333Mhz_i          : B15       : input  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : B16       : gnd    :                   :         :           :                
+CPU_D_io[9]                  : B17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[5]                  : B18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[30]                 : B19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : B20       : gnd    :                   :         :           :                
+CPU_A_io[16]                 : B21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[8]                  : B22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[0]                  : B23       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : B24       : gnd    :                   :         :           :                
+CPU_RESET_INn_o              : B25       : output : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_AVECn_o                  : B26       : output : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : B27       : gnd    :                   :         :           :                
+VCCIO6                       : B28       : power  :                   : 3.3V    : 6         :                
+GND                          : C1        : gnd    :                   :         :           :                
+ABUS_CTRL_IN_o               : C2        : output : 3.3-V LVCMOS      :         : 1         : Y              
+ABUS_DATA_LATCH_o            : C3        : output : 3.3-V LVCMOS      :         : 8         : Y              
+ABUS_DATA_CLK_o              : C4        : output : 3.3-V LVCMOS      :         : 8         : Y              
+ABUS_RSTn_o                  : C5        : output : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_SRAM_BEn_o[1]      : C6        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BGRn_o                   : C7        : output : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_SRAM_WEn_o         : C8        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BSn_i[0]                 : C9        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BGn_o                    : C10       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TIPn_i                   : C11       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_UPA_i[0]                 : C12       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TLN_i[0]                 : C13       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_LOCKEn_i                 : C14       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[23]                 : C15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[19]                 : C16       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[10]                 : C17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[0]                  : C18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[28]                 : C19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[23]                 : C20       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[19]                 : C21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[11]                 : C22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[1]                  : C23       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_IPENDn_i                 : C24       : input  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_IPL_o[2]                 : C25       : output : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_IPL_o[1]                 : C26       : output : 3.3-V LVCMOS      :         : 7         : Y              
+GAMMA_MODE_A_i               : C27       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+GND                          : C28       : gnd    :                   :         :           :                
+ABUS_CTRL_LATCH_o            : D1        : output : 3.3-V LVCMOS      :         : 1         : Y              
+ABUS_CTRL_CLK_o              : D2        : output : 3.3-V LVCMOS      :         : 1         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D3        :        :                   :         : 1         :                
+ABUS_DATA_IN1_o              : D4        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BCLK_o                   : D5        : output : 3.3-V LVCMOS      :         : 8         : Y              
+MEM_A2_o                     : D6        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BTTn_io                  : D7        : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_SRAM_CS0n_o        : D8        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BSn_i[1]                 : D9        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_BRn_i                    : D10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TEAn_o                   : D11       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TM_i[0]                  : D12       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_SCDn_i                   : D13       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_LOCKn_i                  : D14       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[21]                 : D15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[18]                 : D16       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[11]                 : D17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[1]                  : D18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[29]                 : D19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[20]                 : D20       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[15]                 : D21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[5]                  : D22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+C816_CLK_o                   : D23       : output : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[3]                  : D24       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_IPL_o[0]                 : D25       : output : 3.3-V LVCMOS      :         : 7         : Y              
+GAMMA_MODE_B_i               : D26       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+HI_RES_MODE_B_i              : D27       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+HI_RES_MODE_A_i              : D28       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+AUD_PDn_o                    : E1        : output : 3.3-V LVCMOS      :         : 1         : Y              
+~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : E2        : input  : 3.3-V LVCMOS      :         : 1         : N              
+AUD2_LRCK_o                  : E3        : output : 3.3-V LVCMOS      :         : 1         : Y              
+ABUS_DATA_IN0_o              : E4        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_CLKEN_o                  : E5        : output : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : E6        : power  :                   : 3.3V    : 8         :                
+MEM_A3_o                     : E7        : output : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_SRAM_CS1n_o        : E8        : output : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : E9        : power  :                   : 3.3V    : 8         :                
+CPU_PST_i[3]                 : E10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TCIn_o                   : E11       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TM_i[1]                  : E12       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : E13       : power  :                   : 3.3V    : 8         :                
+CPU_TLN_i[1]                 : E14       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[20]                 : E15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : E16       : power  :                   : 3.3V    : 7         :                
+CPU_D_io[6]                  : E17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[2]                  : E18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[21]                 : E19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : E20       : power  :                   : 3.3V    : 7         :                
+CPU_A_io[14]                 : E21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[4]                  : E22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : E23       : power  :                   : 3.3V    : 7         :                
+CPU_A_io[2]                  : E24       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_SNOOPn_o                 : E25       : output : 3.3-V LVCMOS      :         : 7         : Y              
+INT_POWER_LED_o              : E26       : output : 3.3-V LVCMOS      :         : 6         : Y              
+SID_CLK_o                    : E27       : output : 3.3-V LVCMOS      :         : 6         : Y              
+ABUS_SID_IN_o                : E28       : output : 3.3-V LVCMOS      :         : 6         : Y              
+AUD2_SDTI_o                  : F1        : output : 3.3-V LVCMOS      :         : 1         : Y              
+AUD2_BICK_o                  : F2        : output : 3.3-V LVCMOS      :         : 1         : Y              
+AUD2_MCLK_o                  : F3        : output : 3.3-V LVCMOS      :         : 1         : Y              
+~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : F4        : input  : 3.3-V LVCMOS      :         : 1         : N              
+AUD3_LRCK_o                  : F5        : output : 3.3-V LVCMOS      :         : 1         : Y              
+GND                          : F6        : gnd    :                   :         :           :                
+CPU_SASn_i                   : F7        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_SIZ_i[1]                 : F8        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+GND                          : F9        : gnd    :                   :         :           :                
+CPU_PST_i[0]                 : F10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TBIn_o                   : F11       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TM_i[2]                  : F12       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+GND                          : F13       : gnd    :                   :         :           :                
+CPU_D_io[28]                 : F14       : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[27]                 : F15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : F16       : gnd    :                   :         :           :                
+CPU_D_io[15]                 : F17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[3]                  : F18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[27]                 : F19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : F20       : gnd    :                   :         :           :                
+CPU_A_io[12]                 : F21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[7]                  : F22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : F23       : gnd    :                   :         :           :                
+C816_MX_i                    : F24       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+ABUS_SID_LATCH_o             : F25       : output : 3.3-V LVCMOS      :         : 6         : Y              
+ABUS_SID_CLK_o               : F26       : output : 3.3-V LVCMOS      :         : 6         : Y              
+C816_MLn_i                   : F27       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_RWn_o                    : F28       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CODEC_CL_o                   : G1        : output : 3.3-V LVCMOS      :         : 1         : Y              
+AUD3_SDTI_o                  : G2        : output : 3.3-V LVCMOS      :         : 1         : Y              
+AUD3_BICK_o                  : G3        : output : 3.3-V LVCMOS      :         : 1         : Y              
+AUD3_MCLK_o                  : G4        : output : 3.3-V LVCMOS      :         : 1         : Y              
+POWER_RGB_LED_o              : G5        : output : 3.3-V LVCMOS      :         : 1         : Y              
+BTX_BUZZER_o                 : G6        : output : 3.3-V LVCMOS      :         : 1         : Y              
+CPU_TRAn_o                   : G7        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_SIZ_i[0]                 : G8        : input  : 3.3-V LVCMOS      :         : 8         : Y              
+LOCAL_MEM_FLASH_OEn_o        : G9        : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_PST_i[2]                 : G10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_MDISn_o                  : G11       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TT0_i                    : G12       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_LOC_i                    : G13       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[29]                 : G14       : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[26]                 : G15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[17]                 : G16       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[14]                 : G17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[7]                  : G18       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[26]                 : G19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[22]                 : G20       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[13]                 : G21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_A_io[10]                 : G22       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+C816_RDY_io                  : G23       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+C816_RSTn_o                  : G24       : output : 3.3-V LVCMOS      :         : 6         : Y              
+C816_ABORTn_o                : G25       : output : 3.3-V LVCMOS      :         : 6         : Y              
+C816_E_i                     : G26       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_VPn_i                    : G27       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+TRINITY_CPU_CLK_o            : G28       : output : 3.3-V LVCMOS      :         : 6         : Y              
+VCCIO1                       : H1        : power  :                   : 3.3V    : 1         :                
+GND                          : H2        : gnd    :                   :         :           :                
+CODEC_DI_o                   : H3        : output : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_CE_o                   : H4        : output : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_ADC_LRCK_i             : H5        : input  : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_ADC_DAT_i              : H6        : input  : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_ADC_MCLK_o             : H7        : output : 3.3-V LVCMOS      :         : 1         : Y              
+LOCAL_MEM_SRAM_OEn_o         : H8        : output : 3.3-V LVCMOS      :         : 8         : Y              
+GNDA3                        : H9        : gnd    :                   :         :           :                
+CPU_RWn_i                    : H10       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+VCCIO8                       : H11       : power  :                   : 3.3V    : 8         :                
+CPU_CDISn_o                  : H12       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_TT1_io                   : H13       : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[30]                 : H14       : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[25]                 : H15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[16]                 : H16       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[12]                 : H17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCIO7                       : H18       : power  :                   : 3.3V    : 7         :                
+CPU_A_io[24]                 : H19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GNDA2                        : H20       : gnd    :                   :         :           :                
+CPU_A_io[18]                 : H21       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+C816_BE_o                    : H22       : output : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_VDA_i                    : H23       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_VPA_i                    : H24       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+C816_IRQn_oc                 : H25       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+C816_NMIn_oc                 : H26       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+GND                          : H27       : gnd    :                   :         :           :                
+VCCIO6                       : H28       : power  :                   : 3.3V    : 6         :                
+OSC_CLK_33_333Mhz_B_i        : J1        : input  : 3.3-V LVCMOS      :         : 1         : Y              
+GND+                         : J2        :        :                   :         : 1         :                
+CODEC_ADC_BCLK_i             : J3        : input  : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_DAC_LRCK_o             : J4        : output : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_DAC_DAT_o              : J5        : output : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_DAC_MCLK_o             : J6        : output : 3.3-V LVCMOS      :         : 1         : Y              
+CODEC_DAC_BCLK_o             : J7        : output : 3.3-V LVCMOS      :         : 1         : Y              
+VCCA3                        : J8        : power  :                   : 2.5V    :           :                
+VCCD_PLL3                    : J9        : power  :                   : 1.2V    :           :                
+LOCAL_MEM_FLASH_WEn_o        : J10       : output : 3.3-V LVCMOS      :         : 8         : Y              
+GND                          : J11       : gnd    :                   :         :           :                
+CPU_LFOn_o                   : J12       : output : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_MIn_i                    : J13       : input  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[31]                 : J14       : bidir  : 3.3-V LVCMOS      :         : 8         : Y              
+CPU_D_io[24]                 : J15       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[22]                 : J16       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+CPU_D_io[13]                 : J17       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+GND                          : J18       : gnd    :                   :         :           :                
+CPU_A_io[25]                 : J19       : bidir  : 3.3-V LVCMOS      :         : 7         : Y              
+VCCD_PLL2                    : J20       : power  :                   : 1.2V    :           :                
+VCCA2                        : J21       : power  :                   : 2.5V    :           :                
+CS_RAM2n_o                   : J22       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CS_RAM3n_o                   : J23       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CPU_A_OEn_o                  : J24       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CPU_A_LATCH_o                : J25       : output : 3.3-V LVCMOS      :         : 6         : Y              
+C816_RWn_i                   : J26       : input  : 3.3-V LVCMOS      :         : 6         : Y              
+GND+                         : J27       :        :                   :         : 6         :                
+GND+                         : J28       :        :                   :         : 6         :                
+Audio_Standby_o              : K1        : output : 3.3-V LVCMOS      :         : 1         : Y              
+Audio_Mute_o                 : K2        : output : 3.3-V LVCMOS      :         : 1         : Y              
+SDCARD_RESET_i               : K3        : input  : 3.3-V LVCMOS      :         : 1         : Y              
+SDCARD_RGB_o                 : K4        : output : 3.3-V LVCMOS      :         : 1         : Y              
+VCCIO1                       : K5        : power  :                   : 3.3V    : 1         :                
+GND                          : K6        : gnd    :                   :         :           :                
+SDCARD_LED_o                 : K7        : output : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_BEn_o[2]              : K8        : output : 3.3-V LVCMOS      :         : 1         : Y              
+VCCINT                       : K9        : power  :                   : 1.2V    :           :                
+GND                          : K10       : gnd    :                   :         :           :                
+VCCINT                       : K11       : power  :                   : 1.2V    :           :                
+GND                          : K12       : gnd    :                   :         :           :                
+VCCINT                       : K13       : power  :                   : 1.2V    :           :                
+GND                          : K14       : gnd    :                   :         :           :                
+VCCINT                       : K15       : power  :                   : 1.2V    :           :                
+GND                          : K16       : gnd    :                   :         :           :                
+VCCINT                       : K17       : power  :                   : 1.2V    :           :                
+GND                          : K18       : gnd    :                   :         :           :                
+VCCINT                       : K19       : power  :                   : 1.2V    :           :                
+GND                          : K20       : gnd    :                   :         :           :                
+BUS_A_io[23]                 : K21       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+OEn_o                        : K22       : output : 3.3-V LVCMOS      :         : 6         : Y              
+GND                          : K23       : gnd    :                   :         :           :                
+VCCIO6                       : K24       : power  :                   : 3.3V    : 6         :                
+CS_FLASH0n_o                 : K25       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CS_FLASH1n_o                 : K26       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CS_RAM0n_o                   : K27       : output : 3.3-V LVCMOS      :         : 6         : Y              
+CS_RAM1n_o                   : K28       : output : 3.3-V LVCMOS      :         : 6         : Y              
+VRAM_B_BEn_o[3]              : L1        : output : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[30]             : L2        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[31]             : L3        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[9]              : L4        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[10]             : L5        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[11]             : L6        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[29]             : L7        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[28]             : L8        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+GND                          : L9        : gnd    :                   :         :           :                
+VCCINT                       : L10       : power  :                   : 1.2V    :           :                
+GND                          : L11       : gnd    :                   :         :           :                
+VCCINT                       : L12       : power  :                   : 1.2V    :           :                
+GND                          : L13       : gnd    :                   :         :           :                
+VCCINT                       : L14       : power  :                   : 1.2V    :           :                
+GND                          : L15       : gnd    :                   :         :           :                
+VCCINT                       : L16       : power  :                   : 1.2V    :           :                
+GND                          : L17       : gnd    :                   :         :           :                
+VCCINT                       : L18       : power  :                   : 1.2V    :           :                
+GND                          : L19       : gnd    :                   :         :           :                
+VCCINT                       : L20       : power  :                   : 1.2V    :           :                
+BUS_D_io[4]                  : L21       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[0]                  : L22       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[2]                  : L23       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[10]                 : L24       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[19]                 : L25       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[20]                 : L26       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[21]                 : L27       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[22]                 : L28       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+VRAM_B_DQ_io[13]             : M1        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[12]             : M2        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[27]             : M3        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[26]             : M4        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[14]             : M5        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+nSTATUS                      : M6        :        :                   :         : 1         :                
+VRAM_B_DQ_io[15]             : M7        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_DQ_io[24]             : M8        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VCCINT                       : M9        : power  :                   : 1.2V    :           :                
+GND                          : M10       : gnd    :                   :         :           :                
+VCCINT                       : M11       : power  :                   : 1.2V    :           :                
+GND                          : M12       : gnd    :                   :         :           :                
+VCCINT                       : M13       : power  :                   : 1.2V    :           :                
+GND                          : M14       : gnd    :                   :         :           :                
+VCCINT                       : M15       : power  :                   : 1.2V    :           :                
+GND                          : M16       : gnd    :                   :         :           :                
+VCCINT                       : M17       : power  :                   : 1.2V    :           :                
+GND                          : M18       : gnd    :                   :         :           :                
+VCCINT                       : M19       : power  :                   : 1.2V    :           :                
+GND                          : M20       : gnd    :                   :         :           :                
+BUS_D_io[0]                  : M21       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+MSEL2                        : M22       :        :                   :         : 6         :                
+BUS_D_io[7]                  : M23       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_D_io[1]                  : M24       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_D_io[6]                  : M25       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_D_io[2]                  : M26       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_D_io[5]                  : M27       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_D_io[3]                  : M28       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+VCCIO1                       : N1        : power  :                   : 3.3V    : 1         :                
+GND                          : N2        : gnd    :                   :         :           :                
+VRAM_B_DQ_io[25]             : N3        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_BEn_o[0]              : N4        : output : 3.3-V LVCMOS      :         : 1         : Y              
+VCCIO1                       : N5        : power  :                   : 3.3V    : 1         :                
+GND                          : N6        : gnd    :                   :         :           :                
+~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : N7        : input  : 3.3-V LVCMOS      :         : 1         : N              
+VRAM_B_BEn_o[1]              : N8        : output : 3.3-V LVCMOS      :         : 1         : Y              
+GND                          : N9        : gnd    :                   :         :           :                
+VCCINT                       : N10       : power  :                   : 1.2V    :           :                
+GND                          : N11       : gnd    :                   :         :           :                
+VCCINT                       : N12       : power  :                   : 1.2V    :           :                
+GND                          : N13       : gnd    :                   :         :           :                
+VCCINT                       : N14       : power  :                   : 1.2V    :           :                
+GND                          : N15       : gnd    :                   :         :           :                
+VCCINT                       : N16       : power  :                   : 1.2V    :           :                
+GND                          : N17       : gnd    :                   :         :           :                
+VCCINT                       : N18       : power  :                   : 1.2V    :           :                
+GND                          : N19       : gnd    :                   :         :           :                
+VCCINT                       : N20       : power  :                   : 1.2V    :           :                
+BUS_A_io[17]                 : N21       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+MSEL0                        : N22       :        :                   :         : 6         :                
+GND                          : N23       : gnd    :                   :         :           :                
+VCCIO6                       : N24       : power  :                   : 3.3V    : 6         :                
+BUS_A_io[9]                  : N25       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[11]                 : N26       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+GND                          : N27       : gnd    :                   :         :           :                
+VCCIO6                       : N28       : power  :                   : 3.3V    : 6         :                
+VRAM_B_DQ_io[8]              : P1        : bidir  : 3.3-V LVCMOS      :         : 1         : Y              
+VRAM_B_Addy_o[14]            : P2        : output : 3.3-V LVCMOS      :         : 1         : Y              
+~ALTERA_DCLK~                : P3        : output : 3.3-V LVCMOS      :         : 1         : N              
+nCONFIG                      : P4        :        :                   :         : 1         :                
+TCK                          : P5        : input  :                   :         : 1         :                
+TDO                          : P6        : output :                   :         : 1         :                
+TDI                          : P7        : input  :                   :         : 1         :                
+TMS                          : P8        : input  :                   :         : 1         :                
+VCCINT                       : P9        : power  :                   : 1.2V    :           :                
+GND                          : P10       : gnd    :                   :         :           :                
+VCCINT                       : P11       : power  :                   : 1.2V    :           :                
+GND                          : P12       : gnd    :                   :         :           :                
+VCCINT                       : P13       : power  :                   : 1.2V    :           :                
+GND                          : P14       : gnd    :                   :         :           :                
+VCCINT                       : P15       : power  :                   : 1.2V    :           :                
+GND                          : P16       : gnd    :                   :         :           :                
+VCCINT                       : P17       : power  :                   : 1.2V    :           :                
+GND                          : P18       : gnd    :                   :         :           :                
+VCCINT                       : P19       : power  :                   : 1.2V    :           :                
+GND                          : P20       : gnd    :                   :         :           :                
+WR_FLASHn_o                  : P21       : output : 3.3-V LVCMOS      :         : 5         : Y              
+MSEL3                        : P22       :        :                   :         : 6         :                
+MSEL1                        : P23       :        :                   :         : 6         :                
+CONF_DONE                    : P24       :        :                   :         : 6         :                
+BUS_A_io[8]                  : P25       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+INIT_DONE_o                  : P26       : output : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[14]                 : P27       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+BUS_A_io[13]                 : P28       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+VRAM_B_Addy_o[13]            : R1        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[12]            : R2        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[15]            : R3        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[4]             : R4        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[16]            : R5        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[3]             : R6        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[17]            : R7        : output : 3.3-V LVCMOS      :         : 2         : Y              
+nCE                          : R8        :        :                   :         : 1         :                
+GND                          : R9        : gnd    :                   :         :           :                
+VCCINT                       : R10       : power  :                   : 1.2V    :           :                
+GND                          : R11       : gnd    :                   :         :           :                
+VCCINT                       : R12       : power  :                   : 1.2V    :           :                
+GND                          : R13       : gnd    :                   :         :           :                
+VCCINT                       : R14       : power  :                   : 1.2V    :           :                
+GND                          : R15       : gnd    :                   :         :           :                
+VCCINT                       : R16       : power  :                   : 1.2V    :           :                
+GND                          : R17       : gnd    :                   :         :           :                
+VCCINT                       : R18       : power  :                   : 1.2V    :           :                
+GND                          : R19       : gnd    :                   :         :           :                
+VCCINT                       : R20       : power  :                   : 1.2V    :           :                
+BUS_A_io[4]                  : R21       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[5]                  : R22       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[6]                  : R23       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[7]                  : R24       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[12]                 : R25       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[15]                 : R26       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[16]                 : R27       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[18]                 : R28       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+VCCIO2                       : T1        : power  :                   : 3.3V    : 2         :                
+GND                          : T2        : gnd    :                   :         :           :                
+VRAM_B_Addy_o[2]             : T3        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[18]            : T4        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VCCIO2                       : T5        : power  :                   : 3.3V    : 2         :                
+GND                          : T6        : gnd    :                   :         :           :                
+VRAM_B_Addy_o[1]             : T7        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[19]            : T8        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VCCINT                       : T9        : power  :                   : 1.2V    :           :                
+GND                          : T10       : gnd    :                   :         :           :                
+VCCINT                       : T11       : power  :                   : 1.2V    :           :                
+GND                          : T12       : gnd    :                   :         :           :                
+VCCINT                       : T13       : power  :                   : 1.2V    :           :                
+GND                          : T14       : gnd    :                   :         :           :                
+VCCINT                       : T15       : power  :                   : 1.2V    :           :                
+GND                          : T16       : gnd    :                   :         :           :                
+VCCINT                       : T17       : power  :                   : 1.2V    :           :                
+GND                          : T18       : gnd    :                   :         :           :                
+VCCINT                       : T19       : power  :                   : 1.2V    :           :                
+GND                          : T20       : gnd    :                   :         :           :                
+CPLD_COLD_RSTn_i             : T21       : input  : 3.3-V LVCMOS      :         : 5         : Y              
+COLD_RESETn_io               : T22       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+GND                          : T23       : gnd    :                   :         :           :                
+VCCIO5                       : T24       : power  :                   : 3.3V    : 5         :                
+BUS_A_io[3]                  : T25       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+BUS_A_io[1]                  : T26       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+GND                          : T27       : gnd    :                   :         :           :                
+VCCIO5                       : T28       : power  :                   : 3.3V    : 5         :                
+VRAM_B_Addy_o[11]            : U1        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[10]            : U2        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[9]             : U3        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[0]             : U4        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_WEn_o                 : U5        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[7]              : U6        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[17]             : U7        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[5]              : U8        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+GND                          : U9        : gnd    :                   :         :           :                
+VCCINT                       : U10       : power  :                   : 1.2V    :           :                
+GND                          : U11       : gnd    :                   :         :           :                
+VCCINT                       : U12       : power  :                   : 1.2V    :           :                
+GND                          : U13       : gnd    :                   :         :           :                
+VCCINT                       : U14       : power  :                   : 1.2V    :           :                
+GND                          : U15       : gnd    :                   :         :           :                
+VCCINT                       : U16       : power  :                   : 1.2V    :           :                
+GND                          : U17       : gnd    :                   :         :           :                
+VCCINT                       : U18       : power  :                   : 1.2V    :           :                
+GND                          : U19       : gnd    :                   :         :           :                
+VCCINT                       : U20       : power  :                   : 1.2V    :           :                
+SYSRAM_DQ_io[13]             : U21       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[14]             : U22       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[15]             : U23       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+WIZFI_RTSn_i                 : U24       : input  : 3.3-V LVCMOS      :         : 5         : Y              
+WIZFI_TxD_i                  : U25       : input  : 3.3-V LVCMOS      :         : 5         : Y              
+WIZFI_RxD_o                  : U26       : output : 3.3-V LVCMOS      :         : 5         : Y              
+WIZFI_CTSn_o                 : U27       : output : 3.3-V LVCMOS      :         : 5         : Y              
+BEAUTIFICATION_RGB_LED_o     : U28       : output : 3.3-V LVCMOS      :         : 5         : Y              
+VRAM_B_OEn_o                 : V1        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[8]             : V2        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[7]             : V3        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[19]             : V4        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[4]              : V5        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[20]             : V6        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[3]              : V7        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[22]             : V8        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VCCINT                       : V9        : power  :                   : 1.2V    :           :                
+GND                          : V10       : gnd    :                   :         :           :                
+VCCINT                       : V11       : power  :                   : 1.2V    :           :                
+GND                          : V12       : gnd    :                   :         :           :                
+VCCINT                       : V13       : power  :                   : 1.2V    :           :                
+GND                          : V14       : gnd    :                   :         :           :                
+VCCINT                       : V15       : power  :                   : 1.2V    :           :                
+GND                          : V16       : gnd    :                   :         :           :                
+VCCINT                       : V17       : power  :                   : 1.2V    :           :                
+GND                          : V18       : gnd    :                   :         :           :                
+VCCINT                       : V19       : power  :                   : 1.2V    :           :                
+GND                          : V20       : gnd    :                   :         :           :                
+SYSRAM_DQ_io[7]              : V21       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQM_o[0]              : V22       : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQM_o[1]              : V23       : output : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[8]              : V24       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[9]              : V25       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[10]             : V26       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[11]             : V27       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[12]             : V28       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+VRAM_B_Addy_o[6]             : W1        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_Addy_o[5]             : W2        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[1]              : W3        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[18]             : W4        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VCCIO2                       : W5        : power  :                   : 3.3V    : 2         :                
+GND                          : W6        : gnd    :                   :         :           :                
+VRAM_B_DQ_io[6]              : W7        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[16]             : W8        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+GND                          : W9        : gnd    :                   :         :           :                
+VCCINT                       : W10       : power  :                   : 1.2V    :           :                
+GND                          : W11       : gnd    :                   :         :           :                
+VCCINT                       : W12       : power  :                   : 1.2V    :           :                
+GND                          : W13       : gnd    :                   :         :           :                
+VCCINT                       : W14       : power  :                   : 1.2V    :           :                
+GND                          : W15       : gnd    :                   :         :           :                
+VCCINT                       : W16       : power  :                   : 1.2V    :           :                
+GND                          : W17       : gnd    :                   :         :           :                
+VCCINT                       : W18       : power  :                   : 1.2V    :           :                
+GND                          : W19       : gnd    :                   :         :           :                
+VCCINT                       : W20       : power  :                   : 1.2V    :           :                
+SYSRAM_DQ_io[1]              : W21       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[2]              : W22       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+GND                          : W23       : gnd    :                   :         :           :                
+VCCIO5                       : W24       : power  :                   : 3.3V    : 5         :                
+SYSRAM_DQ_io[3]              : W25       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[4]              : W26       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[5]              : W27       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[6]              : W28       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+OSC_CLK_33_333Mhz_C_i        : Y1        : input  : 3.3-V LVCMOS      :         : 2         : Y              
+OSC_CLK_80_000Mhz_i          : Y2        : input  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[21]             : Y3        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[23]             : Y4        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[0]              : Y5        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_B_DQ_io[2]              : Y6        : bidir  : 3.3-V LVCMOS      :         : 2         : Y              
+VRAM_A_BEn_o[1]              : Y7        : output : 3.3-V LVCMOS      :         : 2         : Y              
+VCCA1                        : Y8        : power  :                   : 2.5V    :           :                
+VCCD_PLL1                    : Y9        : power  :                   : 1.2V    :           :                
+VRAM_A_DQ_io[18]             : Y10       : bidir  : 3.3-V LVCMOS      :         : 3         : Y              
+GND                          : Y11       : gnd    :                   :         :           :                
+VID_B_HSYNC_o                : Y12       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[9]               : Y13       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[10]              : Y14       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_B_PIX_o[11]              : Y15       : output : 3.3-V LVCMOS      :         : 3         : Y              
+VID_A_PIX_o[6]               : Y16       : output : 3.3-V LVCMOS      :         : 4         : Y              
+LPC_RESETn_o                 : Y17       : output : 3.3-V LVCMOS      :         : 4         : Y              
+GND                          : Y18       : gnd    :                   :         :           :                
+SYSRAM_A_o[12]               : Y19       : output : 3.3-V LVCMOS      :         : 4         : Y              
+VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :                
+VCCA4                        : Y21       : power  :                   : 2.5V    :           :                
+SYSRAM_DQ_io[28]             : Y22       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[29]             : Y23       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[30]             : Y24       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[31]             : Y25       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+SYSRAM_DQ_io[0]              : Y26       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
+OSC_CLK_24_576Mhz_i          : Y27       : input  : 3.3-V LVCMOS      :         : 5         : Y              
+OSC_CLK_22_579Mhz_i          : Y28       : input  : 3.3-V LVCMOS      :         : 5         : Y              

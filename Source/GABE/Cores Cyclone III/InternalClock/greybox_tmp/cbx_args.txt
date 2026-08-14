@@ -1,0 +1,3 @@
+DEVICE_FAMILY="Cyclone III"
+oscena
+clkout

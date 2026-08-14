@@ -1,0 +1,737 @@
+`timescale 1ns / 1ps
+module GAVIN_A2560XEmuTOS_Top (
+// Reset
+input		wire					Reset_i,
+// LPC Reset Signals
+input		wire					Cold_Reset_i,
+output		wire					Manual_RESET_o,
+// Clocks	
+input		wire					iBUS_1xClk_i,				// CPU Clock - Could be 16/20/25/33/40/66/75
+input  		wire   					iBUS_2xClk_i, 			// 66Mhz 
+input		wire					Clk14_318Mhz_i,
+input		wire					LPC_Clk33_333Mhz_i,
+input  		wire  					Clk_Serial_24Mhz_i,
+input 		wire   					Clk40_000Mhz_i,
+// Buses
+// CPU Block Buses
+input		wire		[31:0]		iBUS_A_i,
+input		wire					iBUS_A_Valid_i,
+input		wire		[7:0]		iBUS_D8_i,
+input		wire		[15:0]		iBUS_D16_i,
+input		wire		[31:0]		iBUS_D32_i,
+input		wire		[1:0]		iBUS_D_Siz_i,
+output		wire					iBUS_D_Valid_o,
+input		wire					iBUS_RWn_i,
+input		wire		[3:0]		iBUS_BE_i,
+input		wire					iBUS_WE_i,
+output		wire		[31:0]		iBUS_D_GAVIN_o,
+input		wire					iBUS_CS_GAVIN_i,
+// Interrupts Inputs
+input		wire					OPM_INTn_i,
+input		wire					OPN2_INTn_i,
+input		wire					OPL3_INTn_i,
+input		wire					VID_A_HP_INT1n_i,
+input		wire					VID_B_HP_INT1n_i,
+input		wire		[5:0]		VKY_III_Channel_A_IRQ_i,
+input		wire		[5:0]		VKY_III_Channel_B_IRQ_i,
+input		wire					DAC_Playback_Done48_Int_i,
+input		wire					DAC_Playback_Done44_Int_i,
+//LPC Interface
+output		wire					LPC_CLK_32Khz_o,
+inout		wire					LPC_IRQn_io,
+input		wire					LPC_LDRQn_i,
+inout		wire		[3:0]		LPC_LAD_io,
+output		wire					LPC_LFRAMEn_o,
+output		wire					LPC_RSTn_o,	
+// SD Card Interface
+input		wire					F_SD_CD_i,
+output		wire					F_SD_CLK_o,			// CLK
+output		wire					F_SD_CMD_o,			// MOSI
+input		wire					F_SD_DAT0_io,		// MISO
+input		wire					F_SD_DAT1_io,		// IO
+input		wire					F_SD_DAT2_io,		// IO
+output		wire					F_SD_DAT3_io,		// CS
+input		wire					F_SD_WP_i,
+// Buzzer
+output		wire					BTX_BUZZER_o,
+// Local BUS
+output		wire		[7:0]		IO_A_o,
+inout		wire		[15:0]		IO_D_io,
+output		wire					IO_RDn_o,
+output		wire					IO_WRn_o,
+output		wire					ETH_CSn_o,
+output		wire					ETH_FIFO_SEL_o,
+input		wire					ETH_IRQn_i,
+output		wire					IDE_CS0n_o,
+output		wire					IDE_CS1n_o,
+output		wire					IDE_DATA_DIR_o,
+output		wire					IDE_DATA_OEn_o,
+input		wire					IDE_INTRQ_i,
+input		wire					IDE_IORDY_i,
+input		wire					TRINITY_IRQn_i,
+output		wire					TRINITY_CSn_o,
+output		wire					TRINITY_CPU_CLK_o,
+output		wire					RTC_CSn_o,
+input		wire					RTC_INTn_i,
+// Misc System Control
+output		wire					BLU_POWER_LED_o,		// On/Off (board LED)
+output		wire					RGB_POWER_LED_o,		// RGB - Some serializing will be needed to get the RGB we want
+output		wire					SDCARD_LED_o,			// On/Off (board LED)
+output		wire					SDCARD_RGB_o,			// RGB LED installed don the SDCard Board
+input		wire					SOF_Channel_A_i,
+input		wire					SOF_Channel_B_i,
+// CPU Interrupts
+output		wire	[6:0]			iIRQ_Interrupt_o,
+output		wire	[7:0]			iIRQ_Vector_o,
+output		wire					iIRQ_AutoVector_o,
+input		wire					iIRQ_GetVector_i,
+// Wait-State Section
+//output	wire					Wait_SDCard_TA_o,
+output		wire					Wait_Unity_TA_o,
+output		wire					Wait_LPC_TA_o,
+output		wire					Wait_RTC_TA_o,
+// Chip Selects to Add Delay in the transaction
+output		wire					CS_SDCard_o,
+output		wire					CS_Unity_o,
+output		wire					CS_LPC_o,
+output		wire					CS_RTC_o,
+/// Channel Select to Which device gets to pick in the SRAM
+input  		wire   	[1:0]			Channel_Select_i,
+// SDMA & MEM Text System
+// External RAM Access Port ( Memory Text/SDMA )
+output		wire					Ext_RAM_OEn_o,
+output		wire					Ext_RAM_WEn_o,
+output		wire	[3:0]			Ext_RAM_BEn_o,
+output		wire	[31:0]			Ext_RAM_Addy_o,
+output		wire	[31:0]			Ext_RAM_Data_o,
+input		wire	[31:0]			Ext_RAM_Data_i,
+// External Bus Arbiting
+output		wire 					iBUS_MTXT_BRn_o,
+input		wire 					iBUS_MTXT_BGn_i,
+output		wire 					iBUS_SDMA_BRn_o,
+input		wire 					iBUS_SDMA_BGn_i,
+output		wire 					iBUS_VDMA_BRn_o,
+input		wire 					iBUS_VDMA_BGn_i,
+input  		wire   					iBUS_DEBUG_BRn_i,
+input  		wire   					iBUS_DEBUG_BGn_i,
+
+input 		wire  					WIZFI_SPI_INTn_i,
+output  	wire  					WIZFI_RxD_o,
+input 		wire  					WIZFI_TxD_i
+);
+
+
+//`define A2560X40
+`define A2560X60
+assign iBUS_MTXT_BRn_o 	= 1'b1;
+assign iBUS_VDMA_BRn_o 	= 1'b1;
+
+assign CS_SDCard_o 			= CS_SDCard;
+assign CS_Unity_o  			= CS_IDE | CS_NIC;
+assign CS_LPC_o	 			= CS_LPC;
+assign CS_RTC_o    			= CS_RTC | CS_TRINITY;
+assign TRINITY_CPU_CLK_o 	= iBUS_1xClk_i;
+
+wire [11:0] KeyBoard_Status_LED_Value; 
+
+assign iBUS_D_Valid_o = iBUS_D_Valid_LPC | iBUS_D_Valid_SD ;
+wire Buzzer_Enable;
+
+// BUZZER
+Buzzer Buz_Block4Khz(
+	.Clk_i( iBUS_1xClk_i ),
+	.Buzzer_o( BTX_BUZZER_o ),
+	.Buzzer_Enable( Buzzer_Enable )
+);
+
+CLK32KhzCreation CLK32K_GEN(
+	.Clk14Mhz_i( Clk14_318Mhz_i ),
+	.Clk32Khz_o( LPC_CLK_32Khz_o )
+);
+
+wire 	[3:0] 		LPC_LAD_In;
+wire 	[3:0] 		LPC_LAD_Out;
+wire 				LPC_OE;
+wire 				LPC_IRQ_In;
+wire				LPC_IRQ_Out;
+wire				LPC_IRQ_OE;
+wire	[31:0]		LPC_Data_Out;
+wire				LPC_Frame;
+wire 	[31:0] 		LPC_IRQ;
+
+wire				iBUS_D_Valid_LPC;
+wire				iBUS_D_Valid_SD;
+
+wire 				CS_LPC;
+wire				CS_MATH_FIXED;
+wire				CS_MATH_FLOAT;
+wire				CS_Interrupt_Ctrl;
+wire				CS_Timer;
+wire				CS_SDCard;
+wire				CS_IDE;
+wire				CS_NIC;
+wire				CS_TRINITY;
+wire				CS_GABE_Config;
+wire				CS_RTC;
+wire   				CS_VDMA;
+wire 				CS_SDMA;
+wire   				CS_WIZFI360;
+
+
+
+wire	[7:0]		DataOut_SDCard;
+wire	[31:0]		DataOut_Math_Fixed;
+wire	[31:0]		DataOut_IDE_ETH_DPS;
+wire	[31:0]		DataOut_Trinity;
+wire	[31:0]		DataOut_Timer;	
+wire	[31:0]		DataOut_GABE_Config;		
+wire	[31:0]		DataOut_IRQ_CTRL;
+wire	[31:0]		DataOut_RTC;
+wire    [31:0]		DataOut_WizFi360;				// Wizfi
+wire    [31:0]		DataOut_VDMA = 32'h8888_9999;
+wire    [31:0]		DataOut_SDMA_32;
+
+
+wire				Interrupt_Timer0;
+wire				Interrupt_Timer1;
+wire				Interrupt_Timer2;
+wire				Interrupt_Timer3;
+wire				Interrupt_Timer4;
+///////////////////////////////////////////
+// NEW Memory Text / SDMA
+wire				SDMA_Read_Valid;
+wire	[31:0]		SDMA_Transaction_Addy;
+wire				SDMA_Transaction_RDn;
+wire				SDMA_Transaction_WRn;
+wire  	[3:0]		SDMA_Transaction_BEn;
+wire    [3:0]       SMDA_Data_Mask;
+
+wire	[7:0]		SDMA_Data_2_Fill;
+wire    [15:0]      SDMA_Data_2_Fill16;
+wire    [31:0]      SDMA_Data_2_Fill32;
+wire				SDMA_Copy_Fill_Strobe;
+wire                SMDA_Double_Speed_DMA;	// 0 - Byte Transfer, 1 - 16bits
+wire   				SDMA_Quad_Speed_DMA;	// 0 - Byte or Short, 1 - Long
+// NEW VDMA SIGNALS
+wire	[31:0] 		VDMA_Transaction_Addy;
+wire				VDMA_Transaction_RDn;
+wire				VDMA_Transaction_WRn;
+wire	[3:0] 		VDMA_Transaction_BEn;
+wire	[3:0] 		VDMA_Data_Mask;
+wire	[31:0] 		VDMA_2_SRAM_Data;
+wire	[31:0] 		SRAM_2_VDMA_Data;
+wire				SRAM_2_VDMA_Data_Valid;
+
+// Inputs
+wire				SRAM_Data_Valid;
+wire	[31:0]		SRAM_Data_2_MEMTEXT;			// used to be 32 - Now it is 16bits
+wire				Counter_Reached_Count;
+
+
+
+A2560X_GAVIN_CS_And_Dout GAVIN_CS_DOUT(
+// CPU Interface
+	.iBUS_1xClk_i( iBUS_1xClk_i ),
+	.iBUS_2xClk_i( iBUS_2xClk_i ),
+	.Reset_i( Reset_i ),
+	.iBUS_A_i( iBUS_A_i ),
+	.iBUS_A_Valid_i( iBUS_A_Valid_i ),
+	.iBUS_D_Valid_o( iBUS_D_Valid_SD ), 
+	.iBUS_D8_i( iBUS_D8_i  ),
+	.iBUS_D16_i( iBUS_D16_i ),
+	.iBUS_D32_i( iBUS_D32_i ),
+	.iBUS_D_Siz_i( iBUS_D_Siz_i ),
+	.iBUS_RWn_i( iBUS_RWn_i ),
+	.iBUS_BE_i( iBUS_BE_i ),
+	.iBUS_CS_GAVIN_i( iBUS_CS_GAVIN_i ),
+// Data Out Inputs
+// Data Path from the different Block
+	.DataOut_LPC_Interface_i( LPC_Data_Out ),		//x1
+	.DataOut_Math_Fixed_i( DataOut_Math_Fixed ),			//x4
+	.DataOut_Math_Float_i( 32'h22221111 ),			//x1
+	.DataOut_Interrupt_Ctrl_i( DataOut_IRQ_CTRL ),		//x1
+	.DataOut_Timer_i( DataOut_Timer ),					//x1
+	.DataOut_SDCARD_CTRL_i( {Data_Output_SD, Data_Output_SD, Data_Output_SD, Data_Output_SD} ),			//x1
+	.DataOut_IDE_ETH_DPS_i( DataOut_IDE_ETH_DPS ),				//x2
+	.DataOut_Trinity_i( DataOut_Trinity ),				//x1
+	.DataOut_RTC_i( DataOut_RTC ),
+	.DataOut_GABE_Config_i( DataOut_GABE_Config ),		//x1
+// New Signals
+	.DataOut_WizFi360_i( DataOut_WizFi360 ),			// WIZFI360 WIFI NIC with Serial BUS	
+	.DataOut_VDMA_i( DataOut_VDMA ),					// VDMA Controller
+	.DataOut_SDMA_i( DataOut_SDMA_32 ),					// SDMA Controller (SRAM <> SRAM)	
+
+	//
+	.CS_LPC_o( CS_LPC ),					// LPC
+	.CS_MATH_FIXED_o( CS_MATH_FIXED ),		// Math Block
+	.CS_MATH_FLOAT_o( CS_MATH_FLOAT ),  		// Data Come through here - Internal Registers
+	.CS_Interrupt_Ctrl_o( CS_Interrupt_Ctrl ),		// Interrupt Controller
+	.CS_Timer_o( CS_Timer ),					// Timer Block
+	.CS_SDCard_o( CS_SDCard ),				// SDCard Controller
+	.CS_IDE_o( CS_IDE ),					// IDE Controller
+	.CS_NIC_o( CS_NIC ),					// Network Interface Controller
+	.CS_Trinity_o( CS_TRINITY ),				// Joystick
+	.CS_RTC_o( CS_RTC ),
+	.CS_GABE_Config_o( CS_GABE_Config ),			// GABE Control Registers
+	// New Chip Selects
+	.CS_WIZFI360_o( CS_WIZFI360 ),					// WizFi360 UART Controller Module	
+	.CS_A2560K_KB_o( ),								// No use but for compatibility
+	.CS_MAUS_RGB_o(  ),								// No use but for compatibility
+	.CS_VDMA_o( CS_VDMA ),							// VDMA Control
+	.CS_SDMA_o( CS_SDMA ),							// SDMA Control
+
+	.DataOut_o( iBUS_D_GAVIN_o )
+);
+
+wire 	[23:0] 		POWER_ON_RGB_Value;
+wire    [23:0]  	SDC0_RGB_Value;
+wire    [23:0]  	SDC1_RGB_Value;
+wire    [23:0]  	NETWORK_RGB_Value;
+
+`ifdef A2560X40
+	A2560X40_GAVIN_CTRL GABE_CTRL(
+		.RST_i( Reset_i ),
+		.CPU_Clk_i( iBUS_1xClk_i ),
+		.CPU_A_i( iBUS_A_i ),
+		.CPU_D8_i( iBUS_D8_i  ),
+		.CPU_D16_i( iBUS_D16_i ),
+		.CPU_D32_i( iBUS_D32_i ),
+		.CPU_Siz_i( iBUS_D_Siz_i ),
+		.CPU_R_Wn_i( iBUS_RWn_i ),
+		.CPU_BE_i( iBUS_BE_i ),
+		.CPU_WE_i( iBUS_WE_i ), 
+		.CPU_A_Valid_i( iBUS_A_Valid_i ), 
+		.CS_INT_REG_i( CS_GABE_Config ),
+
+		.VARIATION_ID_i( 2'b00 ),
+		.CHIP_NUMBER( 16'h5187 ),
+		.CHIP_VERSION( 16'h0011 ),
+		.CHIP_SUBVERSION( 16'h0311 ),
+
+		.Buzzer_Ctrl_o( Buzzer_Enable ),
+		// LED Control
+		.Power_LED_o( BLU_POWER_LED_o ),
+		.SDCARD_LED_o( SDCARD_LED_o ),
+
+		//
+		.Manual_RESET_o( Manual_RESET_o ),
+		.LPC_RSTn_o( LPC_RSTn_o ), 
+		.POWER_ON_RGB_Value_o( POWER_ON_RGB_Value ), 
+		.KBD_RGB_Value_o( KeyBoard_Status_LED_Value ),
+		.CPU_D_o( DataOut_GABE_Config )
+	);
+`elsif A2560X60
+	wire SDCARD0_LED;
+	wire SDCARD1_LED;
+	wire NETWORK_LED;
+
+	A2560X60_GAVIN_CTRL GABE_CTRL(
+		.RST_i( Reset_i ),
+		.CPU_Clk_i( iBUS_1xClk_i ),
+		.CPU_A_i( iBUS_A_i ),
+		.CPU_D8_i( iBUS_D8_i  ),
+		.CPU_D16_i( iBUS_D16_i ),
+		.CPU_D32_i( iBUS_D32_i ),
+		.CPU_Siz_i( iBUS_D_Siz_i ),
+		.CPU_R_Wn_i( iBUS_RWn_i ),
+		.CPU_BE_i( iBUS_BE_i ),
+		.CPU_WE_i( iBUS_WE_i ), 
+		.CPU_A_Valid_i( iBUS_A_Valid_i ), 
+		.CS_INT_REG_i( CS_GABE_Config ),
+
+		.VARIATION_ID_i( 2'b00 ),
+		.CHIP_NUMBER( 16'h5189 ),
+		.CHIP_VERSION( 16'h0011 ),
+		.CHIP_SUBVERSION( 16'h0018 ),
+
+		.Buzzer_Ctrl_o( Buzzer_Enable ),
+		// LED Control
+		.Power_LED_o( BLU_POWER_LED_o ),
+		.SDCARD_LED0_o( SDCARD0_LED ),
+		.SDCARD_LED1_o( SDCARD1_LED ),
+		.Network_LED_o( NETWORK_LED ),
+
+		.Manual_RESET_o( Manual_RESET_o ),
+		.LPC_RSTn_o( LPC_RSTn_o ), 
+		// LED Colors
+		.POWER_ON_RGB_Value_o( POWER_ON_RGB_Value ), 
+		.SDC0_RGB_Value_o( SDC0_RGB_Value ),
+		.SDC1_RGB_Value_o( SDC1_RGB_Value ),
+		.NETWORK_RGB_Value_o( NETWORK_RGB_Value ), 
+		.CPU_D_o( DataOut_GABE_Config )
+	);
+
+	assign SDCARD_LED_o = SDCARD0_LED;
+`endif
+
+RGB_LED_Driver_Module40Mhz PowerOn_RGB_LED_A2560K(
+	.Clk40Mhz_i( Clk40_000Mhz_i ),
+	.SOF_i( SOF_Channel_A_i ),
+	.Reset_i( Reset_i ),
+	.RGB_Value_i( BLU_POWER_LED_o ? POWER_ON_RGB_Value : 24'h00_00_00 ),
+	.RGB_POWER_LED_o( RGB_POWER_LED_o  )
+);
+
+RGB_STATUS_LED_Driver_Module40Mhz STATUS_RGB_MOD(
+	.Clk40Mhz_i( Clk40_000Mhz_i ),
+	.Reset_i( Reset_i ),
+	.SOF_i( SOF_Channel_A_i ),
+    .RGB_Value0_i( SDCARD1_LED ? SDC1_RGB_Value 	: 24'h000000  ), // HD0
+    .RGB_Value1_i( SDCARD0_LED ? SDC0_RGB_Value    : 24'h000000  ), // SD0
+    .RGB_Value2_i( NETWORK_LED ? NETWORK_RGB_Value  : 24'h000000  ), // FP0
+	.RGB_POWER_LED_o( SDCARD_RGB_o )
+);
+
+// Fixed Math module, do signed, unsigned 32bits Multiplification and Division in 0 Clock Cycles
+Math_Module16 FixedMath_32bits(
+// CPU Signals Interface
+	.CPU_Clk_i( iBUS_1xClk_i ),
+	.iBUS_A_i( iBUS_A_i ),
+	.iBUS_A_Valid_i( iBUS_A_Valid_i ),
+	.iBUS_D8_i( iBUS_D8_i  ),
+	.iBUS_D16_i( iBUS_D16_i ),
+	.iBUS_D32_i( iBUS_D32_i ),
+	.iBUS_D_Siz_i( iBUS_D_Siz_i ),
+	.iBUS_RWn_i( iBUS_RWn_i ),
+	.iBUS_BE_i( iBUS_BE_i ),
+	.iBUS_WE_i( iBUS_WE_i ), 
+// Chip Selects
+	.CS_MATH_FIXED_i( CS_MATH_FIXED ),
+// Data Output
+	.iBUS_D_FixedMATH_o( DataOut_Math_Fixed )
+);
+
+
+assign LPC_LFRAMEn_o 	= !LPC_Frame;
+
+LPC_BIDir BiDirectionBufferLPC(
+	.dataout( LPC_LAD_In ),						 	//   dout.export output wire [3:0] 
+	.datain( LPC_LAD_Out ),							//    din.export input  wire [3:0] 
+	.dataio( LPC_LAD_io ) , 						// pad_io.export inout  wire [3:0] 
+	.oe(  LPC_OE ? 4'b1111 : 4'b0000 )  		//     oe.export
+);
+
+// Bidirection Buffer for LPC IRQ
+LPC_BIDir_SIRQ BiDirectionSIRQ_BUF(
+	.dataout( LPC_IRQ_In ),   				//   dout.export
+	.datain( LPC_IRQ_Out  ),    			//    din.export
+	.dataio( LPC_IRQn_io ), 					// pad_io.export
+	.oe( LPC_IRQ_OE )      				//     oe.export
+);
+
+Top_LPC_Interface LPC_Interface_Block(
+	.Reset_i( Cold_Reset_i ),
+// CPU Interface
+	.CPU_Clk_i( iBUS_1xClk_i ),
+
+	.iBUS_A_i( iBUS_A_i ),
+	.iBUS_A_Valid_i( iBUS_A_Valid_i ),
+	.iBUS_D8_i( iBUS_D8_i  ),
+	.iBUS_D16_i( iBUS_D16_i ),
+	.iBUS_D32_i( iBUS_D32_i ),
+	.iBUS_D_Siz_i( iBUS_D_Siz_i ),
+	.iBUS_D_Valid_o( iBUS_D_Valid_LPC ),
+	.iBUS_RWn_i( iBUS_RWn_i ),
+	.iBUS_BE_i( iBUS_BE_i ),
+	.iBUS_WE_i( iBUS_WE_i ), 
+	.iBUS_D_LPC_o( LPC_Data_Out ),
+	.CS_LPC_i( CS_LPC ),
+	.Wait_LPC_TA_o( Wait_LPC_TA_o ),
+	// Debug 
+	.LPC_IRQ_i( LPC_IRQ ), 
+
+	// Stef the LPC Circuitry needs to be driven by the external 33Mhz Clock, not the PLL Generated 
+	// Which means that the LPC Circuit and CPU Clock are asynchronous.
+	.LPC_LDRQn_i( LPC_LDRQn_i ),
+	.LPC_Clk_i( LPC_Clk33_333Mhz_i ),
+	.lframe_o( LPC_Frame ),
+	.lad_i( LPC_LAD_In  ),
+	.lad_o( LPC_LAD_Out ),
+	.lad_oe_o( LPC_OE )
+);
+
+wire [7:0] Data_Output_SD;
+SimpleSPI4SDCard NewSDCard_Controller(
+	.Reset_i( Reset_i ),
+	.CPU_Clk_i( iBUS_1xClk_i ),			// 33Mhz internal CPU Speed
+	.CPU_A_i( iBUS_A_i ),
+	.CPU_D_i( iBUS_D8_i ),
+	.CPU_R_Wn_i( iBUS_RWn_i ),
+	.CPU_A_Valid_i( iBUS_A_Valid_i  ), 
+	.CPU_Siz_i( iBUS_D_Siz_i ),	
+	.CPU_BE_i( iBUS_BE_i ),
+	.CPU_WE_i( iBUS_WE_i ),	
+	.CS_SDCard_i( CS_SDCard ),
+
+	.F_SD_CLK_o( F_SD_CLK_o),			// SCLK
+	.F_SD_DAT0_i( F_SD_DAT0_io ),		// MISO
+	.F_SD_CMD_o( F_SD_CMD_o ),			// MOSI
+	.F_SD_DAT3_o( F_SD_DAT3_io ),		// CS
+
+	.CPU_D_o( Data_Output_SD )
+);
+
+
+A2560X_Unity IDE_And_Ethernet_DP(
+	.CPU_Clk_i( iBUS_1xClk_i ),
+	.IDE_Reset_i( Reset_i ), 
+	.RST_i( Reset_i ),
+	.CPU_A_i( iBUS_A_i ),
+	.CPU_D8_i( iBUS_D8_i  ),
+	.CPU_D16_i( iBUS_D16_i ),
+	.CPU_D32_i( iBUS_D32_i ),
+	.CPU_Siz_i( iBUS_D_Siz_i ),
+	.CPU_R_Wn_i( iBUS_RWn_i ),
+	.CPU_A_Valid_i( iBUS_A_Valid_i  ), 	
+	.iBUS_BE_i( iBUS_BE_i ),
+	.iBUS_WE_i( iBUS_WE_i ),
+
+	.Wait_Unity_TA_o( Wait_Unity_TA_o ), 
+	.Wait_RTC_TA_o( Wait_RTC_TA_o ), 
+
+	.CS_IDE_i( CS_IDE ),
+	.CS_ETH_i( CS_NIC ),
+	.CS_RTC_i( CS_RTC ),
+	.CS_TRINITY_i( CS_TRINITY ), 
+// DataOut
+	.iBUS_IDE_ETH_DPS_D_o( DataOut_IDE_ETH_DPS ),
+	.iBUS_RTC_D_o( DataOut_RTC ),
+	.iBUS_TRINITY_D_o( DataOut_Trinity ),
+// IDE Interface
+	.IDE_CS0n_o( IDE_CS0n_o ),
+	.IDE_CS1n_o( IDE_CS1n_o ),
+	.IO_A_o( IO_A_o ),
+	.IO_RDn_o( IO_RDn_o ),
+	.IO_WRn_o( IO_WRn_o ),
+	.IO_D_Input_io( IO_D_io ),
+	.IDE_DATA_OEn_o( IDE_DATA_OEn_o ),
+	.IDE_DATA_DIR_o( IDE_DATA_DIR_o ),
+// Ethernet
+	.ETH_CSn_o( ETH_CSn_o ),
+	.ETH_FIFO_SEL_o( ETH_FIFO_SEL_o ),
+// RTC
+	.RTC_CSn_o( RTC_CSn_o ),
+// Trinity
+	.TRINITY_CSn_o( TRINITY_CSn_o )
+);
+
+
+TimerInterface32 TimerBlock(
+
+	.SOF_Channel_A_i( SOF_Channel_A_i ),
+	.SOF_Channel_B_i( SOF_Channel_B_i ),
+
+	.RST_i( Reset_i ), 
+	.CPU_Clk_i( iBUS_1xClk_i ),
+	.CPU_A_i( iBUS_A_i ),
+	.CPU_A_Valid_i( iBUS_A_Valid_i ),	
+	.CPU_D8_i( iBUS_D8_i  ),
+	.CPU_D16_i( iBUS_D16_i ),
+	.CPU_D32_i( iBUS_D32_i ),
+	.CPU_Siz_i( iBUS_D_Siz_i ),
+	.CPU_BE_i( iBUS_BE_i ),
+	.CPU_WE_i( iBUS_WE_i ),		
+	.CPU_R_Wn_i( iBUS_RWn_i ),
+	.CS_Timer_i( CS_Timer ),
+	.CPU_D_o( DataOut_Timer ),
+
+	.Interrupt_Timer0_o( Interrupt_Timer0 ),
+	.Interrupt_Timer1_o( Interrupt_Timer1 ),
+	.Interrupt_Timer2_o( Interrupt_Timer2 ),
+	.Interrupt_Timer3_o( Interrupt_Timer3 ),
+	.Interrupt_Timer4_o( Interrupt_Timer4 )
+);
+
+wire SDMA_IRQn;
+
+A2560x_IRQ_CTRL IRQ_CTRL32s(
+	.RST_i( Reset_i ),
+	.CPU_Clk_i( iBUS_1xClk_i ),
+	.LPC_Clk_i( LPC_Clk33_333Mhz_i ), 
+	.LPC_RSTn_i( LPC_RSTn_o ),
+	.CPU_A_i( iBUS_A_i ),
+	.CPU_A_Valid_i( iBUS_A_Valid_i ),
+	.CPU_RW_i( iBUS_RWn_i ),
+	.CPU_BE_i( iBUS_BE_i ),
+	.CPU_WE_i( iBUS_WE_i ),	
+	.CPU_D8_i( iBUS_D8_i  ),
+	.CPU_D16_i( iBUS_D16_i ),
+	.CPU_D32_i( iBUS_D32_i ),
+	.CPU_Siz_i( iBUS_D_Siz_i ),
+	.CPU_D_o( DataOut_IRQ_CTRL ),
+	.CS_Interrupt_Ctrl_i( CS_Interrupt_Ctrl ),
+	
+	.serirq_i( LPC_IRQ_In ),
+	.serirq_o( LPC_IRQ_Out ),
+	.serirq_oe( LPC_IRQ_OE ),
+	.LPC_IRQ_o( LPC_IRQ ), 
+	
+	.VID_A_HP_INT1n_i( VID_A_HP_INT1n_i ),
+	.VKY_III_Channel_A_IRQ_i( VKY_III_Channel_A_IRQ_i ),
+	.VID_B_HP_INT1n_i( VID_B_HP_INT1n_i ), 
+	.VKY_III_Channel_B_IRQ_i( VKY_III_Channel_B_IRQ_i ),
+	
+	.Trinity_IRQ_i( TRINITY_IRQn_i ), 
+
+	.RTC_IRQ_i( RTC_INTn_i ),
+	.IDE_IRQ_i( IDE_INTRQ_i ),
+	.SD_IRQ_i( 1'b0 ),
+	.SD_Card_Insert_i( F_SD_CD_i ),
+	.Timer0_i( Interrupt_Timer0 ),		// CPU Clock Timer 0
+	.Timer1_i( Interrupt_Timer1 ),		// CPU Clock Timer 1
+	.Timer2_i( Interrupt_Timer2 ),		// CPU Clock Timer 2
+	.Timer3_i( Interrupt_Timer3 ),		// SOF Channel A Counter IRQ
+	.Timer4_i( Interrupt_Timer4 ),		// SOF Channel B Counter IRQ
+	.Ethernet_IRQ_i( ETH_IRQn_i ), 
+	
+	.BTX_IRQ_i( 4'b0000 ),
+	.OPL3_EXT_IRQ_i( OPL3_INTn_i ),
+	.OPN2_EXT_IRQ_i( OPN2_INTn_i ),
+	.OPM_IXT_IRQ_i( OPM_INTn_i ),
+	.DAC0_Playback_Done_IRQ_i( DAC_Playback_Done48_Int_i ),
+	.DAC1_Playback_Done_IRQ_i( DAC_Playback_Done44_Int_i ),
+	
+	.WIFI_WIZFI_IRQn_i( WIZFI_SPI_INTn_i ),
+	.WIFI_Rx_FIFO_IRQn_i( WIFI_Rx_IRQn ),
+
+	// Output to the Front End Processor (68K Family)
+	.iIRQ_Interrupt_o( iIRQ_Interrupt_o ),
+	.iIRQ_Vector_o( iIRQ_Vector_o ),
+	.iIRQ_AutoVector_o( iIRQ_AutoVector_o ),
+	.iIRQ_GetVector_i( iIRQ_GetVector_i )
+);
+
+// WIZFI_SPI_INTn_i,
+wire WIFI_Rx_IRQn;
+//////////////////////////////////////////////
+//											//
+//          WIZFI     						//
+//											//
+//////////////////////////////////////////////
+`ifdef A2560X60
+	A2560M_WIFI_Interface A2560K60Plus_WizFI(
+		.Reset_i( Reset_i ),
+		.Serial_Clk_24Mhz_i( Clk_Serial_24Mhz_i ), 
+		.CPU_Clk_i( iBUS_1xClk_i ),
+		.iBUS_A_i( iBUS_A_i ),
+		.iBUS_A_Valid_i( iBUS_A_Valid_i ),
+		.iBUS_D8_i( iBUS_D8_i ),			// Byte Transaction
+		.iBUS_D16_i( iBUS_D16_i ),			// Short Transaction
+		.iBUS_D32_i( iBUS_D32_i ),			// Long	Transaction
+		.iBUS_D_Siz_i( iBUS_D_Siz_i ),		// Size
+		.iBUS_RWn_i( iBUS_RWn_i ),
+		.iBUS_BE_i( iBUS_BE_i ),
+		.iBUS_WE_i( iBUS_WE_i ), 
+		.CS_WIFI_UART_i( CS_WIZFI360 ),
+		.iBUS_D_WIFI32_o( DataOut_WizFi360 ),
+	// WIFI Signals
+		.WIFI_Serial_RxD_i( WIZFI_TxD_i ),
+		.WIFI_Serial_TxD_o( WIZFI_RxD_o ),
+		.WIFI_Rx_IRQn_o( WIFI_Rx_IRQn  )
+	);
+`else 
+	assign DataOut_WizFi360 = 32'hdeaddead;
+	assign WIZFI_RxD_o = 1'b0;
+	assign WIFI_Rx_IRQn = 1'b1;
+`endif 
+
+//////////////////////////////////////////////
+//											//
+//          SRAM Memory Management     		//
+//			MEMTEXT/SDMA					//
+//////////////////////////////////////////////
+A2560Mx_MemoryManagementBlock A2560Mx_SRAM_MMU(
+	.Reset_i( Reset_i ),
+	.Reset_100Mhz_i( Reset_i ),
+	.CPU_1xClk_i( iBUS_1xClk_i ),
+	.CPU_2xClk_i( iBUS_2xClk_i ),				//66mhz
+	.Counter_Reached_Count_o( Counter_Reached_Count ), 
+	.Channel_Select_i( 1'b0  ),		// Source Channel_Select is 1 = Memtext, 0 = DMA
+	.Channel_Select_Special_i( 1'b0 ),		// 0 = Memtext, 1= EMUTOS Bitmap
+// Memory Text Controller 
+	.Text_Target_Enable_i( 1'b0 ),
+	.Text_Target_Load_i( 1'b0 ),
+	.Text_Target_Addy_Start_i( 32'h0000_0000 ),		//32bits Now
+	.Text_Target_Addy_Stop_i( 32'h0000_0000 ),		//32bits Now
+	.Text_Target_Data_o(  ),					//32bits Now Memory Text 
+	.Data_Output_Valid_o( SRAM_Data_Valid ),
+// EmuTOS Bitmap 
+	.EmuTOS_Target_Enable_i( 1'b0 ),
+	.EmuTOS_Target_Load_i( 1'b0 ),
+	.EmuTOS_Target_Addy_Start_i( 32'h0000_0000 ),
+	.EmuTOS_Target_Addy_Stop_i( 32'h0000_0000  ),
+	.EmuTOS_Target_Data_o(  ),
+// SDMA Channel	
+	.SDMA_Transaction_Addy_i( SDMA_Transaction_Addy ),
+	.SDMA_Transaction_RDn_i( SDMA_Transaction_RDn ),
+	.SDMA_Transaction_WRn_i( SDMA_Transaction_WRn ),
+	.SDMA_Transaction_BEn_i( SDMA_Transaction_BEn ),
+	.SDMA_Copy_Fill_Strobe_i( SDMA_Copy_Fill_Strobe ),
+	.SDMA_Data_2_Fill_i( SDMA_Data_2_Fill ),
+	.SDMA_Data_2_Fill16_i( SDMA_Data_2_Fill16 ),
+	.SDMA_Data_2_Fill32_i( SDMA_Data_2_Fill32 ),
+	.SDMA_Data_Mask_i( SMDA_Data_Mask ),
+	.SDMA_Double_Speed_DMA_i( SMDA_Double_Speed_DMA ),
+	.SDMA_Quad_Speed_DMA_i( SDMA_Quad_Speed_DMA ),
+// VDMA Channel	
+	.VDMA_Transaction_Addy_i( 32'h0000_0000 ),  		//input		wire	[31:0]		
+	.VDMA_Transaction_RDn_i( 1'b1 ),  					//input		wire				
+	.VDMA_Transaction_WRn_i( 1'b1 ),  					//input		wire				
+	.VDMA_Transaction_BEn_i( 4'b1111 ),  				//input  	wire    [3:0]		
+	.VDMA_Data_Mask_i( 4'b1111 ),  						//input     wire    [3:0]       
+	.VDMA_2_SRAM_Data_In_i( 32'h0000_0000 ),  			//input   	wire  	[31:0]		
+	.VDMA_2_SRAM_Data_Out_o(  ),  						//output   	wire  	[31:0]		
+	.VDMA_2_SRAM_Data_Out_Valid_o(  ),	  				//output   	wire   				
+	
+	.VGE_Addy_o( Ext_RAM_Addy_o ),						// 2Mx8 Max Memory the TinyVicky Can access
+	.VGE_VidMem_Data_i( Ext_RAM_Data_i ),
+	.VGE_VidMem_Data_o( Ext_RAM_Data_o ),
+	.VGE_VidMem_Readn_o( Ext_RAM_OEn_o ),
+	.VGE_VidMem_Writen_o( Ext_RAM_WEn_o ),
+	.VGE_VidMem_BEn_o( Ext_RAM_BEn_o )
+);
+//////////////////////////////////////////////
+//											//
+//          SRAM DMA CONTROLLER      		//
+//											//
+//////////////////////////////////////////////
+A2560Mx_DMA_Controller A2560Mx_SDMA_CTLR( 
+	.Reset_i( Reset_i ),				// This is async Reset
+	.iBUS_2xClk_i( iBUS_2xClk_i ),			// 66Mhz
+// CPU Signals Interface
+	.iBUS_Clk_i( iBUS_1xClk_i ),			// 50Mhz Clock
+	.iBUS_A_i( iBUS_A_i ),				// 32bits Addy
+	.iBUS_A_Valid_i( iBUS_A_Valid_i ),	// Addy Valid
+	.iBUS_D8_i( iBUS_D8_i ),			// Byte Transaction
+	.iBUS_D16_i( iBUS_D16_i ),			// Short Transaction
+	.iBUS_D32_i( iBUS_D32_i ),			// Short Transaction	
+	.iBUS_RWn_i( iBUS_RWn_i ),			// R/Wn
+	.iBUS_Siz_i( iBUS_D_Siz_i  ),
+	.iBUS_BE_i( iBUS_BE_i ),			// Byte Enable [3:0] - 0 = High Byte, 1 = Low Byte
+	.iBUS_WE_i( iBUS_WE_i ),			// Write Enable
+	.CS_SDMA_Controller_i( CS_SDMA ),
+	.DataOut_SDMA_o( DataOut_SDMA_32 ),
+
+	.iBUS_SDMA_BRn_o( iBUS_SDMA_BRn_o ),
+	.iBUS_SDMA_BGn_i( iBUS_SDMA_BGn_i ),
+
+	//.SDMA_Read_Valid_i( Ext_Time_i ),					// This is the Time An Action can take place
+	.SDMA_Transaction_Addy_o( SDMA_Transaction_Addy ),
+	.SDMA_Transaction_RDn_o( SDMA_Transaction_RDn ),
+	.SDMA_Transaction_WRn_o( SDMA_Transaction_WRn ),
+	.SDMA_Transaction_BEn_o( SDMA_Transaction_BEn ),
+	.SDMA_Copy_Fill_Strobe_o( SDMA_Copy_Fill_Strobe ),
+	.SDMA_Data_2_Fill_o( SDMA_Data_2_Fill ),
+	.SDMA_Data_2_Fill16_o( SDMA_Data_2_Fill16 ),
+	.SDMA_Data_2_Fill32_o( SDMA_Data_2_Fill32 ),	
+	.SMDA_Data_Mask_o( SMDA_Data_Mask ),
+	.SMDA_Double_Speed_DMA_o( SMDA_Double_Speed_DMA ),
+	.SDMA_Quad_Speed_DMA_o( SDMA_Quad_Speed_DMA ),
+
+	.SDMA_Transfer_Time_Available_i( 1'b0 ), // Source Channel_Select is 1 = Memtext, 0 = DMA
+
+	.SDMA_Transfer_In_Progress_o(  ),
+	.SDMA_Interrupt_o( SDMA_IRQn )
+);
+
+endmodule

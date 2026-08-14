@@ -1,0 +1,9 @@
+set_global_assignment -entity "TinyChipScope" -library "TinyChipScope" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "TinyChipScope" -library "TinyChipScope" -name IP_TOOL_VERSION "13.1"
+set_global_assignment -entity "TinyChipScope" -library "TinyChipScope" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "TinyChipScope" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../../TinyChipScope.sopcinfo"]
+set_global_assignment -entity "TinyChipScope" -library "TinyChipScope" -name SLD_INFO "QSYS_NAME TinyChipScope HAS_SOPCINFO 1 GENERATION_ID 1663720473"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "TinyChipScope" -name MISC_FILE [file join $::quartus(qip_path) "../../../Source/A2560X32/Core/TinyChipScope/TinyChipScope.qsys"]
+
+set_global_assignment -library "TinyChipScope" -name VERILOG_FILE [file join $::quartus(qip_path) "TinyChipScope.v"]

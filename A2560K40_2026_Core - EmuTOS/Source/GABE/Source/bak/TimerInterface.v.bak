@@ -1,0 +1,226 @@
+
+module TimerInterface (
+input		wire				CPU_Clk_i,
+input 	wire	[23:0]	CPU_A_i,
+input 	wire	[7:0]		CPU_D_i,
+input 	wire				CPU_R_Wn_i,
+input		wire				CS_Timer_i,
+output 	reg 	[7:0]		CPU_D_o,
+output	wire				Interrupt_Timer0_o,
+output	wire				Interrupt_Timer1_o,
+output	wire				Interrupt_Timer2_o
+);
+
+
+//assign Interrupt_Timer0_o = 1'b0;
+//assign Interrupt_Timer1_o = 1'b0;
+assign Interrupt_Timer2_o = 1'b0;
+
+
+reg [7:0]	Timer0_Reg_LL;
+reg [7:0]	Timer0_Reg_LH;
+reg [7:0]	Timer0_Reg_HL;
+
+reg [7:0]	Timer1_Reg_LL;
+reg [7:0]	Timer1_Reg_LH;
+reg [7:0]	Timer1_Reg_HL;
+
+
+reg [7:0]	Compare_Timer0_Reg_L;
+reg [7:0]	Compare_Timer0_Reg_M;
+reg [7:0]	Compare_Timer0_Reg_H;
+
+reg [7:0]	Compare_Timer1_Reg_L;
+reg [7:0]	Compare_Timer1_Reg_M;
+reg [7:0]	Compare_Timer1_Reg_H;
+
+reg [7:0]	Timer2_Reg_L;
+reg [7:0]	Timer2_Reg_H;
+
+reg [7:0]	Compare_Timer2_Reg_L;
+reg [7:0]	Compare_Timer2_Reg_H;
+
+reg [7:0]	Control_Reg_TMR0;
+reg [7:0]	Control_Reg_CMP0;
+reg [7:0]	Control_Reg_TMR1;
+reg [7:0]	Control_Reg_CMP1;	
+	
+
+// Keep the Input Value in Registers
+always @ (negedge CPU_Clk_i)
+begin
+	if (CS_Timer_i & !CPU_R_Wn_i) begin
+		
+		case (CPU_A_i[3:0])
+		// Timer Block
+		4'b0000: begin 	Control_Reg_TMR0 			<= CPU_D_i;	end
+		4'b0001: begin 	Timer0_Reg_LL 		 		<= CPU_D_i;	end			// Charge Timer Loaded Value L
+		4'b0010: begin 	Timer0_Reg_LH 		 		<= CPU_D_i;	end			// Charge Timer Loaded Value M
+		4'b0011: begin 	Timer0_Reg_HL 		 		<= CPU_D_i;	end			// Charge Timer Loaded Value H
+		// Compare Block
+		4'b0100: begin 	Control_Reg_CMP0 			<= CPU_D_i;	end
+		4'b0101: begin 	Compare_Timer0_Reg_L 	<= CPU_D_i;	end			// Compare Loaded Value L
+		4'b0110: begin 	Compare_Timer0_Reg_M 	<= CPU_D_i;	end			// Compare Loaded Value M
+		4'b0111: begin 	Compare_Timer0_Reg_H 	<= CPU_D_i;	end			// Compare Loaded Value H
+		
+		4'b1000: begin 	Control_Reg_TMR1			<= CPU_D_i;	end
+		4'b1001: begin 	Timer1_Reg_LL 				<= CPU_D_i;	end			// Charge Timer Loaded Value L
+		4'b1010: begin 	Timer1_Reg_LH  			<= CPU_D_i;	end			// Charge Timer Loaded Value M
+		4'b1011: begin 	Timer1_Reg_HL  			<= CPU_D_i;	end			// Charge Timer Loaded Value H
+		// Compare Block
+		4'b1100: begin 	Control_Reg_CMP1 			<= CPU_D_i;	end
+		4'b1101: begin 	Compare_Timer1_Reg_L 	<= CPU_D_i;	end			// Compare Loaded Value L
+		4'b1110: begin 	Compare_Timer1_Reg_M 	<= CPU_D_i;	end			// Loaded Value <
+		4'b1111: begin 	Compare_Timer1_Reg_H 	<= CPU_D_i;	end
+		
+		default: begin end
+		
+		endcase
+	end
+end
+
+
+always @ (*) begin
+		case (CPU_A_i[3:0])
+			4'b0000: begin 	CPU_D_o = {7'b0000_000,  Timer0_Compare_eb}; end
+			4'b0001: begin 	CPU_D_o = Timer0_Output[7:0]; end
+			4'b0010: begin 	CPU_D_o = Timer0_Output[15:8]; end
+			4'b0011: begin 	CPU_D_o = Timer0_Output[23:16]; end
+			
+			4'b0100: begin 	CPU_D_o = 8'h00; end
+			4'b0101: begin 	CPU_D_o = Compare_Timer0_Reg_L; end
+			4'b0110: begin 	CPU_D_o = Compare_Timer0_Reg_M; end
+			4'b0111: begin 	CPU_D_o = Compare_Timer0_Reg_H; end
+		
+			4'b1000: begin 	CPU_D_o = {7'b0000_000,  Timer1_Compare_eb}; end
+			4'b1001: begin 	CPU_D_o = Timer1_Output[7:0]; end
+			4'b1010: begin 	CPU_D_o = Timer1_Output[15:8]; end
+			4'b1011: begin 	CPU_D_o = Timer1_Output[23:16]; end
+		
+			4'b1100: begin 	CPU_D_o = 8'h00; end
+			4'b1101: begin 	CPU_D_o = Compare_Timer1_Reg_L; end
+			4'b1110: begin 	CPU_D_o = Compare_Timer1_Reg_M; end
+			4'b1111: begin 	CPU_D_o = Compare_Timer1_Reg_H; end
+		
+		default: begin CPU_D_o = 8'hDE; end
+endcase
+end
+
+
+wire [23:0] Timer0_Output;
+wire [23:0] Timer1_Output;
+
+wire	Timer0_Compare_eb;
+wire	Timer0_Compare_egb;
+wire	Timer0_Compare_geb;
+wire	Timer0_Compare_lb;
+wire	Timer0_Compare_leb;
+wire	Timer0_Compare_neb;
+
+wire	Timer1_Compare_eb;
+wire	Timer1_Compare_egb;
+wire	Timer1_Compare_geb;
+wire	Timer1_Compare_lb;
+wire	Timer1_Compare_leb;
+wire	Timer1_Compare_neb;
+
+//wire [7:0] Comp0_Results;
+//wire [7:0] Comp1_Results;
+//wire Comp0_OR_Results;
+//wire Comp1_OR_Results;
+
+//assign Comp0_Results = {Comp0_OR_Results, 1'b0, (Timer0_Compare_eb & Control_Reg_CMP0[5]), (Timer0_Compare_egb & Control_Reg_CMP0[4]), (Timer0_Compare_geb & Control_Reg_CMP0[3]), (Timer0_Compare_lb & Control_Reg_CMP0[2]), (Timer0_Compare_leb & Control_Reg_CMP0[1]), (Timer0_Compare_neb & Control_Reg_CMP0[0])};
+//assign Comp1_Results = {Comp1_OR_Results, 1'b0, (Timer0_Compare_eb & Control_Reg_CMP1[5]), (Timer0_Compare_egb & Control_Reg_CMP1[4]), (Timer0_Compare_geb & Control_Reg_CMP1[3]), (Timer0_Compare_lb & Control_Reg_CMP1[2]), (Timer0_Compare_leb & Control_Reg_CMP1[1]), (Timer0_Compare_neb & Control_Reg_CMP1[0])};
+
+//assign Comp0_OR_Results = {Comp0_Results[5] | Comp0_Results[4] | Comp0_Results[3] | Comp0_Results[2] | Comp0_Results[1]};
+//assign Comp1_OR_Results = {Comp1_Results[5] | Comp1_Results[4] | Comp1_Results[3] | Comp1_Results[2] | Comp1_Results[1]};
+
+
+TimerCounter Timer0 (
+	.clock ( CPU_Clk_i ),
+	.cnt_en ( Control_Reg_TMR0[0] ),
+	.data ( {Timer0_Reg_HL, Timer0_Reg_LH, Timer0_Reg_LL} ),
+	.sclr ( Control_Reg_TMR0[1] & (Timer0_Compare_eb & Control_Reg_CMP0[0])),
+	.sload ( Control_Reg_TMR0[2] & (Timer0_Compare_eb & Control_Reg_CMP0[1])),
+	.updown ( Control_Reg_TMR0[3] ),
+	.q ( Timer0_Output )
+	);
+	
+TimerCounter Timer1 (
+	.clock ( CPU_Clk_i ),
+	.cnt_en ( Control_Reg_TMR1[0] ),
+	.data ( {Timer1_Reg_HL, Timer1_Reg_LH, Timer1_Reg_LL} ),
+	.sclr ( Control_Reg_TMR1[1] & (Timer1_Compare_eb & Control_Reg_CMP1[0])),
+	.sload ( Control_Reg_TMR1[2] & (Timer1_Compare_eb & Control_Reg_CMP1[1])),
+	.updown ( Control_Reg_TMR1[3] ),
+	.q ( Timer1_Output )
+	);	
+
+
+TimerCompare Timer0Compare(
+	.dataa( Timer0_Output ),
+	.datab( { Compare_Timer0_Reg_H, Compare_Timer0_Reg_M, Compare_Timer0_Reg_L} ),
+	.aeb( Timer0_Compare_eb )	
+//	.agb( Timer0_Compare_egb ),
+//	.ageb( Timer0_Compare_geb ),
+//	.alb( Timer0_Compare_lb ),
+//	.aleb( Timer0_Compare_leb ),
+//	.aneb( Timer0_Compare_neb )
+);
+
+
+TimerCompare Timer1Compare(
+	.dataa( Timer1_Output ),
+	.datab({ Compare_Timer1_Reg_H, Compare_Timer1_Reg_M, Compare_Timer1_Reg_L} ),
+	.aeb( Timer1_Compare_eb )
+//	.agb( Timer1_Compare_egb ),
+//	.ageb( Timer1_Compare_geb ),
+//	.alb( Timer1_Compare_lb ),
+//	.aleb( Timer1_Compare_leb ),
+//	.aneb( Timer1_Compare_neb )
+);
+
+
+reg [3:0] Sliptimer0;
+reg [3:0] Sliptimer1;
+
+always @ (negedge CPU_Clk_i)
+begin
+	Sliptimer0 <= Sliptimer0 << 1'b1;
+	Sliptimer1 <= Sliptimer1 << 1'b1;
+
+	if (Timer0_Compare_eb)
+		Sliptimer0 <= 4'b1111;
+		
+	if (Timer1_Compare_eb)
+		Sliptimer1 <= 4'b1111;	
+end
+
+assign Interrupt_Timer0_o = Sliptimer0[3];
+assign Interrupt_Timer1_o = Sliptimer1[3];
+
+
+/*
+wire [47:0] ScopeIn;
+wire			Trigger;
+
+assign Trigger = Control_Reg_TMR0[0] ;
+
+
+assign ScopeIn[23:0] = Timer0_Output[23:0];
+assign ScopeIn[47:24] = { Compare_Timer0_Reg_H, Compare_Timer0_Reg_M, Compare_Timer0_Reg_L};
+
+
+ChipScope ChipSCOPE(
+		.acq_clk(!CPU_Clk_i),        // acq_clk.clk
+		.acq_data_in(ScopeIn),    //     tap.acq_data_in
+		.acq_trigger_in(Trigger),  //        .acq_trigger_in
+		.trigger_in(Trigger)
+	);
+*/
+
+
+endmodule
+
+
+

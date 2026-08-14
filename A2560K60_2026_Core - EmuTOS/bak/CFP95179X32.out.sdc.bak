@@ -1,0 +1,132 @@
+## Generated SDC file "CFP95179X32.out.sdc"
+
+## Copyright (C) 1991-2014 Altera Corporation
+## Your use of Altera Corporation's design tools, logic functions 
+## and other software and tools, and its AMPP partner logic 
+## functions, and any output files from any of the foregoing 
+## (including device programming or simulation files), and any 
+## associated documentation or information are expressly subject 
+## to the terms and conditions of the Altera Program License 
+## Subscription Agreement, Altera MegaCore Function License 
+## Agreement, or other applicable license agreement, including, 
+## without limitation, that your use is for the sole purpose of 
+## programming logic devices manufactured by Altera and sold by 
+## Altera or its authorized distributors.  Please refer to the 
+## applicable agreement for further details.
+
+
+## VENDOR  "Altera"
+## PROGRAM "Quartus II"
+## VERSION "Version 13.1.4 Build 182 03/12/2014 SJ Web Edition"
+
+## DATE    "Mon Dec 04 15:44:01 2023"
+
+##
+## DEVICE  "EP3C120F780C8"
+##
+
+
+#**************************************************************
+# Time Information
+#**************************************************************
+
+set_time_format -unit ns -decimal_places 3
+
+
+
+#**************************************************************
+# Create Clock
+#**************************************************************
+
+create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
+
+
+#**************************************************************
+# Create Generated Clock
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Output Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Groups
+#**************************************************************
+
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+
+
+#**************************************************************
+# Set False Path
+#**************************************************************
+
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_3v8:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_2v8:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_id9:dffpipe18|dffe19a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_hd9:dffpipe13|dffe14a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_se9:dffpipe16|dffe17a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_re9:dffpipe13|dffe14a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_te9:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_pe9:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_od9:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_nd9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_md9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_ld9:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_b09:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_a09:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_5v8:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_4v8:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_d09:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_c09:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_ve9:dffpipe10|dffe11a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_ue9:dffpipe7|dffe8a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_qd9:dffpipe8|dffe9a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_pd9:dffpipe5|dffe6a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_kd9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_jd9:dffpipe6|dffe7a*}]
+
+
+#**************************************************************
+# Set Multicycle Path
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Maximum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Minimum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Transition
+#**************************************************************
+

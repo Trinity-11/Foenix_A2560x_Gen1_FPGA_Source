@@ -1,0 +1,8 @@
+PLL_SDCard_Debug	PLL_SDCard_Debug_inst (
+	.inclk0 ( inclk0_sig ),
+	.c0 ( c0_sig ),
+	.c2 ( c2_sig ),
+	.c3 ( c3_sig ),
+	.c4 ( c4_sig ),
+	.locked ( locked_sig )
+	);

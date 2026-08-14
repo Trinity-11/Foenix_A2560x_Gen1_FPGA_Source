@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2022.09.20.17:40:23"
+ outputDirectory="D:/Gen X Project/FPGA_BoardRevB0A - EP3C120F780/CFP95179_32Bits/db/ip/InternalClock/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone IV E"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EP4CE115F29C8"
+     onHdl="0"
+     affectsHdl="1" />
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="InternalClock:1.0:AUTO_DEVICE=EP3C120F780C7,AUTO_DEVICE_FAMILY=Cyclone III,AUTO_GENERATION_ID=1663720822,AUTO_UNIQUE_ID=(missing_module:1.0:moduleKind=altera_int_osc,moduleParameters={DEVICE_FAMILY=Cyclone IV E, PART_NAME=EP4CE115F29C8, CBX_AUTO_BLACKBOX=ALL, CLOCK_FREQUENCY_1=116, CLOCK_FREQUENCY_2=77},moduleVersion=18.1)"
+   instancePathKey="InternalClock"
+   kind="InternalClock"
+   version="1.0"
+   name="InternalClock">
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone III" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE" value="EP3C120F780C7" />
+  <parameter name="AUTO_GENERATION_ID" value="1663720822" />
+  <generatedFiles>
+   <file
+       path="D:/Gen X Project/FPGA_BoardRevB0A - EP3C120F780/CFP95179_32Bits/db/ip/InternalClock/InternalClock.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="D:/Gen X Project/FPGA_BoardRevB0A - EP3C120F780/CFP95179_32Bits/Source/A2560X32/Core/Internal_Oscillator/InternalClock.qsys" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <messages>
+   <message level="Debug" culprit="InternalClock">queue size: 0 starting:InternalClock "InternalClock"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: PipelineBridgeSwap</message>
+   <message level="Info" culprit="pipeline_bridge_swap_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: ClockCrossingBridgeSwap</message>
+   <message level="Debug">Transform: QsysBetaIPSwap</message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Info">No custom instruction connections, skipping transform </message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="InternalClock"><![CDATA["<b>InternalClock</b>" reuses <b>missing_module</b> "<b>submodules/InternalClock_int_osc_0</b>"]]></message>
+   <message level="Debug" culprit="InternalClock">queue size: 0 starting:missing_module "submodules/InternalClock_int_osc_0"</message>
+   <message level="Error" culprit="int_osc_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="missing_module:1.0:moduleKind=altera_int_osc,moduleParameters={DEVICE_FAMILY=Cyclone IV E, PART_NAME=EP4CE115F29C8, CBX_AUTO_BLACKBOX=ALL, CLOCK_FREQUENCY_1=116, CLOCK_FREQUENCY_2=77},moduleVersion=18.1"
+   instancePathKey="InternalClock:.:int_osc_0"
+   kind="missing_module"
+   version="1.0"
+   name="InternalClock_int_osc_0">
+  <parameter
+     name="moduleParameters"
+     value="{DEVICE_FAMILY=Cyclone IV E, PART_NAME=EP4CE115F29C8, CBX_AUTO_BLACKBOX=ALL, CLOCK_FREQUENCY_1=116, CLOCK_FREQUENCY_2=77}" />
+  <parameter name="moduleVersion" value="18.1" />
+  <parameter name="moduleKind" value="altera_int_osc" />
+  <generatedFiles/>
+  <childGeneratedFiles/>
+  <sourceFiles/>
+  <childSourceFiles/>
+  <instantiator instantiator="InternalClock" as="int_osc_0" />
+  <messages>
+   <message level="Debug" culprit="InternalClock">queue size: 0 starting:missing_module "submodules/InternalClock_int_osc_0"</message>
+   <message level="Error" culprit="int_osc_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+</deploy>

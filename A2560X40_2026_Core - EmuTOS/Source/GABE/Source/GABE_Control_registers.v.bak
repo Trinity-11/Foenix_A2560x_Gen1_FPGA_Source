@@ -1,0 +1,221 @@
+`timescale 1 ps / 1 ps
+
+module GABE_CTRL_Reg (
+input		wire				RST_i,
+input		wire				CPU_Clk_i,
+input 	wire	[23:0]	CPU_A_i,
+input 	wire	[7:0]		CPU_D_i,
+input 	wire				CPU_R_Wn_i,
+input		wire				CS_INT_REG_i,
+// Status
+input		wire				CPU_X_i,
+input		wire				CPU_M_i,
+input		wire	[1:0]		MACHINE_ID_i,
+input		wire				Expansion_Card_Present_i,
+input		wire  [15:0]	CHIP_NUMBER,
+input		wire  [15:0]	CHIP_VERSION,
+input		wire	[15:0]	CHIP_SUBVERSION,
+//
+input		wire				SOF_i,
+
+
+// Outputs
+output	wire				Buzzer_Ctrl_o,
+output	wire				Power_LED_o,
+output	wire				SDCARD_LED_o,
+output	wire				Manual_RESET_o,
+output	wire				C256FU_LED0_o,
+output	wire				C256FU_LED1_o,
+
+output 	reg 	[7:0]		CPU_D_o
+);
+
+wire LFSR_Done;
+wire 	[15:0]	LFSR_Data_Out;
+
+reg	[7:0]	ControlRegisters[0:7];
+
+// Keep the Input Value in Registers
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) begin
+		ControlRegisters[0] <= 8'h01;
+		ControlRegisters[1] <= 8'h40;
+		ControlRegisters[2] <= 8'h00;
+		ControlRegisters[3] <= 8'h00;
+		ControlRegisters[5] <= 8'h00;		
+	end 
+	else begin
+		if (CS_INT_REG_i & !CPU_R_Wn_i)
+			ControlRegisters[CPU_A_i[2:0]] <= CPU_D_i;
+	end
+end
+
+always @ (*)
+begin
+	case(CPU_A_i[3:0])
+		4'b0000: CPU_D_o = ControlRegisters[0];
+		4'b0001: CPU_D_o = ControlRegisters[1];
+		4'b0010: CPU_D_o = ControlRegisters[2];
+		4'b0011: CPU_D_o = ControlRegisters[3];
+		4'b0100: CPU_D_o = LFSR_Data_Out[7:0];
+		4'b0101: CPU_D_o = LFSR_Data_Out[15:8];
+		4'b0110: CPU_D_o = {LFSR_Done, ControlRegisters[5][6:0]};
+		4'b0111: CPU_D_o = {CPU_X_i, CPU_M_i, 1'b0, !Expansion_Card_Present_i, MACHINE_ID_i[1:0], 1'b0, 1'b1};
+		4'b1000: CPU_D_o = 8'hAD;
+		4'b1001:	CPU_D_o = 8'hDE;	
+		4'b1010: CPU_D_o = CHIP_SUBVERSION[7:0];		
+		4'b1011: CPU_D_o = CHIP_SUBVERSION[15:8];
+		4'b1100: CPU_D_o = CHIP_VERSION[7:0];		
+		4'b1101: CPU_D_o = CHIP_VERSION[15:8];
+		4'b1110: CPU_D_o = CHIP_NUMBER[7:0];		
+		4'b1111: CPU_D_o = CHIP_NUMBER[15:8];
+		default: CPU_D_o = 8'h55;
+	endcase
+end
+
+//;Bit 2, Bit 1, Bit 0
+//$000: FMX
+//$100: FMX (Future C5A)
+//$001: U 2Meg
+//$101: U+ 4Meg U+
+//$010: TBD (Reserved)
+//$110: TBD (Reserved)
+//$011: A2560 Dev
+//$111: A2560 Keyboard
+
+reg [31:0]	SoftReset;
+
+always @ (posedge CPU_Clk_i) begin
+	if ( RST_i ) begin
+		SoftReset <= 32'h00000000;
+	end
+	else begin
+		if (ControlRegisters[0][7] && (ControlRegisters[2] == 8'HAD) && (ControlRegisters[3] == 8'HDE)) begin
+			SoftReset <= 32'hFFFFFFFF;
+		end
+	end
+end
+
+assign Power_LED_o = ControlRegisters[0][0];
+assign SDCARD_LED_o = ControlRegisters[0][1];
+assign C256FU_LED0_o = ControlRegisters[1][0] ? ControlRegisters[0][2] : FlashOnOFF0;
+assign C256FU_LED1_o = ControlRegisters[1][1] ? ControlRegisters[0][3] : !FlashOnOFF1;
+assign Buzzer_Ctrl_o = ControlRegisters[0][4];
+assign Manual_RESET_o = SoftReset[31];
+
+
+reg	[2:0]	SOF_EDGE;
+
+
+always @ ( posedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		SOF_EDGE <= 2'b00;
+	end
+	else begin
+		SOF_EDGE[0] <= SOF_i;
+		SOF_EDGE[1] <= SOF_EDGE[0];
+		SOF_EDGE[2] <= SOF_EDGE[1];		
+	end
+end
+
+reg 		[7:0]		SOF_Counter0;
+reg		[7:0] 	FlashRate0;
+reg		FlashOnOFF0;
+always @ (*)
+begin
+	case (ControlRegisters[1][5:4])
+		2'b00: FlashRate0 = 8'd60;
+		2'b01: FlashRate0 = 8'd30;
+		2'b10: FlashRate0 = 8'd15; 
+		2'b11: FlashRate0 = 8'd12;
+		default: FlashRate0 = 8'd60;
+	endcase
+end
+
+always @(posedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		SOF_Counter0 <= 8'h00;
+		FlashOnOFF0	<= 1'b0;
+	end
+	else begin
+		
+		if (SOF_EDGE[2:1] == 2'b01) begin
+			SOF_Counter0 <= SOF_Counter0 + 1'b1;
+		end
+
+		
+		if (SOF_Counter0 == FlashRate0) begin
+				FlashOnOFF0 <= FlashOnOFF0 ^ 1'b1;
+				SOF_Counter0 <= 8'h00;			
+		end
+			else begin
+				if (SOF_Counter0 > FlashRate0) 
+						SOF_Counter0 <= 8'h00;
+			end
+
+	end
+end
+
+reg 		[7:0]		SOF_Counter1;
+reg		[7:0] 	FlashRate1;
+reg		FlashOnOFF1;
+always @ (*)
+begin
+	case (ControlRegisters[1][7:6])
+		2'b00: FlashRate1 = 8'd60;
+		2'b01: FlashRate1 = 8'd30;
+		2'b10: FlashRate1 = 8'd15; 
+		2'b11: FlashRate1 = 8'd12;
+		default: FlashRate1 = 8'd60;
+	endcase
+end
+
+always @(posedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		SOF_Counter1 <= 8'h00;
+		FlashOnOFF1	<= 1'b0;
+	end
+	else begin
+		
+		if (SOF_EDGE[2:1] == 2'b01) begin
+			SOF_Counter1 <= SOF_Counter1 + 1'b1;
+		end
+
+		
+		if (SOF_Counter1 == FlashRate1) begin
+				FlashOnOFF1 <= FlashOnOFF1 ^ 1'b1;
+				SOF_Counter1 <= 8'h00;			
+		end
+			else begin
+				if (SOF_Counter1 > FlashRate1) 
+						SOF_Counter1 <= 8'h00;
+			end
+
+	end
+end
+
+
+
+LFSR #(
+	.NUM_BITS(16)
+) LFSR_Module (
+   .i_Clk( CPU_Clk_i ),
+   .i_Enable( ControlRegisters[6][0] ),
+   // Optional Seed Value
+   .i_Seed_DV(ControlRegisters[6][1] ),	// Data Valid
+	.i_Seed_Data( {ControlRegisters[5], ControlRegisters[4]} ),
+	.o_LFSR_Data( LFSR_Data_Out ),
+   .o_LFSR_Done( LFSR_Done )
+);
+
+
+endmodule
+
+

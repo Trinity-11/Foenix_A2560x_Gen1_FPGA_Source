@@ -1,0 +1,33 @@
+
+module Buzzer (
+
+input		wire			Clk_i,
+output 	reg			Buzzer_o,
+input		wire			Buzzer_Enable
+);
+
+
+//  3580 / 1790 divider to get around 4Khz
+
+reg	[11:0]	Divider;
+
+
+always @ (posedge Clk_i)
+begin
+	if (Buzzer_Enable) begin
+		if (Divider) begin
+			Divider <= Divider - 12'b0000_0000_0001;
+		end
+		else begin
+			Buzzer_o <= Buzzer_o ^ 1'b1;
+			Divider <= 12'b1001_1100_0100;
+		end
+		
+	end
+	else begin
+		Buzzer_o <= 1'b0;
+		Divider <= 12'b1001_1100_0100;   // 14.318M -> 0110_1111_1110;
+	end
+end
+
+endmodule

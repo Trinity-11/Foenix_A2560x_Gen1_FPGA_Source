@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Apr 20 13:16:35 2026
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : A2560K25
+Top-level Entity Name : A2560K25_Top
+Family : Cyclone IV E
+Total logic elements : 37,979
+    Total combinational functions : 27,567
+    Dedicated logic registers : 19,036
+Total registers : 19086
+Total pins : 514
+Total virtual pins : 0
+Total memory bits : 1,052,299
+Embedded Multiplier 9-bit elements : 63
+Total PLLs : 3

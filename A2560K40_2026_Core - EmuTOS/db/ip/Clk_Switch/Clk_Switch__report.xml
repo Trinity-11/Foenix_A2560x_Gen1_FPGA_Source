@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2022.05.27.01:04:41"
+ outputDirectory="D:/A2560K Project/FPGA/CFP95179K040V25 - Rev B -Feb 9th/db/ip/Clk_Switch/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone IV E"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EP4CE115F29C8"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="8"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="altclkctrl_input" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="inclk1x" direction="input" role="inclk1x" width="1" />
+   <port name="inclk0x" direction="input" role="inclk0x" width="1" />
+   <port name="clkselect" direction="input" role="clkselect" width="1" />
+  </interface>
+  <interface name="altclkctrl_output" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="outclk" direction="output" role="outclk" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="Clk_Switch:1.0:AUTO_DEVICE=EP4CE115F29C8,AUTO_DEVICE_FAMILY=Cyclone IV E,AUTO_DEVICE_SPEEDGRADE=8,AUTO_GENERATION_ID=1653638680,AUTO_UNIQUE_ID=(altclkctrl:18.1:CLOCK_TYPE=1,DEVICE_FAMILY=Cyclone IV E,ENA_REGISTER_MODE=1,GUI_USE_ENA=false,NUMBER_OF_CLOCKS=2,USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION=true)"
+   instancePathKey="Clk_Switch"
+   kind="Clk_Switch"
+   version="1.0"
+   name="Clk_Switch">
+  <parameter name="AUTO_GENERATION_ID" value="1653638680" />
+  <parameter name="AUTO_DEVICE" value="EP4CE115F29C8" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+  <generatedFiles>
+   <file
+       path="D:/A2560K Project/FPGA/CFP95179K040V25 - Rev B -Feb 9th/db/ip/Clk_Switch/Clk_Switch.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="D:/A2560K Project/FPGA/CFP95179K040V25 - Rev B -Feb 9th/db/ip/Clk_Switch/submodules/Clk_Switch_altclkctrl_0.v"
+       type="VERILOG"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="D:/A2560K Project/FPGA/CFP95179K040V25 - Rev B -Feb 9th/Source/VICKY III/Core/CLK_SWITCH/Clk_Switch.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="D:/intelfpga_lite/18.1/ip/altera/megafunctions/altclkctrl/altclkctrl_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="Clk_Switch">queue size: 0 starting:Clk_Switch "Clk_Switch"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="Clk_Switch"><![CDATA["<b>Clk_Switch</b>" reuses <b>altclkctrl</b> "<b>submodules/Clk_Switch_altclkctrl_0</b>"]]></message>
+   <message level="Debug" culprit="Clk_Switch">queue size: 0 starting:altclkctrl "submodules/Clk_Switch_altclkctrl_0"</message>
+   <message level="Info" culprit="altclkctrl_0">Generating top-level entity Clk_Switch_altclkctrl_0.</message>
+   <message level="Debug" culprit="altclkctrl_0">Current quartus bindir: D:/intelfpga_lite/18.1/quartus/bin64/.</message>
+   <message level="Info" culprit="altclkctrl_0"><![CDATA["<b>Clk_Switch</b>" instantiated <b>altclkctrl</b> "<b>altclkctrl_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altclkctrl:18.1:CLOCK_TYPE=1,DEVICE_FAMILY=Cyclone IV E,ENA_REGISTER_MODE=1,GUI_USE_ENA=false,NUMBER_OF_CLOCKS=2,USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION=true"
+   instancePathKey="Clk_Switch:.:altclkctrl_0"
+   kind="altclkctrl"
+   version="18.1"
+   name="Clk_Switch_altclkctrl_0">
+  <parameter name="NUMBER_OF_CLOCKS" value="2" />
+  <parameter name="USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION" value="true" />
+  <parameter name="GUI_USE_ENA" value="false" />
+  <parameter name="DEVICE_FAMILY" value="Cyclone IV E" />
+  <parameter name="ENA_REGISTER_MODE" value="1" />
+  <parameter name="CLOCK_TYPE" value="1" />
+  <generatedFiles>
+   <file
+       path="D:/A2560K Project/FPGA/CFP95179K040V25 - Rev B -Feb 9th/db/ip/Clk_Switch/submodules/Clk_Switch_altclkctrl_0.v"
+       type="VERILOG"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="D:/intelfpga_lite/18.1/ip/altera/megafunctions/altclkctrl/altclkctrl_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="Clk_Switch" as="altclkctrl_0" />
+  <messages>
+   <message level="Debug" culprit="Clk_Switch">queue size: 0 starting:altclkctrl "submodules/Clk_Switch_altclkctrl_0"</message>
+   <message level="Info" culprit="altclkctrl_0">Generating top-level entity Clk_Switch_altclkctrl_0.</message>
+   <message level="Debug" culprit="altclkctrl_0">Current quartus bindir: D:/intelfpga_lite/18.1/quartus/bin64/.</message>
+   <message level="Info" culprit="altclkctrl_0"><![CDATA["<b>Clk_Switch</b>" instantiated <b>altclkctrl</b> "<b>altclkctrl_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>

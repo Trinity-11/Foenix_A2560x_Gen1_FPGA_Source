@@ -1,0 +1,9 @@
+set_global_assignment -entity "SourceAndProbe" -library "SourceAndProbe" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "SourceAndProbe" -library "SourceAndProbe" -name IP_TOOL_VERSION "13.1"
+set_global_assignment -entity "SourceAndProbe" -library "SourceAndProbe" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "SourceAndProbe" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../../SourceAndProbe.sopcinfo"]
+set_global_assignment -entity "SourceAndProbe" -library "SourceAndProbe" -name SLD_INFO "QSYS_NAME SourceAndProbe HAS_SOPCINFO 1 GENERATION_ID 1663720475"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "SourceAndProbe" -name MISC_FILE [file join $::quartus(qip_path) "../../../Source/A2560X32/Core/SourceAndProbe/SourceAndProbe.qsys"]
+
+set_global_assignment -library "SourceAndProbe" -name VERILOG_FILE [file join $::quartus(qip_path) "SourceAndProbe.v"]

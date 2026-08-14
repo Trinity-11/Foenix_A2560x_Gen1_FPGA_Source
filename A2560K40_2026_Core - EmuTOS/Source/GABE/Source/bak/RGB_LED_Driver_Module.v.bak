@@ -1,0 +1,18 @@
+module RGB_LED_Driver_Module (
+
+input		wire				Clk_i,
+input		wire				Reset_i,
+
+input		wire	[31:0]	RGB_Value_i,
+
+
+output	wire				RGB_POWER_LED_o
+
+);
+
+
+
+
+
+
+endmodule

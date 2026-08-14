@@ -1,0 +1,12 @@
+ENA_REGISTER_MODE="falling edge"
+INTENDED_DEVICE_FAMILY="Cyclone III"
+USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION=OFF
+clock_type="Global Clock"
+DEVICE_FAMILY="Cyclone III"
+clkselect
+clkselect
+ena
+inclk
+inclk
+inclk
+outclk

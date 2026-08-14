@@ -1,0 +1,43 @@
+module GABE_CS_And_Dout (
+
+// CPU Interface
+input		wire					CPU_Clk_i,
+
+input		wire		[31:0]	iBUS_A_i,
+
+input		wire					iBUS_A_Valid_i,
+
+input		wire		[15:0]	iBUS_D_i,
+input		wire					iBUS_D_Valid_i,
+input		wire					iBUS_RWn_i,
+input		wire		[1:0]		iBUS_BE_i,
+
+input		wire					iBUS_CS_VICKY_A_i,
+input		wire					iBUS_CS_VICKY_MEM_A_i,
+input		wire					iBUS_CS_VICKY_B_i,
+input		wire					iBUS_CS_VICKY_MEM_B_i,
+input		wire					iBUS_CS_VRAM_A_i,
+input		wire					iBUS_CS_VRAM_B_i,
+
+
+
+// Channel A
+output	wire					CS_TextMemory_A_o,
+output	wire					CS_ColorMemory_A_o, 
+output	wire					CS_BF_CLUT_A_o,
+output	wire					CS_BG_CLUT_A_o,
+
+input		wire		[15:0]	TextMemory_A_Dout_i,
+input		wire		[15:0]	ColorMemory_A_Dout_i,
+
+
+
+// Channel B
+output	wire					CS_TextMemory_B_o,
+output	wire					CS_ColorMemory_B_o,
+input		wire		[15:0]	TextMemory_B_Dout_i,
+input		wire		[15:0]	ColorMemory_B_Dout_i,
+
+
+output	wire		[15:0]	DataOut_o
+);

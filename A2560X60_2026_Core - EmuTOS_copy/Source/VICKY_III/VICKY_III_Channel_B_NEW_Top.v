@@ -1,0 +1,1120 @@
+module VICKY_III_Channel_B_NEW_Top (
+// Reset
+input		wire					Reset_i,
+// Clocks
+input 		wire  					iBUS_1xClk_i,				// 25Mhz or 33Mhz
+input 		wire  					iBUS_2xClk_i,				// 50Mhz or 66Mhz
+input		wire					iBUS_4xClk_i,				// 100Mhz or 133Mhz
+// Misc Clock
+input		wire					Clk14_318Mhz_i,
+// Dot Clock
+input  		wire   					Clk108Mhz_B_i,				// Video Clock for GUI Mode
+input  		wire   					Clk108Mhz_Locked_B_i,		//Video108Mhz_Locked
+// Processing Clocks
+input		wire					Clk100M_i,					// 100Mhz
+input		wire					Clk200M_i,					// 200Mhz
+// DIP Switch
+input		wire					DP_HIRES_i,
+input		wire					DP_GAMMA_i,
+// Buses
+input		wire		[31:0]		iBUS_A_i,
+input		wire					iBUS_A_Valid_i,
+input		wire		[7:0]		iBUS_D8_i,
+input		wire		[15:0]		iBUS_D16_i,
+input		wire		[31:0]		iBUS_D32_i,
+input		wire		[1:0]		iBUS_D_Siz_i,
+output		wire					iBUS_D_Valid_o,
+input		wire					iBUS_RWn_i,
+input		wire		[3:0]		iBUS_BE_i,
+input		wire					iBUS_WE_i,
+
+input		wire					CS_TextMemory_i,			// Text DP memory ChipSelect
+input		wire					CS_ColorMemory_i,			// Color DP Memory ChipSelect
+input		wire					CS_FG_CLUT_i,	
+input		wire					CS_BG_CLUT_i,
+input		wire					CS_Vicky_Registers_i,
+// VGE
+input		wire 					CS_Bitmap_Registers_i,
+input		wire 					CS_Tile0_Registers_i,
+input		wire					CS_Tile1_Registers_i,
+input		wire 					CS_Sprites_Registers_i,
+input 		wire 					CS_Collisions_Registers_i,
+input		wire					CS_Mouse_Ptr_B_Graphics_i,
+input		wire					CS_Mouse_Ptr_B_Registers_i,
+input		wire 					CS_LUT0_i,
+input		wire					CS_FONT_i,
+input 		wire  					CS_MEMTEXT_i,
+input 		wire  					CS_MEMTEXT_LUT_i,
+input 		wire  					CS_MEMTEXT_FONT_i,
+input 		wire  					CS_EMUTOS_GRAPH_i,
+
+input		wire					CS_GAMMA_B_i,
+input		wire					CS_GAMMA_G_i,
+input		wire					CS_GAMMA_R_i,
+// Text Mode
+output		wire		[31:0]		iBUS_Text_Memory_D_o,
+output		wire		[31:0]		iBUS_Color_Memory_D_o,
+output		wire		[31:0]		iBUS_VICKYIII_Reg_D_o,
+// VGE
+output		wire 		[31:0] 		DataOut_LUT_o,
+output		wire		[31:0] 		DataOut_VideoMemory_o,
+output		wire 		[31:0]		DataOut_Bitmap_Regs_o,
+output		wire 		[31:0] 		DataOut_Tile0_Regs_o,
+output		wire 		[31:0] 		DataOut_Tile1_Regs_o,
+output		wire 		[31:0] 		DataOut_Collisions_Regs_o,
+output		wire 		[31:0] 		DataOut_Sprites_Regs_o,
+output		wire		[31:0]		DataOut_B_Mouse_Regs_o,
+// New Stuff - GUI Block
+output 		wire 		[31:0]		DataOut_EMUTOS_Graph_o,
+output 		wire 		[31:0]		DataOut_MEMTEXT_o,
+output 		wire 		[31:0]		DataOut_MEMTEXT_LUT_o,
+output 		wire 		[31:0]		DataOut_MEMTEXT_FONT_o,
+// General
+output		wire		[31:0]		GAMMA_B_Dout_o,
+output		wire		[31:0]		GAMMA_G_Dout_o,
+output		wire		[31:0]   	GAMMA_R_Dout_o,
+// Video DAC Output A
+output		wire					VID_B_RSTn_o,
+output		wire					VID_B_CLK_P_o,
+output		wire					VID_B_DE_o,
+output		wire					VID_B_HSYNC_o,
+output		wire					VID_B_VSYNC_o,
+output		wire		[11:0]		VID_B_PIX_o,
+output		wire					SOF_Channel_B_o,
+output		wire		[5:0]		VKY_III_Channel_B_IRQ_o,
+output		wire		[1:0]		VID_B_VideoModeClk_o,
+
+// VSRAM Buffer A - VSRAM Buffer B
+input		wire					iBUS_CS_VRAM_A_i,
+input		wire					iBUS_CS_VRAM_B_i,
+output  	wire  	 	[31:0]		iBUS_D_VRAM_A_o,
+output  	wire  	 	[31:0]		iBUS_D_VRAM_B_o,
+
+output 		wire  					Wait_BufferA_o,
+output 		wire  					Wait_BufferB_o,
+output 		wire   					Wait_BufferA_TA_o,
+output 		wire   					Wait_BufferB_TA_o,
+
+// Video RAM Bank A
+inout		wire		[31:0]		VRAM_A_DQ_io,
+output		wire		[3:0]		VRAM_A_BEn_o,
+output		wire		[19:0]		VRAM_A_Addy_o,
+output		wire					VRAM_A_OEn_o,
+output		wire					VRAM_A_WEn_o,
+// Video RAM Bank B
+inout		wire		[31:0]		VRAM_B_DQ_io,
+output		wire		[3:0]		VRAM_B_BEn_o,
+output		wire		[19:0]		VRAM_B_Addy_o,
+output		wire					VRAM_B_OEn_o,
+output		wire					VRAM_B_WEn_o,
+
+input		wire					BANK_SWITCH_i
+);
+
+wire 					Mstr_Ctrl_MemText_Enable;
+wire 					Mstr_Ctrl_MemText_ShowBG;
+wire 					Mstr_Ctrl_FONT_Show_BG_in_Overlay;
+wire 					Mstr_Ctrl_TOS_Graph_Enable;
+wire 		[1:0]		Mstr_Ctrl_TOS_Graph_Mode;
+wire 					Mstr_Ctrl_Game_GUI_Mode;
+
+wire   					HBlanking_B;
+wire   					VBlanking_B;
+wire   					VGE_Engine_VBlanking_B1L;
+wire   					VGE_Engine_VBlanking_B2L;
+wire   		[11:0]		HLineCount_B;
+wire   		[11:0]		HPixelCount_B;
+wire   					MEMTEX_Mono_Font_Output;
+wire   					MEMTEX_Mono_Cursor_Output;
+wire   					MEMTxtClrBGisZero;
+wire   		[31:0]		MEMTEXT_RGB;
+wire  		[31:0]		TOSGRAPH_RGB;
+
+
+
+assign VID_B_VideoModeClk_o = Mstr_Ctrl_Video_Mode;
+assign iBUS_D_Valid_o 		= 1'b0;
+// Video DAC Output B
+assign VID_B_RSTn_o 		= 1'b1;
+assign SOF_Channel_B_o = SOF;
+
+wire 	HSync_Pol;
+wire	VSync_Pol;
+wire	VID_B_CLK_P_o_Divided;
+
+
+wire				Sprite_Collision_Interrupt;
+wire				Bitmap_Collision_Interrupt;
+wire				Tilemap_Collision_Interrupt;
+wire				VDMA_Interrupt;
+
+wire	[11:0]		HPixelCount_Aux;
+wire	[11:0]		HLineCount_Aux;
+wire 	[11:0]		Total_Pixel_Per_Line_Value;
+wire	[11:0]		Total_Line_Per_Image_Value;
+wire	[11:0]		H_Blanking_Value;
+wire	[11:0]		V_Blanking_Value;
+wire	[11:0]		Visible_Pixel_Per_Line_Value;
+wire	[11:0]		Visible_Line_Per_Line_Value;
+wire				VideoModeReset;
+wire				Horizontal_Precharge;
+// Sequencer 
+wire 				Time_Rd_Wr_Access_100Mhz;
+wire 				Time_Rd_Only_Access_100Mhz;
+wire 				Time_Trf_Pixels_2_Pixel_200Mhz;
+wire 				Time_Erase_Pixels_Line_100Mhz;
+wire 				Time_Erase_Pixels_Line_200Mhz;
+wire				Time_2_Display_Line_VideoClk;
+wire	[1:0]		Time_2_Charge_TileMap_Lines;
+// Reset Signals
+wire				Reset_100Mhz;
+wire				Reset_200Mhz;
+wire				Reset_VideoClkOut;
+wire				Reset_VideoClk_Full_Resolution;
+wire				VideoModeReset_100Mhz;
+wire				VideoModeReset_200Mhz;
+
+// Border Color
+wire	[7:0]		Border_Blue;
+wire	[7:0]		Border_Green;
+wire	[7:0]		Border_Red;
+wire				Vertical_Border;
+wire				Horizontal_Border;
+// Background Color
+wire	[7:0]		Background_Blue;
+wire	[7:0]		Background_Green;
+wire	[7:0]		Background_Red;
+// FONT Color
+wire	[7:0]		FONT_Blue;
+wire	[7:0]		FONT_Green;
+wire	[7:0]		FONT_Red;
+wire				Pixel_Mono_FONT_Out;
+// Line Interrupt
+wire 	[15:0] 		LineInterrupt_Reg0;
+wire 	[15:0] 		LineInterrupt_Reg1;
+wire 	[15:0] 		LineInterrupt_Reg2;
+wire 	[15:0] 		LineInterrupt_Reg3;
+
+wire				GAMMA_SELECT;
+// Cursor
+wire 	[15:0]		Cursor_X_Position;
+wire	[15:0]		Cursor_Y_Position;
+wire	[7:0]		Cursor_Control_Reg;
+wire	[7:0]		Cursor_Character_Reg;
+wire	[7:0]		Cursor_Color_Reg;
+wire	[7:0]		Border_Control_Reg;
+wire	[23:0]		Border_Color_Reg;
+wire  	[7:0]		Reg_Text_Ptr_Offset;
+wire	[2:0]		Border_X_Scroll;
+wire	[5:0]		Border_X_Size;
+wire	[5:0] 		Border_Y_Size;
+wire				Border_Enable;
+
+wire 	[31:0] 		MouserPointer_Full_ARGB;
+wire	[31:0]		VGE_RGB_Pixel;
+
+// Master Control
+wire 				Mstr_Ctrl_Text_Mode_Enable;
+wire 				Mstr_Ctrl_Text_Mode_Overlay;
+wire 				Mstr_Ctrl_Graphic_Mode_Enable;
+wire 				Mstr_Ctrl_Bitmap_Enable;
+wire 				Mstr_Ctrl_TileMap_Enable;
+wire 				Mstr_Ctrl_Sprite_Enable;
+wire 				Mstr_Ctrl_GAMMA_Enable;
+wire				Mstr_Ctrl_Turn_Off_Sync;
+wire 				Mstr_Ctrl_Disable_Video;
+wire				Mstr_Ctrl_Doubling_Pixel;
+wire	[1:0]		Mstr_Ctrl_Video_Mode;
+wire	[1:0]		Mstr_Ctrl_Video_Mode_100Mhz;
+wire 				Mstr_Ctrl_Reset;
+wire   				Mstr_Ctrl_Doubling_Pixel_100Mhz;
+wire   	[1:0]		Mstr_Ctrl_Video_Mode_CPU;
+wire 	[1:0] 		Mstr_Ctrl_Pixel_Division;
+wire 	[1:0] 		Mstr_Ctrl_Pixel_Division_100MhzResynced;
+wire 				Mstr_Ctrl_Game_Layer0_Enable;
+wire 				Mstr_Ctrl_Game_Layer1_Enable;
+wire 				Mstr_Ctrl_Game_Layer2_Enable;
+wire 				Mstr_Ctrl_Game_Layer3_Enable;
+wire 				Mstr_Ctrl_Game_Layer0_Type;
+wire 				Mstr_Ctrl_Game_Layer1_Type;
+wire 				Mstr_Ctrl_Game_Layer2_Type;
+wire 				Mstr_Ctrl_Game_Layer3_Type;
+wire 				FONT_Active_Area;
+wire 				TextClrBGisZero;
+
+
+wire	[7:0]  		FONT_Container_Size_X;
+wire 	[7:0]  		FONT_Container_Size_Y;
+wire	[7:0]  		FONT_Size_X;
+wire 	[7:0]  		FONT_Size_Y;
+wire 	[7:0]  		FONT_Horizontal_Num_Char;
+wire 	[7:0]  		FONT_Vertical_Num_Line;	
+
+wire	[1:0]		Time_2_Charge_TileMap_L0_Lines;
+wire	[1:0]		Time_2_Charge_TileMap_L1_Lines;
+wire	[1:0]		Time_2_Charge_TileMap_L2_Lines;
+wire	[1:0]		Time_2_Charge_TileMap_L3_Lines;
+// Video Channel B
+wire 				HSync;
+wire				VSync;
+wire				HBlanking;
+wire				VBlanking;
+wire	[11:0]		HPixelCount;
+wire	[11:0]		HLineCount;
+wire				VGE_VBlanking_1L;
+wire				VGE_VBlanking_2L;
+wire				SOF;
+wire				HBlanking_Latency;
+wire				HBlanking_VGE_Lat;
+wire 	[15:0] 		HBLANK_START;
+wire 	[15:0] 		HBLANK_STOP;
+wire 	[31:0] 		iBUS_D_VRAM_A_GRAPH;
+wire 	[31:0] 		iBUS_D_VRAM_B_GRAPH;
+
+wire 	[31:0]		VGE_VRAM_A_DQ_i;
+wire 	[31:0]		VGE_VRAM_A_DQ_o;
+wire 	[3:0]		VGE_VRAM_A_BEn_o;
+wire 	[19:0]		VGE_VRAM_A_Addy_o;
+wire   				VGE_VRAM_A_OEn_o;
+wire				VGE_VRAM_A_WEn_o;
+
+wire 	[31:0]		VGE_VRAM_B_DQ_i;
+wire 	[31:0]		VGE_VRAM_B_DQ_o;
+wire 	[3:0]		VGE_VRAM_B_BEn_o;
+wire 	[19:0]		VGE_VRAM_B_Addy_o;
+wire   				VGE_VRAM_B_OEn_o;
+wire				VGE_VRAM_B_WEn_o;
+
+wire 	[31:0]		GMT_VRAM_A_DQ_i;
+wire 	[31:0]		GMT_VRAM_A_DQ_o;
+wire 	[3:0]		GMT_VRAM_A_BEn_o;
+wire 	[19:0]		GMT_VRAM_A_Addy_o;
+wire   				GMT_VRAM_A_OEn_o;
+wire				GMT_VRAM_A_WEn_o;
+
+wire 	[31:0]		GMT_VRAM_B_DQ_i;
+wire 	[31:0]		GMT_VRAM_B_DQ_o;
+wire 	[3:0]		GMT_VRAM_B_BEn_o;
+wire 	[19:0]		GMT_VRAM_B_Addy_o;
+wire   				GMT_VRAM_B_OEn_o;
+wire				GMT_VRAM_B_WEn_o;
+
+wire 	[31:0]     	VRAM_A_DATA_IN;
+wire 	[31:0]     	VRAM_A_DATA_OUT;
+wire            	VRAM_A_WEn;
+wire 	[31:0]     	VRAM_B_DATA_IN;
+wire 	[31:0]     	VRAM_B_DATA_OUT;
+wire 	           	VRAM_B_WEn;
+
+wire 				CS_MEMTEXT;
+wire 				CS_MEMTEXT_LUT;
+wire 				CS_MEMTEXT_FONT;
+wire  				CS_EMUTOS_GRAPH;
+wire    [31:0]		DataOut_MEMTEXT_32;
+wire    [31:0]		DataOut_MEMTEXT_LUT_32;
+wire    [31:0]		DataOut_MEMTEXT_FONT_32;
+wire    [31:0]		DataOut_EMUTOS_Graph_32;
+
+
+assign VID_B_CLK_P_o = Clk108Mhz_B_i;
+
+assign  VKY_III_Channel_B_IRQ_o[0] = !SOF;				// Start of Frame 60Hz Interrupt
+assign  VKY_III_Channel_B_IRQ_o[1] = 1'b0;				// Line Interrupt (Programmable)
+assign  VKY_III_Channel_B_IRQ_o[2] = Sprite_Collision_Interrupt;				// Collision Channel A
+assign  VKY_III_Channel_B_IRQ_o[3] = Bitmap_Collision_Interrupt;				// Collision Channel B
+assign  VKY_III_Channel_B_IRQ_o[4] = VDMA_Interrupt;	// DMA 
+assign  VKY_III_Channel_B_IRQ_o[5] = Tilemap_Collision_Interrupt;				// TBD
+
+
+VICKY_III_Reset_Module Channel_B_Reset(
+	.Ext_Reset_i( Reset_i ),
+
+	.Clk_100M_i( Clk100M_i ),
+	.Clk_200M_i( Clk200M_i ),
+	.VideoClk_i( Clk108Mhz_B_i ),
+	.VideoClk_Full_Resolution_i( Clk108Mhz_B_i ),
+	
+	.VideoModeReset_i( VideoModeReset ),
+
+	.Reset_100Mhz_o( Reset_100Mhz ),
+	.Reset_200Mhz_o( Reset_200Mhz ),
+	.Reset_VideoClkOut_o( Reset_VideoClkOut ),
+	.Reset_VideoClk_Full_Resolution_o( Reset_VideoClk_Full_Resolution ),			// To be adjusted
+	.VideoModeReset_100Mhz_o( VideoModeReset_100Mhz ),
+	.VideoModeReset_200Mhz_o( VideoModeReset_200Mhz )
+);
+
+
+/*
+wire [143:0] TP;
+wire  Trigger;
+
+assign TP[31:0] 	= VRAM_B_DATA_IN;
+assign TP[63:32] 	= VRAM_B_DATA_OUT;
+assign TP[83:64]  = VRAM_A_Addy_o; // [19:0]
+assign TP[84] 		= VRAM_B_OEn_o;
+assign TP[85] 		= VRAM_B_WEn_o;
+assign TP[89:86] 	= VRAM_A_BEn_o;
+assign TP[143:90] = 0;
+
+assign Trigger = VRAM_B_WEn_o | VRAM_B_OEn_o;
+
+
+TinyChipScope VSRAM_BUFFER_B (
+	.acq_data_in    (TP),    //        tap.acq_data_in
+	.acq_trigger_in (Trigger), //           .acq_trigger_in
+	.acq_clk        (iBUS_2xClk_i),        //    acq_clk.clk
+	.trigger_in     (Trigger)      // trigger_in.trigger_in
+);
+
+*/
+////////////////////////////////////
+// VSRAM MANAGEMENT SIGNALS
+////////////////////////////////////
+//Mstr_Ctrl_Graphic_Mode_Enable & Mstr_Ctrl_Game_GUI_Mode
+wire MuxVSRAM_SW 		= Mstr_Ctrl_Game_GUI_Mode & Mstr_Ctrl_Graphic_Mode_Enable;
+/*
+assign VRAM_A_BEn_o 	= MuxVSRAM_SW ? VGE_VRAM_A_BEn_o : GMT_VRAM_A_BEn_o;
+assign VRAM_A_Addy_o 	= MuxVSRAM_SW ? VGE_VRAM_A_Addy_o : GMT_VRAM_A_Addy_o;
+assign VRAM_A_OEn_o 	= MuxVSRAM_SW ? VGE_VRAM_A_OEn_o : GMT_VRAM_A_OEn_o;
+assign VRAM_A_WEn_o 	= MuxVSRAM_SW ? VGE_VRAM_A_WEn_o : GMT_VRAM_A_WEn_o;
+
+assign VRAM_B_BEn_o		= MuxVSRAM_SW ? VGE_VRAM_B_BEn_o : GMT_VRAM_B_BEn_o;
+assign VRAM_B_Addy_o 	= MuxVSRAM_SW ? VGE_VRAM_B_Addy_o : GMT_VRAM_B_Addy_o;
+assign VRAM_B_OEn_o 	= MuxVSRAM_SW ? VGE_VRAM_B_OEn_o : GMT_VRAM_B_OEn_o;
+assign VRAM_B_WEn_o 	= MuxVSRAM_SW ? VGE_VRAM_B_WEn_o : GMT_VRAM_B_WEn_o;
+// Databuses
+assign VGE_VRAM_A_DQ_i = VRAM_A_DATA_IN;
+assign VGE_VRAM_B_DQ_i = VRAM_B_DATA_IN;
+
+assign GMT_VRAM_A_DQ_i = VRAM_A_DATA_IN;
+assign GMT_VRAM_B_DQ_i = VRAM_B_DATA_IN;
+
+assign VRAM_A_DATA_OUT 	= MuxVSRAM_SW ? VGE_VRAM_A_DQ_o : GMT_VRAM_A_DQ_o;
+assign VRAM_A_WEn 		= MuxVSRAM_SW ? VGE_VRAM_A_WEn_o : GMT_VRAM_A_WEn_o;
+assign VRAM_B_DATA_OUT 	= MuxVSRAM_SW ? VGE_VRAM_B_DQ_o : GMT_VRAM_B_DQ_o;
+assign VRAM_B_WEn 		= MuxVSRAM_SW ? VGE_VRAM_B_WEn_o : GMT_VRAM_B_WEn_o;
+*/
+
+assign VRAM_A_BEn_o 	= GMT_VRAM_A_BEn_o;
+assign VRAM_A_Addy_o 	= GMT_VRAM_A_Addy_o;
+assign VRAM_A_OEn_o 	= GMT_VRAM_A_OEn_o;
+assign VRAM_A_WEn_o 	= GMT_VRAM_A_WEn_o;
+
+assign VRAM_B_BEn_o		= GMT_VRAM_B_BEn_o;
+assign VRAM_B_Addy_o 	= GMT_VRAM_B_Addy_o;
+assign VRAM_B_OEn_o 	= GMT_VRAM_B_OEn_o;
+assign VRAM_B_WEn_o 	= GMT_VRAM_B_WEn_o;
+// Databuses
+//assign VGE_VRAM_A_DQ_i = VRAM_A_DATA_IN;
+//assign VGE_VRAM_B_DQ_i = VRAM_B_DATA_IN;
+
+assign GMT_VRAM_A_DQ_i = VRAM_A_DATA_IN;
+assign GMT_VRAM_B_DQ_i = VRAM_B_DATA_IN;
+
+assign VRAM_A_DATA_OUT 	= GMT_VRAM_A_DQ_o;
+assign VRAM_A_WEn 		= GMT_VRAM_A_WEn_o;
+assign VRAM_B_DATA_OUT 	= GMT_VRAM_B_DQ_o;
+assign VRAM_B_WEn 		= GMT_VRAM_B_WEn_o;
+
+// Bi-Dir BUS For DATA
+BIDIR_DATA32 MEM_BANKA_DATAIO (
+	.datain ( VRAM_A_DATA_OUT ),
+	.oe ( VRAM_A_WEn ? 32'h0000_0000 : 32'hFFFF_FFFF ),
+	.dataio ( VRAM_A_DQ_io ),
+	.dataout ( VRAM_A_DATA_IN )		// This is the Data Coming from the Exterial World and right now it is 16Bit Wide
+	);
+
+// Bi-Dir BUS For DATA
+BIDIR_DATA32 MEM_BANKB_DATAIO (
+	.datain ( VRAM_B_DATA_OUT ),
+	.oe ( VRAM_B_WEn ? 32'h0000_0000 : 32'hFFFF_FFFF ),
+	.dataio ( VRAM_B_DQ_io ),
+	.dataout ( VRAM_B_DATA_IN )		// This is the Data Coming from the Exterial World and right now it is 16Bit Wide
+	);
+
+
+////////////////////////////////////
+// CHANNEL B
+////////////////////////////////////
+VIII_RegisterBlock_B Vicky_Reg_Blk_B(
+	.rst_i( Reset_i ),				// This is async Reset
+	.Reset_VideoClkOut( Reset_VideoClkOut ),
+	.EngineClk100Mhz_i( Clk100M_i ),
+	.EngineClk200Mhz_i( Clk200M_i ),
+// CPU Signals Interface
+	.iBUS_1xClk_i( iBUS_1xClk_i ),	// CPU/BUS Speed
+    .iBUS_2xClk_i( iBUS_2xClk_i ),	// BUS Speed x 2
+	.BUS_A_i( iBUS_A_i ),
+	.BUS_A_Valid_i( iBUS_A_Valid_i ),
+	
+	.BUS_D8_i( iBUS_D8_i ),
+	.BUS_D16_i( iBUS_D16_i ),
+	.BUS_D32_i( iBUS_D32_i ),
+	.BUS_D_Siz_i( iBUS_D_Siz_i ),	
+	.BUS_D_o( iBUS_VICKYIII_Reg_D_o ),
+	.BUS_RW_i( iBUS_RWn_i ),
+	.BUS_BE_i( iBUS_BE_i ),
+	.BUS_WE_i( iBUS_WE_i ), 
+
+// ChipSelect
+	.CS_Vicky_Registers_i( CS_Vicky_Registers_i ),
+// Video Info
+	.VideoClk_i( Clk108Mhz_B_i ),
+	.SOF_i( SOF ),
+	.DIPSwitch_GAMMA_i( DP_GAMMA_i ),
+	.DIPSwitch_HiRes_i( DP_HIRES_i ),
+// Cursor Register
+	.Cursor_X_Position_o( Cursor_X_Position ),
+	.Cursor_Y_Position_o( Cursor_Y_Position ),
+	.Cursor_Control_Reg_o( Cursor_Control_Reg ),
+	.Cursor_Character_Reg_o( Cursor_Character_Reg ),
+	.Cursor_Color_Reg_o( Cursor_Color_Reg ),
+// FONT
+	.FONT_Container_Size_X_o( FONT_Container_Size_X ),
+	.FONT_Container_Size_Y_o( FONT_Container_Size_Y ),
+	.FONT_Size_X_o( FONT_Size_X ),
+	.FONT_Size_Y_o( FONT_Size_Y ),
+	.FONT_Horizontal_Num_Char_o( FONT_Horizontal_Num_Char ),
+	.FONT_Vertical_Num_Line_o( FONT_Vertical_Num_Line ),	
+// Border Control
+	.Border_Color_Reg_o( Border_Color_Reg  ),
+	.Reg_Text_Ptr_Offset_o( Reg_Text_Ptr_Offset ),
+	.Border_Enable_o( Border_Enable ),
+
+	.Border_X_Scroll_o( Border_X_Scroll ),
+	.Border_X_Size_o( Border_X_Size ),
+	.Border_Y_Size_o( Border_Y_Size ),
+// Background Color
+	.Background_Blue_o( Background_Blue ),
+	.Background_Green_o( Background_Green ),
+	.Background_Red_o( Background_Red ),
+	
+// Vicky Master Control
+	.Mstr_Ctrl_Text_Mode_Enable_o( Mstr_Ctrl_Text_Mode_Enable ),								// Video Clock Domain (108MHz)
+	.Mstr_Ctrl_Text_Mode_Overlay_o( Mstr_Ctrl_Text_Mode_Overlay ),								// Video Clock Domain (108Mhz)
+	.Mstr_Ctrl_Graphic_Mode_Enable_o( Mstr_Ctrl_Graphic_Mode_Enable ),							// CPU Clock Domain
+
+	.Mstr_Ctrl_Bitmap_Enable_o( Mstr_Ctrl_Bitmap_Enable ),										// Engine Clock Domain (100Mhz)
+	.Mstr_Ctrl_TileMap_Enable_o( Mstr_Ctrl_TileMap_Enable ),									// Engine Clock Domain (100Mhz)
+	.Mstr_Ctrl_Sprite_Enable_o( Mstr_Ctrl_Sprite_Enable ),										// Engine Clock Domain (100Mhz)
+	.Mstr_Ctrl_GAMMA_Enable_o( Mstr_Ctrl_GAMMA_Enable ),										// Video Clock Domain (108Mhz) - Enables the Gamma when the Bit[17] is set
+	.Mstr_Ctrl_Turn_Off_Sync_o( Mstr_Ctrl_Turn_Off_Sync ), 										// Video Clock Domain (108Mhz)
+	.Mstr_Ctrl_Disable_Video_o( Mstr_Ctrl_Disable_Video ),										// Engine Clock Domain (100Mhz)
+	.Mstr_Ctrl_Video_Mode_CPU_o( Mstr_Ctrl_Video_Mode_CPU ),
+	.Mstr_Ctrl_Video_Mode_o( Mstr_Ctrl_Video_Mode ),											// Video Clock Domain [1:0]
+	.Mstr_Ctrl_Video_Mode_100MhzReSynced_o( Mstr_Ctrl_Video_Mode_100Mhz ),						// Engine Clock Domain (100Mhz)
+	.Mstr_Ctrl_Pixel_Division_o( Mstr_Ctrl_Pixel_Division  ),									// CPU Clock Domain [1:0]
+	.Mstr_Ctrl_Pixel_Division_100MhzResynced_o( Mstr_Ctrl_Pixel_Division_100MhzResynced ),  	// Engine Clock Domain (100Mhz)
+// New Stuff
+	.Mstr_Ctrl_MemText_Enable_o( Mstr_Ctrl_MemText_Enable ),									// CPU Clock Domain
+	.Mstr_Ctrl_MemText_ShowBG_o( Mstr_Ctrl_MemText_ShowBG ),									// CPU Clock Domain
+	.Mstr_Ctrl_FONT_Show_BG_in_Overlay_o( Mstr_Ctrl_FONT_Show_BG_in_Overlay ),				// CPU Clock Domain
+	.Mstr_Ctrl_TOS_Graph_Enable_o( Mstr_Ctrl_TOS_Graph_Enable ),								// CPU Clock Domain
+	.Mstr_Ctrl_TOS_Graph_Mode_o( Mstr_Ctrl_TOS_Graph_Mode ), 									// CPU Clock Domain [1:0]
+	.Mstr_Ctrl_Game_GUI_Mode_o( Mstr_Ctrl_Game_GUI_Mode  ),									// 
+// New Game System
+	.Mstr_Ctrl_Game_Layer0_Enable_o( Mstr_Ctrl_Game_Layer0_Enable ),
+	.Mstr_Ctrl_Game_Layer0_Type_o( Mstr_Ctrl_Game_Layer0_Type ),
+	.Mstr_Ctrl_Game_Layer1_Enable_o( Mstr_Ctrl_Game_Layer1_Enable ),
+	.Mstr_Ctrl_Game_Layer1_Type_o( Mstr_Ctrl_Game_Layer1_Type ),
+	.Mstr_Ctrl_Game_Layer2_Enable_o( Mstr_Ctrl_Game_Layer2_Enable ),
+	.Mstr_Ctrl_Game_Layer2_Type_o( Mstr_Ctrl_Game_Layer2_Type ),
+	.Mstr_Ctrl_Game_Layer3_Enable_o( Mstr_Ctrl_Game_Layer3_Enable ),
+	.Mstr_Ctrl_Game_Layer3_Type_o( Mstr_Ctrl_Game_Layer3_Type ),
+// Interrupt Stuff		
+	.LineInterrupt_Reg0_o( LineInterrupt_Reg0 ),
+	.LineInterrupt_Reg1_o( LineInterrupt_Reg1 ),
+	.LineInterrupt_Reg2_o( LineInterrupt_Reg2 ),
+	.LineInterrupt_Reg3_o( LineInterrupt_Reg3 )
+	
+);
+
+
+// Next to the Power Connector
+VIII_Graphics_Mixer_B PixelMixer_Channel_B(
+// CPU Interface
+	.CPU_Clk_i( iBUS_1xClk_i ),
+	.CPU_D8_i( iBUS_D8_i ),
+	.CPU_D16_i( iBUS_D16_i ),
+	.CPU_D32_i( iBUS_D32_i ),
+	.CPU_D_Siz_i( iBUS_D_Siz_i ),
+	.CPU_Addy_i( iBUS_A_i ),
+	.CPU_A_Valid_i( iBUS_A_Valid_i ),
+	.CPU_RWn_i( iBUS_RWn_i ),
+	.CPU_BE_i( iBUS_BE_i ),
+	.CPU_WE_i( iBUS_WE_i ), 	
+	.CS_GAMMA_B_i( CS_GAMMA_B_i ),
+	.CS_GAMMA_G_i( CS_GAMMA_G_i ),
+	.CS_GAMMA_R_i( CS_GAMMA_R_i ),
+	
+	.DataOut_GAMMA_B_o( GAMMA_B_Dout_o ),
+	.DataOut_GAMMA_G_o( GAMMA_G_Dout_o ),
+	.DataOut_GAMMA_R_o( GAMMA_R_Dout_o ),
+	
+	.HSync_Pol_Select_i( HSync_Pol ),
+	.VSync_Pol_Select_i( VSync_Pol ),
+	.Mstr_Ctrl_GAMMA_Enable_i( Mstr_Ctrl_GAMMA_Enable ),
+	.Mstr_Ctrl_Text_Mode_Enable_i( Mstr_Ctrl_Text_Mode_Enable ),
+	.Mstr_Ctrl_Text_Mode_Overlay_i( Mstr_Ctrl_Text_Mode_Overlay ),
+	.Mstr_Ctrl_Graphic_Mode_Enable_i( Mstr_Ctrl_Graphic_Mode_Enable ),
+	.Mstr_Ctrl_Turn_Off_Sync_i( Mstr_Ctrl_Turn_Off_Sync ),
+	.Mstr_Ctrl_MemText_Enable_i( Mstr_Ctrl_MemText_Enable ),
+	.Mstr_Ctrl_MemText_ShowBG_i( Mstr_Ctrl_MemText_ShowBG ),
+	.Mstr_Ctrl_FONT_Show_BG_in_Overlay_i( Mstr_Ctrl_FONT_Show_BG_in_Overlay ),
+	.Mstr_Ctrl_TOS_Graph_Enable_i( Mstr_Ctrl_TOS_Graph_Enable ),
+// Video Interface
+	.Video_Clk_i( Clk108Mhz_B_i ),
+
+// Border Color
+	.Border_Blue_i( Border_Blue ),
+	.Border_Green_i( Border_Green ),
+	.Border_Red_i( Border_Red ),
+	.Border_Horizontal_i( Horizontal_Border ),
+	.Border_Vertical_i( Vertical_Border ),
+
+// Block Text Mode
+	.FONT_Mono_i( Pixel_Mono_FONT_Out ),
+	.FONT_Active_Area_i( FONT_Active_Area  ),
+	.FONT_Blue_i( FONT_Blue ),
+	.FONT_Green_i( FONT_Green ),
+	.FONT_Red_i( FONT_Red ),
+	.TextClrBGisZero_i( TextClrBGisZero  ),
+// Memory Text
+	.MEMText_Mono_Font_Out_i( MEMTEX_Mono_Font_Output ),
+	.MEMText_Mono_Cursor_Out_i( MEMTEX_Mono_Cursor_Output ),
+	.MEMText_ClrBGisZero_i( MEMTxtClrBGisZero ),
+	.MEMText_RGB_i( MEMTEXT_RGB ),
+// TOSGRAPH
+	.TOSGRAPH_RGB_i( TOSGRAPH_RGB ),
+// Mouse Color
+	.Mouse_Full_RGB_i( MouserPointer_Full_ARGB ),
+
+// VGE Color
+	.VGE_Blue_i( VGE_RGB_Pixel[7:0] ),
+	.VGE_Green_i( VGE_RGB_Pixel[15:8] ),
+	.VGE_Red_i( VGE_RGB_Pixel[23:16] ),
+
+// Timing Generator
+	.HSync_i( HSync ),
+	.VSync_i( VSync ),
+	.HBlanking_i( HBlanking ),
+	.VBlanking_i( VBlanking ),
+
+// DAC Output Signals
+	.VID_PIXEL_o( VID_B_PIX_o ),
+	.VID_DE_o( VID_B_DE_o ),
+	.VID_HSYNC_o( VID_B_HSYNC_o ),
+	.VID_VSYNC_o( VID_B_VSYNC_o )
+);
+
+VIII_GUI_MemText_Module VSRAM_MANAGE( 
+// Reset
+	.Reset_i( Reset_i ),                // System Reset
+// Clocks
+	.iBUS_1xClk_i( iBUS_1xClk_i ),			// 25Mhz or 33Mhz
+	.iBUS_2xClk_i( iBUS_2xClk_i ),			// 50Mhz or 66Mhz
+	.iBUS_4xClk_i( iBUS_4xClk_i ),			// 100Mhz or 133Mhz	
+// Buses
+	.iBUS_A_i( iBUS_A_i ),
+	.iBUS_A_Valid_i( iBUS_A_Valid_i ),
+	.iBUS_D8_i( iBUS_D8_i ),
+	.iBUS_D16_i( iBUS_D16_i ),
+	.iBUS_D32_i( iBUS_D32_i ),
+	.iBUS_D_Siz_i( iBUS_D_Siz_i ),
+	.iBUS_RWn_i( iBUS_RWn_i ),
+	.iBUS_BE_i( iBUS_BE_i ),
+	.iBUS_WE_i( iBUS_WE_i ),
+// Control Bits
+	.Mstr_Ctrl_Video_Mode_CPU_i( Mstr_Ctrl_Video_Mode_CPU ),
+	.Mstr_Ctrl_MemText_Enable_i( Mstr_Ctrl_MemText_Enable  ),
+	.Mstr_Ctrl_MemText_ShowBG_i( Mstr_Ctrl_MemText_ShowBG  ),
+	.Mstr_Ctrl_FONT_Show_BG_in_Overlay_i( Mstr_Ctrl_FONT_Show_BG_in_Overlay ),
+	.Mstr_Ctrl_TOS_Graph_Enable_i( Mstr_Ctrl_TOS_Graph_Enable ),
+	.Mstr_Ctrl_TOS_Graph_Mode_i( Mstr_Ctrl_TOS_Graph_Mode  ),
+	.Mstr_Ctrl_Game_GUI_Mode_i( Mstr_Ctrl_Game_GUI_Mode  ),
+// Interface to devices
+	.CS_MEMTEXT_i( CS_MEMTEXT_i ),
+	.CS_MEMTEXT_LUT_i( CS_MEMTEXT_LUT_i ),
+	.CS_MEMTEXT_FONT_i( CS_MEMTEXT_FONT_i ),
+	.CS_EMUTOS_GRAPH_i( CS_EMUTOS_GRAPH_i ),
+//
+	.DataOut_MEMTEXT_o( DataOut_MEMTEXT_o ),
+	.DataOut_MEMTEXT_LUT_o( DataOut_MEMTEXT_LUT_o ),
+	.DataOut_MEMTEXT_FONT_o( DataOut_MEMTEXT_FONT_o ),
+	.DataOut_EMUTOS_Graph_o( DataOut_EMUTOS_Graph_o ),
+////////////////////////////////////////////////////////////////////
+	//.VideoClock_i( Clk108Mhz_B_i ),
+	.VideoClock_i( Clk108Mhz_B_i ),		// Just High Frequency
+	.SOF_Channel_i( SOF ),
+	.HBlanking_i( HBlanking ),
+	.VBlanking_i( VBlanking ),
+	.VGE_Engine_VBlanking_1L_i( VGE_VBlanking_1L ),	
+	.VGE_Engine_VBlanking_2L_i( VGE_VBlanking_2L ),
+	.HLineCount_i( HLineCount ),
+	.HPixelCount_i( HPixelCount ),
+// Memory Text
+	.MEMText_Mono_Font_Out_o( MEMTEX_Mono_Font_Output ),
+	.MEMText_Mono_Cursor_Out_o( MEMTEX_Mono_Cursor_Output ),
+	.MEMText_ClrBGisZero_o( MEMTxtClrBGisZero ),
+	.MEMText_RGB_o( MEMTEXT_RGB ),
+// TOSGRAPH Output
+	.TOSGRAPH_RGB_o( TOSGRAPH_RGB ),
+// Memory Buffer Management Signals
+	.Wait_BufferA_o( Wait_BufferA_o ),
+	.Wait_BufferB_o( Wait_BufferB_o ),
+	.Wait_BufferA_TA_o( Wait_BufferA_TA_o ),
+	.Wait_BufferB_TA_o( Wait_BufferB_TA_o ),	
+//////////////////////////////////////////////////////////////////////
+// VSRAM Buffer A - VSRAM Buffer B
+	.iBUS_CS_VRAM_A_i( iBUS_CS_VRAM_A_i ),
+	.iBUS_CS_VRAM_B_i( iBUS_CS_VRAM_B_i  ),
+	.iBUS_D_VRAM_A_o( iBUS_D_VRAM_A_o  ),
+	.iBUS_D_VRAM_B_o( iBUS_D_VRAM_B_o ),
+// Video SRAM BANK A - 1Mx32
+	.VRAM_A_DQ_i(  GMT_VRAM_A_DQ_i ),
+	.VRAM_A_DQ_o(  GMT_VRAM_A_DQ_o ),
+	.VRAM_A_BEn_o( GMT_VRAM_A_BEn_o ),
+	.VRAM_A_Addy_o( GMT_VRAM_A_Addy_o ),
+	.VRAM_A_OEn_o( GMT_VRAM_A_OEn_o ),
+	.VRAM_A_WEn_o( GMT_VRAM_A_WEn_o ),
+// Video SRAM BANK B - 1Mx32
+	.VRAM_B_DQ_i( GMT_VRAM_B_DQ_i  ),
+	.VRAM_B_DQ_o( GMT_VRAM_B_DQ_o  ),
+	.VRAM_B_BEn_o( GMT_VRAM_B_BEn_o ),
+	.VRAM_B_Addy_o( GMT_VRAM_B_Addy_o ),
+	.VRAM_B_OEn_o( GMT_VRAM_B_OEn_o ),
+	.VRAM_B_WEn_o( GMT_VRAM_B_WEn_o )
+);
+
+
+/*
+wire [143:0] TP;
+wire  Trigger;
+
+assign TP[11:0] 	= HPixelCount;
+assign TP[23:12] 	= HLineCount;
+assign TP[24]		= HSync;
+assign TP[25] 		= VSync;
+assign TP[26]		= HSync_Pol;
+assign TP[27] 		= VSync_Pol;
+assign TP[28]		= HBlanking;
+assign TP[29] 		= VBlanking;
+assign TP[30]		= HBlanking_Latency;
+assign TP[31] 		= HBlanking_VGE_Lat;
+assign TP[32]		= VGE_VBlanking_1L;
+assign TP[33] 		= VGE_VBlanking_2L;
+assign TP[34] 		= SOF;
+assign TP[35] 		= Pixel_Mono_FONT_Out;
+assign TP[37:36] 	= Mstr_Ctrl_Video_Mode;
+assign TP[47:40]	= FONT_Blue;
+assign TP[55:48]	= FONT_Green;
+assign TP[63:56]	= FONT_Red;
+assign TP[64] 		= Horizontal_Border;
+assign TP[65] 		= Vertical_Border;
+assign TP[66] 		= Horizontal_Precharge;
+assign TP[143:67] 	= 0;
+wire [31:0] Source;
+wire [31:0] Probe;
+
+SourceAndProbe SOURCE_VID (
+	.source (Source), // sources.source
+	.probe  (Probe)   //  probes.probe
+);
+assign Probe = 32'h0000_0000;
+assign Trigger = ({4'b0000, HLineCount} == Source[31:16] & {4'b0000, HPixelCount} == Source[15:0] );
+
+TinyChipScope CHIPSCOPE_VID (
+	.acq_data_in    (TP),    //        tap.acq_data_in
+	.acq_trigger_in (Trigger), //           .acq_trigger_in
+	.acq_clk        ( Clk108Mhz_B_i),        //    acq_clk.clk
+	.trigger_in     ( Trigger )      // trigger_in.trigger_in
+);
+*/
+
+VIII_VideoGen_B_New VideoTimingGen_B(
+	.Reset_VideoClk_Full_Resolution( Reset_i ),
+	.VideoClk_i( Clk108Mhz_B_i ),
+	.EngineClk100Mhz_i( Clk100M_i ),
+	.EngineClk200Mhz_i( Clk200M_i ),
+	.Mstr_Ctrl_Video_Mode_i( Mstr_Ctrl_Video_Mode ),
+	.Mstr_Ctrl_Doubling_Pixel_i( Mstr_Ctrl_Pixel_Division[1] ),	//Mstr_Ctrl_Pixel_Division[1:0] -> 00: 1280, 01: 640, 10: 320, 11: 320.
+	
+	.TLayer0Mode8_16_i( TLayer0Mode8_16 ),
+	.TLayer1Mode8_16_i( TLayer1Mode8_16 ),
+	.TLayer2Mode8_16_i( TLayer2Mode8_16 ),
+	.TLayer3Mode8_16_i( TLayer3Mode8_16 ),	
+	
+	.HSYNC_o( HSync ),					//HD
+	.VSYNC_o( VSync ),					//VD
+	.HSync_Pol_o( HSync_Pol ),			// Both 1280x960 & 1280x1024 have Positive Sync
+	.VSync_Pol_o( VSync_Pol ),			// Both 1280x960 & 1280x1024 have Positive Sync
+	.HPixelCount_o( HPixelCount ),
+	.HLineCount_o( HLineCount ),
+
+	.HBlanking_Latency_o( HBlanking_Latency ),	// Early HBlanking Signal to Account for the Latency of the different memory Buffers
+	.HBlanking_Latency_VGE_o ( HBlanking_VGE_Lat ),
+	.HBlanking_o( HBlanking ),
+	.VBlanking_o( VBlanking ),
+	.VGE_Engine_VBlanking_1L_o( VGE_VBlanking_1L ),	// Vertical Frame Start - 1 Line
+	.VGE_Engine_VBlanking_2L_o( VGE_VBlanking_2L ),	// Vertical Frame Start - 2 Lines
+	.SOF_o( SOF ),
+	
+	.HBLANK_START_o( HBLANK_START ),
+	.HBLANK_STOP_o( HBLANK_STOP ),	
+	
+	.Time_Rd_Wr_Access_100Mhz_o( Time_Rd_Wr_Access_100Mhz ),		
+	.Time_Rd_Only_Access_100Mhz_o( Time_Rd_Only_Access_100Mhz ),	// 
+	.Time_Trf_Pixels_2_Pixel_200Mhz_o( Time_Trf_Pixels_2_Pixel_200Mhz ),
+	.Time_Erase_Pixels_Line_100Mhz_o( Time_Erase_Pixels_Line_100Mhz ),
+	.Time_Erase_Pixels_Line_200Mhz_o( Time_Erase_Pixels_Line_200Mhz ),	
+	.Time_2_Display_Line_VideoClk_o( Time_2_Display_Line_VideoClk ),
+	//.Time_2_Charge_TileMap_Lines_o( Time_2_Charge_TileMap_Lines )
+	.Time_2_Charge_TileMap_L0_Lines_o( Time_2_Charge_TileMap_L0_Lines ),
+	.Time_2_Charge_TileMap_L1_Lines_o( Time_2_Charge_TileMap_L1_Lines ),
+	.Time_2_Charge_TileMap_L2_Lines_o( Time_2_Charge_TileMap_L2_Lines ),
+	.Time_2_Charge_TileMap_L3_Lines_o( Time_2_Charge_TileMap_L3_Lines )
+);
+
+VIII_ModeTimingInfo_B_NEW VideoMode_Info_B(
+	.VideoRst_i( Reset_VideoClkOut ),
+	.PLL_Locked( Clk108Mhz_Locked_B_i ),
+	.Video_Clk_i( Clk108Mhz_B_i ),
+	.Mstr_Ctrl_Video_Mode_i( Mstr_Ctrl_Video_Mode ),
+	.SOF_i( SOF ),
+
+	.Total_Pixel_Per_Line_Value_o( Total_Pixel_Per_Line_Value ),
+	.Total_Line_Per_Image_Value_o( Total_Line_Per_Image_Value ),
+	.H_Blanking_Value_o( H_Blanking_Value ),
+	.V_Blanking_Value_o( V_Blanking_Value ),
+	.Visible_Pixel_Per_Line_Value_o( Visible_Pixel_Per_Line_Value ),
+	.Visible_Line_Per_Line_Value_o( Visible_Line_Per_Line_Value ),
+	.VideoModeReset_o( VideoModeReset )
+);
+
+// Channel B
+VIII_Text_Block_B_NEW Monochrome_FONT_Block(
+	.VideoClk_i( Clk108Mhz_B_i ),  // High Resolution Only
+	.VideoRst_i( Reset_VideoClkOut ),
+	.HLineCount_i( HLineCount ),
+	.HPixelCount_i( HPixelCount ),
+	.Vsync_i( VSync ),
+	.VBlanking_i( VBlanking ),
+	.HBlanking_i( HBlanking_Latency ), //HBlanking_Latency
+	
+	.Total_Pixel_Per_Line_Value_i( Total_Pixel_Per_Line_Value ),
+	.Total_Line_Per_Image_Value_i( Total_Line_Per_Image_Value ),
+	.H_Blanking_Value_i( H_Blanking_Value ),
+	.V_Blanking_Value_i( V_Blanking_Value ),
+	.Visible_Pixel_Per_Line_Value_i( Visible_Pixel_Per_Line_Value ),
+	.Visible_Line_Per_Line_Value_i( Visible_Line_Per_Line_Value ),
+	.VideoModeReset_i( VideoModeReset ),
+	
+	.Mstr_Ctrl_Video_Mode_i( Mstr_Ctrl_Video_Mode ),
+	.VideoMode_Double_i( Mstr_Ctrl_Doubling_Pixel ),
+	.SOF_i( SOF ),	
+	.Border_Blue_o( Border_Blue ),
+	.Border_Green_o( Border_Green ),
+	.Border_Red_o( Border_Red ),
+	.Horizontal_Border_o( Horizontal_Border ),
+	.Vertical_Border_o( Vertical_Border ),
+	.Horizontal_Precharge_o( Horizontal_Precharge ),
+// Border Control	
+	.Reg_Text_Ptr_Offset_i( Reg_Text_Ptr_Offset ),
+	.Border_Enable_i( Border_Enable ),
+	//.Border_Enable_i( Border_Enable ),	
+	.Reg_Border_Color_i( Border_Color_Reg ),		// Bright Orange
+	.Border_X_Scroll_i( Border_X_Scroll ),	// 2:0
+	.Border_X_Size_i( Border_X_Size ),							// 5:0
+	.Border_Y_Size_i( Border_Y_Size ),							// 5:0
+	
+	.TextMode_Enable_i( Mstr_Ctrl_Text_Mode_Enable ),
+// Cursor Register
+	.Cursor_X_Position_i( Cursor_X_Position ),
+	.Cursor_Y_Position_i( Cursor_Y_Position ),
+	.Cursor_Control_Reg_i( Cursor_Control_Reg ),
+	.Cursor_Character_Reg_i( Cursor_Character_Reg),
+	.Cursor_Color_Reg_i( Cursor_Color_Reg ),
+// FONT Parameters
+	.FONT_Container_Size_X_i( FONT_Container_Size_X ),
+	.FONT_Container_Size_Y_i( FONT_Container_Size_Y ),
+	.FONT_Size_X_i( FONT_Size_X ),
+	.FONT_Size_Y_i( FONT_Size_Y ),
+	.FONT_Horizontal_Num_Char_i( FONT_Horizontal_Num_Char ),
+	.FONT_Vertical_Num_Line_i( FONT_Vertical_Num_Line ),
+
+	.Mono_Font_Output_o( Pixel_Mono_FONT_Out ),			// Actual FONT Pixel Output (1 Bit Per Pixel)
+
+	.FONT_Active_Area_o( FONT_Active_Area ),
+	.TextClrBGisZero_o( TextClrBGisZero ),
+
+	.Color_Font_Blue( FONT_Blue ),
+	.Color_Font_Green( FONT_Green ),
+	.Color_Font_Red( FONT_Red ),
+
+	.CPU_Clk_i( iBUS_1xClk_i ),
+	.iBUS_A_i( iBUS_A_i ),
+	.iBUS_A_Valid_i( iBUS_A_Valid_i ),
+	.iBUS_D8_i( iBUS_D8_i ),
+	.iBUS_D16_i( iBUS_D16_i ),
+	.iBUS_D32_i( iBUS_D32_i ),
+	.iBUS_D_Siz_i( iBUS_D_Siz_i ),	
+	.iBUS_RWn_i( iBUS_RWn_i ),
+	.iBUS_BE_i( iBUS_BE_i ),
+	.iBUS_WE_i( iBUS_WE_i ),
+	
+	.iBUS_Text_Memory_D_o( iBUS_Text_Memory_D_o ),
+	.iBUS_Color_Memory_D_o( iBUS_Color_Memory_D_o ), 
+	
+	.CS_TextMemory_i( CS_TextMemory_i ),
+	.CS_ColorMemory_i( CS_ColorMemory_i ),
+	
+	.CS_FOREGROUND_CLUT_i( CS_FG_CLUT_i ),		// High Part of the Color
+	.CS_BACKGROUND_CLUT_i( CS_BG_CLUT_i ),	
+	.CS_FONT_Memory_i( CS_FONT_i )
+);
+
+MousePointerSpriteModule MousePointerModule
+(
+	.rst_i( Reset_i ),				// This is async Reset
+	.Bus_Clk_i( iBUS_1xClk_i ),
+	.Bus_A_i( iBUS_A_i ),
+	.Bus_A_Valid_i( iBUS_A_Valid_i ),
+	.Bus_RW_i( iBUS_RWn_i ),
+	.Bus_BE_i( iBUS_BE_i  ),
+	.Bus_WE_i( iBUS_WE_i ), 
+	.Bus_D8_i( iBUS_D8_i ),
+	.Bus_D16_i( iBUS_D16_i ),
+	.Bus_D32_i( iBUS_D32_i ),
+	.Bus_D_Siz_i( iBUS_D_Siz_i ),	
+	.Bus_D_o( DataOut_B_Mouse_Regs_o ),
+
+	.Mouse_Pointer_Mem_CS_i( CS_Mouse_Ptr_B_Graphics_i ),
+	.Mouse_Pointer_Reg_CS_i( CS_Mouse_Ptr_B_Registers_i ),
+	.SOF_i( SOF ),
+
+	.VideoClk_i( Clk108Mhz_B_i ),
+	.VideoRst_i( Reset_VideoClkOut ),
+	.VideoModeReset_i( VideoModeReset ),
+	.Mstr_Ctrl_Video_Mode_CPU_i( Mstr_Ctrl_Video_Mode_CPU ),
+	//.Mstr_Ctrl_Doubling_Pixel_i( Mstr_Ctrl_Doubling_Pixel ),
+	.Mstr_Ctrl_Doubling_Pixel_i( Mstr_Ctrl_Pixel_Division[1] ),	
+	.VSync_i( VSync ),
+	.HSync_i( HSync ),
+	.VBlanking_i( VBlanking ),					// 
+	.DE_i( HBlanking & VBlanking ),
+	.HBLANK_START_i( HBLANK_START ), 		//1
+	.HBLANK_STOP_i( HBLANK_STOP ),			//256
+	.HLineCount_i( HLineCount ),
+	.HPixelCount_i( HPixelCount ),
+	.Limit_Resolution_X_i( {4'b0000, Visible_Pixel_Per_Line_Value} ),
+	.Limit_Resolution_Y_i( {4'b0000, Visible_Line_Per_Line_Value } ),
+	.Pointer_RGB_o( MouserPointer_Full_ARGB )
+);
+
+wire TLayer0Mode8_16 = 1'b0;
+wire TLayer1Mode8_16 = 1'b0;
+wire TLayer2Mode8_16 = 1'b0;
+wire TLayer3Mode8_16 = 1'b0;
+
+assign VGE_RGB_Pixel = 32'hFF_00_00_00;
+
+assign DataOut_LUT_o = 32'h00000000;
+assign DataOut_VideoMemory_o = 32'h00000000;
+assign DataOut_Bitmap_Regs_o = 32'h00000000;
+assign DataOut_Tile0_Regs_o = 32'h00000000;
+assign DataOut_Tile1_Regs_o = 32'h00000000;
+assign DataOut_Collisions_Regs_o = 32'h00000000;
+assign DataOut_Sprites_Regs_o = 32'h00000000;
+assign Tilemap_Collision_Interrupt = 1'b0;
+assign Bitmap_Collision_Interrupt = 1'b0;
+assign Tilemap_Collision_Interrupt = 1'b0;
+assign VDMA_Interrupt = 1'b0;
+
+/*
+VICKY_III_VGE_MSTR VGE_MasterCTRL_Module_B(
+	// System Reset
+	.Reset_100Mhz( Reset_100Mhz ),
+	.Reset_200Mhz( Reset_200Mhz ),
+	.Reset_VideoClkOut( Reset_VideoClkOut ),
+	.VideoClock_108Mhz_i( Clk108Mhz_B_i ),
+	.Reset_i( Reset_i ), 
+	// Video Mode Change
+	.VideoModeReset_i( VideoModeReset ),
+	.VideoModeReset_100Mhz_i( VideoModeReset_100Mhz ),
+	.VideoModeReset_200Mhz_i( VideoModeReset_200Mhz ),
+	// Clocks
+	.Bus_Clk_i( iBUS_1xClk_i ),
+	.EngineClk100Mhz_A_i( Clk100M_i ),
+	.EngineClk100Mhz_B_i( Clk100M_i ),		// Memory Interface
+	.EngineClk200Mhz_i( Clk200M_i ),		// VGE Engine Speed
+	.EngineClk200Mhz_Aux_i( Clk200M_i ),		// VGE Engine Speed	
+	
+	.VideoClock_Full_Resolution_i( Clk108Mhz_B_i ),
+	.VideoMuxClk_i( Clk108Mhz_B_i ),	
+	// Registers Input Sync Video Frequency
+	.Mstr_Ctrl_Video_Mode_i( Mstr_Ctrl_Video_Mode ),
+	.Mstr_Ctrl_Doubling_Pixel_i( Mstr_Ctrl_Pixel_Division[1] ),
+	.Mstr_Ctrl_Doubling_Pixel_100Mhz_i( Mstr_Ctrl_Pixel_Division_100MhzResynced[1] ), 
+	.Mstr_Ctrl_Video_Mode100Mhz_i( Mstr_Ctrl_Video_Mode_100Mhz ), 
+	.Mstr_Ctrl_Graphic_Mode_Enable_i( Mstr_Ctrl_Graphic_Mode_Enable ),
+	.Mstr_Ctrl_Bitmap_Enable_i( Mstr_Ctrl_Bitmap_Enable ),
+	.Mstr_Ctrl_TileMap_Enable_i( Mstr_Ctrl_TileMap_Enable ),
+	.Mstr_Ctrl_Sprite_Enable_i( Mstr_Ctrl_Sprite_Enable ),
+	.Mstr_Ctrl_Disable_Video_i( Mstr_Ctrl_Disable_Video ),
+// New Game System
+	.Mstr_Ctrl_Game_Layer0_Enable_i( Mstr_Ctrl_Game_Layer0_Enable ),
+	.Mstr_Ctrl_Game_Layer0_Type_i( Mstr_Ctrl_Game_Layer0_Type ),
+	.Mstr_Ctrl_Game_Layer1_Enable_i( Mstr_Ctrl_Game_Layer1_Enable ),
+	.Mstr_Ctrl_Game_Layer1_Type_i( Mstr_Ctrl_Game_Layer1_Type ),
+	.Mstr_Ctrl_Game_Layer2_Enable_i( Mstr_Ctrl_Game_Layer2_Enable ),
+	.Mstr_Ctrl_Game_Layer2_Type_i( Mstr_Ctrl_Game_Layer2_Type ),
+	.Mstr_Ctrl_Game_Layer3_Enable_i( Mstr_Ctrl_Game_Layer3_Enable ),
+	.Mstr_Ctrl_Game_Layer3_Type_i( Mstr_Ctrl_Game_Layer3_Type ),	
+	
+	// Video Interface
+	.SOF_i( SOF ),
+	.Vsync_i( VSync ),
+	.VBlanking_i( VBlanking  ),
+	.VGE_VBlanking_i( VGE_VBlanking_2L ), 
+	.HBlanking_VGE_Lat_i( HBlanking_VGE_Lat ),
+	.HBlanking_i( HBlanking ),
+	.Horizontal_Border_i( Horizontal_Border ),
+	.Vertical_Border_i( Vertical_Border ),
+	.Horizontal_Precharge_i( Horizontal_Precharge ),
+	// Sequencer Signals
+	.Time_Rd_Wr_Access_100Mhz_i( Time_Rd_Wr_Access_100Mhz ),		
+	.Time_Rd_Only_Access_100Mhz_i( Time_Rd_Only_Access_100Mhz ),	// 
+	.Time_Trf_Pixels_2_Pixel_200Mhz_i( Time_Trf_Pixels_2_Pixel_200Mhz ),
+	.Time_Erase_Pixels_Line_100Mhz_i( Time_Erase_Pixels_Line_100Mhz ),
+	.Time_Erase_Pixels_Line_200Mhz_i( Time_Erase_Pixels_Line_200Mhz ),
+	.Time_2_Display_Line_VideoClk_i( Time_2_Display_Line_VideoClk ),
+	//.Time_2_Charge_TileMap_Lines_i( Time_2_Charge_TileMap_Lines ),
+	.Time_2_Charge_TileMap_L0_Lines_i( Time_2_Charge_TileMap_L0_Lines ),
+	.Time_2_Charge_TileMap_L1_Lines_i( Time_2_Charge_TileMap_L1_Lines ),
+	.Time_2_Charge_TileMap_L2_Lines_i( Time_2_Charge_TileMap_L2_Lines ),
+	.Time_2_Charge_TileMap_L3_Lines_i( Time_2_Charge_TileMap_L3_Lines ),	
+		
+
+	// Video Timmings	
+	.Total_Pixel_Per_Line_Value_i( Total_Pixel_Per_Line_Value ),
+	.Total_Line_Per_Image_Value_i( Total_Line_Per_Image_Value ),
+	.H_Blanking_Value_i( H_Blanking_Value ),
+	.V_Blanking_Value_i( V_Blanking_Value ),
+	.Visible_Pixel_Per_Line_Value_i( Visible_Pixel_Per_Line_Value ),
+	.Visible_Line_Per_Line_Value_i( Visible_Line_Per_Line_Value ),	
+
+	.Background_Blue_i( Background_Blue ),
+	.Background_Green_i( Background_Green ),
+	.Background_Red_i( Background_Red ),	
+	// Video Output from VGE
+	.VGE_RGB_Pixel_o( VGE_RGB_Pixel ),
+
+	// CPU Clock
+	.Bus_A_i( iBUS_A_i ),
+	.Bus_RW_i( iBUS_RWn_i ),
+	.Bus_BE_i( iBUS_BE_i ),
+	.Bus_WE_i( iBUS_WE_i ), 
+	.Bus_D8_i( iBUS_D8_i ),
+	.Bus_D16_i( iBUS_D16_i ),
+	.Bus_D32_i( iBUS_D32_i ),
+	.Bus_D_Siz_i( iBUS_D_Siz_i ),
+	.Bus_A_Valid_i( iBUS_A_Valid_i ),
+	
+	// Chip Selects
+	.CS_VMEM_2_CPU_i( 1'b0 ), 
+	.CS_Bitmap_Registers_i( CS_Bitmap_Registers_i ),
+	.CS_Tile0_Registers_i( CS_Tile0_Registers_i ),
+	.CS_Tile1_Registers_i( CS_Tile1_Registers_i ),
+	.CS_Collisions_Registers_i( CS_Collisions_Registers_i ),
+	.CS_Sprites_Registers_i( CS_Sprites_Registers_i ),	
+	.CS_LUT0_i( CS_LUT0_i ),
+	.CS_VDMA_Controller_i( 1'b0 ),
+
+	.iBUS_CS_VRAM_A_i( iBUS_CS_VRAM_A_i ),
+	.iBUS_CS_VRAM_B_i( iBUS_CS_VRAM_B_i ),
+	.iBUS_D_VRAM_A_o( iBUS_D_VRAM_A_GRAPH ),
+	.iBUS_D_VRAM_B_o( iBUS_D_VRAM_B_GRAPH ),
+
+	// Data Output toward Data Out MUX
+	.DataOut_LUT_o( DataOut_LUT_o ),
+	.DataOut_VideoMemory_o( DataOut_VideoMemory_o ),
+//	.DataOut_VDMA_o( DataOut_VDMA_Controller_o ),
+	.DataOut_Bitmap_Regs_o( DataOut_Bitmap_Regs_o ),
+	.DataOut_Tile0_Regs_o( DataOut_Tile0_Regs_o ),
+	.DataOut_Tile1_Regs_o( DataOut_Tile1_Regs_o ),
+	.DataOut_Collisions_Regs_o( DataOut_Collisions_Regs_o ),
+	.DataOut_Sprites_Regs_o( DataOut_Sprites_Regs_o ),
+	// VDMA - 1 Channel
+	.VDMA_Interrupt_o		( VDMA_Interrupt ),
+	
+	.Sprite_Collision_Interrupt_o( Sprite_Collision_Interrupt ),
+	.Bitmap_Collision_Interrupt_o( Bitmap_Collision_Interrupt ),	
+	.Tilemap_Collision_Interrupt_o( Tilemap_Collision_Interrupt ), 
+	
+	// TileMap Control signal for the Video Signal Sequencer
+	.TLayer0Mode8_16_o( TLayer0Mode8_16 ),
+	.TLayer1Mode8_16_o( TLayer1Mode8_16 ),
+	.TLayer2Mode8_16_o( TLayer2Mode8_16 ),
+	.TLayer3Mode8_16_o( TLayer3Mode8_16 ),
+
+	// New SDMA 2 VDMA Interface
+// Input FIFO Interface from the VDMA Controller	
+//	.FIFO_Input_Channel_o( VDMA_2_SDMA_Data_Channel ),
+//	.FIFO_Input_Read_i( VDMA_2_SDMA_Data_Read ),
+//	.FIFO_Input_Count_o( FIFO_Input_Count ),	
+//	.FIFO_Input_Empty_o( VDMA_2_SDMA_Data_Empty ), 
+// Output FIFO Interface to  the VDMA Controller
+//	.FIFO_Output_Clear_i( FIFO_Output_Clear ),
+//	.FIFO_Output_Channel_i( SDMA_2_VDMA_Data_Channel ), 
+//	.FIFO_Output_Write_i( SDMA_2_VDMA_Data_Write ),
+//	.FIFO_Output_Count_o( FIFO_Output_Count ),
+//	.FIFO_OUtput_Full_o( SDMA_2_VDMA_Data_Full )	,
+
+// V(DRAM) Interface A
+// Video RAM Bank A
+	.VRAM_A_DQ_i(  32'h0000_00000 ),
+	.VRAM_A_DQ_o(  VGE_VRAM_A_DQ_o ),
+	.VRAM_A_BEn_o( VGE_VRAM_A_BEn_o ),
+	.VRAM_A_Addy_o( VGE_VRAM_A_Addy_o ),
+	.VRAM_A_OEn_o( VGE_VRAM_A_OEn_o ),
+	.VRAM_A_WEn_o( VGE_VRAM_A_WEn_o ),
+// Video RAM Bank B
+	.VRAM_B_DQ_i( 32'h0000_00000  ),
+	.VRAM_B_DQ_o( VGE_VRAM_B_DQ_o  ),
+	.VRAM_B_BEn_o( VGE_VRAM_B_BEn_o ),
+	.VRAM_B_Addy_o( VGE_VRAM_B_Addy_o ),
+	.VRAM_B_OEn_o( VGE_VRAM_B_OEn_o ),
+	.VRAM_B_WEn_o( VGE_VRAM_B_WEn_o ),
+	
+	.BANK_SWITCH_i( BANK_SWITCH_i )
+);
+*/
+
+
+
+//assign DataOut_LUT_o = 16'h7700;
+//assign DataOut_VideoMemory_o = 16'h6600;
+//assign DataOut_Bitmap_Regs_o = 16'h5500;
+//assign DataOut_Tile0_Regs_o = 16'h4400;
+//assign DataOut_Tile1_Regs_o = 16'h3300;
+//assign DataOut_Collisions_Regs_o = 16'h2200;
+//assign DataOut_Sprites_Regs_o = 16'h1100;
+
+/*
+reg	[23:0]	Channel_B_RGB;
+always @ (posedge VID_B_CLK_P_o) begin
+
+	case ( HPixelCount )
+		12'd158: Channel_B_RGB <= 24'hFF_FF_FF;	// White
+		12'd249: Channel_B_RGB <= 24'hFF_FF_00;	// Yellow
+		12'd340: Channel_B_RGB <= 24'h00_FF_FF;	// Cyan
+		12'd431: Channel_B_RGB <= 24'h00_FF_00;	// Green
+		12'd522: Channel_B_RGB <= 24'hFF_00_FF;	// Violet
+		12'd613: Channel_B_RGB <= 24'h00_00_FF;	// Red
+		12'd704: Channel_B_RGB <= 24'hFF_00_00;	// Blue
+	endcase
+end
+*/
+endmodule
+

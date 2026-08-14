@@ -1,0 +1,789 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2014 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+# Date created = 15:12:16  February 20, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		A2560K60_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name DEVICE EP3C120F780C8
+set_global_assignment -name TOP_LEVEL_ENTITY A2560K60
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:12:16  FEBRUARY 20, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 780
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name ENABLE_INIT_DONE_OUTPUT OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_NCE_PIN OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
+set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
+set_global_assignment -name SYNTHESIS_SEED 11
+
+
+set_location_assignment PIN_K8 -to GLOBAL_RESETn_io
+#CPU Addy Bus - A2560K40
+set_location_assignment PIN_A19 -to CPU_A_io[0]
+set_location_assignment PIN_B19 -to CPU_A_io[1]
+set_location_assignment PIN_F18 -to CPU_A_io[2]
+set_location_assignment PIN_C19 -to CPU_A_io[3]
+set_location_assignment PIN_D19 -to CPU_A_io[4]
+set_location_assignment PIN_E19 -to CPU_A_io[5]
+set_location_assignment PIN_G17 -to CPU_A_io[6]
+set_location_assignment PIN_F19 -to CPU_A_io[7]
+set_location_assignment PIN_B23 -to CPU_A_io[8]
+set_location_assignment PIN_H17 -to CPU_A_io[9]
+set_location_assignment PIN_E7 -to CPU_A_io[10]
+set_location_assignment PIN_J10 -to CPU_A_io[11]
+set_location_assignment PIN_F7 -to CPU_A_io[12]
+set_location_assignment PIN_G7 -to CPU_A_io[13]
+set_location_assignment PIN_C6 -to CPU_A_io[14]
+set_location_assignment PIN_D6 -to CPU_A_io[15]
+set_location_assignment PIN_F8 -to CPU_A_io[16]
+set_location_assignment PIN_E5 -to CPU_A_io[17]
+set_location_assignment PIN_A4 -to CPU_A_io[18]
+set_location_assignment PIN_G8 -to CPU_A_io[19]
+set_location_assignment PIN_B4 -to CPU_A_io[20]
+set_location_assignment PIN_C4 -to CPU_A_io[21]
+set_location_assignment PIN_D4 -to CPU_A_io[22]
+set_location_assignment PIN_C9 -to CPU_A_io[23]
+set_location_assignment PIN_E4 -to CPU_A_io[24]
+set_location_assignment PIN_D9 -to CPU_A_io[25]
+set_location_assignment PIN_H8 -to CPU_A_io[26]
+set_location_assignment PIN_A3 -to CPU_A_io[27]
+set_location_assignment PIN_G9 -to CPU_A_io[28]
+set_location_assignment PIN_B3 -to CPU_A_io[29]
+set_location_assignment PIN_A8 -to CPU_A_io[30]
+set_location_assignment PIN_C3 -to CPU_A_io[31]
+set_location_assignment PIN_J22 -to MEM_A2_o
+set_location_assignment PIN_H22 -to MEM_A3_o
+#CPU Data Bus - A2560K40
+set_location_assignment PIN_B8 -to CPU_D_io[0]
+set_location_assignment PIN_C8 -to CPU_D_io[1]
+set_location_assignment PIN_D10 -to CPU_D_io[2]
+set_location_assignment PIN_A7 -to CPU_D_io[3]
+set_location_assignment PIN_D8 -to CPU_D_io[4]
+set_location_assignment PIN_E10 -to CPU_D_io[5]
+set_location_assignment PIN_G11 -to CPU_D_io[6]
+set_location_assignment PIN_E11 -to CPU_D_io[7]
+set_location_assignment PIN_A11 -to CPU_D_io[8]
+set_location_assignment PIN_B11 -to CPU_D_io[9]
+set_location_assignment PIN_G12 -to CPU_D_io[10]
+set_location_assignment PIN_E12 -to CPU_D_io[11]
+set_location_assignment PIN_A12 -to CPU_D_io[12]
+set_location_assignment PIN_H13 -to CPU_D_io[13]
+set_location_assignment PIN_J14 -to CPU_D_io[14]
+set_location_assignment PIN_E14 -to CPU_D_io[15]
+set_location_assignment PIN_G13 -to CPU_D_io[16]
+set_location_assignment PIN_J15 -to CPU_D_io[17]
+set_location_assignment PIN_H14 -to CPU_D_io[18]
+set_location_assignment PIN_E15 -to CPU_D_io[19]
+set_location_assignment PIN_H16 -to CPU_D_io[20]
+set_location_assignment PIN_A17 -to CPU_D_io[21]
+set_location_assignment PIN_G16 -to CPU_D_io[22]
+set_location_assignment PIN_D15 -to CPU_D_io[23]
+set_location_assignment PIN_B18 -to CPU_D_io[24]
+set_location_assignment PIN_D16 -to CPU_D_io[25]
+set_location_assignment PIN_A18 -to CPU_D_io[26]
+set_location_assignment PIN_C16 -to CPU_D_io[27]
+set_location_assignment PIN_A22 -to CPU_D_io[28]
+set_location_assignment PIN_J17 -to CPU_D_io[29]
+set_location_assignment PIN_G18 -to CPU_D_io[30]
+set_location_assignment PIN_A23 -to CPU_D_io[31]
+#NEW OCT 29th 2025
+#SPECIAL SIGNALS MC68LC060 NOT USED
+set_location_assignment PIN_H23 -to CPU_TRAn_o
+set_location_assignment PIN_C21 -to CPU_LOCKEn_i
+set_location_assignment PIN_B21 -to CPU_LOCKn_i
+set_location_assignment PIN_C5 -to CPU_SNOOPn_o
+set_location_assignment PIN_J24 -to CPU_CLAn_o
+set_location_assignment PIN_J23 -to CPU_SASn_i
+#MC68040
+set_location_assignment PIN_C10 -to CPU_LFOn_o
+set_location_assignment PIN_B10 -to CPU_LOC_i
+set_location_assignment PIN_A10 -to CPU_SCDn_i
+#BG Group 
+set_location_assignment PIN_C14 -to CPU_BGn_o
+set_location_assignment PIN_C18 -to CPU_BBn_io
+set_location_assignment PIN_D26 -to CPU_BGRn_o
+set_location_assignment PIN_A21 -to CPU_BRn_i
+#TA Group
+set_location_assignment PIN_F15 -to CPU_TAn_o
+set_location_assignment PIN_C17 -to CPU_TSn_io
+set_location_assignment PIN_D13 -to CPU_TBIn_o
+set_location_assignment PIN_J13 -to CPU_TCIn_o
+set_location_assignment PIN_D14 -to CPU_TEAn_o
+set_location_assignment PIN_C15 -to CPU_TIPn_i
+#MISC
+set_location_assignment PIN_D17 -to CPU_MIn_i
+set_location_assignment PIN_C12 -to CPU_BSn_i[0]
+set_location_assignment PIN_J12 -to CPU_BSn_i[1]
+set_location_assignment PIN_G14 -to CPU_BSn_i[2]
+set_location_assignment PIN_F14 -to CPU_BSn_i[3]
+set_location_assignment PIN_D18 -to CPU_SIZ_i[0]
+set_location_assignment PIN_E17 -to CPU_SIZ_i[1]
+set_location_assignment PIN_C20 -to CPU_TLN_i[0]
+set_location_assignment PIN_D20 -to CPU_TLN_i[1]
+set_location_assignment PIN_G20 -to CPU_TM_i[0]
+set_location_assignment PIN_D21 -to CPU_TM_i[1]
+set_location_assignment PIN_E18 -to CPU_TM_i[2]
+set_location_assignment PIN_H10 -to CPU_TT0_i
+set_location_assignment PIN_E8 -to CPU_TT1_io
+set_location_assignment PIN_G10 -to CPU_UPA_i[0]
+set_location_assignment PIN_D7 -to CPU_UPA_i[1]
+set_location_assignment PIN_G23 -to CPU_BTTn_io
+set_instance_assignment -name PASSIVE_RESISTOR "PULL-UP" -to CPU_BTTn_io
+set_location_assignment PIN_D5 -to CPU_BCLK_o
+set_location_assignment PIN_G21 -to CPU_CLKEN_o
+set_location_assignment PIN_F11 -to CPU_CDISn_o
+set_location_assignment PIN_D11 -to CPU_MDISn_o
+set_location_assignment PIN_C7 -to CPU_CIOUTn_i
+#INTERRUPTS
+set_location_assignment PIN_C13 -to CPU_AVECn_o
+set_location_assignment PIN_B7 -to CPU_IPENDn_i
+set_location_assignment PIN_F12 -to CPU_IPL_o[0]
+set_location_assignment PIN_H12 -to CPU_IPL_o[1]
+set_location_assignment PIN_C11 -to CPU_IPL_o[2]
+
+#MISC
+set_location_assignment PIN_J16 -to CPU_PST_i[0]
+set_location_assignment PIN_G15 -to CPU_PST_i[1]
+set_location_assignment PIN_H15 -to CPU_PST_i[2]
+set_location_assignment PIN_B17 -to CPU_PST_i[3]
+set_location_assignment PIN_G19 -to CPU_PST_i[4]
+set_location_assignment PIN_F17 -to CPU_RWn_i
+set_location_assignment PIN_D12 -to CPU_RESET_INn_o
+set_location_assignment PIN_F10 -to CPU_RESET_OUTn_i
+
+#Memory Control Signals - A2560K60
+set_location_assignment PIN_E24 -to LOCAL_MEM_FLASH_CS0n_o
+set_location_assignment PIN_B22 -to LOCAL_MEM_FLASH_CS1n_o
+set_location_assignment PIN_F22 -to LOCAL_MEM_FLASH_OEn_o
+set_location_assignment PIN_C22 -to LOCAL_MEM_FLASH_WEn_o
+set_location_assignment PIN_D22 -to LOCAL_MEM_FLASH_RSTn_o
+set_location_assignment PIN_P25 -to LOCAL_MEM_FLASH_WPn_o
+set_location_assignment PIN_C25 -to LOCAL_MEM_SRAM_BEn_o[0]
+set_location_assignment PIN_C24 -to LOCAL_MEM_SRAM_BEn_o[1]
+set_location_assignment PIN_A26 -to LOCAL_MEM_SRAM_BEn_o[2]
+set_location_assignment PIN_A25 -to LOCAL_MEM_SRAM_BEn_o[3]
+set_location_assignment PIN_B26 -to LOCAL_MEM_SRAM_CS0n_o
+set_location_assignment PIN_B25 -to LOCAL_MEM_SRAM_CS1n_o
+set_location_assignment PIN_D24 -to LOCAL_MEM_SRAM_OEn_o
+set_location_assignment PIN_E22 -to LOCAL_MEM_SRAM_WEn_o
+#Audio Buses - A2560K40
+set_location_assignment PIN_H24 -to ABUS_CTRL_CLK_o
+set_location_assignment PIN_H25 -to ABUS_CTRL_IN_o
+set_location_assignment PIN_H26 -to ABUS_CTRL_LATCH_o
+set_location_assignment PIN_J25 -to ABUS_DATA_CLK_o
+set_location_assignment PIN_K26 -to ABUS_DATA_IN0_o
+set_location_assignment PIN_K25 -to ABUS_DATA_IN1_o
+set_location_assignment PIN_J26 -to ABUS_DATA_LATCH_o
+set_location_assignment PIN_G28 -to ABUS_SID_CLK_o
+set_location_assignment PIN_G27 -to ABUS_SID_IN_o
+set_location_assignment PIN_G26 -to ABUS_SID_LATCH_o
+set_location_assignment PIN_G24 -to ABUS_RSTn_o
+set_location_assignment PIN_G25 -to CHIPTUNE_RSTn_o
+#Dual DAC Interface - A2560K40
+set_location_assignment PIN_V21 -to AUD_PDn_o
+set_location_assignment PIN_AC25 -to AUD2_BICK_o
+set_location_assignment PIN_AE27 -to AUD2_LRCK_o
+set_location_assignment PIN_AB24 -to AUD2_MCLK_o
+set_location_assignment PIN_AD26 -to AUD2_SDTI_o
+set_location_assignment PIN_Y23 -to AUD3_BICK_o
+set_location_assignment PIN_AB25 -to AUD3_LRCK_o
+set_location_assignment PIN_W22 -to AUD3_MCLK_o
+set_location_assignment PIN_AA24 -to AUD3_SDTI_o
+#Audio Amplifications Signals & MISC - A2560K40
+set_location_assignment PIN_C26 -to AMP_MUTE_o
+set_location_assignment PIN_C27 -to AMP_SDBY_o
+#CODEC ADC - A2560K40
+set_location_assignment PIN_W21 -to CODEC_ADC_BCLK_i
+set_location_assignment PIN_Y22 -to CODEC_ADC_DAT_i
+set_location_assignment PIN_AA23 -to CODEC_ADC_LRCK_i
+set_location_assignment PIN_AF27 -to CODEC_ADC_MCLK_o
+#CODEC DAC - A2560K40
+set_location_assignment PIN_AA22 -to CODEC_DAC_BCLK_o
+set_location_assignment PIN_AC24 -to CODEC_DAC_DAT_o
+set_location_assignment PIN_AB23 -to CODEC_DAC_LRCK_o
+set_location_assignment PIN_AE26 -to CODEC_DAC_MCLK_o
+#CODEC Control - A2560K40
+set_location_assignment PIN_AH19 -to CODEC_DI_o
+set_location_assignment PIN_AG19 -to CODEC_CE_o
+set_location_assignment PIN_AF19 -to CODEC_CL_o
+#External SPI Flash for Splash Screen DATA - A2560K40
+set_location_assignment PIN_F25 -to CONFIG_CSn_o
+set_location_assignment PIN_D25 -to CONFIG_MISO_i
+set_location_assignment PIN_E25 -to CONFIG_MOSI_o
+set_location_assignment PIN_F24 -to CONFIG_SCLK_o
+#System Signals - A2560K40
+set_location_assignment PIN_D2 -to BLU_POWER_LED_o
+set_location_assignment PIN_E3 -to RGB_POWER_LED_o
+set_location_assignment PIN_J4 -to SDCARD_LED_o
+set_location_assignment PIN_C2 -to MACHINE_ID0_i
+set_location_assignment PIN_D1 -to MACHINE_ID1_i
+#SDCARD - A2560K40
+set_location_assignment PIN_F1 -to F_SD_CD_i
+set_location_assignment PIN_F2 -to F_SD_CLK_o
+set_location_assignment PIN_G6 -to F_SD_CMD_o
+set_location_assignment PIN_F3 -to F_SD_DAT0_io
+set_location_assignment PIN_F5 -to F_SD_DAT1_io
+set_location_assignment PIN_G4 -to F_SD_DAT2_io
+set_location_assignment PIN_G5 -to F_SD_DAT3_io
+set_location_assignment PIN_E1 -to F_SD_WP_i
+#IO BUS (IDE / Ethernet) - A2560K40
+set_location_assignment PIN_AD19 -to ETH_CSn_o
+set_location_assignment PIN_AE20 -to ETH_FIFO_SEL_o
+set_location_assignment PIN_AG21 -to ETH_IRQn_i
+set_location_assignment PIN_AH22 -to ETH_RSTn_o
+set_location_assignment PIN_AB22 -to IDE_CS0n_o
+set_location_assignment PIN_Y19 -to IDE_CS1n_o
+set_location_assignment PIN_AF25 -to IDE_DATA_DIR_o
+set_location_assignment PIN_AG26 -to IDE_DATA_OEn_o
+set_location_assignment PIN_AF26 -to IDE_INTRQ_i
+set_location_assignment PIN_AA21 -to IDE_IORDY_i
+set_location_assignment PIN_AB21 -to IDE_RESETn_o
+#IO BUS - ADDY - A2560K40
+set_location_assignment PIN_AD25 -to IO_A_io[0]
+set_location_assignment PIN_AE25 -to IO_A_io[1]
+set_location_assignment PIN_AD24 -to IO_A_io[2]
+set_location_assignment PIN_AF21 -to IO_A_io[3]
+set_location_assignment PIN_AG22 -to IO_A_io[4]
+set_location_assignment PIN_AH23 -to IO_A_io[5]
+set_location_assignment PIN_AE19 -to IO_A_io[6]
+set_location_assignment PIN_AF20 -to IO_A_io[7]
+#IO BUS - DATA - A2560K40
+set_location_assignment PIN_AA19 -to IO_D_io[0]
+set_location_assignment PIN_AC21 -to IO_D_io[1]
+set_location_assignment PIN_AF24 -to IO_D_io[2]
+set_location_assignment PIN_AH26 -to IO_D_io[3]
+set_location_assignment PIN_AD21 -to IO_D_io[4]
+set_location_assignment PIN_AH25 -to IO_D_io[5]
+set_location_assignment PIN_AC19 -to IO_D_io[6]
+set_location_assignment PIN_AF22 -to IO_D_io[7]
+set_location_assignment PIN_AG23 -to IO_D_io[8]
+set_location_assignment PIN_AE21 -to IO_D_io[9]
+set_location_assignment PIN_AB18 -to IO_D_io[10]
+set_location_assignment PIN_AE22 -to IO_D_io[11]
+set_location_assignment PIN_AB19 -to IO_D_io[12]
+set_location_assignment PIN_AG25 -to IO_D_io[13]
+set_location_assignment PIN_AD22 -to IO_D_io[14]
+set_location_assignment PIN_AB20 -to IO_D_io[15]
+set_location_assignment PIN_AC22 -to IO_RDn_o
+set_location_assignment PIN_AE24 -to IO_WRn_o
+#Joystick 0 - A2560K40
+set_location_assignment PIN_R1 -to JOY0_BTN0_io
+set_location_assignment PIN_A6 -to JOY0_BTN1_io
+set_location_assignment PIN_B6 -to JOY0_BTN2_io
+set_location_assignment PIN_J19 -to JOY0_DWN_io
+set_location_assignment PIN_H21 -to JOY0_LFT_io
+set_location_assignment PIN_G22 -to JOY0_RGHT_io
+set_location_assignment PIN_H19 -to JOY0_UP_io
+set_location_assignment PIN_P1 -to JOYSTICK0_RLY_o
+#Joystick 1 - A2560K40
+set_location_assignment PIN_M2 -to JOY1_BTN0_io
+set_location_assignment PIN_N3 -to JOY1_BTN1_io
+set_location_assignment PIN_P2 -to JOY1_BTN2_io
+set_location_assignment PIN_M1 -to JOY1_DWN_io
+set_location_assignment PIN_N8 -to JOY1_LFT_io
+set_location_assignment PIN_N4 -to JOY1_RGHT_io
+set_location_assignment PIN_M3 -to JOY1_UP_io
+set_location_assignment PIN_M4 -to JOYSTICK1_RLY_o
+#LPC - A2560K40
+set_location_assignment PIN_V22 -to LPC_CLK_32Khz_o
+set_location_assignment PIN_AC26 -to LPC_IRQn_io
+set_location_assignment PIN_AD27 -to LPC_LDRQn_i
+set_location_assignment PIN_AD28 -to LPC_LFRAMEn_o
+set_location_assignment PIN_AA25 -to LPC_LAD_io[0]
+set_location_assignment PIN_Y24 -to LPC_LAD_io[1]
+set_location_assignment PIN_AC28 -to LPC_LAD_io[2]
+set_location_assignment PIN_AC27 -to LPC_LAD_io[3]
+set_location_assignment PIN_AE28 -to LPC_RSTn_o
+#Keyboard Signals - A2560K40
+set_location_assignment PIN_H5 -to KBD_CSn_i
+set_location_assignment PIN_H7 -to KBD_CLK_i
+set_location_assignment PIN_G1 -to KBD_INTn_o
+set_location_assignment PIN_G2 -to KBD_MISO_o
+set_location_assignment PIN_H4 -to KBD_MOSI_i
+
+#RGB LEDs - A2560K40
+set_location_assignment PIN_J6 -to MTX_CLK_o
+set_location_assignment PIN_H3 -to MTX_LATCH_o
+set_location_assignment PIN_H6 -to MTX_SERIAL_IN_o
+#RGB Status LED - A2560K40
+set_location_assignment PIN_G3 -to STS_CLK_o
+set_location_assignment PIN_J7 -to STS_LATCH_o
+set_location_assignment PIN_J5 -to STS_SERIAL_IN_o
+#ChipTune Clocks - A2560K40
+set_location_assignment PIN_E28 -to OPL3_CLK_o
+set_location_assignment PIN_D27 -to OPM_CLK_o
+set_location_assignment PIN_D28 -to OPN2_CLK_o
+set_location_assignment PIN_E27 -to SID_CLK_o
+set_location_assignment PIN_E26 -to DCSG_CLK_o
+#interrupts - A2560K40
+set_location_assignment PIN_F28 -to OPL3_INTn_i
+set_location_assignment PIN_F26 -to OPM_INTn_i
+set_location_assignment PIN_F27 -to OPN2_INTn_i
+#DIP Switch - A2560K40
+set_location_assignment PIN_AH21 -to DIP_BOOT_MODE_i[0]
+set_location_assignment PIN_AC18 -to DIP_BOOT_MODE_i[1]
+set_location_assignment PIN_K22 -to DIP_GAMMA_MODE_i[0]
+set_location_assignment PIN_K21 -to DIP_GAMMA_MODE_i[1]
+set_location_assignment PIN_L22 -to DIP_HIRES_MODE_i[0]
+set_location_assignment PIN_L21 -to DIP_HIRES_MODE_i[1]
+set_location_assignment PIN_E21 -to DIP_USER_i[0]
+set_location_assignment PIN_F21 -to DIP_USER_i[1]
+#MISC - A2560K40
+set_location_assignment PIN_C23 -to CPU_SPEED_i
+set_location_assignment PIN_J3 -to BTX_BUZZER_o
+#debug Serial Port  - A2560K40
+set_location_assignment PIN_AH10 -to DBG_RX_i
+set_location_assignment PIN_AG10 -to DBG_TX_o
+#Oscillators - A2560K40
+set_location_assignment PIN_A15 -to OSC_CLK_14_318Mhz_i
+set_location_assignment PIN_B15 -to OSC_CLK_33_333Mhz_i
+set_location_assignment PIN_Y28 -to OSC_CLK_22_579Mhz_i
+set_location_assignment PIN_Y27 -to OSC_CLK_24_576Mhz_i
+set_location_assignment PIN_AH14 -to OSC_CLK_25_175Mhz_B_i
+set_location_assignment PIN_AG14 -to OSC_CLK_40_000Mhz_B_i
+set_location_assignment PIN_AH15 -to OSC_CLK_40_000Mhz_A_i
+set_location_assignment PIN_AG15 -to OSC_CLK_65_000Mhz_A_i
+set_location_assignment PIN_Y2 -to OSC_CLK_80_000Mhz_i
+set_location_assignment PIN_A14 -to OSC_CLK_80_000Mhz_B_i
+
+#RTC - A2560K40
+set_location_assignment PIN_K3 -to RTC_OEn_o
+set_location_assignment PIN_L5 -to RTC_A_o[0]
+set_location_assignment PIN_L7 -to RTC_A_o[1]
+set_location_assignment PIN_L8 -to RTC_A_o[2]
+set_location_assignment PIN_K2 -to RTC_A_o[3]
+set_location_assignment PIN_K1 -to RTC_CSn_o
+set_location_assignment PIN_L3 -to RTC_D_io[0]
+set_location_assignment PIN_L1 -to RTC_D_io[1]
+set_location_assignment PIN_M7 -to RTC_D_io[2]
+set_location_assignment PIN_M5 -to RTC_D_io[3]
+set_location_assignment PIN_M8 -to RTC_D_io[4]
+set_location_assignment PIN_L2 -to RTC_D_io[5]
+set_location_assignment PIN_L4 -to RTC_D_io[6]
+set_location_assignment PIN_L6 -to RTC_D_io[7]
+set_location_assignment PIN_K4 -to RTC_INTn_i
+set_location_assignment PIN_K7 -to RTC_RWn_o
+#system SDRAM - A2560K40
+set_location_assignment PIN_U21 -to SYSRAM_A_o[0]
+set_location_assignment PIN_U22 -to SYSRAM_A_o[1]
+set_location_assignment PIN_U23 -to SYSRAM_A_o[2]
+set_location_assignment PIN_U24 -to SYSRAM_A_o[3]
+set_location_assignment PIN_U25 -to SYSRAM_A_o[4]
+set_location_assignment PIN_U26 -to SYSRAM_A_o[5]
+set_location_assignment PIN_U27 -to SYSRAM_A_o[6]
+set_location_assignment PIN_U28 -to SYSRAM_A_o[7]
+set_location_assignment PIN_T21 -to SYSRAM_A_o[8]
+set_location_assignment PIN_T22 -to SYSRAM_A_o[9]
+set_location_assignment PIN_V28 -to SYSRAM_A_o[10]
+set_location_assignment PIN_T25 -to SYSRAM_A_o[11]
+set_location_assignment PIN_T26 -to SYSRAM_A_o[12]
+set_location_assignment PIN_V26 -to SYSRAM_BA0_o
+set_location_assignment PIN_V27 -to SYSRAM_BA1_o
+set_location_assignment PIN_V23 -to SYSRAM_CASn_o
+set_location_assignment PIN_V24 -to SYSRAM_RASn_o
+set_location_assignment PIN_W28 -to SYSRAM_WEn_o
+set_location_assignment PIN_V25 -to SYSRAM_CS0n_o
+set_location_assignment PIN_R21 -to SYSRAM_CKE_o
+set_location_assignment PIN_R22 -to SYSRAM_CLK_o
+set_location_assignment PIN_N21 -to SYSRAM_DQ_io[0]
+set_location_assignment PIN_N25 -to SYSRAM_DQ_io[1]
+set_location_assignment PIN_N26 -to SYSRAM_DQ_io[2]
+set_location_assignment PIN_M21 -to SYSRAM_DQ_io[3]
+set_location_assignment PIN_M23 -to SYSRAM_DQ_io[4]
+set_location_assignment PIN_M24 -to SYSRAM_DQ_io[5]
+set_location_assignment PIN_M25 -to SYSRAM_DQ_io[6]
+set_location_assignment PIN_M26 -to SYSRAM_DQ_io[7]
+set_location_assignment PIN_L28 -to SYSRAM_DQ_io[8]
+set_location_assignment PIN_L27 -to SYSRAM_DQ_io[9]
+set_location_assignment PIN_L26 -to SYSRAM_DQ_io[10]
+set_location_assignment PIN_L25 -to SYSRAM_DQ_io[11]
+set_location_assignment PIN_L24 -to SYSRAM_DQ_io[12]
+set_location_assignment PIN_L23 -to SYSRAM_DQ_io[13]
+set_location_assignment PIN_K28 -to SYSRAM_DQ_io[14]
+set_location_assignment PIN_K27 -to SYSRAM_DQ_io[15]
+set_location_assignment PIN_AB26 -to SYSRAM_DQ_io[16]
+set_location_assignment PIN_AB27 -to SYSRAM_DQ_io[17]
+set_location_assignment PIN_AB28 -to SYSRAM_DQ_io[18]
+set_location_assignment PIN_AA26 -to SYSRAM_DQ_io[19]
+set_location_assignment PIN_Y26 -to SYSRAM_DQ_io[20]
+set_location_assignment PIN_Y25 -to SYSRAM_DQ_io[21]
+set_location_assignment PIN_W25 -to SYSRAM_DQ_io[22]
+set_location_assignment PIN_W26 -to SYSRAM_DQ_io[23]
+set_location_assignment PIN_R24 -to SYSRAM_DQ_io[24]
+set_location_assignment PIN_R25 -to SYSRAM_DQ_io[25]
+set_location_assignment PIN_R26 -to SYSRAM_DQ_io[26]
+set_location_assignment PIN_R27 -to SYSRAM_DQ_io[27]
+set_location_assignment PIN_R28 -to SYSRAM_DQ_io[28]
+set_location_assignment PIN_P21 -to SYSRAM_DQ_io[29]
+set_location_assignment PIN_P27 -to SYSRAM_DQ_io[30]
+set_location_assignment PIN_P28 -to SYSRAM_DQ_io[31]
+set_location_assignment PIN_M27 -to SYSRAM_DQM_o[0]
+set_location_assignment PIN_M28 -to SYSRAM_DQM_o[1]
+set_location_assignment PIN_W27 -to SYSRAM_DQM_o[2]
+set_location_assignment PIN_R23 -to SYSRAM_DQM_o[3]
+#VIDEO PORT - A2560K40
+set_location_assignment PIN_Y14 -to VID_SPC_io
+set_location_assignment PIN_AE14 -to VID_SPD_io
+#Video Channel A - A2560K40
+set_location_assignment PIN_AE23 -to VID_A_CLK_P_o
+set_location_assignment PIN_AA17 -to VID_A_DE_o
+set_location_assignment PIN_AA16 -to VID_A_HP_INT1n_i
+set_location_assignment PIN_Y17 -to VID_A_HSYNC_o
+set_location_assignment PIN_AH17 -to VID_A_PIX_o[0]
+set_location_assignment PIN_AG17 -to VID_A_PIX_o[1]
+set_location_assignment PIN_AF17 -to VID_A_PIX_o[2]
+set_location_assignment PIN_AB17 -to VID_A_PIX_o[3]
+set_location_assignment PIN_AC17 -to VID_A_PIX_o[4]
+set_location_assignment PIN_AD17 -to VID_A_PIX_o[5]
+set_location_assignment PIN_AE17 -to VID_A_PIX_o[6]
+set_location_assignment PIN_AH18 -to VID_A_PIX_o[7]
+set_location_assignment PIN_AG18 -to VID_A_PIX_o[8]
+set_location_assignment PIN_AF18 -to VID_A_PIX_o[9]
+set_location_assignment PIN_AD18 -to VID_A_PIX_o[10]
+set_location_assignment PIN_AE18 -to VID_A_PIX_o[11]
+set_location_assignment PIN_Y16 -to VID_A_RSTn_o
+set_location_assignment PIN_AB16 -to VID_A_VSYNC_o
+#Video Channel B - A2560K40
+set_location_assignment PIN_AE5 -to VID_B_CLK_P_o
+set_location_assignment PIN_AH11 -to VID_B_DE_o
+set_location_assignment PIN_AG11 -to VID_B_HP_INT1n_i
+set_location_assignment PIN_AD14 -to VID_B_HSYNC_o
+set_location_assignment PIN_AF12 -to VID_B_PIX_o[0]
+set_location_assignment PIN_AG12 -to VID_B_PIX_o[1]
+set_location_assignment PIN_AH12 -to VID_B_PIX_o[2]
+set_location_assignment PIN_AF14 -to VID_B_PIX_o[3]
+set_location_assignment PIN_AA15 -to VID_B_PIX_o[4]
+set_location_assignment PIN_AB15 -to VID_B_PIX_o[5]
+set_location_assignment PIN_AC15 -to VID_B_PIX_o[6]
+set_location_assignment PIN_AF15 -to VID_B_PIX_o[7]
+set_location_assignment PIN_AE15 -to VID_B_PIX_o[8]
+set_location_assignment PIN_AD15 -to VID_B_PIX_o[9]
+set_location_assignment PIN_AF16 -to VID_B_PIX_o[10]
+set_location_assignment PIN_AE16 -to VID_B_PIX_o[11]
+set_location_assignment PIN_AF11 -to VID_B_RSTn_o
+set_location_assignment PIN_AB14 -to VID_B_VSYNC_o
+#Video RAM Chhanel A - A2560K40
+set_location_assignment PIN_T8 -to VRAM_A_Addy_o[0]
+set_location_assignment PIN_T7 -to VRAM_A_Addy_o[1]
+set_location_assignment PIN_T4 -to VRAM_A_Addy_o[2]
+set_location_assignment PIN_R7 -to VRAM_A_Addy_o[3]
+set_location_assignment PIN_R6 -to VRAM_A_Addy_o[4]
+set_location_assignment PIN_R2 -to VRAM_A_Addy_o[5]
+set_location_assignment PIN_R3 -to VRAM_A_Addy_o[6]
+set_location_assignment PIN_R4 -to VRAM_A_Addy_o[7]
+set_location_assignment PIN_R5 -to VRAM_A_Addy_o[8]
+set_location_assignment PIN_AB6 -to VRAM_A_Addy_o[9]
+set_location_assignment PIN_AC2 -to VRAM_A_Addy_o[10]
+set_location_assignment PIN_AC4 -to VRAM_A_Addy_o[11]
+set_location_assignment PIN_AD1 -to VRAM_A_Addy_o[12]
+set_location_assignment PIN_AD3 -to VRAM_A_Addy_o[13]
+set_location_assignment PIN_AE2 -to VRAM_A_Addy_o[14]
+set_location_assignment PIN_AE1 -to VRAM_A_Addy_o[15]
+set_location_assignment PIN_AD2 -to VRAM_A_Addy_o[16]
+set_location_assignment PIN_AC5 -to VRAM_A_Addy_o[17]
+set_location_assignment PIN_AC3 -to VRAM_A_Addy_o[18]
+set_location_assignment PIN_AC1 -to VRAM_A_Addy_o[19]
+set_location_assignment PIN_U8 -to VRAM_A_DQ_io[0]
+set_location_assignment PIN_V6 -to VRAM_A_DQ_io[1]
+set_location_assignment PIN_V8 -to VRAM_A_DQ_io[2]
+set_location_assignment PIN_W8 -to VRAM_A_DQ_io[3]
+set_location_assignment PIN_Y6 -to VRAM_A_DQ_io[4]
+set_location_assignment PIN_AA4 -to VRAM_A_DQ_io[5]
+set_location_assignment PIN_AA6 -to VRAM_A_DQ_io[6]
+set_location_assignment PIN_AB4 -to VRAM_A_DQ_io[7]
+set_location_assignment PIN_AB3 -to VRAM_A_DQ_io[8]
+set_location_assignment PIN_AB1 -to VRAM_A_DQ_io[9]
+set_location_assignment PIN_Y4 -to VRAM_A_DQ_io[10]
+set_location_assignment PIN_W4 -to VRAM_A_DQ_io[11]
+set_location_assignment PIN_U4 -to VRAM_A_DQ_io[12]
+set_location_assignment PIN_W2 -to VRAM_A_DQ_io[13]
+set_location_assignment PIN_V4 -to VRAM_A_DQ_io[14]
+set_location_assignment PIN_V2 -to VRAM_A_DQ_io[15]
+set_location_assignment PIN_T3 -to VRAM_A_DQ_io[16]
+set_location_assignment PIN_V1 -to VRAM_A_DQ_io[17]
+set_location_assignment PIN_V3 -to VRAM_A_DQ_io[18]
+set_location_assignment PIN_W1 -to VRAM_A_DQ_io[19]
+set_location_assignment PIN_W3 -to VRAM_A_DQ_io[20]
+set_location_assignment PIN_Y3 -to VRAM_A_DQ_io[21]
+set_location_assignment PIN_AA3 -to VRAM_A_DQ_io[22]
+set_location_assignment PIN_AB2 -to VRAM_A_DQ_io[23]
+set_location_assignment PIN_AA7 -to VRAM_A_DQ_io[24]
+set_location_assignment PIN_AA5 -to VRAM_A_DQ_io[25]
+set_location_assignment PIN_Y7 -to VRAM_A_DQ_io[26]
+set_location_assignment PIN_Y5 -to VRAM_A_DQ_io[27]
+set_location_assignment PIN_W7 -to VRAM_A_DQ_io[28]
+set_location_assignment PIN_V7 -to VRAM_A_DQ_io[29]
+set_location_assignment PIN_V5 -to VRAM_A_DQ_io[30]
+set_location_assignment PIN_U7 -to VRAM_A_DQ_io[31]
+set_location_assignment PIN_U3 -to VRAM_A_BEn_o[0]
+set_location_assignment PIN_U2 -to VRAM_A_BEn_o[1]
+set_location_assignment PIN_U6 -to VRAM_A_BEn_o[2]
+set_location_assignment PIN_U5 -to VRAM_A_BEn_o[3]
+set_location_assignment PIN_U1 -to VRAM_A_OEn_o
+set_location_assignment PIN_AB5 -to VRAM_A_WEn_o
+#Video RAM Chhanel B
+set_location_assignment PIN_AG3 -to VRAM_B_Addy_o[0]
+set_location_assignment PIN_AF4 -to VRAM_B_Addy_o[1]
+set_location_assignment PIN_AF3 -to VRAM_B_Addy_o[2]
+set_location_assignment PIN_AF2 -to VRAM_B_Addy_o[3]
+set_location_assignment PIN_AE3 -to VRAM_B_Addy_o[4]
+set_location_assignment PIN_AH4 -to VRAM_B_Addy_o[5]
+set_location_assignment PIN_AH6 -to VRAM_B_Addy_o[6]
+set_location_assignment PIN_AG6 -to VRAM_B_Addy_o[7]
+set_location_assignment PIN_AG7 -to VRAM_B_Addy_o[8]
+set_location_assignment PIN_Y12 -to VRAM_B_Addy_o[9]
+set_location_assignment PIN_AA13 -to VRAM_B_Addy_o[10]
+set_location_assignment PIN_AE13 -to VRAM_B_Addy_o[11]
+set_location_assignment PIN_AF13 -to VRAM_B_Addy_o[12]
+set_location_assignment PIN_Y15 -to VRAM_B_Addy_o[13]
+set_location_assignment PIN_AF10 -to VRAM_B_Addy_o[14]
+set_location_assignment PIN_AH8 -to VRAM_B_Addy_o[15]
+set_location_assignment PIN_AA14 -to VRAM_B_Addy_o[16]
+set_location_assignment PIN_AC14 -to VRAM_B_Addy_o[17]
+set_location_assignment PIN_AB13 -to VRAM_B_Addy_o[18]
+set_location_assignment PIN_Y13 -to VRAM_B_Addy_o[19]
+
+set_location_assignment PIN_AD4 -to VRAM_B_DQ_io[0]
+set_location_assignment PIN_AF6 -to VRAM_B_DQ_io[1]
+set_location_assignment PIN_AF7 -to VRAM_B_DQ_io[2]
+set_location_assignment PIN_AD7 -to VRAM_B_DQ_io[3]
+set_location_assignment PIN_AB9 -to VRAM_B_DQ_io[4]
+set_location_assignment PIN_AD10 -to VRAM_B_DQ_io[5]
+set_location_assignment PIN_AB10 -to VRAM_B_DQ_io[6]
+set_location_assignment PIN_Y10 -to VRAM_B_DQ_io[7]
+set_location_assignment PIN_AB12 -to VRAM_B_DQ_io[8]
+set_location_assignment PIN_AD12 -to VRAM_B_DQ_io[9]
+set_location_assignment PIN_AB11 -to VRAM_B_DQ_io[10]
+set_location_assignment PIN_AD11 -to VRAM_B_DQ_io[11]
+set_location_assignment PIN_AB7 -to VRAM_B_DQ_io[12]
+set_location_assignment PIN_AE8 -to VRAM_B_DQ_io[13]
+set_location_assignment PIN_AC8 -to VRAM_B_DQ_io[14]
+set_location_assignment PIN_AA8 -to VRAM_B_DQ_io[15]
+set_location_assignment PIN_AC7 -to VRAM_B_DQ_io[16]
+set_location_assignment PIN_AF8 -to VRAM_B_DQ_io[17]
+set_location_assignment PIN_AD8 -to VRAM_B_DQ_io[18]
+set_location_assignment PIN_AB8 -to VRAM_B_DQ_io[19]
+set_location_assignment PIN_AE11 -to VRAM_B_DQ_io[20]
+set_location_assignment PIN_AC11 -to VRAM_B_DQ_io[21]
+set_location_assignment PIN_AE12 -to VRAM_B_DQ_io[22]
+set_location_assignment PIN_AC12 -to VRAM_B_DQ_io[23]
+set_location_assignment PIN_AA10 -to VRAM_B_DQ_io[24]
+set_location_assignment PIN_AC10 -to VRAM_B_DQ_io[25]
+set_location_assignment PIN_AE10 -to VRAM_B_DQ_io[26]
+set_location_assignment PIN_AE9 -to VRAM_B_DQ_io[27]
+set_location_assignment PIN_AE7 -to VRAM_B_DQ_io[28]
+set_location_assignment PIN_AE6 -to VRAM_B_DQ_io[29]
+set_location_assignment PIN_AD5 -to VRAM_B_DQ_io[30]
+set_location_assignment PIN_AE4 -to VRAM_B_DQ_io[31]
+set_location_assignment PIN_AF9 -to VRAM_B_BEn_o[0]
+set_location_assignment PIN_AG8 -to VRAM_B_BEn_o[1]
+set_location_assignment PIN_AH3 -to VRAM_B_BEn_o[2]
+set_location_assignment PIN_AG4 -to VRAM_B_BEn_o[3]
+set_location_assignment PIN_AH7 -to VRAM_B_OEn_o
+set_location_assignment PIN_AA12 -to VRAM_B_WEn_o
+
+#Project Files Assignments
+set_global_assignment -name VERILOG_FILE A2560K60_Top.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/BEATRIX_Top.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/BEATRIX_CTRL_Reg.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/BEATRIX_CS_And_Dout.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/A2560X_CODEC.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/CPU_Interface_2_AudioDAC.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/audio_out.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/SoundChips2DAC_Interface.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/Parallel2SerialAudio.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/Parallel2Serial_SID.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/BUS_2_ChipTune_Interface.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/iir_filter.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/i2s.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/genesis_lpf.v
+set_global_assignment -name VERILOG_FILE ../Source/BEATRIX/audio_iir_filter.v
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores Cyclone III/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores Cyclone III/CT_FIFO/CT_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores Cyclone III/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores Cyclone III/CHIPTUNE_FIFO/CHIPTUNE_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores/jt89-master/hdl/jt89.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores/jt51-master/hdl/jt51.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores/jt49-master/hdl/jt49.qip"
+set_global_assignment -name QIP_FILE "../Source/BEATRIX/Cores/jt12-master/hdl/jt12.qip"
+set_global_assignment -name QIP_FILE ../Source/BEATRIX/Cores/sid6581/sid.qip
+set_global_assignment -name VERILOG_FILE ../Source/CPU/MC68LC060_Plus_Arbiter.v
+set_global_assignment -name VERILOG_FILE ../Source/CPU/MC680xx_BusArbiter.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/GAVIN_A2560XEmuTOS_Top.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/A2560X_GAVIN_CS_And_Dout.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/A2560X60_GAVIN_CTRL.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/New_DebugModuleExtra.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/ProgramFlash32.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Serial_Tx.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Serial_Rx.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/CLK32KhzCreation.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/LFSR.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Buzzer.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/MathModule16.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/TimerInterface32.V
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Unity.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/SimpleSPI4SDCard.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Top_LPC_Interface.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/BUS_2_LPC_Interface.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/A2560x_IRQ_CTRL.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Transfer_Flash_2_Ram.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/A2560K_Trinity.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/A2560X_Unity.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/RGB_LED_Driver_Module40Mhz.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/RGB_STATUS_LED_Driver_Module40Mhz.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/wb_lpc_host.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/wb_lpc_defines.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/serirq_host.v
+set_global_assignment -name VERILOG_FILE ../Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/serirq_defines.v
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/Serial_2_Debug_CMD/Serial_2_Debug_CMD.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/CPU_2_Serial_CMD/CPU_2_Serial_CMD.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/Debug_Serial_Buffer/Debug_Serial_Buffer.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/SerialRX/SerialRX.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/LPC_DATA_FIFO/LPC_DATA_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/LPC_CMD_FIFO/LPC_CMD_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/SIGNED_MULT16/SIGNED_MULT16.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/SIGNED_DIV16/SIGNED_DIV16.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/UNSIGNED_DIV16/UNSIGNED_DIV16.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/UNSIGNED_MULT16/UNSIGNED_MULT16.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/CLK32_COUNTER/CLK32_COUNTER.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/TinyChipScope/TinyChipScope.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/SourceAndProbe/SourceAndProbe.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/PLL_SDCard_Debug/PLL_SDCard_Debug.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/BIDIR_ADDY/BIDIR_ADDY.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/BIDIR_DATA16/BIDIR_DATA16.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/BIDIR_DATA32/BIDIR_DATA32.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/BIDIR_SIGNAL/BIDIR_SIGNAL.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/LPC_BIDIRD/LPC_BIDir.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/LPC_BIDIR_SIRQ/LPC_BIDir_SIRQ.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/TIMERCOMPARE32/TimerCompare32.qip"
+set_global_assignment -name QIP_FILE "../Source/GABE/Cores Cyclone III/TIMERCOUNTER32/TimerCounter32.qip"
+set_global_assignment -name VERILOG_FILE ../Source/MERA/Mera_A2560X_Top.v
+set_global_assignment -name VERILOG_FILE ../Source/MERA/MERA_SDRAM_32Bits.v
+set_global_assignment -name QIP_FILE ../Source/MERA/Cores_Cyclone_III/DataBufferIO32/DataBufferIO32.qip
+set_global_assignment -name QIP_FILE ../Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.qip
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/VideoTimingGenerator_A.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/VideoModeTimingInfo_Channel_A.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/Vicky_Register_Block.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/VGE_MasterController_Module.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/MousePointerSpriteModule.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/GraphicOutputMixer.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/InitClockAndVideo.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/Tile_Map_Registers_Block.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/CollisionRegisterFile.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/BitMapRegisterFile.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/VGE_Pixel_Priority_Collision_Encoder.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/TileMap_State_Machine.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/Sprite_State_Machine.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/BitMap_State_Machine.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/VideoGraphicEngine.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/A2560K_VMemoryInterface.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_II/VickyII_Collision_System_Module.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VICKYIII_NEW_TOP.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VICKY_III_CS_And_Dout.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VICKY_III_Channel_A_Top.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VICKY_III_Channel_B_NEW_Top.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_Text_Block_B_new.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_Text_Block_A.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VICKY_III_Reset_Module.v
+set_global_assignment -name VERILOG_FILE "../Source/VICKY_III/Cores/verilog-i2c-master/rtl/i2c_master.v"
+set_global_assignment -name VERILOG_FILE "../Source/VICKY_III/Cores/verilog-i2c-master/rtl/i2c_init.v"
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_Graphics_Mixer_B.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_Text_FONT_SM_A2560x_B.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_Text_ST_A.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_VideoGen_B_New.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_ModeTimingInfo_B_NEW.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/SDMA/A2560Mx_DMA_Reg_Block.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/SDMA/A2560Mx_DMA_Controller.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/Memtext/MEMText_FONT_StateMachine.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/Memtext/A2560Mx_MEMTEXT_SM.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/Memtext/A2560Mx_MemoryManagementBlock.v
+set_global_assignment -name VERILOG_FILE ../Source/VICKY_III/VIII_RegisterBlock_B.v
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/ADDY_ADDER/ADDY_ADDER.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/DMA_MULT_BLK/DMA_MULT_BLK.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/ADDY_COMPARE/ADDY_COMPARE.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/ADDY_COUNTER/ADDY_COUNTER.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/BIDIR_DATA8/BIDIR_DATA8.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/Sprite_Register_Block/Sprite_Register_Block.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TextAddy_Mult/TextAddy_Mult.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TEXT_MEM16_BLK/TEXT_MEM16_BLK.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/I2CBIDIR/I2CBIDIR.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/CLK_SWITCH/Clk_Switch.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/VIDEO_PLL/VIDEO_PLL.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/MouserPointerSprite/MousePointerSprite.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/FONT_DP_MEM/FONT_DP_MEM.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TEXT_CLR_LUT/TEXT_CLR_LUT.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TEXT_MEM32_BLK/TEXT_MEM32_BLK.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/GAMMA_Channel/GAMMA_Channel.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/LUT32/LUT32.qip"
+set_global_assignment -name QIP_FILE ../Source/VICKY_IV/Cores/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.qip
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/FONT8by16_DPROM/FONT8by16_DPROM.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/MEMTEXT_DP/MEMTEXT_DP.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/MEMTEXT_FONT/MEMTEXT_FONT.qip"
+set_global_assignment -name QIP_FILE "../Source/VICKY_III/Cores Cyclone III/TOSGRAPH_FIFO/TOSGRAPH_FIFO.qip"
+set_global_assignment -name VERILOG_FILE ../Source/CPU/A2650K_PowerLED_RGB.v
+set_global_assignment -name VERILOG_FILE ../Source/CPU/A2560K_Keyboard_Module.v
+set_global_assignment -name QIP_FILE "../Source/CPU/Cores Cyclone III/A2560K_KB_FIFO16/A2560K_KB_FIFO16.qip"
+set_global_assignment -name SDC_FILE A2560K60_Project.out.sdc
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

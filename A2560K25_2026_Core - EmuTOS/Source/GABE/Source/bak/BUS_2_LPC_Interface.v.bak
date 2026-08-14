@@ -1,0 +1,341 @@
+`timescale 1 ns / 1 ns
+
+module BUS_2_LPC_interface 
+(
+input 	wire				rst_i,				// That Reset comes from from LPC_CLK Domain
+input 	wire				Bus_Clk_i,
+input 	wire	[23:0]	Bus_A_i,
+input		wire  [7:0]		Bus_D_i,
+output 	wire	[7:0]		Bus_D_o,
+input		wire				Bus_RW_i,
+input		wire				BUS_VDA_i,
+input		wire				BUS_VPA_i,
+output	wire				Bus_Rdy_o,
+output	wire				LPC_Data_Out_Ready_o,
+input		wire				CS_VID_SuperIO_i,
+
+// LPC Block Interface
+input 	wire				LPC_Clk_i,
+input		wire	[31:0]	LPC_Data_Out_i,
+input		wire				LPC_Ack_i,
+input		wire				LPC_Err_i,
+// Outputs
+output	wire	[15:0] 	LPC_Address_o,
+output	wire	[7:0]		LPC_Data_In_o,
+output	wire				LPC_Write_o,
+output	reg				LPC_Strobe_o
+);
+
+
+// There is a Clock Realm Crossing here, but the when the Value is read by CPU, the Value has been stable for a while.
+
+wire	[23:0] 		CMD_FIFO_Output;
+wire					CMD_FIFO_Empty;
+wire					DATA_FIFO_Empty;
+
+assign 	LPC_Data_Out_Ready_o = 1'b0;
+
+assign Bus_Rdy_o = CS_VID_SuperIO_i ? !LPC_SLICE[13]  : 1'b0;
+
+reg	[15:0]	LPC_SLICE;
+
+always @ (posedge Bus_Clk_i) 
+begin
+		if (CS_VID_SuperIO_i)
+			LPC_SLICE <= (LPC_SLICE[15:0] | {15'h00, CS_VID_SuperIO_i}) << 1'b1;
+		else
+			LPC_SLICE <= 16'h0000;
+end
+
+
+
+//assign Bus_Rdy_o = CS_Complete ? (!RTC_SLICE[4] | DATA_FIFO_Empty) : 1'b0;
+//assign Bus_Rdy_o = CS_VID_SuperIO_i ? DATA_FIFO_Empty_DLY[0] : 1'b0;
+
+reg 	[2:0] rst_i_Resync;
+
+reg	[1:0]		Transaction_Slip;
+
+always @ (negedge Bus_Clk_i)
+begin
+	if (rst_i_Resync[2]) begin
+		Transaction_Slip[1:0] <= 2'b00;
+	end
+	else begin
+		Transaction_Slip[0] <= CS_VID_SuperIO_i;
+		Transaction_Slip[1] <= Transaction_Slip[0];
+	end
+end
+
+// Resync Reset Since it is coming from the 33Mhz Realm
+
+
+always @ (negedge Bus_Clk_i)
+begin
+		rst_i_Resync[0] <= rst_i;
+		rst_i_Resync[1] <= rst_i_Resync[0];
+		rst_i_Resync[2] <= rst_i_Resync[1];		
+end
+
+//reg [7:0] FIFO_Data_Out;
+reg 	[7:0]	LPC_Dout0;
+reg 	[7:0]	LPC_Dout1;
+
+assign Bus_D_o = LPC_Dout1;
+always @ (negedge Bus_Clk_i)
+begin
+	if (rst_i_Resync[2])
+	begin
+		LPC_Dout0 <= 8'h00;
+		LPC_Dout1 <= 8'h00;
+	end
+	else begin
+			LPC_Dout0 <= LPC_Data_Out_i[7:0];
+			LPC_Dout1 <= LPC_Dout0;
+	end
+end
+
+
+// Delay the DATA Fifo Empty
+/*
+reg [2:0] DATA_FIFO_Empty_DLY;
+
+always @ (posedge Bus_Clk_i)
+begin
+
+	if (rst_i_Resync[2]) begin
+		DATA_FIFO_Empty_DLY[2:0] <= 3'b111;
+	end
+	else begin
+		DATA_FIFO_Empty_DLY[0] <= DATA_FIFO_Empty;
+		DATA_FIFO_Empty_DLY[1] <= DATA_FIFO_Empty_DLY[0];
+		DATA_FIFO_Empty_DLY[2] <= DATA_FIFO_Empty_DLY[1];
+	end
+		
+end
+*/
+/*
+LPC_2_READ_FIFO LPC_2_BUS_FIFO(
+	.aclr ( rst_i_Resync[2] ),
+	.data(  LPC_Data_Out_i[7:0] ),
+	.rdclk( !Bus_Clk_i ),
+//	.rdreq( Read_FIFO ),
+	.rdreq( 1'b1 ),	
+	.wrclk( LPC_Clk_i ),
+	.wrreq( LPC_Ack_i ),
+	.q( LPC_Data_Out_o ),
+	.rdempty( DATA_FIFO_Empty ),
+	.wrfull()
+);
+*/
+
+LPC_CMD_FIFO LPC_COMMAND_FIFO(
+	.aclr ( rst_i_Resync[2] ),
+	.data({ Bus_D_i[7:0], Bus_RW_i, Bus_A_i[14:0] }),
+	.rdclk( LPC_Clk_i ),
+	.rdreq( Read_FIFO_LPC ),
+	.wrclk( !Bus_Clk_i ),
+	.wrreq(({Transaction_Slip[0], CS_VID_SuperIO_i } == 2'b01)),
+	.q( CMD_FIFO_Output ),
+	.rdempty( CMD_FIFO_Empty ),
+	.wrfull()
+);
+
+assign LPC_Address_o = {1'b0, CMD_FIFO_Output[14:0]} & 16'h03FF;
+assign LPC_Data_In_o = CMD_FIFO_Output[23:16];
+assign LPC_Write_o = !CMD_FIFO_Output[15];
+
+
+reg [2:0]	StateMachine;
+reg			Read_FIFO_LPC;
+
+localparam	IDLE 					= 3'b000,
+				BEGIN_CYCLE			= 3'b001,
+				END_CYCLE 			= 3'b010,
+				END_CYCLE1 			= 3'b011,
+				END_CYCLE2			= 3'b100;
+
+reg	[7:0]	Timeout;
+reg	[7:0]	Timeout_Error;
+
+always @ (posedge LPC_Clk_i)
+begin
+	if (rst_i) begin
+		StateMachine <= IDLE;
+		Timeout_Error <= 8'h00;
+		Read_FIFO_LPC <= 1'b0;
+		LPC_Strobe_o <= 1'b0;
+	end
+	else begin
+	
+		case (StateMachine)
+
+		IDLE: 
+		begin
+			if (CMD_FIFO_Empty) begin
+				StateMachine <= IDLE;		
+			end
+			else begin
+				Read_FIFO_LPC 	<= 1'b1;
+				Timeout			<= 8'h20;
+				StateMachine 	<= BEGIN_CYCLE;				
+			end
+		end
+
+		BEGIN_CYCLE: 
+		begin
+				Read_FIFO_LPC <= 1'b0;
+				LPC_Strobe_o <= 1'b1;
+				StateMachine <= END_CYCLE;					
+		end
+		
+		END_CYCLE: 
+		begin
+			if (LPC_Ack_i) begin
+				LPC_Strobe_o <= 1'b0;
+				StateMachine <= END_CYCLE1;	// If Writing, we are done.
+			end
+			else begin
+				if (Timeout) begin
+					Timeout <= Timeout - 1'b1;
+					StateMachine <= END_CYCLE;					
+					end
+					else begin
+						Timeout_Error <= Timeout_Error + 1'b1;
+						LPC_Strobe_o <= 1'b0;
+						
+						StateMachine <= END_CYCLE1;	// If Writing, we are done.					
+					end
+			end
+		end
+
+		END_CYCLE1: 
+		begin
+			StateMachine <= IDLE;	// If Writing, we are done.	
+		end
+
+		default: begin
+			StateMachine <= IDLE;		
+		end
+	
+
+	endcase
+	
+	
+	end
+end
+
+/*
+wire	[7:0]		PeekPoke;
+wire	[63:0]	ChipScope;
+wire				Trigger;
+//assign ChipScope[6:0] = {Write_LPC_IncomingData ,Read_Data_Strobe, CMD_FIFO_Empty, StateMachine};
+
+assign ChipScope[23:0] = Bus_A_i;
+assign ChipScope[31:24] = Bus_D_i;
+assign ChipScope[39:32] = Bus_D_o;
+assign ChipScope[40] = CS_VID_SuperIO_i;
+assign ChipScope[41] = Bus_RW_i;
+assign ChipScope[42] = rst_i;
+assign ChipScope[43] = Bus_Rdy_o;
+assign ChipScope[44] = DATA_FIFO_Empty;
+assign ChipScope[52:45] = LPC_Data_Out_o;
+assign ChipScope[63:53] = 0;
+*/
+/*
+assign ChipScope[23:0] = {8'h00, LPC_Address_o};
+assign ChipScope[31:24] = LPC_Data_In_o;
+assign ChipScope[39:32] = LPC_Data_Out_i[7:0];
+assign ChipScope[40] = LPC_Strobe_o;
+assign ChipScope[41] = LPC_Ack_i;
+assign ChipScope[42] = LPC_Write_o;
+assign ChipScope[43] = CMD_FIFO_Empty;
+assign ChipScope[44] = LPC_Err_i;
+assign ChipScope[47:45] = StateMachine;
+assign ChipScope[48] = rst_i;
+assign ChipScope[53:49] = 0;
+assign ChipScope[55:54] = 0;
+assign ChipScope[63:56] = Timeout_Error;
+*/
+
+//assign Trigger = !LPC_Write_o & LPC_Strobe_o & (LPC_Address_o == 16'h0060);
+/*
+assign Trigger = CS_VID_SuperIO_i & !Bus_RW_i & (Bus_A_i == 24'h7F1123);
+
+
+ChipScope ChipSCOPE(
+		.acq_clk(!Bus_Clk_i),        // acq_clk.clk
+		.acq_data_in(ChipScope),    //     tap.acq_data_in
+		.acq_trigger_in(Trigger),  //        .acq_trigger_in
+		.trigger_in(Trigger)
+	);
+*/
+/*
+ChipScope ChipSCOPE(
+		.acq_clk(LPC_Clk_i),        // acq_clk.clk
+		.acq_data_in(ChipScope),    //     tap.acq_data_in
+		.acq_trigger_in(Trigger),  //        .acq_trigger_in
+		.trigger_in(Trigger)
+	);
+*/
+	
+	
+endmodule
+
+/*
+always @ (negedge Bus_Clk_i)
+begin
+	if (rst_i) begin
+			EnableReady <= 1'b0;
+			SM <= 3'b000;
+	end
+	else begin
+	
+		case (SM)
+	
+		3'b000: begin 
+			if ({Read_Slip[1:0], Read_Cycle} == 3'b001) begin
+				SM <= 3'b001;
+				EnableReady <= 1'b1;
+				end
+			else
+				SM <= 3'b000;
+		end
+		
+		// Wait for CMD_Write_Empty
+		3'b001: begin
+			if (CMD_Write_Empty)
+					SM <= 3'b010;
+			else
+					SM <= 3'b001;
+			end
+		// Wait for DATA_FIFO_Empty 
+		3'b010: begin
+			if (DATA_FIFO_Empty)
+					SM <= 3'b010;
+			else begin
+					EnableReady <= 1'b0;			// The Data is Valid, stop the Ready		
+					SM <= 3'b011;
+			end		
+		
+		end
+		
+		3'b011: begin
+			if ({Read_Slip[1:0], Read_Cycle} == 3'b110) begin		// Wait for the Falling Edge
+				SM <= 3'b000;
+			end
+			else
+				SM <= 3'b011;				
+		end
+	
+		default: begin
+			EnableReady <= 1'b0;
+			SM <= 3'b000;
+		end
+	
+		endcase
+	
+	end
+
+end
+*/

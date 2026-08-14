@@ -1,0 +1,525 @@
+## Generated SDC file "CFP95179X32.out.sdc"
+
+## Copyright (C) 1991-2014 Altera Corporation
+## Your use of Altera Corporation's design tools, logic functions 
+## and other software and tools, and its AMPP partner logic 
+## functions, and any output files from any of the foregoing 
+## (including device programming or simulation files), and any 
+## associated documentation or information are expressly subject 
+## to the terms and conditions of the Altera Program License 
+## Subscription Agreement, Altera MegaCore Function License 
+## Agreement, or other applicable license agreement, including, 
+## without limitation, that your use is for the sole purpose of 
+## programming logic devices manufactured by Altera and sold by 
+## Altera or its authorized distributors.  Please refer to the 
+## applicable agreement for further details.
+
+
+## VENDOR  "Altera"
+## PROGRAM "Quartus II"
+## VERSION "Version 13.1.4 Build 182 03/12/2014 SJ Web Edition"
+
+## DATE    "Sat Nov 22 00:59:02 2025"
+
+##
+## DEVICE  "EP3C120F780C8"
+##
+
+
+#**************************************************************
+# Create Clock
+#**************************************************************
+
+create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
+create_clock -name {OSC_CLK_14_318Mhz_i} -period 69.840 -waveform { 0.000 34.920 } [get_ports {OSC_CLK_14_318Mhz_i}]
+create_clock -name {OSC_CLK_22_579Mhz_i} -period 44.288 -waveform { 0.000 22.144 } [get_ports {OSC_CLK_22_579Mhz_i}]
+create_clock -name {OSC_CLK_24_576Mhz_i} -period 40.690 -waveform { 0.000 20.340 } [get_ports {OSC_CLK_24_576Mhz_i}]
+create_clock -name {OSC_CLK_25_175Mhz_i} -period 39.720 -waveform { 0.000 19.860 } [get_ports {OSC_CLK_25_175Mhz_i}]
+create_clock -name {OSC_CLK_33_333Mhz_i} -period 30.000 -waveform { 0.000 15.000 } [get_ports {OSC_CLK_33_333Mhz_i}]
+
+create_clock -name {OSC_CLK_40_000Mhz_A_i} -period 25.000 -waveform { 0.000 12.500 } [get_ports {OSC_CLK_40_000Mhz_A_i}]
+create_clock -name {OSC_CLK_40_000Mhz_B_i} -period 25.000 -waveform { 0.000 12.500 } [get_ports {OSC_CLK_40_000Mhz_B_i}]
+create_clock -name {OSC_CLK_65_000Mhz_i} -period 15.384 -waveform { 0.000 7.692 } [get_ports {OSC_CLK_65_000Mhz_i}]
+create_clock -name {OSC_CLK_80_000Mhz_i} -period 12.500 -waveform { 0.000 6.250 } [get_ports {OSC_CLK_80_000Mhz_i}]
+create_clock -name {OSC_CLK_80_000Mhz_A_i} -period 12.500 -waveform { 0.000 6.250 } [get_ports {OSC_CLK_80_000Mhz_A_i}]
+
+
+
+#**************************************************************
+# Time Information
+#**************************************************************
+create_generated_clock -name {Clk24} -source [get_pins {PLL_SDCard_Debug_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 3 -divide_by 10 -master_clock {OSC_CLK_80_000Mhz_A_i} [get_pins {PLL_SDCard_Debug_inst|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {Sys133Mhz} -source [get_pins {PLL_SDCard_Debug_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 5 -divide_by 3 -master_clock {OSC_CLK_80_000Mhz_A_i} [get_pins {PLL_SDCard_Debug_inst|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {CLK66MHz} -source [get_pins {PLL_SDCard_Debug_inst|altpll_component|auto_generated|pll1|clk[1]}] -divide_by 2 -master_clock {Sys133Mhz} [get_nets {MainCPU_Module|ClockDivide[0]}] 
+create_generated_clock -name {CLK33MHz} -source [get_pins {PLL_SDCard_Debug_inst|altpll_component|auto_generated|pll1|clk[1]}] -divide_by 4 -master_clock {Sys133Mhz} [get_nets {MainCPU_Module|ClockDivide[1]}] 
+
+create_generated_clock -name {Clk40VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_40_000Mhz_A_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {Clk20VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 2 -master_clock {OSC_CLK_40_000Mhz_A_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {Clk40VID_B} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_40_000Mhz_A_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[2]}] 
+
+create_generated_clock -name {Clk65VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[1]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_65_000Mhz_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {Clk33VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[1]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 2 -master_clock {OSC_CLK_65_000Mhz_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {Clk65VID_B} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[1]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_65_000Mhz_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[2]}] 
+
+create_generated_clock -name {CLK358} -source [get_nets {OSC_CLK_14_318Mhz_i~input}] -divide_by 4 -master_clock {OSC_CLK_14_318Mhz_i} [get_registers {Clk3_58Mhz[1]}] 
+create_generated_clock -name {CLK108Mhz} -source [get_ports {OSC_CLK_40_000Mhz_B_i}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_40_000Mhz_B_i} [get_nets {PLL_40Mhz_108Mhz_inst|altpll_component|auto_generated|wire_pll1_clk[0]}] 
+
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+
+set_clock_uncertainty -rise_from [get_clocks {CLK108Mhz}] -rise_to [get_clocks {CLK108Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK108Mhz}] -fall_to [get_clocks {CLK108Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK108Mhz}] -rise_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK108Mhz}] -fall_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK108Mhz}] -rise_to [get_clocks {CLK66MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK108Mhz}] -fall_to [get_clocks {CLK66MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK108Mhz}] -rise_to [get_clocks {CLK108Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK108Mhz}] -fall_to [get_clocks {CLK108Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK108Mhz}] -rise_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK108Mhz}] -fall_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK108Mhz}] -rise_to [get_clocks {CLK66MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK108Mhz}] -fall_to [get_clocks {CLK66MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -rise_to [get_clocks {CLK358}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -fall_to [get_clocks {CLK358}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -rise_to [get_clocks {CLK33MHz}] -setup 0.090  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -fall_to [get_clocks {CLK33MHz}] -setup 0.090  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK358}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -rise_to [get_clocks {CLK358}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -fall_to [get_clocks {CLK358}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -rise_to [get_clocks {CLK33MHz}] -setup 0.090  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -fall_to [get_clocks {CLK33MHz}] -setup 0.090  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK358}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_B}] -rise_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_B}] -fall_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_B}] -rise_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_B}] -fall_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_B}] -rise_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_B}] -fall_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_B}] -rise_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_B}] -fall_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {Clk40VID_B}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {Clk20VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {Clk40VID_A}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {CLK33MHz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK108Mhz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK108Mhz}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK358}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK358}] -hold 0.090  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK358}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK358}] -hold 0.090  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Clk20VID_A}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Clk20VID_A}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Clk40VID_A}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Clk40VID_A}]  0.160  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -setup 0.090  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -hold 0.060  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -setup 0.090  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -hold 0.060  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_33_333Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_33_333Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_33_333Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_33_333Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_25_175Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_25_175Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_25_175Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_25_175Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_24_576Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_24_576Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_24_576Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_24_576Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_22_579Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_22_579Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_22_579Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_22_579Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK108Mhz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK108Mhz}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK358}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK358}] -hold 0.090  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK358}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK358}] -hold 0.090  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Clk20VID_A}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Clk20VID_A}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Clk40VID_A}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Clk40VID_A}]  0.160  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -setup 0.090  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -hold 0.060  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -setup 0.090  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_A_i}] -hold 0.060  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_33_333Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_33_333Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_33_333Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_33_333Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_25_175Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_25_175Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_25_175Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_25_175Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_24_576Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_24_576Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_24_576Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_24_576Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_22_579Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_22_579Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_22_579Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_22_579Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK66MHz}] -rise_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK66MHz}] -fall_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK66MHz}] -rise_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK66MHz}] -fall_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -rise_from [get_clocks {CLK66MHz}] -rise_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLK66MHz}] -fall_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK66MHz}] -rise_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK66MHz}] -fall_to [get_clocks {CLK33MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK66MHz}] -rise_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK66MHz}] -fall_to [get_clocks {CLK66MHz}]  0.030  
+set_clock_uncertainty -fall_from [get_clocks {CLK66MHz}] -rise_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {CLK66MHz}] -fall_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Sys133Mhz}] -rise_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Sys133Mhz}] -fall_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Sys133Mhz}] -rise_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Sys133Mhz}] -fall_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Sys133Mhz}] -rise_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Sys133Mhz}] -fall_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Sys133Mhz}] -rise_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Sys133Mhz}] -fall_to [get_clocks {Sys133Mhz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk24}] -rise_to [get_clocks {CLK33MHz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk24}] -fall_to [get_clocks {CLK33MHz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk24}] -rise_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk24}] -fall_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk24}] -rise_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk24}] -fall_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk24}] -rise_to [get_clocks {CLK33MHz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk24}] -fall_to [get_clocks {CLK33MHz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk24}] -rise_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk24}] -fall_to [get_clocks {CLK66MHz}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk24}] -rise_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {Clk24}] -fall_to [get_clocks {Clk24}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.070  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.100  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.070  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.100  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.070  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.100  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.070  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.100  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_A_i}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_B_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_B_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_33_333Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_33_333Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_33_333Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_33_333Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_33_333Mhz_i}] -rise_to [get_clocks {OSC_CLK_33_333Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_33_333Mhz_i}] -fall_to [get_clocks {OSC_CLK_33_333Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_33_333Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_33_333Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_33_333Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_33_333Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_33_333Mhz_i}] -rise_to [get_clocks {OSC_CLK_33_333Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_33_333Mhz_i}] -fall_to [get_clocks {OSC_CLK_33_333Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_25_175Mhz_i}] -rise_to [get_clocks {OSC_CLK_25_175Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_25_175Mhz_i}] -fall_to [get_clocks {OSC_CLK_25_175Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_25_175Mhz_i}] -rise_to [get_clocks {OSC_CLK_25_175Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_25_175Mhz_i}] -fall_to [get_clocks {OSC_CLK_25_175Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_24_576Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_24_576Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_24_576Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_24_576Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_24_576Mhz_i}] -rise_to [get_clocks {OSC_CLK_24_576Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_24_576Mhz_i}] -fall_to [get_clocks {OSC_CLK_24_576Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_24_576Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_24_576Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_24_576Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_24_576Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_24_576Mhz_i}] -rise_to [get_clocks {OSC_CLK_24_576Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_24_576Mhz_i}] -fall_to [get_clocks {OSC_CLK_24_576Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {CLK358}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {CLK358}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {CLK358}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {CLK358}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -rise_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_14_318Mhz_i}] -fall_to [get_clocks {OSC_CLK_14_318Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_22_579Mhz_i}] -rise_to [get_clocks {OSC_CLK_22_579Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_22_579Mhz_i}] -fall_to [get_clocks {OSC_CLK_22_579Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_22_579Mhz_i}] -rise_to [get_clocks {OSC_CLK_22_579Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_22_579Mhz_i}] -fall_to [get_clocks {OSC_CLK_22_579Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk20VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -rise_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.100  
+set_clock_uncertainty -fall_from [get_clocks {Clk40VID_A}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.110  
+set_clock_uncertainty -rise_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -setup 0.110  
+set_clock_uncertainty -fall_from [get_clocks {CLK33MHz}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}] -hold 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_i}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_80_000Mhz_i}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_i}] -rise_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -setup 0.080  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_i}] -fall_to [get_clocks {CLK33MHz}] -hold 0.110  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_i}] -rise_to [get_clocks {OSC_CLK_80_000Mhz_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_80_000Mhz_i}] -fall_to [get_clocks {OSC_CLK_80_000Mhz_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -rise_to [get_clocks {OSC_CLK_40_000Mhz_A_i}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {OSC_CLK_40_000Mhz_A_i}] -fall_to [get_clocks {OSC_CLK_40_000Mhz_A_i}]  0.020  
+
+
+#**************************************************************
+# Set Input Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Output Delay
+#**************************************************************
+#66 - BUS A
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_A_DQ_io[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_A_Addy_o[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_A_OEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_A_WEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_A_BEn_o[*]}]
+#33 - BUS A
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_A_DQ_io[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_A_Addy_o[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_A_OEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_A_WEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_A_BEn_o[*]}]
+#66 - BUS B
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_B_DQ_io[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_B_Addy_o[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_B_OEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_B_WEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK66MHz}]  1.500 [get_ports {VRAM_B_BEn_o[*]}]
+#33 - BUS B
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_B_DQ_io[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_B_Addy_o[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_B_OEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_B_WEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {VRAM_B_BEn_o[*]}]
+# Local CPU
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {CPU_A_io[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {CPU_D_io[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {LOCAL_MEM_SRAM_BEn_o[*]}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {LOCAL_MEM_SRAM_CS0n_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {LOCAL_MEM_SRAM_CS1n_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {LOCAL_MEM_SRAM_OEn_o}]
+set_output_delay -add_delay  -clock [get_clocks {CLK33MHz}]  3.000 [get_ports {LOCAL_MEM_SRAM_WEn_o}]
+
+#set_output_delay -add_delay  -clock [get_clocks {Sys133Mhz}]  1.000 [get_ports {SYSRAM_DQ_io[*]}]
+#set_output_delay -add_delay  -clock [get_clocks {CLK108Mhz}]  1.000 [get_ports {VID_B_PIX_o[*]}]
+#set_output_delay -add_delay  -clock [get_clocks {Clk40VID_A}]  3.000 [get_ports {VID_A_PIX_o[*]}]
+#set_output_delay -add_delay  -clock [get_clocks {Clk65VID_A}]  2.000 [get_ports {VID_A_PIX_o[*]}]
+
+
+
+#**************************************************************
+# Set Clock Groups
+#**************************************************************
+
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -physically_exclusive -group [get_clocks {CLK33MHz}] -group [get_clocks {CLK66MHz}]
+set_clock_groups -physically_exclusive -group [get_clocks {Clk40VID_A}] -group [get_clocks {Clk65VID_A}]
+
+#**************************************************************
+# Set False Path
+#**************************************************************
+#New New Stuff
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {CLK108Mhz}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {Sys133Mhz}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {CLK66MHz}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {OSC_CLK_80_000Mhz_A_i}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {OSC_CLK_24_576Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {OSC_CLK_40_000Mhz_B_i}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {OSC_CLK_14_318Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {OSC_CLK_22_579Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {OSC_CLK_25_175Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {CLK358}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {Clk40VID_A}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {Clk65VID_A}]
+set_false_path  -from  [get_clocks {CLK33MHz}]  -to  [get_clocks {Clk24}]
+set_false_path  -from  [get_clocks {Clk40VID_A}]  -to  [get_clocks {CLK33MHz}]
+set_false_path  -from  [get_clocks {Clk65VID_A}]  -to  [get_clocks {CLK33MHz}]
+set_false_path  -from  [get_clocks {Clk24}]  -to  [get_clocks {CLK66MHz}]
+set_false_path  -from  [get_clocks {Clk24}]  -to  [get_clocks {CLK33MHz}]
+set_false_path  -from  [get_clocks {CLK66MHz}]  -to  [get_clocks {Sys133Mhz}]
+set_false_path  -from  [get_clocks {OSC_CLK_14_318Mhz_i}]  -to  [get_clocks {OSC_CLK_24_576Mhz_i}]
+
+set_false_path -from [get_ports {COLD_RESETn_io}] 
+
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_te9:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_pe9:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_5v8:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_4v8:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_kd9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_jd9:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_d09:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_c09:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_3v8:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_2v8:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_se9:dffpipe16|dffe17a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_re9:dffpipe13|dffe14a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_md9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_ld9:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_b09:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_a09:dffpipe12|dffe13a*}]
+
+
+#**************************************************************
+# Set Multicycle Path
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Maximum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Minimum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Transition
+#**************************************************************
+

@@ -1,0 +1,720 @@
+<session sof_file="">
+  <display_tree/>
+  <global_info/>
+  <instance name="signaltap_megafunction_1">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="2" version="6"/>
+    <position_info/>
+    <signal_set name="">
+      <clock name="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_clk" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="AUTO" reserved_data_nodes="144" reserved_trigger_nodes="1" sample_depth="512" trigger_in_enable="yes" trigger_in_node="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|trigger_in" trigger_in_tap_mode="classic" trigger_out_enable="no" trigger_out_node=""/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_trigger_in[0]" name="acq_trigger_in[0]" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[0]" name="acq_data_in[0]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[1]" name="acq_data_in[1]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[2]" name="acq_data_in[2]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[3]" name="acq_data_in[3]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[4]" name="acq_data_in[4]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[5]" name="acq_data_in[5]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[6]" name="acq_data_in[6]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[7]" name="acq_data_in[7]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[8]" name="acq_data_in[8]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[9]" name="acq_data_in[9]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[10]" name="acq_data_in[10]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[11]" name="acq_data_in[11]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[12]" name="acq_data_in[12]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[13]" name="acq_data_in[13]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[14]" name="acq_data_in[14]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[15]" name="acq_data_in[15]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[16]" name="acq_data_in[16]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[17]" name="acq_data_in[17]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[18]" name="acq_data_in[18]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[19]" name="acq_data_in[19]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[20]" name="acq_data_in[20]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[21]" name="acq_data_in[21]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[22]" name="acq_data_in[22]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[23]" name="acq_data_in[23]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[24]" name="acq_data_in[24]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[25]" name="acq_data_in[25]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[26]" name="acq_data_in[26]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[27]" name="acq_data_in[27]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[28]" name="acq_data_in[28]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[29]" name="acq_data_in[29]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[30]" name="acq_data_in[30]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[31]" name="acq_data_in[31]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[32]" name="acq_data_in[32]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[33]" name="acq_data_in[33]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[34]" name="acq_data_in[34]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[35]" name="acq_data_in[35]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[36]" name="acq_data_in[36]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[37]" name="acq_data_in[37]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[38]" name="acq_data_in[38]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[39]" name="acq_data_in[39]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[40]" name="acq_data_in[40]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[41]" name="acq_data_in[41]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[42]" name="acq_data_in[42]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[43]" name="acq_data_in[43]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[44]" name="acq_data_in[44]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[45]" name="acq_data_in[45]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[46]" name="acq_data_in[46]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[47]" name="acq_data_in[47]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[48]" name="acq_data_in[48]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[49]" name="acq_data_in[49]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[50]" name="acq_data_in[50]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[51]" name="acq_data_in[51]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[52]" name="acq_data_in[52]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[53]" name="acq_data_in[53]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[54]" name="acq_data_in[54]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[55]" name="acq_data_in[55]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[56]" name="acq_data_in[56]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[57]" name="acq_data_in[57]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[58]" name="acq_data_in[58]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[59]" name="acq_data_in[59]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[60]" name="acq_data_in[60]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[61]" name="acq_data_in[61]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[62]" name="acq_data_in[62]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[63]" name="acq_data_in[63]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[64]" name="acq_data_in[64]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[65]" name="acq_data_in[65]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[66]" name="acq_data_in[66]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[67]" name="acq_data_in[67]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[68]" name="acq_data_in[68]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[69]" name="acq_data_in[69]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[70]" name="acq_data_in[70]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[71]" name="acq_data_in[71]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[72]" name="acq_data_in[72]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[73]" name="acq_data_in[73]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[74]" name="acq_data_in[74]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[75]" name="acq_data_in[75]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[76]" name="acq_data_in[76]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[77]" name="acq_data_in[77]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[78]" name="acq_data_in[78]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[79]" name="acq_data_in[79]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[80]" name="acq_data_in[80]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[81]" name="acq_data_in[81]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[82]" name="acq_data_in[82]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[83]" name="acq_data_in[83]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[84]" name="acq_data_in[84]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[85]" name="acq_data_in[85]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[86]" name="acq_data_in[86]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[87]" name="acq_data_in[87]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[88]" name="acq_data_in[88]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[89]" name="acq_data_in[89]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[90]" name="acq_data_in[90]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[91]" name="acq_data_in[91]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[92]" name="acq_data_in[92]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[93]" name="acq_data_in[93]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[94]" name="acq_data_in[94]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[95]" name="acq_data_in[95]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[96]" name="acq_data_in[96]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[97]" name="acq_data_in[97]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[98]" name="acq_data_in[98]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[99]" name="acq_data_in[99]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[100]" name="acq_data_in[100]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[101]" name="acq_data_in[101]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[102]" name="acq_data_in[102]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[103]" name="acq_data_in[103]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[104]" name="acq_data_in[104]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[105]" name="acq_data_in[105]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[106]" name="acq_data_in[106]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[107]" name="acq_data_in[107]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[108]" name="acq_data_in[108]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[109]" name="acq_data_in[109]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[110]" name="acq_data_in[110]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[111]" name="acq_data_in[111]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[112]" name="acq_data_in[112]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[113]" name="acq_data_in[113]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[114]" name="acq_data_in[114]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[115]" name="acq_data_in[115]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[116]" name="acq_data_in[116]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[117]" name="acq_data_in[117]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[118]" name="acq_data_in[118]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[119]" name="acq_data_in[119]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[120]" name="acq_data_in[120]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[121]" name="acq_data_in[121]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[122]" name="acq_data_in[122]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[123]" name="acq_data_in[123]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[124]" name="acq_data_in[124]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[125]" name="acq_data_in[125]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[126]" name="acq_data_in[126]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[127]" name="acq_data_in[127]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[128]" name="acq_data_in[128]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[129]" name="acq_data_in[129]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[130]" name="acq_data_in[130]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[131]" name="acq_data_in[131]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[132]" name="acq_data_in[132]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[133]" name="acq_data_in[133]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[134]" name="acq_data_in[134]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[135]" name="acq_data_in[135]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[136]" name="acq_data_in[136]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[137]" name="acq_data_in[137]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[138]" name="acq_data_in[138]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[139]" name="acq_data_in[139]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[140]" name="acq_data_in[140]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[141]" name="acq_data_in[141]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[142]" name="acq_data_in[142]" tap_mode="classic"/>
+          <wire alias="MC68040V_Interface:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[143]" name="acq_data_in[143]" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec/>
+      </signal_vec>
+      <presentation>
+        <data_view/>
+        <setup_view/>
+      </presentation>
+      <trigger CRC="4C12F59" name="" record_data_gap="true" storage_mode="off">
+        <power_up_trigger/>
+        <events>
+          <level type="basic">
+            <power_up>
+            </power_up>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>
+            <pwr_up_transitional/>
+          </transitional>
+        </storage_qualifier_events>
+      </trigger>
+    </signal_set>
+  </instance>
+  <instance name="signaltap_megafunction_2">
+    <node_ip_info instance_id="1" mfg_id="110" node_id="2" version="6"/>
+    <position_info/>
+    <signal_set name="">
+      <clock name="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_clk" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="AUTO" reserved_data_nodes="144" reserved_trigger_nodes="1" sample_depth="512" trigger_in_enable="yes" trigger_in_node="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|trigger_in" trigger_in_tap_mode="classic" trigger_out_enable="no" trigger_out_node=""/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_trigger_in[0]" name="acq_trigger_in[0]" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[0]" name="acq_data_in[0]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[1]" name="acq_data_in[1]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[2]" name="acq_data_in[2]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[3]" name="acq_data_in[3]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[4]" name="acq_data_in[4]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[5]" name="acq_data_in[5]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[6]" name="acq_data_in[6]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[7]" name="acq_data_in[7]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[8]" name="acq_data_in[8]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[9]" name="acq_data_in[9]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[10]" name="acq_data_in[10]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[11]" name="acq_data_in[11]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[12]" name="acq_data_in[12]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[13]" name="acq_data_in[13]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[14]" name="acq_data_in[14]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[15]" name="acq_data_in[15]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[16]" name="acq_data_in[16]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[17]" name="acq_data_in[17]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[18]" name="acq_data_in[18]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[19]" name="acq_data_in[19]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[20]" name="acq_data_in[20]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[21]" name="acq_data_in[21]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[22]" name="acq_data_in[22]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[23]" name="acq_data_in[23]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[24]" name="acq_data_in[24]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[25]" name="acq_data_in[25]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[26]" name="acq_data_in[26]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[27]" name="acq_data_in[27]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[28]" name="acq_data_in[28]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[29]" name="acq_data_in[29]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[30]" name="acq_data_in[30]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[31]" name="acq_data_in[31]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[32]" name="acq_data_in[32]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[33]" name="acq_data_in[33]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[34]" name="acq_data_in[34]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[35]" name="acq_data_in[35]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[36]" name="acq_data_in[36]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[37]" name="acq_data_in[37]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[38]" name="acq_data_in[38]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[39]" name="acq_data_in[39]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[40]" name="acq_data_in[40]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[41]" name="acq_data_in[41]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[42]" name="acq_data_in[42]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[43]" name="acq_data_in[43]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[44]" name="acq_data_in[44]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[45]" name="acq_data_in[45]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[46]" name="acq_data_in[46]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[47]" name="acq_data_in[47]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[48]" name="acq_data_in[48]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[49]" name="acq_data_in[49]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[50]" name="acq_data_in[50]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[51]" name="acq_data_in[51]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[52]" name="acq_data_in[52]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[53]" name="acq_data_in[53]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[54]" name="acq_data_in[54]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[55]" name="acq_data_in[55]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[56]" name="acq_data_in[56]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[57]" name="acq_data_in[57]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[58]" name="acq_data_in[58]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[59]" name="acq_data_in[59]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[60]" name="acq_data_in[60]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[61]" name="acq_data_in[61]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[62]" name="acq_data_in[62]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[63]" name="acq_data_in[63]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[64]" name="acq_data_in[64]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[65]" name="acq_data_in[65]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[66]" name="acq_data_in[66]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[67]" name="acq_data_in[67]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[68]" name="acq_data_in[68]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[69]" name="acq_data_in[69]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[70]" name="acq_data_in[70]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[71]" name="acq_data_in[71]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[72]" name="acq_data_in[72]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[73]" name="acq_data_in[73]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[74]" name="acq_data_in[74]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[75]" name="acq_data_in[75]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[76]" name="acq_data_in[76]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[77]" name="acq_data_in[77]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[78]" name="acq_data_in[78]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[79]" name="acq_data_in[79]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[80]" name="acq_data_in[80]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[81]" name="acq_data_in[81]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[82]" name="acq_data_in[82]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[83]" name="acq_data_in[83]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[84]" name="acq_data_in[84]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[85]" name="acq_data_in[85]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[86]" name="acq_data_in[86]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[87]" name="acq_data_in[87]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[88]" name="acq_data_in[88]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[89]" name="acq_data_in[89]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[90]" name="acq_data_in[90]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[91]" name="acq_data_in[91]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[92]" name="acq_data_in[92]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[93]" name="acq_data_in[93]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[94]" name="acq_data_in[94]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[95]" name="acq_data_in[95]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[96]" name="acq_data_in[96]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[97]" name="acq_data_in[97]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[98]" name="acq_data_in[98]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[99]" name="acq_data_in[99]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[100]" name="acq_data_in[100]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[101]" name="acq_data_in[101]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[102]" name="acq_data_in[102]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[103]" name="acq_data_in[103]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[104]" name="acq_data_in[104]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[105]" name="acq_data_in[105]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[106]" name="acq_data_in[106]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[107]" name="acq_data_in[107]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[108]" name="acq_data_in[108]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[109]" name="acq_data_in[109]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[110]" name="acq_data_in[110]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[111]" name="acq_data_in[111]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[112]" name="acq_data_in[112]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[113]" name="acq_data_in[113]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[114]" name="acq_data_in[114]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[115]" name="acq_data_in[115]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[116]" name="acq_data_in[116]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[117]" name="acq_data_in[117]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[118]" name="acq_data_in[118]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[119]" name="acq_data_in[119]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[120]" name="acq_data_in[120]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[121]" name="acq_data_in[121]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[122]" name="acq_data_in[122]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[123]" name="acq_data_in[123]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[124]" name="acq_data_in[124]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[125]" name="acq_data_in[125]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[126]" name="acq_data_in[126]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[127]" name="acq_data_in[127]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[128]" name="acq_data_in[128]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[129]" name="acq_data_in[129]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[130]" name="acq_data_in[130]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[131]" name="acq_data_in[131]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[132]" name="acq_data_in[132]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[133]" name="acq_data_in[133]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[134]" name="acq_data_in[134]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[135]" name="acq_data_in[135]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[136]" name="acq_data_in[136]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[137]" name="acq_data_in[137]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[138]" name="acq_data_in[138]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[139]" name="acq_data_in[139]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[140]" name="acq_data_in[140]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[141]" name="acq_data_in[141]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[142]" name="acq_data_in[142]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|GraphicOutputMixer:PixelMixer_Channel_A|TinyChipScope:u0|acq_data_in[143]" name="acq_data_in[143]" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec/>
+      </signal_vec>
+      <presentation>
+        <data_view/>
+        <setup_view/>
+      </presentation>
+      <trigger CRC="4C12F59" name="" record_data_gap="true" storage_mode="off">
+        <power_up_trigger/>
+        <events>
+          <level type="basic">
+            <power_up>
+            </power_up>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>
+            <pwr_up_transitional/>
+          </transitional>
+        </storage_qualifier_events>
+      </trigger>
+    </signal_set>
+  </instance>
+  <instance name="signaltap_megafunction_3">
+    <node_ip_info instance_id="2" mfg_id="110" node_id="2" version="6"/>
+    <position_info/>
+    <signal_set name="">
+      <clock name="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_clk" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="AUTO" reserved_data_nodes="144" reserved_trigger_nodes="1" sample_depth="512" trigger_in_enable="yes" trigger_in_node="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|trigger_in" trigger_in_tap_mode="classic" trigger_out_enable="no" trigger_out_node=""/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_trigger_in[0]" name="acq_trigger_in[0]" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[0]" name="acq_data_in[0]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[1]" name="acq_data_in[1]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[2]" name="acq_data_in[2]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[3]" name="acq_data_in[3]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[4]" name="acq_data_in[4]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[5]" name="acq_data_in[5]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[6]" name="acq_data_in[6]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[7]" name="acq_data_in[7]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[8]" name="acq_data_in[8]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[9]" name="acq_data_in[9]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[10]" name="acq_data_in[10]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[11]" name="acq_data_in[11]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[12]" name="acq_data_in[12]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[13]" name="acq_data_in[13]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[14]" name="acq_data_in[14]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[15]" name="acq_data_in[15]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[16]" name="acq_data_in[16]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[17]" name="acq_data_in[17]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[18]" name="acq_data_in[18]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[19]" name="acq_data_in[19]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[20]" name="acq_data_in[20]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[21]" name="acq_data_in[21]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[22]" name="acq_data_in[22]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[23]" name="acq_data_in[23]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[24]" name="acq_data_in[24]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[25]" name="acq_data_in[25]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[26]" name="acq_data_in[26]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[27]" name="acq_data_in[27]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[28]" name="acq_data_in[28]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[29]" name="acq_data_in[29]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[30]" name="acq_data_in[30]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[31]" name="acq_data_in[31]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[32]" name="acq_data_in[32]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[33]" name="acq_data_in[33]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[34]" name="acq_data_in[34]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[35]" name="acq_data_in[35]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[36]" name="acq_data_in[36]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[37]" name="acq_data_in[37]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[38]" name="acq_data_in[38]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[39]" name="acq_data_in[39]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[40]" name="acq_data_in[40]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[41]" name="acq_data_in[41]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[42]" name="acq_data_in[42]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[43]" name="acq_data_in[43]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[44]" name="acq_data_in[44]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[45]" name="acq_data_in[45]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[46]" name="acq_data_in[46]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[47]" name="acq_data_in[47]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[48]" name="acq_data_in[48]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[49]" name="acq_data_in[49]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[50]" name="acq_data_in[50]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[51]" name="acq_data_in[51]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[52]" name="acq_data_in[52]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[53]" name="acq_data_in[53]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[54]" name="acq_data_in[54]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[55]" name="acq_data_in[55]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[56]" name="acq_data_in[56]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[57]" name="acq_data_in[57]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[58]" name="acq_data_in[58]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[59]" name="acq_data_in[59]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[60]" name="acq_data_in[60]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[61]" name="acq_data_in[61]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[62]" name="acq_data_in[62]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[63]" name="acq_data_in[63]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[64]" name="acq_data_in[64]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[65]" name="acq_data_in[65]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[66]" name="acq_data_in[66]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[67]" name="acq_data_in[67]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[68]" name="acq_data_in[68]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[69]" name="acq_data_in[69]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[70]" name="acq_data_in[70]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[71]" name="acq_data_in[71]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[72]" name="acq_data_in[72]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[73]" name="acq_data_in[73]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[74]" name="acq_data_in[74]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[75]" name="acq_data_in[75]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[76]" name="acq_data_in[76]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[77]" name="acq_data_in[77]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[78]" name="acq_data_in[78]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[79]" name="acq_data_in[79]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[80]" name="acq_data_in[80]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[81]" name="acq_data_in[81]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[82]" name="acq_data_in[82]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[83]" name="acq_data_in[83]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[84]" name="acq_data_in[84]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[85]" name="acq_data_in[85]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[86]" name="acq_data_in[86]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[87]" name="acq_data_in[87]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[88]" name="acq_data_in[88]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[89]" name="acq_data_in[89]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[90]" name="acq_data_in[90]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[91]" name="acq_data_in[91]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[92]" name="acq_data_in[92]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[93]" name="acq_data_in[93]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[94]" name="acq_data_in[94]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[95]" name="acq_data_in[95]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[96]" name="acq_data_in[96]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[97]" name="acq_data_in[97]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[98]" name="acq_data_in[98]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[99]" name="acq_data_in[99]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[100]" name="acq_data_in[100]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[101]" name="acq_data_in[101]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[102]" name="acq_data_in[102]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[103]" name="acq_data_in[103]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[104]" name="acq_data_in[104]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[105]" name="acq_data_in[105]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[106]" name="acq_data_in[106]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[107]" name="acq_data_in[107]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[108]" name="acq_data_in[108]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[109]" name="acq_data_in[109]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[110]" name="acq_data_in[110]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[111]" name="acq_data_in[111]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[112]" name="acq_data_in[112]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[113]" name="acq_data_in[113]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[114]" name="acq_data_in[114]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[115]" name="acq_data_in[115]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[116]" name="acq_data_in[116]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[117]" name="acq_data_in[117]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[118]" name="acq_data_in[118]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[119]" name="acq_data_in[119]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[120]" name="acq_data_in[120]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[121]" name="acq_data_in[121]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[122]" name="acq_data_in[122]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[123]" name="acq_data_in[123]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[124]" name="acq_data_in[124]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[125]" name="acq_data_in[125]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[126]" name="acq_data_in[126]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[127]" name="acq_data_in[127]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[128]" name="acq_data_in[128]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[129]" name="acq_data_in[129]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[130]" name="acq_data_in[130]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[131]" name="acq_data_in[131]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[132]" name="acq_data_in[132]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[133]" name="acq_data_in[133]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[134]" name="acq_data_in[134]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[135]" name="acq_data_in[135]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[136]" name="acq_data_in[136]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[137]" name="acq_data_in[137]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[138]" name="acq_data_in[138]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[139]" name="acq_data_in[139]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[140]" name="acq_data_in[140]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[141]" name="acq_data_in[141]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[142]" name="acq_data_in[142]" tap_mode="classic"/>
+          <wire alias="VICKYIII_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_Top:Channel_B_Top|GraphicOutputMixer:PixelMixer_Channel_B|TinyChipScope:u0|acq_data_in[143]" name="acq_data_in[143]" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec/>
+      </signal_vec>
+      <presentation>
+        <data_view/>
+        <setup_view/>
+      </presentation>
+      <trigger CRC="4C12F59" name="" record_data_gap="true" storage_mode="off">
+        <power_up_trigger/>
+        <events>
+          <level type="basic">
+            <power_up>
+            </power_up>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>
+            <pwr_up_transitional/>
+          </transitional>
+        </storage_qualifier_events>
+      </trigger>
+    </signal_set>
+  </instance>
+  <instance name="signaltap_megafunction_4">
+    <node_ip_info instance_id="3" mfg_id="110" node_id="2" version="6"/>
+    <position_info/>
+    <signal_set name="">
+      <clock name="DebugModule:GavinDebug|TinyChipScope:u0|acq_clk" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="AUTO" reserved_data_nodes="144" reserved_trigger_nodes="1" sample_depth="512" trigger_in_enable="yes" trigger_in_node="DebugModule:GavinDebug|TinyChipScope:u0|trigger_in" trigger_in_tap_mode="classic" trigger_out_enable="no" trigger_out_node=""/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_trigger_in[0]" name="acq_trigger_in[0]" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[0]" name="acq_data_in[0]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[1]" name="acq_data_in[1]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[2]" name="acq_data_in[2]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[3]" name="acq_data_in[3]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[4]" name="acq_data_in[4]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[5]" name="acq_data_in[5]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[6]" name="acq_data_in[6]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[7]" name="acq_data_in[7]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[8]" name="acq_data_in[8]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[9]" name="acq_data_in[9]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[10]" name="acq_data_in[10]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[11]" name="acq_data_in[11]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[12]" name="acq_data_in[12]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[13]" name="acq_data_in[13]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[14]" name="acq_data_in[14]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[15]" name="acq_data_in[15]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[16]" name="acq_data_in[16]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[17]" name="acq_data_in[17]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[18]" name="acq_data_in[18]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[19]" name="acq_data_in[19]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[20]" name="acq_data_in[20]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[21]" name="acq_data_in[21]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[22]" name="acq_data_in[22]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[23]" name="acq_data_in[23]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[24]" name="acq_data_in[24]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[25]" name="acq_data_in[25]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[26]" name="acq_data_in[26]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[27]" name="acq_data_in[27]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[28]" name="acq_data_in[28]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[29]" name="acq_data_in[29]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[30]" name="acq_data_in[30]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[31]" name="acq_data_in[31]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[32]" name="acq_data_in[32]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[33]" name="acq_data_in[33]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[34]" name="acq_data_in[34]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[35]" name="acq_data_in[35]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[36]" name="acq_data_in[36]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[37]" name="acq_data_in[37]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[38]" name="acq_data_in[38]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[39]" name="acq_data_in[39]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[40]" name="acq_data_in[40]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[41]" name="acq_data_in[41]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[42]" name="acq_data_in[42]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[43]" name="acq_data_in[43]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[44]" name="acq_data_in[44]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[45]" name="acq_data_in[45]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[46]" name="acq_data_in[46]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[47]" name="acq_data_in[47]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[48]" name="acq_data_in[48]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[49]" name="acq_data_in[49]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[50]" name="acq_data_in[50]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[51]" name="acq_data_in[51]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[52]" name="acq_data_in[52]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[53]" name="acq_data_in[53]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[54]" name="acq_data_in[54]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[55]" name="acq_data_in[55]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[56]" name="acq_data_in[56]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[57]" name="acq_data_in[57]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[58]" name="acq_data_in[58]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[59]" name="acq_data_in[59]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[60]" name="acq_data_in[60]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[61]" name="acq_data_in[61]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[62]" name="acq_data_in[62]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[63]" name="acq_data_in[63]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[64]" name="acq_data_in[64]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[65]" name="acq_data_in[65]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[66]" name="acq_data_in[66]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[67]" name="acq_data_in[67]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[68]" name="acq_data_in[68]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[69]" name="acq_data_in[69]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[70]" name="acq_data_in[70]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[71]" name="acq_data_in[71]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[72]" name="acq_data_in[72]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[73]" name="acq_data_in[73]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[74]" name="acq_data_in[74]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[75]" name="acq_data_in[75]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[76]" name="acq_data_in[76]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[77]" name="acq_data_in[77]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[78]" name="acq_data_in[78]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[79]" name="acq_data_in[79]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[80]" name="acq_data_in[80]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[81]" name="acq_data_in[81]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[82]" name="acq_data_in[82]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[83]" name="acq_data_in[83]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[84]" name="acq_data_in[84]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[85]" name="acq_data_in[85]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[86]" name="acq_data_in[86]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[87]" name="acq_data_in[87]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[88]" name="acq_data_in[88]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[89]" name="acq_data_in[89]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[90]" name="acq_data_in[90]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[91]" name="acq_data_in[91]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[92]" name="acq_data_in[92]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[93]" name="acq_data_in[93]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[94]" name="acq_data_in[94]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[95]" name="acq_data_in[95]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[96]" name="acq_data_in[96]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[97]" name="acq_data_in[97]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[98]" name="acq_data_in[98]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[99]" name="acq_data_in[99]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[100]" name="acq_data_in[100]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[101]" name="acq_data_in[101]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[102]" name="acq_data_in[102]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[103]" name="acq_data_in[103]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[104]" name="acq_data_in[104]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[105]" name="acq_data_in[105]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[106]" name="acq_data_in[106]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[107]" name="acq_data_in[107]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[108]" name="acq_data_in[108]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[109]" name="acq_data_in[109]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[110]" name="acq_data_in[110]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[111]" name="acq_data_in[111]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[112]" name="acq_data_in[112]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[113]" name="acq_data_in[113]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[114]" name="acq_data_in[114]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[115]" name="acq_data_in[115]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[116]" name="acq_data_in[116]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[117]" name="acq_data_in[117]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[118]" name="acq_data_in[118]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[119]" name="acq_data_in[119]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[120]" name="acq_data_in[120]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[121]" name="acq_data_in[121]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[122]" name="acq_data_in[122]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[123]" name="acq_data_in[123]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[124]" name="acq_data_in[124]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[125]" name="acq_data_in[125]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[126]" name="acq_data_in[126]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[127]" name="acq_data_in[127]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[128]" name="acq_data_in[128]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[129]" name="acq_data_in[129]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[130]" name="acq_data_in[130]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[131]" name="acq_data_in[131]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[132]" name="acq_data_in[132]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[133]" name="acq_data_in[133]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[134]" name="acq_data_in[134]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[135]" name="acq_data_in[135]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[136]" name="acq_data_in[136]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[137]" name="acq_data_in[137]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[138]" name="acq_data_in[138]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[139]" name="acq_data_in[139]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[140]" name="acq_data_in[140]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[141]" name="acq_data_in[141]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[142]" name="acq_data_in[142]" tap_mode="classic"/>
+          <wire alias="DebugModule:GavinDebug|TinyChipScope:u0|acq_data_in[143]" name="acq_data_in[143]" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec/>
+      </signal_vec>
+      <presentation>
+        <data_view/>
+        <setup_view/>
+      </presentation>
+      <trigger CRC="4C12F59" name="" record_data_gap="true" storage_mode="off">
+        <power_up_trigger/>
+        <events>
+          <level type="basic">
+            <power_up>
+            </power_up>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>
+            <pwr_up_transitional/>
+          </transitional>
+        </storage_qualifier_events>
+      </trigger>
+    </signal_set>
+  </instance>
+</session>

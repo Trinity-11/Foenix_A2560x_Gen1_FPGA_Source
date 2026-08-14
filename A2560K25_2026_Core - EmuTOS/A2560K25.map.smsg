@@ -1,0 +1,7 @@
+Warning (10273): Verilog HDL warning at jt51_mod.v(53): extended using "x" or "z" File: E:/GEN1_ACTIVE_FPGA/Source/BEATRIX/Cores/jt51-master/hdl/jt51_mod.v Line: 53
+Warning (10273): Verilog HDL warning at jt51_op.v(133): extended using "x" or "z" File: E:/GEN1_ACTIVE_FPGA/Source/BEATRIX/Cores/jt51-master/hdl/jt51_op.v Line: 133
+Warning (10273): Verilog HDL warning at jt51_op.v(202): extended using "x" or "z" File: E:/GEN1_ACTIVE_FPGA/Source/BEATRIX/Cores/jt51-master/hdl/jt51_op.v Line: 202
+Info (10281): Verilog HDL Declaration information at jt49.v(47): object "COMP" differs only in case from object "comp" in the same scope File: E:/GEN1_ACTIVE_FPGA/Source/BEATRIX/Cores/jt49-master/hdl/jt49.v Line: 47
+Warning (10268): Verilog HDL information at MC68040V_Plus_Arbiter.v(812): always construct contains both blocking and non-blocking assignments File: E:/GEN1_ACTIVE_FPGA/Source/CPU/MC68040V_Plus_Arbiter.v Line: 812
+Warning (10268): Verilog HDL information at MC68040V_Plus_Arbiter.v(826): always construct contains both blocking and non-blocking assignments File: E:/GEN1_ACTIVE_FPGA/Source/CPU/MC68040V_Plus_Arbiter.v Line: 826
+Warning (10273): Verilog HDL warning at MERA_SDRAM_32Bits.v(171): extended using "x" or "z" File: E:/GEN1_ACTIVE_FPGA/Source/MERA/MERA_SDRAM_32Bits.v Line: 171

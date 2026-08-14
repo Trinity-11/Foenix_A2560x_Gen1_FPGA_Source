@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProgramExecution>
+ <SOPCSystem>
+  <CompileID>0</CompileID>
+  <DeviceFamily>UNKNOWN</DeviceFamily>
+  <HDLLanguage></HDLLanguage>
+  <Qsys>0</Qsys>
+  <SOPCModule>
+   <C>1</C>
+   <ModuleType>non_altera_module</ModuleType>
+  </SOPCModule>
+  <SystemID>1568479223</SystemID>
+ </SOPCSystem>
+ <SchemaVersion>schema_2013-01-18</SchemaVersion>
+</ProgramExecution>

@@ -1,0 +1,3 @@
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) ChipScope/ChipScope.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) TinyChipScope/TinyChipScope.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) SourceAndProbe/SourceAndProbe.qip]

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2022.09.20.17:26:19"
+ outputDirectory="D:/Gen X Project/FPGA_BoardRevB0A - EP3C120F780/CFP95179_32Bits/db/ip/Clk_Switch/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone IV E"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EP4CE115F29C8"
+     onHdl="0"
+     affectsHdl="1" />
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="Clk_Switch:1.0:AUTO_DEVICE=EP3C120F780C7,AUTO_DEVICE_FAMILY=Cyclone III,AUTO_GENERATION_ID=1663719978,AUTO_UNIQUE_ID=(missing_module:1.0:moduleKind=altclkctrl,moduleParameters={DEVICE_FAMILY=Cyclone IV E, CLOCK_TYPE=1, GUI_USE_ENA=false, USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION=true, ENA_REGISTER_MODE=1, NUMBER_OF_CLOCKS=2},moduleVersion=18.1)"
+   instancePathKey="Clk_Switch"
+   kind="Clk_Switch"
+   version="1.0"
+   name="Clk_Switch">
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone III" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE" value="EP3C120F780C7" />
+  <parameter name="AUTO_GENERATION_ID" value="1663719978" />
+  <generatedFiles>
+   <file
+       path="D:/Gen X Project/FPGA_BoardRevB0A - EP3C120F780/CFP95179_32Bits/db/ip/Clk_Switch/Clk_Switch.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="D:/Gen X Project/FPGA_BoardRevB0A - EP3C120F780/CFP95179_32Bits/Source/VICKY III/Core/CLK_SWITCH/Clk_Switch.qsys" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <messages>
+   <message level="Debug" culprit="Clk_Switch">queue size: 0 starting:Clk_Switch "Clk_Switch"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: PipelineBridgeSwap</message>
+   <message level="Info" culprit="pipeline_bridge_swap_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: ClockCrossingBridgeSwap</message>
+   <message level="Debug">Transform: QsysBetaIPSwap</message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Info">No custom instruction connections, skipping transform </message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="Clk_Switch"><![CDATA["<b>Clk_Switch</b>" reuses <b>missing_module</b> "<b>submodules/Clk_Switch_altclkctrl_0</b>"]]></message>
+   <message level="Debug" culprit="Clk_Switch">queue size: 0 starting:missing_module "submodules/Clk_Switch_altclkctrl_0"</message>
+   <message level="Error" culprit="altclkctrl_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="missing_module:1.0:moduleKind=altclkctrl,moduleParameters={DEVICE_FAMILY=Cyclone IV E, CLOCK_TYPE=1, GUI_USE_ENA=false, USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION=true, ENA_REGISTER_MODE=1, NUMBER_OF_CLOCKS=2},moduleVersion=18.1"
+   instancePathKey="Clk_Switch:.:altclkctrl_0"
+   kind="missing_module"
+   version="1.0"
+   name="Clk_Switch_altclkctrl_0">
+  <parameter
+     name="moduleParameters"
+     value="{DEVICE_FAMILY=Cyclone IV E, CLOCK_TYPE=1, GUI_USE_ENA=false, USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION=true, ENA_REGISTER_MODE=1, NUMBER_OF_CLOCKS=2}" />
+  <parameter name="moduleVersion" value="18.1" />
+  <parameter name="moduleKind" value="altclkctrl" />
+  <generatedFiles/>
+  <childGeneratedFiles/>
+  <sourceFiles/>
+  <childSourceFiles/>
+  <instantiator instantiator="Clk_Switch" as="altclkctrl_0" />
+  <messages>
+   <message level="Debug" culprit="Clk_Switch">queue size: 0 starting:missing_module "submodules/Clk_Switch_altclkctrl_0"</message>
+   <message level="Error" culprit="altclkctrl_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+</deploy>

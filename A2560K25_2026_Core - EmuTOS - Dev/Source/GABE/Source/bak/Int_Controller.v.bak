@@ -1,0 +1,508 @@
+`timescale 1ns / 1ps
+module INT_CONTROLLER (
+input		wire				RST_i,
+input		wire				CPU_Clk_i,
+
+// CPU Bus Input
+input		wire	[23:0]	CPU_A_i,
+input		wire				CPU_RW_i,
+input		wire				CPU_VPA_i,
+input		wire				CPU_VDA_i,
+input		wire				CPU_RDY_i,
+input		wire	[7:0]		CPU_D_i,
+output 	reg 	[7:0]		CPU_D_o,
+input		wire				CS_Interrupt_Ctrl_i,
+
+// Interrupt Sources Input
+input		wire	[31:0]	LPC_INT_i,
+input		wire	[5:0]		VICKY_INT_i,
+input		wire				RTC_INT_i,
+input		wire				OPL3_INT_i,
+input		wire				OPN2_INT_i,
+input		wire				OPM_INT_i,
+input		wire				IDE_INT_i,
+input		wire	[2:0]		BTX_INT_i,
+input		wire				SD_INT_i,
+input		wire				EXT_INT_i,		// I am not sure there is pull-up on this pin.
+input		wire				Timer0_i,
+input		wire				Timer1_i,
+input		wire				Timer2_i,
+input		wire				SD_Card_Insert_i,
+input		wire				SuperIO_KB_i,
+input		wire				SuperIO_MS_i,
+input		wire				SuperIO_SUART_i,
+input		wire				DAC_Playback_Done_i,
+// Output IRQ
+output	reg				IRQ_o,
+output	wire				NMI_o
+);
+
+
+
+
+
+/*
+Interrupt
+
+LPC
+00 - NC
+01 - Keyboard
+02 - NC
+03 - COM2
+04 - COM1
+05 - MPU-401
+06 - FDC
+07 - Parallel Port
+
+
+FOENIX C256
+Interrupts
+
+00 - SOF (VICKY) INT0
+01 - LINE INT (VICKY) INT1
+02 - TIMER0 (GAVIN)
+03 - TIMER1 (GAVIN)
+04 - TIMER2 (GAVIN)
+05 - RTC INT (EXT_RTC)
+06 - FDC (LPC)
+07 - MOUSE (LPC)
+
+08 - KEYBOARD (LPC)
+09 - SPRITE COLLISION INT2 (VICKY)
+0A - SPRITE COLLISION INT3 (VICKY)
+0B - COM2 (LPC)
+0C - COM1 (LPC)
+0D - MPU-401 (LPC)
+0E - PARALLEL PORT (LPC)
+0F - SD_INT (SD_CARD_CONTROLLER)
+
+10 - OPL3 (EXT_OPL3)
+11 - BTX_INT0
+12 - BTX_INT1
+13 - SDMA_INT INT4 (GAVIN)
+14 - VDMA_INT INt5 (GAVIN)
+15 - BTX_INT2
+16 - EXT_INT (EXT_EXPANSION)
+17 - SDCARD INSERT
+
+18 - OPN2
+19 - OPM
+1A - IDE_INTR
+1B - TBD
+1C - TBD
+1D - TBD
+1E - TBD
+1F - TBD
+*/
+
+reg  [31:0] pol, edgen, pending, mask;   // register bank
+reg  [31:0] lirq, dirq;                  // latched irqs, delayed latched irqs
+reg  [31:0] Ena;
+//
+
+reg	[31:0] lirq0;
+reg	[31:0] lirq1;
+
+
+
+
+
+
+// latch interrupt inputs
+always @(negedge CPU_Clk_i) begin
+	
+	lirq0 <= {  4'b0000, DAC_Playback_Done_i, 3'b000,
+					SD_Card_Insert_i, EXT_INT_i, BTX_INT_i[2], VICKY_INT_i[5], VICKY_INT_i[4], BTX_INT_i[1], BTX_INT_i[0], OPL3_INT_i,	// H
+					SD_INT_i, !LPT1_int_PulSe[3], !MPU_401_int_PulSe[3], !COM1_int_PulSe[3], !COM2_int_PulSe[3], VICKY_INT_i[3], VICKY_INT_i[2], !Keyboard_int_PulSe[3],	// M
+					!Mouse_int_PulSe[3], !FDC_int_PulSe[3], RTC_INT_i, ~Timer2_i, ~Timer1_i, ~Timer0_i, VICKY_INT_i[1], VICKY_INT_i[0]}; 
+	lirq1 <= lirq0;
+	if ( lirq1 == lirq0) begin
+		lirq <= 	lirq1;	
+	end
+end
+ 
+/*
+wire 	[71:0]		CS;
+wire					Trigger_In;
+
+//assign Trigger_In = Txf_Done;
+//assign Trigger_In = CS_Txt_Background_Plt | CS_Txt_Foreground_Plt;
+//assign Trigger_In = CS_SUPERIO_U_i & (CPU_D_i == 8'hF4) ? 1'b1 : 1'b0;
+assign Trigger_In = SuperIO_KB_i;
+
+assign CS[0] = SuperIO_KB_i;
+assign CS[2:1] = Keyboard_int;
+assign CS[6:3] = Keyboard_int_PulSe;
+assign CS[15:8] = pending[15:8];
+assign CS[63:32] = lirq;
+
+
+
+ChipScope u0 (
+	.acq_data_in    (CS),    //        tap.acq_data_in
+	.acq_trigger_in (Trigger_In), //           .acq_trigger_in
+	.acq_clk        (!CPU_Clk_i),        //    acq_clk.clk
+	.trigger_in     (Trigger_In)      // trigger_in.trigger_in
+);
+*/
+ 
+//
+// generate delayed latched irqs
+always @(negedge CPU_Clk_i) begin
+  dirq <= lirq;
+end
+
+  //
+  // generate actual triggers
+function trigger;
+	input edgen, pol, lirq, dirq;
+ 
+	reg   edge_irq, level_irq;
+	begin
+		edge_irq  = pol ? (lirq & ~dirq) : (dirq & ~lirq);
+		level_irq = pol ? lirq : ~lirq;
+		trigger = edgen ? edge_irq : level_irq;
+	end
+endfunction
+
+reg  [31:0] irq_event;
+
+integer n;
+always @(negedge CPU_Clk_i) begin
+  for(n=0; n < 32; n=n+1) begin
+    irq_event[n] <= trigger(edgen[n], pol[n], lirq[n], dirq[n]);
+	end
+end
+
+
+// REPROCESSING THE LPC Interrupts
+//
+//
+////////////////////
+/// KEYBOARD (1)
+////////////////////
+// Keep the Input Value in Registers
+reg	[1:0]		Keyboard_int;
+reg	[3:0] 	Keyboard_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+//	Keyboard_int[0] <= LPC_INT_i[1];
+	Keyboard_int[0] <= SuperIO_KB_i;
+	Keyboard_int[1] <= Keyboard_int[0]; 
+end
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		Keyboard_int_PulSe <= 4'h0;
+	end
+	else
+	begin
+		Keyboard_int_PulSe <= Keyboard_int_PulSe << 1'b1;
+		if (Keyboard_int[1:0] == 2'b01)
+			Keyboard_int_PulSe <= 4'hF;
+	end
+end
+////////////////////
+/// MOUSE (2)
+////////////////////
+// Keep the Input Value in Registers
+reg	[1:0]		Mouse_int;
+reg	[3:0] 	Mouse_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+//	Mouse_int[0] <= LPC_INT_i[2];
+	Mouse_int[0] <= SuperIO_MS_i;
+	Mouse_int[1] <= Mouse_int[0]; 
+end
+
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		Mouse_int_PulSe <= 4'h0;
+	
+	end
+	else
+	begin
+		Mouse_int_PulSe <= Mouse_int_PulSe << 1'b1;
+		if (Mouse_int[1:0] == 2'b01)
+			Mouse_int_PulSe <= 4'hF;
+	end
+end
+////////////////////
+/// COM2 (3)
+////////////////////
+reg	[1:0]		COM2_int;
+reg	[3:0] 	COM2_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+	COM2_int[0] <= LPC_INT_i[3];
+	COM2_int[1] <= COM2_int[0];
+end
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		COM2_int_PulSe <= 4'h0;
+	end
+	else
+	begin
+		COM2_int_PulSe <= COM2_int_PulSe << 1'b1;
+		if (COM2_int[1:0] == 2'b01)
+			COM2_int_PulSe <= 4'hF;
+	end
+end
+////////////////////
+/// COM1 (4)
+////////////////////
+reg	[1:0]		COM1_int;
+reg	[3:0] 	COM1_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+	COM1_int[0] <= LPC_INT_i[4];
+	COM1_int[1] <= COM1_int[0]; 
+end
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		COM1_int_PulSe <= 4'h0;
+	
+	end
+	else
+	begin
+		COM1_int_PulSe <= COM1_int_PulSe << 1'b1;
+		if (COM1_int[1:0] == 2'b01)
+			COM1_int_PulSe <= 4'hF;
+	end
+end
+
+////////////////////
+/// MPU-401 (5)
+////////////////////
+reg	[1:0]		MPU_401_int;
+reg	[3:0] 	MPU_401_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+	MPU_401_int[0] <= LPC_INT_i[5];
+	MPU_401_int[1] <= MPU_401_int[0];
+end
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		MPU_401_int_PulSe <= 4'h0;
+	end
+	else
+	begin
+		MPU_401_int_PulSe <= MPU_401_int_PulSe << 1'b1;
+		if (MPU_401_int[1:0] == 2'b01)
+			MPU_401_int_PulSe <= 4'hF;
+	end
+end
+////////////////////
+/// FDC (6)
+////////////////////
+reg	[1:0]		FDC_int;
+reg	[3:0] 	FDC_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+	FDC_int[0] <= LPC_INT_i[6];
+	FDC_int[1] <= FDC_int[0]; 
+end
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		FDC_int_PulSe <= 4'h0;
+	
+	end
+	else
+	begin
+		FDC_int_PulSe <= FDC_int_PulSe << 1'b1;
+		if (FDC_int[1:0] == 2'b01)
+			FDC_int_PulSe <= 4'hF;
+	end
+end
+////////////////////
+/// LPT1 (7)
+////////////////////
+reg	[1:0]		LPT1_int;
+reg	[3:0] 	LPT1_int_PulSe;
+always @ (negedge CPU_Clk_i)
+begin
+	LPT1_int[0] <= LPC_INT_i[7];
+	LPT1_int[1] <= LPT1_int[0];
+end
+
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		LPT1_int_PulSe <= 4'h0;
+	end
+	else
+	begin
+		LPT1_int_PulSe <= LPT1_int_PulSe << 1'b1;
+		if (LPT1_int[1:0] == 2'b01)
+			LPT1_int_PulSe <= 4'hF;
+	end
+end
+
+
+initial 
+begin
+	pol[31:0] 		= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+	edgen[31:0] 	= 32'b1111_1111_1111_1111_1111_1111_1111_1111;		
+	mask[31:0] 		= 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+	pending[31:0] 	= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+end
+
+
+// Keep the Input Value in Registers
+always @ (negedge CPU_Clk_i)
+begin
+	if (RST_i) 
+	begin
+		pol[31:0] 		<= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+		edgen[31:0] 	<= 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+		mask[31:0] 		<= 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+		pending[31:0] 	<= 32'b0000_0000_0000_0000_0000_0000_0000_0000;
+	end
+	else
+	begin
+		if (CS_Interrupt_Ctrl_i & !CPU_RW_i) begin
+			case(CPU_A_i[3:0])
+			4'b0000: begin pending[7:0] 	<= (pending[7:0]   & ~CPU_D_i[7:0]); end
+			4'b0001: begin pending[15:8] 	<= (pending[15:8]  & ~CPU_D_i[7:0]); end
+			4'b0010: begin pending[23:16]	<= (pending[23:16] & ~CPU_D_i[7:0]); end
+			4'b0011: begin pending[31:24]	<= (pending[31:24] & ~CPU_D_i[7:0]); end
+			4'b0100: begin pol[7:0] 	<= CPU_D_i; end
+			4'b0101: begin pol[15:8] 	<= CPU_D_i; end
+			4'b0110: begin pol[23:16] 	<= CPU_D_i; end
+			4'b0111: begin pol[31:24] 	<= CPU_D_i; end
+			4'b1000: begin edgen[7:0] 	<= CPU_D_i; end
+			4'b1001: begin edgen[15:8] <= CPU_D_i; end
+			4'b1010: begin edgen[23:16]<= CPU_D_i; end
+			4'b1011: begin edgen[31:24]<= CPU_D_i; end
+			4'b1100: begin mask[7:0] 	<= CPU_D_i; end
+			4'b1101: begin mask[15:8] 	<= CPU_D_i; end
+			4'b1110: begin mask[23:16] <= CPU_D_i; end
+			4'b1111: begin mask[31:24] <= CPU_D_i; end
+			default: begin end
+			
+			endcase
+		end
+		else begin
+          pending <= pending | irq_event;
+		end
+	end
+end
+
+always @ (*)
+begin
+	case(CPU_A_i[3:0])
+		4'b0000: CPU_D_o = pending[7:0];
+		4'b0001: CPU_D_o = pending[15:8];
+		4'b0010: CPU_D_o = pending[23:16];
+		4'b0011: CPU_D_o = pending[31:24];
+		4'b0100: CPU_D_o = pol[7:0];
+		4'b0101: CPU_D_o = pol[15:8];
+		4'b0110: CPU_D_o = pol[23:16];
+		4'b0111: CPU_D_o = pol[31:24];
+		4'b1000: CPU_D_o = edgen[7:0];
+		4'b1001: CPU_D_o = edgen[15:8];
+		4'b1010: CPU_D_o = edgen[23:16];
+		4'b1011: CPU_D_o = edgen[31:24];
+		4'b1100: CPU_D_o = mask[7:0];
+		4'b1101: CPU_D_o = mask[15:8];
+		4'b1110: CPU_D_o = mask[23:16];
+		4'b1111: CPU_D_o = mask[31:24];
+		default: CPU_D_o = 8'h55;		
+	endcase
+end
+
+
+wire	[31:0] Interrupt;
+assign Interrupt[0] = (pending[0] & ~mask[0]);
+assign Interrupt[1] = (pending[1] & ~mask[1]);
+assign Interrupt[2] = (pending[2] & ~mask[2]);
+assign Interrupt[3] = (pending[3] & ~mask[3]);
+assign Interrupt[4] = (pending[4] & ~mask[4]);
+assign Interrupt[5] = (pending[5] & ~mask[5]);
+assign Interrupt[6] = (pending[6] & ~mask[6]);
+assign Interrupt[7] = (pending[7] & ~mask[7]);
+assign Interrupt[8] = (pending[8] & ~mask[8]);
+assign Interrupt[9] = (pending[9] & ~mask[9]);
+assign Interrupt[10] = (pending[10] & ~mask[10]);
+assign Interrupt[11] = (pending[11] & ~mask[11]);
+assign Interrupt[12] = (pending[12] & ~mask[12]);
+assign Interrupt[13] = (pending[13] & ~mask[13]);
+assign Interrupt[14] = (pending[14] & ~mask[14]);
+assign Interrupt[15] = (pending[15] & ~mask[15]);
+assign Interrupt[16] = (pending[16] & ~mask[16]);
+assign Interrupt[17] = (pending[17] & ~mask[17]);
+assign Interrupt[18] = (pending[18] & ~mask[18]);
+assign Interrupt[19] = (pending[19] & ~mask[19]);
+assign Interrupt[20] = (pending[20] & ~mask[20]);
+assign Interrupt[21] = (pending[21] & ~mask[21]);
+assign Interrupt[22] = (pending[22] & ~mask[22]);
+assign Interrupt[23] = (pending[23] & ~mask[23]);
+assign Interrupt[24] = (pending[24] & ~mask[24]);
+assign Interrupt[25] = (pending[25] & ~mask[25]);
+assign Interrupt[26] = (pending[26] & ~mask[26]);
+assign Interrupt[27] = (pending[27] & ~mask[27]);
+assign Interrupt[28] = (pending[28] & ~mask[28]);
+assign Interrupt[29] = (pending[29] & ~mask[29]);
+assign Interrupt[30] = (pending[30] & ~mask[30]);
+assign Interrupt[31] = (pending[31] & ~mask[31]);
+
+always @(negedge CPU_Clk_i) begin
+    IRQ_o <= !(Interrupt[0] | Interrupt[1] | Interrupt[2] | Interrupt[3] | Interrupt[4] | Interrupt[5] | Interrupt[6] | Interrupt[7] |
+				 Interrupt[8] | Interrupt[9] | Interrupt[10] | Interrupt[11] | Interrupt[12] | Interrupt[13] | Interrupt[14] | Interrupt[15] |
+				 Interrupt[16] | Interrupt[17] | Interrupt[18] | Interrupt[19] | Interrupt[20] | Interrupt[21] | Interrupt[22] | Interrupt[23] |
+				 Interrupt[24] | Interrupt[25] | Interrupt[26] | Interrupt[27] | Interrupt[28] | Interrupt[29] | Interrupt[30] | Interrupt[31]			 
+				 );
+end
+
+assign NMI_o = 1'b1;
+
+/*
+wire [23:0] Address2Brake;
+
+
+Probe (
+		.probe(8'h00),  //  probes.probe
+		.source( Address2Brake )  // sources.source
+	);
+
+*/
+//// DEBUG ChipScope
+/*
+wire [47:0] ScopeIn;
+wire			Trigger;
+
+assign Trigger = LPC_INT_i[0] & !LPC_INT_i[1] & !LPC_INT_i[2] & LPC_INT_i[3] & LPC_INT_i[4] & !LPC_INT_i[5] & LPC_INT_i[6] & LPC_INT_i[7] ;
+
+
+assign ScopeIn[15:0] = LPC_INT_i[15:0];
+assign ScopeIn[47:32] = 0;
+
+
+ChipScope ChipSCOPE(
+		.acq_clk(!CPU_Clk_i),        // acq_clk.clk
+		.acq_data_in(ScopeIn),    //     tap.acq_data_in
+		.acq_trigger_in(Trigger),  //        .acq_trigger_in
+		.trigger_in(Trigger)
+	);
+*/
+
+endmodule
+

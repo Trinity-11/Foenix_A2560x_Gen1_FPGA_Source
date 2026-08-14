@@ -1,0 +1,698 @@
+Analysis & Synthesis report for A2560K60
+Tue Apr 07 18:27:46 2026
+Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Failed - Tue Apr 07 18:27:46 2026          ;
+; Quartus II 64-Bit Version          ; 13.1.4 Build 182 03/12/2014 SJ Web Edition ;
+; Revision Name                      ; A2560K60                                   ;
+; Top-level Entity Name              ; A2560K40_Top                               ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; N/A until Partition Merge                  ;
+;     Total combinational functions  ; N/A until Partition Merge                  ;
+;     Dedicated logic registers      ; N/A until Partition Merge                  ;
+; Total registers                    ; N/A until Partition Merge                  ;
+; Total pins                         ; N/A until Partition Merge                  ;
+; Total virtual pins                 ; N/A until Partition Merge                  ;
+; Total memory bits                  ; N/A until Partition Merge                  ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                  ;
+; Total PLLs                         ; N/A until Partition Merge                  ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C120F780C8      ;                    ;
+; Top-level entity name                                                      ; A2560K40_Top       ; A2560K60           ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Verilog Show LMF Mapping Messages                                          ; Off                ;                    ;
+; Verilog Version                                                            ; SystemVerilog_2005 ; Verilog_2001       ;
+; Optimization Technique                                                     ; Speed              ; Balanced           ;
+; Synthesis Seed                                                             ; 11                 ; 1                  ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 32          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-32        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+    Info: Processing started: Tue Apr 07 18:27:40 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off A2560K40_Project -c A2560K60
+Info (20030): Parallel compilation is enabled and will use 16 of the 32 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file a2560k40_top.v
+    Info (12023): Found entity 1: A2560K40_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/beatrix_top.v
+    Info (12023): Found entity 1: BEATRIX_TOP
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/beatrix_ctrl_reg.v
+    Info (12023): Found entity 1: BEATRIX_CTRL_Reg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/beatrix_cs_and_dout.v
+    Info (12023): Found entity 1: BEATRIX_CS_And_Dout
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/a2560x_codec.v
+    Info (12023): Found entity 1: A2560X_CODEC
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cpu_interface_2_audiodac.v
+    Info (12023): Found entity 1: CPU_Interface_2_AudioDAC
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/beatrix/audio_out.v
+    Info (12023): Found entity 1: audio_out
+    Info (12023): Found entity 2: aud_mix_top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/soundchips2dac_interface.v
+    Info (12023): Found entity 1: SoundChips2DAC_Interface
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/parallel2serialaudio.v
+    Info (12023): Found entity 1: Parallel2SerialAudio
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/parallel2serial_sid.v
+    Info (12023): Found entity 1: Parallel2Serial_SID
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/bus_2_chiptune_interface.v
+    Info (12023): Found entity 1: BUS_2_ChipTune_Interface
+Info (12021): Found 3 design units, including 3 entities, in source file /gen1_active_fpga/source/beatrix/iir_filter.v
+    Info (12023): Found entity 1: IIR_filter
+    Info (12023): Found entity 2: iir_filter_tap
+    Info (12023): Found entity 3: DC_blocker
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/i2s.v
+    Info (12023): Found entity 1: i2s
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/beatrix/genesis_lpf.v
+    Info (12023): Found entity 1: genesis_lpf
+    Info (12023): Found entity 2: genesis_fm_lpf
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/beatrix/audio_iir_filter.v
+    Info (12023): Found entity 1: iir_1st_order
+    Info (12023): Found entity 2: iir_2nd_order
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores cyclone iii/cpu_2_codec_dac_fifo/cpu_2_codec_dac_fifo.v
+    Info (12023): Found entity 1: CPU_2_CODEC_DAC_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores cyclone iii/ct_fifo/ct_fifo.v
+    Info (12023): Found entity 1: CT_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores cyclone iii/sid_cmd_write_fifo/sid_cmd_write_fifo.v
+    Info (12023): Found entity 1: SID_CMD_Write_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores cyclone iii/chiptune_fifo/chiptune_fifo.v
+    Info (12023): Found entity 1: CHIPTUNE_FIFO
+Info (12021): Found 1 design units, including 0 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt89-master/hdl/jt89.vhd
+    Info (12022): Found design unit 1: jt89
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt89-master/hdl/jt89.v
+    Info (12023): Found entity 1: jt89
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt89-master/hdl/jt89_noise.v
+    Info (12023): Found entity 1: jt89_noise
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt89-master/hdl/jt89_vol.v
+    Info (12023): Found entity 1: jt89_vol
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt89-master/hdl/jt89_mixer.v
+    Info (12023): Found entity 1: jt89_mixer
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt89-master/hdl/jt89_tone.v
+    Info (12023): Found entity 1: jt89_tone
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_acc.v
+    Info (12023): Found entity 1: jt51_acc
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_eg.v
+    Info (12023): Found entity 1: jt51_eg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_exp2lin.v
+    Info (12023): Found entity 1: jt51_exp2lin
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_exprom.v
+    Info (12023): Found entity 1: jt51_exprom
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_kon.v
+    Info (12023): Found entity 1: jt51_kon
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_lfo_lfsr.v
+    Info (12023): Found entity 1: jt51_lfo_lfsr
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_lfo.v
+    Info (12023): Found entity 1: jt51_lfo
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_lin2exp.v
+    Info (12023): Found entity 1: jt51_lin2exp
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_mmr.v
+    Info (12023): Found entity 1: jt51_mmr
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_mod.v
+    Info (12023): Found entity 1: jt51_mod
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_noise_lfsr.v
+    Info (12023): Found entity 1: jt51_noise_lfsr
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_noise.v
+    Info (12023): Found entity 1: jt51_noise
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_op.v
+    Info (12023): Found entity 1: jt51_op
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_pg.v
+    Info (12023): Found entity 1: jt51_pg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_phinc_rom.v
+    Info (12023): Found entity 1: jt51_phinc_rom
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_phrom.v
+    Info (12023): Found entity 1: jt51_phrom
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_pm.v
+    Info (12023): Found entity 1: jt51_pm
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_reg.v
+    Info (12023): Found entity 1: jt51_reg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_sh.v
+    Info (12023): Found entity 1: jt51_sh
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_timers.v
+    Info (12023): Found entity 1: jt51_timers
+    Info (12023): Found entity 2: jt51_timer
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_csr_ch.v
+    Info (12023): Found entity 1: jt51_csr_ch
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51_csr_op.v
+    Info (12023): Found entity 1: jt51_csr_op
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt51-master/hdl/jt51.v
+    Info (12023): Found entity 1: jt51
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49.v
+    Info (12023): Found entity 1: jt49
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49_bus.v
+    Info (12023): Found entity 1: jt49_bus
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49_div.v
+    Info (12023): Found entity 1: jt49_div
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49_cen.v
+    Info (12023): Found entity 1: jt49_cen
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49_eg.v
+    Info (12023): Found entity 1: jt49_eg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49_exp.v
+    Info (12023): Found entity 1: jt49_exp
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt49-master/hdl/jt49_noise.v
+    Info (12023): Found entity 1: jt49_noise
+Info (12021): Found 1 design units, including 0 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12.vhd
+    Info (12022): Found design unit 1: jt12
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12.v
+    Info (12023): Found entity 1: jt12
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_top.v
+    Info (12023): Found entity 1: jt12_top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_acc.v
+    Info (12023): Found entity 1: jt12_acc
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_single_acc.v
+    Info (12023): Found entity 1: jt12_single_acc
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg.v
+    Info (12023): Found entity 1: jt12_eg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg_cnt.v
+    Info (12023): Found entity 1: jt12_eg_cnt
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg_comb.v
+    Info (12023): Found entity 1: jt12_eg_comb
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg_step.v
+    Info (12023): Found entity 1: jt12_eg_step
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg_pure.v
+    Info (12023): Found entity 1: jt12_eg_pure
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg_final.v
+    Info (12023): Found entity 1: jt12_eg_final
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_eg_ctrl.v
+    Info (12023): Found entity 1: jt12_eg_ctrl
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_exprom.v
+    Info (12023): Found entity 1: jt12_exprom
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_kon.v
+    Info (12023): Found entity 1: jt12_kon
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_lfo.v
+    Info (12023): Found entity 1: jt12_lfo
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_div.v
+    Info (12023): Found entity 1: jt12_div
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_mod.v
+    Info (12023): Found entity 1: jt12_mod
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_op.v
+    Info (12023): Found entity 1: jt12_op
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_csr.v
+    Info (12023): Found entity 1: jt12_csr
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pg.v
+    Info (12023): Found entity 1: jt12_pg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pg_inc.v
+    Info (12023): Found entity 1: jt12_pg_inc
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pg_dt.v
+    Info (12023): Found entity 1: jt12_pg_dt
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pg_sum.v
+    Info (12023): Found entity 1: jt12_pg_sum
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pg_comb.v
+    Info (12023): Found entity 1: jt12_pg_comb
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pm.v
+    Info (12023): Found entity 1: jt12_pm
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_logsin.v
+    Info (12023): Found entity 1: jt12_logsin
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_reg.v
+    Info (12023): Found entity 1: jt12_reg
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_sh.v
+    Info (12023): Found entity 1: jt12_sh
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_sh_rst.v
+    Info (12023): Found entity 1: jt12_sh_rst
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_sh24.v
+    Info (12023): Found entity 1: jt12_sh24
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_sumch.v
+    Info (12023): Found entity 1: jt12_sumch
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_timers.v
+    Info (12023): Found entity 1: jt12_timers
+    Info (12023): Found entity 2: jt12_timer
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_pcm_interpol.v
+    Info (12023): Found entity 1: jt12_pcm_interpol
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_mmr.v
+    Info (12023): Found entity 1: jt12_mmr
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_dout.v
+    Info (12023): Found entity 1: jt12_dout
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/jt12_rst.v
+    Info (12023): Found entity 1: jt12_rst
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/adpcm/jt10_adpcm_div.v
+    Info (12023): Found entity 1: jt10_adpcm_div
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/mixer/jt12_genmix.v
+    Info (12023): Found entity 1: jt12_genmix
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/mixer/jt12_decim.v
+    Info (12023): Found entity 1: jt12_decim
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/mixer/jt12_interpol.v
+    Info (12023): Found entity 1: jt12_interpol
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/mixer/jt12_comb.v
+    Info (12023): Found entity 1: jt12_comb
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/jt12-master/hdl/mixer/jt12_fm_uprate.v
+    Info (12023): Found entity 1: jt12_fm_uprate
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/adsr_multi.vhd
+    Info (12022): Found design unit 1: adsr_multi-gideon
+    Info (12023): Found entity 1: adsr_multi
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/mult_acc.vhd
+    Info (12022): Found design unit 1: mult_acc-signed_wave
+    Info (12023): Found entity 1: mult_acc
+Info (12021): Found 2 design units, including 0 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/my_math_pkg.vhd
+    Info (12022): Found design unit 1: my_math_pkg
+    Info (12022): Found design unit 2: my_math_pkg-body
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/oscillator.vhd
+    Info (12022): Found design unit 1: oscillator-Gideon
+    Info (12023): Found entity 1: oscillator
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/q_table.vhd
+    Info (12022): Found design unit 1: Q_table-Gideon
+    Info (12023): Found entity 1: Q_table
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/sid_ctrl.vhd
+    Info (12022): Found design unit 1: sid_ctrl-gideon
+    Info (12023): Found entity 1: sid_ctrl
+Info (12021): Found 1 design units, including 0 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/sid_debug_pkg.vhd
+    Info (12022): Found design unit 1: sid_debug_pkg
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/sid_filter.vhd
+    Info (12022): Found design unit 1: sid_filter-dsvf
+    Info (12023): Found entity 1: sid_filter
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/sid_mixer.vhd
+    Info (12022): Found design unit 1: sid_mixer-arith
+    Info (12023): Found entity 1: sid_mixer
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/sid_regs.vhd
+    Info (12022): Found design unit 1: sid_regs-gideon
+    Info (12023): Found entity 1: sid_regs
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/sid_top.vhd
+    Info (12022): Found design unit 1: sid_top-structural
+    Info (12023): Found entity 1: sid_top
+Info (12021): Found 2 design units, including 1 entities, in source file /gen1_active_fpga/source/beatrix/cores/sid6581/wave_map.vhd
+    Info (12022): Found design unit 1: wave_map-Gideon
+    Info (12023): Found entity 1: wave_map
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/cpu/mc68lc060_plus_arbiter.v
+    Info (12023): Found entity 1: MC68LC060_Plus_Arbiter
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/cpu/mc680xx_busarbiter.v
+    Info (12023): Found entity 1: MC680xx_BusArbiter
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/cpu/a2650k_powerled_rgb.v
+    Info (12023): Found entity 1: A2650K_PowerLED_RGB
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/cpu/a2560k_keyboard_module.v
+    Info (12023): Found entity 1: A2560K_Keyboard_Module
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/cpu/keyboard_rgb_matrix_module.v
+    Info (12023): Found entity 1: Keyboard_RGB_Matrix_Module
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/cpu/cores cyclone iii/a2560k_kb_fifo16/a2560k_kb_fifo16.v
+    Info (12023): Found entity 1: A2560K_KB_FIFO16
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/gavin_a2560kemutos_top.v
+    Info (12023): Found entity 1: GAVIN_A2560KEmuTOS_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/a2560k_trinity.v
+    Info (12023): Found entity 1: A2560K_Trinity
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/a2560k60_gavin_ctrl.v
+    Info (12023): Found entity 1: A2560K60_GAVIN_CTRL
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/a2560k_gavin_cs_and_dout.v
+    Info (12023): Found entity 1: A2560K_GAVIN_CS_And_Dout
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/a2560k_irq_ctrl.v
+    Info (12023): Found entity 1: A2560K_IRQ_CTRL
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/new_debugmoduleextra.v
+    Info (12023): Found entity 1: New_DebugModuleExtra
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/programflash32.v
+    Info (12023): Found entity 1: ProgramFlash32
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/serial_tx.v
+    Info (12023): Found entity 1: Serial_Tx
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/serial_rx.v
+    Info (12023): Found entity 1: Serial_Rx
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/clk32khzcreation.v
+    Info (12023): Found entity 1: CLK32KhzCreation
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/lfsr.v
+    Info (12023): Found entity 1: LFSR
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/buzzer.v
+    Info (12023): Found entity 1: Buzzer
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/mathmodule16.v
+    Info (12023): Found entity 1: Math_Module16
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/timerinterface32.v
+    Info (12023): Found entity 1: TimerInterface32
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/a2560k_unity.v
+    Info (12023): Found entity 1: A2560K_Unity
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/simplespi4sdcard.v
+    Info (12023): Found entity 1: SimpleSPI4SDCard
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/top_lpc_interface.v
+    Info (12023): Found entity 1: Top_LPC_Interface
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/bus_2_lpc_interface.v
+    Info (12023): Found entity 1: BUS_2_LPC_interface
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/transfer_flash_2_ram.v
+    Info (12023): Found entity 1: Transfer_Flash_2_Ram
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/rgb_led_driver_module40mhz.v
+    Info (12023): Found entity 1: RGB_LED_Driver_Module40Mhz
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/rgb_status_led_driver_module40mhz.v
+    Info (12023): Found entity 1: RGB_STATUS_LED_Driver_Module40Mhz
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores/wb_lpc/trunk/rtl/verilog/wb_lpc_host.v
+    Info (12023): Found entity 1: wb_lpc_host
+Info (12021): Found 0 design units, including 0 entities, in source file /gen1_active_fpga/source/gabe/cores/wb_lpc/trunk/rtl/verilog/wb_lpc_defines.v
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores/wb_lpc/trunk/rtl/verilog/serirq_host.v
+    Info (12023): Found entity 1: serirq_host
+Info (12021): Found 0 design units, including 0 entities, in source file /gen1_active_fpga/source/gabe/cores/wb_lpc/trunk/rtl/verilog/serirq_defines.v
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/rtc_bidir_8bits/rtc_bidir_8bits.v
+    Info (12023): Found entity 1: RTC_BIDIR_8BITS_iobuf_bidir_1vo
+    Info (12023): Found entity 2: RTC_BIDIR_8BITS
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/serial_2_debug_cmd/serial_2_debug_cmd.v
+    Info (12023): Found entity 1: Serial_2_Debug_CMD
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/cpu_2_serial_cmd/cpu_2_serial_cmd.v
+    Info (12023): Found entity 1: CPU_2_Serial_CMD
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/debug_serial_buffer/debug_serial_buffer.v
+    Info (12023): Found entity 1: Debug_Serial_Buffer
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/serialrx/serialrx.v
+    Info (12023): Found entity 1: SerialRX
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/lpc_data_fifo/lpc_data_fifo.v
+    Info (12023): Found entity 1: LPC_DATA_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/lpc_cmd_fifo/lpc_cmd_fifo.v
+    Info (12023): Found entity 1: LPC_CMD_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/signed_mult16/signed_mult16.v
+    Info (12023): Found entity 1: SIGNED_MULT16
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/signed_div16/signed_div16.v
+    Info (12023): Found entity 1: SIGNED_DIV16
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/unsigned_div16/unsigned_div16.v
+    Info (12023): Found entity 1: UNSIGNED_DIV16
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/unsigned_mult16/unsigned_mult16.v
+    Info (12023): Found entity 1: UNSIGNED_MULT16
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/clk32_counter/clk32_counter.v
+    Info (12023): Found entity 1: CLK32_COUNTER
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/tinychipscope/tinychipscope.v
+    Info (12023): Found entity 1: TinyChipScope
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/sourceandprobe/sourceandprobe.v
+    Info (12023): Found entity 1: SourceAndProbe
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/pll_sdcard_debug/pll_sdcard_debug.v
+    Info (12023): Found entity 1: PLL_SDCard_Debug
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/bidir_addy/bidir_addy.v
+    Info (12023): Found entity 1: BIDIR_ADDY_iobuf_bidir_e0p
+    Info (12023): Found entity 2: BIDIR_ADDY
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/bidir_data16/bidir_data16.v
+    Info (12023): Found entity 1: BIDIR_DATA16_iobuf_bidir_g0p
+    Info (12023): Found entity 2: BIDIR_DATA16
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/bidir_data32/bidir_data32.v
+    Info (12023): Found entity 1: BIDIR_DATA32_iobuf_bidir_e0p
+    Info (12023): Found entity 2: BIDIR_DATA32
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/bidir_signal/bidir_signal.v
+    Info (12023): Found entity 1: BIDIR_SIGNAL_iobuf_bidir_fso
+    Info (12023): Found entity 2: BIDIR_SIGNAL
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/lpc_bidird/lpc_bidir.v
+    Info (12023): Found entity 1: LPC_BIDir_iobuf_bidir_tuo
+    Info (12023): Found entity 2: LPC_BIDir
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/lpc_bidir_sirq/lpc_bidir_sirq.v
+    Info (12023): Found entity 1: LPC_BIDir_SIRQ_iobuf_bidir_quo
+    Info (12023): Found entity 2: LPC_BIDir_SIRQ
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/timercompare32/timercompare32.v
+    Info (12023): Found entity 1: TimerCompare32
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/gabe/cores cyclone iii/timercounter32/timercounter32.v
+    Info (12023): Found entity 1: TimerCounter32
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/mera/mera_a2560x_top.v
+    Info (12023): Found entity 1: MERA_A2560X_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/mera/mera_sdram_32bits.v
+    Info (12023): Found entity 1: MERA_SDRAM_32Bits
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/mera/cores_cyclone_iii/databufferio32/databufferio32.v
+    Info (12023): Found entity 1: DataBufferIO32_iobuf_bidir_e0p
+    Info (12023): Found entity 2: DataBufferIO32
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/mera/cores_cyclone_iii/ddio_clk/ddio_clk.v
+    Info (12023): Found entity 1: DDIO_CLK
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/videotiminggenerator_a.v
+    Info (12023): Found entity 1: VideoTimingGenerator_A
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/videomodetiminginfo_channel_a.v
+    Info (12023): Found entity 1: VideoModeTimingInfo_Channel_A
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/vicky_register_block.v
+    Info (12023): Found entity 1: Vicky_Register_Block
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/mousepointerspritemodule.v
+    Info (12023): Found entity 1: MousePointerSpriteModule
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/graphicoutputmixer.v
+    Info (12023): Found entity 1: GraphicOutputMixer
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/initclockandvideo.v
+    Info (12023): Found entity 1: InitClockAndVideo
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/tile_map_registers_block.v
+    Info (12023): Found entity 1: Tile_Map_Registers_Block
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/collisionregisterfile.v
+    Info (12023): Found entity 1: CollisionRegisterFile
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/bitmapregisterfile.v
+    Info (12023): Found entity 1: BitMapRegisterFile
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/vge_pixel_priority_collision_encoder.v
+    Info (12023): Found entity 1: VGE_Pixel_Priority_Collision_Encoder
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/tilemap_state_machine.v
+    Info (12023): Found entity 1: TileMap_State_Machine
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/sprite_state_machine.v
+    Info (12023): Found entity 1: Sprite_State_Machine
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/bitmap_state_machine.v
+    Info (12023): Found entity 1: BitMap_State_Machine
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/videographicengine.v
+    Info (12023): Found entity 1: VideoGraphicEngine
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/a2560k_vmemoryinterface.v
+    Info (12023): Found entity 1: A2560K_VMemoryInterface
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_ii/vickyii_collision_system_module.v
+    Info (12023): Found entity 1: VickyII_Collision_System_Module
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/vickyiii_new_top.v
+    Info (12023): Found entity 1: VICKYIII_NEW_TOP
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/vicky_iii_cs_and_dout.v
+    Info (12023): Found entity 1: VICKY_III_CS_And_Dout
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/vicky_iii_channel_a_top.v
+    Info (12023): Found entity 1: VICKY_III_Channel_A_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/vicky_iii_channel_b_new_top.v
+    Info (12023): Found entity 1: VICKY_III_Channel_B_NEW_Top
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_text_block_b_new.v
+    Info (12023): Found entity 1: VIII_Text_Block_B_NEW
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_text_block_a.v
+    Info (12023): Found entity 1: VIII_Text_Block_A
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/vicky_iii_reset_module.v
+    Info (12023): Found entity 1: VICKY_III_Reset_Module
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores/verilog-i2c-master/rtl/i2c_master.v
+    Info (12023): Found entity 1: i2c_master
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores/verilog-i2c-master/rtl/i2c_init.v
+    Info (12023): Found entity 1: i2c_init
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_graphics_mixer_b.v
+    Info (12023): Found entity 1: VIII_Graphics_Mixer_B
+Error (10170): Verilog HDL syntax error at VICKY_III_VGE_MSTR.v(17) near text "=";  expecting a direction File: E:/GEN1_ACTIVE_FPGA/Source/VICKY_III/VICKY_III_VGE_MSTR.v Line: 17
+Error (10112): Ignored design unit "VICKY_III_VGE_MSTR" at VICKY_III_VGE_MSTR.v(3) due to previous errors File: E:/GEN1_ACTIVE_FPGA/Source/VICKY_III/VICKY_III_VGE_MSTR.v Line: 3
+Info (12021): Found 0 design units, including 0 entities, in source file /gen1_active_fpga/source/vicky_iii/vicky_iii_vge_mstr.v
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_text_font_sm_a2560x_b.v
+    Info (12023): Found entity 1: VIII_Text_FONT_SM_A2560x_B
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_gui_memtext_module.v
+    Info (12023): Found entity 1: VIII_GUI_MemText_Module
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/a2560x_gen1_vsram_mmu.v
+    Info (12023): Found entity 1: A2560x_GEN1_VSRAM_MMU
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/emutos/a2560x_emutos_bitmap.v
+    Info (12023): Found entity 1: A2560x_EmuTOS_Bitmap
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_text_st_a.v
+    Info (12023): Found entity 1: VIII_Text_ST_A
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_videogen_b_new.v
+    Info (12023): Found entity 1: VIII_VideoGen_B_New
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_modetiminginfo_b_new.v
+    Info (12023): Found entity 1: VIII_ModeTimingInfo_B_NEW
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/sdma/a2560mx_dma_reg_block.v
+    Info (12023): Found entity 1: A2560Mx_DMA_Reg_Block
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/sdma/a2560mx_dma_controller.v
+    Info (12023): Found entity 1: A2560Mx_DMA_Controller
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/memtext/memtext_font_statemachine.v
+    Info (12023): Found entity 1: MEMText_FONT_StateMachine
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/memtext/a2560mx_memtext_sm.v
+    Info (12023): Found entity 1: A2560Mx_MEMTEXT_SM
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/memtext/a2560mx_memorymanagementblock.v
+    Info (12023): Found entity 1: A2560Mx_MemoryManagementBlock
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/viii_registerblock_b.v
+    Info (12023): Found entity 1: VIII_RegisterBlock_B
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/vickyii_pixel8_8line/vickyii_pixel8_8line.v
+    Info (12023): Found entity 1: VICKYII_Pixel8_8Line
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/tilemap_2lines_capture/tilemap_2lines_capture.v
+    Info (12023): Found entity 1: TILEMAP_2Lines_Capture
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/addy_adder/addy_adder.v
+    Info (12023): Found entity 1: ADDY_ADDER
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/sprite_fifo_attr/sprite_fifo_attr.v
+    Info (12023): Found entity 1: SPRITE_FIFO_ATTR
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/sprite_fifo_data/sprite_fifo_data.v
+    Info (12023): Found entity 1: SPRITE_FIFO_DATA
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/vickyii_pixel16_16line/vickyii_pixel16_16line.v
+    Info (12023): Found entity 1: VICKYII_PIXEL16_16LINE
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/vickyii_pixel32_8line/vickyii_pixel32_8line.v
+    Info (12023): Found entity 1: VICKYII_Pixel32_8Line
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/dma_mult_blk/dma_mult_blk.v
+    Info (12023): Found entity 1: DMA_MULT_BLK
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/addy_compare/addy_compare.v
+    Info (12023): Found entity 1: ADDY_COMPARE
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/addy_counter/addy_counter.v
+    Info (12023): Found entity 1: ADDY_COUNTER
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/bidir_data8/bidir_data8.v
+    Info (12023): Found entity 1: BIDIR_DATA8_iobuf_bidir_1vo
+    Info (12023): Found entity 2: BIDIR_DATA8
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/cpu_2_dram_fifo/cpu_2_dram_fifo.v
+    Info (12023): Found entity 1: CPU_2_DRAM_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/sprite_register_block/sprite_register_block.v
+    Info (12023): Found entity 1: Sprite_Register_Block
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/textaddy_mult/textaddy_mult.v
+    Info (12023): Found entity 1: TextAddy_Mult
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/text_mem16_blk/text_mem16_blk.v
+    Info (12023): Found entity 1: TEXT_MEM16_BLK
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/i2cbidir/i2cbidir.v
+    Info (12023): Found entity 1: I2CBIDIR_iobuf_bidir_gso
+    Info (12023): Found entity 2: I2CBIDIR
+Info (12021): Found 2 design units, including 2 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/clk_switch/clk_switch.v
+    Info (12023): Found entity 1: Clk_Switch_altclkctrl_uhi
+    Info (12023): Found entity 2: Clk_Switch
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/video_pll/video_pll.v
+    Info (12023): Found entity 1: VIDEO_PLL
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/video_pll_channelb/video_pll_channelb.v
+    Info (12023): Found entity 1: VIDEO_PLL_CHANNELB
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/mouserpointersprite/mousepointersprite.v
+    Info (12023): Found entity 1: MousePointerSprite
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/font_dp_mem/font_dp_mem.v
+    Info (12023): Found entity 1: FONT_DP_MEM
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/text_clr_lut/text_clr_lut.v
+    Info (12023): Found entity 1: TEXT_CLR_LUT
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/text_mem32_blk/text_mem32_blk.v
+    Info (12023): Found entity 1: TEXT_MEM32_BLK
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/gamma_channel/gamma_channel.v
+    Info (12023): Found entity 1: GAMMA_Channel
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/ddr_pixel_out/ddr_pixel_out.v
+    Info (12023): Found entity 1: DDR_Pixel_Out
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/final_rgb_pixel_line/final_rgb_pixel_line.v
+    Info (12023): Found entity 1: Final_RGB_Pixel_Line
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/lut32/lut32.v
+    Info (12023): Found entity 1: LUT32
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iv/cores/pll_40mhz_108mhz/pll_40mhz_108mhz.v
+    Info (12023): Found entity 1: PLL_40Mhz_108Mhz
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/text_mem8k_blk/text_mem8k_blk.v
+    Info (12023): Found entity 1: TEXT_MEM8K_BLK
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/font8by16_dprom/font8by16_dprom.v
+    Info (12023): Found entity 1: FONT8by16_DPROM
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/memtext_dp/memtext_dp.v
+    Info (12023): Found entity 1: MEMTEXT_DP
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/memtext_lut_xg/memtext_lut_xg.v
+    Info (12023): Found entity 1: MEMTEXT_LUT_xG
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/memtext_font/memtext_font.v
+    Info (12023): Found entity 1: MEMTEXT_FONT
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/tosgraph_fifo/tosgraph_fifo.v
+    Info (12023): Found entity 1: TOSGRAPH_FIFO
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/emutos_dp64/emutos_dp64.v
+    Info (12023): Found entity 1: EMUTOS_DP64
+Info (12021): Found 1 design units, including 1 entities, in source file /gen1_active_fpga/source/vicky_iii/cores cyclone iii/tosgraph_pixel_line2k/tosgraph_pixel_line2k.v
+    Info (12023): Found entity 1: TOSGRAPH_PIXEL_LINE2K
+Info (144001): Generated suppressed messages file E:/GEN1_ACTIVE_FPGA/A2560K40_2026_Core - EmuTOS/A2560K60.map.smsg
+Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 2 errors, 0 warnings
+    Error: Peak virtual memory: 4703 megabytes
+    Error: Processing ended: Tue Apr 07 18:27:46 2026
+    Error: Elapsed time: 00:00:06
+    Error: Total CPU time (on all processors): 00:00:05
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/GEN1_ACTIVE_FPGA/A2560K40_2026_Core - EmuTOS/A2560K60.map.smsg.
+
+

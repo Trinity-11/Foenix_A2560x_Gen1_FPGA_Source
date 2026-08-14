@@ -1,0 +1,537 @@
+Restore Archived Project report for A2560X60Plus_Project
+Mon Apr 20 14:13:32 2026
+Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Mon Apr 20 14:13:32 2026 ;
+; Revision Name                   ; A2560X60Plus_Project                  ;
+; Top-level Entity Name           ; A2560X60Plus_Top                      ;
+; Family                          ; Cyclone III                           ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'E:/GEN1_ACTIVE_FPGA/A2560X60_2026_Core - EmuTOS/A2560X60Plus_Project_tmp_archive.qar' into the 'E:/GEN1_ACTIVE_FPGA/A2560X60_2026_Core - EmuTOS_copy/' directory
+Info: Generated report 'A2560X60Plus_Project.restore.rpt'
+
+
++-----------------------------------------------------------------------------------------+
+; Files Restored                                                                          ;
++-----------------------------------------------------------------------------------------+
+; File Name                                                                               ;
++-----------------------------------------------------------------------------------------+
+; A2560X60Plus_Project.out.sdc                                                            ;
+; A2560X60Plus_Project.qpf                                                                ;
+; A2560X60Plus_Project.qsf                                                                ;
+; A2560X60Plus_Top.v                                                                      ;
+; db/A2560X60Plus_Project.cmp.hdb                                                         ;
+; db/A2560X60Plus_Project.cmp.rdb                                                         ;
+; db/A2560X60Plus_Project.db_info                                                         ;
+; incremental_db/compiled_partitions/A2560X60Plus_Project.db_info                         ;
+; output_files/Chain1.cdf                                                                 ;
+; output_files/Spf1.spf                                                                   ;
+; Source - Hex Files/FontSet2x8x8Set_1x8x16Set.hex                                        ;
+; Source - Hex Files/bm437_phoenixega_8x8.hex                                             ;
+; Source - Mif Files/GAMMA_1_8.mif                                                        ;
+; Source - Mif Files/greyScale_LUT.mif                                                    ;
+; Source/BEATRIX/A2560X_CODEC.v                                                           ;
+; Source/BEATRIX/BEATRIX_CS_And_Dout.v                                                    ;
+; Source/BEATRIX/BEATRIX_CTRL_Reg.v                                                       ;
+; Source/BEATRIX/BEATRIX_Top.v                                                            ;
+; Source/BEATRIX/BUS_2_ChipTune_Interface.v                                               ;
+; Source/BEATRIX/CPU_Interface_2_AudioDAC.v                                               ;
+; Source/BEATRIX/Cores Cyclone III/CHIPTUNE_FIFO/CHIPTUNE_FIFO.qip                        ;
+; Source/BEATRIX/Cores Cyclone III/CHIPTUNE_FIFO/CHIPTUNE_FIFO.v                          ;
+; Source/BEATRIX/Cores Cyclone III/CHIPTUNE_FIFO/CHIPTUNE_FIFO_bb.v                       ;
+; Source/BEATRIX/Cores Cyclone III/CHIPTUNE_FIFO/CHIPTUNE_FIFO_inst.v                     ;
+; Source/BEATRIX/Cores Cyclone III/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO.qip          ;
+; Source/BEATRIX/Cores Cyclone III/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO.v            ;
+; Source/BEATRIX/Cores Cyclone III/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO_bb.v         ;
+; Source/BEATRIX/Cores Cyclone III/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO_inst.v       ;
+; Source/BEATRIX/Cores Cyclone III/CT_FIFO/CT_FIFO.qip                                    ;
+; Source/BEATRIX/Cores Cyclone III/CT_FIFO/CT_FIFO.v                                      ;
+; Source/BEATRIX/Cores Cyclone III/CT_FIFO/CT_FIFO_bb.v                                   ;
+; Source/BEATRIX/Cores Cyclone III/CT_FIFO/CT_FIFO_inst.v                                 ;
+; Source/BEATRIX/Cores Cyclone III/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO.qip              ;
+; Source/BEATRIX/Cores Cyclone III/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO.v                ;
+; Source/BEATRIX/Cores Cyclone III/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO_bb.v             ;
+; Source/BEATRIX/Cores Cyclone III/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO_inst.v           ;
+; Source/BEATRIX/Cores/jt12-master/hdl/adpcm/jt10_adpcm_div.v                             ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12.qip                                           ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12.v                                             ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12.vhd                                           ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_acc.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_csr.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_div.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_dout.v                                        ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg.v                                          ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg_cnt.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg_comb.v                                     ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg_ctrl.v                                     ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg_final.v                                    ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg_pure.v                                     ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_eg_step.v                                     ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_exprom.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_kon.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_lfo.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_logsin.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_mmr.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_mod.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_op.v                                          ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pcm_interpol.v                                ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pg.v                                          ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pg_comb.v                                     ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pg_dt.v                                       ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pg_inc.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pg_sum.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_pm.v                                          ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_reg.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_rst.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_sh.v                                          ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_sh24.v                                        ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_sh_rst.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_single_acc.v                                  ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_sumch.v                                       ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_timers.v                                      ;
+; Source/BEATRIX/Cores/jt12-master/hdl/jt12_top.v                                         ;
+; Source/BEATRIX/Cores/jt12-master/hdl/mixer/jt12_comb.v                                  ;
+; Source/BEATRIX/Cores/jt12-master/hdl/mixer/jt12_decim.v                                 ;
+; Source/BEATRIX/Cores/jt12-master/hdl/mixer/jt12_fm_uprate.v                             ;
+; Source/BEATRIX/Cores/jt12-master/hdl/mixer/jt12_genmix.v                                ;
+; Source/BEATRIX/Cores/jt12-master/hdl/mixer/jt12_interpol.v                              ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49.qip                                           ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49.v                                             ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49_bus.v                                         ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49_cen.v                                         ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49_div.v                                         ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49_eg.v                                          ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49_exp.v                                         ;
+; Source/BEATRIX/Cores/jt49-master/hdl/jt49_noise.v                                       ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51.qip                                           ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51.v                                             ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_acc.v                                         ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_csr_ch.v                                      ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_csr_op.v                                      ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_eg.v                                          ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_exp2lin.v                                     ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_exprom.v                                      ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_kon.v                                         ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_lfo.v                                         ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_lfo_lfsr.v                                    ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_lin2exp.v                                     ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_mmr.v                                         ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_mod.v                                         ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_noise.v                                       ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_noise_lfsr.v                                  ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_op.v                                          ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_pg.v                                          ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_phinc_rom.v                                   ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_phrom.v                                       ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_pm.v                                          ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_reg.v                                         ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_sh.v                                          ;
+; Source/BEATRIX/Cores/jt51-master/hdl/jt51_timers.v                                      ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89.qip                                           ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89.v                                             ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89.vhd                                           ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89_mixer.v                                       ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89_noise.v                                       ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89_tone.v                                        ;
+; Source/BEATRIX/Cores/jt89-master/hdl/jt89_vol.v                                         ;
+; Source/BEATRIX/Cores/sid6581/Q_table.vhd                                                ;
+; Source/BEATRIX/Cores/sid6581/adsr_multi.vhd                                             ;
+; Source/BEATRIX/Cores/sid6581/mult_acc.vhd                                               ;
+; Source/BEATRIX/Cores/sid6581/my_math_pkg.vhd                                            ;
+; Source/BEATRIX/Cores/sid6581/oscillator.vhd                                             ;
+; Source/BEATRIX/Cores/sid6581/sid.qip                                                    ;
+; Source/BEATRIX/Cores/sid6581/sid_ctrl.vhd                                               ;
+; Source/BEATRIX/Cores/sid6581/sid_debug_pkg.vhd                                          ;
+; Source/BEATRIX/Cores/sid6581/sid_filter.vhd                                             ;
+; Source/BEATRIX/Cores/sid6581/sid_mixer.vhd                                              ;
+; Source/BEATRIX/Cores/sid6581/sid_regs.vhd                                               ;
+; Source/BEATRIX/Cores/sid6581/sid_top.vhd                                                ;
+; Source/BEATRIX/Cores/sid6581/wave_map.vhd                                               ;
+; Source/BEATRIX/Parallel2SerialAudio.v                                                   ;
+; Source/BEATRIX/Parallel2Serial_SID.v                                                    ;
+; Source/BEATRIX/SoundChips2DAC_Interface.v                                               ;
+; Source/BEATRIX/audio_iir_filter.v                                                       ;
+; Source/BEATRIX/audio_out.v                                                              ;
+; Source/BEATRIX/genesis_lpf.v                                                            ;
+; Source/BEATRIX/i2s.v                                                                    ;
+; Source/BEATRIX/iir_filter.v                                                             ;
+; Source/CPU/MC680xx_BusArbiter.v                                                         ;
+; Source/CPU/MC68LC060_Plus_Arbiter.v                                                     ;
+; Source/GABE/A2560X60_GAVIN_CTRL.v                                                       ;
+; Source/GABE/A2560X_GAVIN_CS_And_Dout.v                                                  ;
+; Source/GABE/A2560X_Unity.v                                                              ;
+; Source/GABE/A2560x_IRQ_CTRL.v                                                           ;
+; Source/GABE/BUS_2_LPC_Interface.v                                                       ;
+; Source/GABE/Buzzer.v                                                                    ;
+; Source/GABE/CLK32KhzCreation.v                                                          ;
+; Source/GABE/Cores Cyclone III/BIDIR_ADDY/BIDIR_ADDY.qip                                 ;
+; Source/GABE/Cores Cyclone III/BIDIR_ADDY/BIDIR_ADDY.v                                   ;
+; Source/GABE/Cores Cyclone III/BIDIR_ADDY/BIDIR_ADDY_bb.v                                ;
+; Source/GABE/Cores Cyclone III/BIDIR_ADDY/BIDIR_ADDY_inst.v                              ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA16/BIDIR_DATA16.qip                             ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA16/BIDIR_DATA16.v                               ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA16/BIDIR_DATA16_bb.v                            ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA16/BIDIR_DATA16_inst.v                          ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA32/BIDIR_DATA32.qip                             ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA32/BIDIR_DATA32.v                               ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA32/BIDIR_DATA32_bb.v                            ;
+; Source/GABE/Cores Cyclone III/BIDIR_DATA32/BIDIR_DATA32_inst.v                          ;
+; Source/GABE/Cores Cyclone III/BIDIR_SIGNAL/BIDIR_SIGNAL.qip                             ;
+; Source/GABE/Cores Cyclone III/BIDIR_SIGNAL/BIDIR_SIGNAL.v                               ;
+; Source/GABE/Cores Cyclone III/BIDIR_SIGNAL/BIDIR_SIGNAL_bb.v                            ;
+; Source/GABE/Cores Cyclone III/BIDIR_SIGNAL/BIDIR_SIGNAL_inst.v                          ;
+; Source/GABE/Cores Cyclone III/CLK32_COUNTER/CLK32_COUNTER.qip                           ;
+; Source/GABE/Cores Cyclone III/CLK32_COUNTER/CLK32_COUNTER.v                             ;
+; Source/GABE/Cores Cyclone III/CLK32_COUNTER/CLK32_COUNTER_bb.v                          ;
+; Source/GABE/Cores Cyclone III/CLK32_COUNTER/CLK32_COUNTER_inst.v                        ;
+; Source/GABE/Cores Cyclone III/CPU_2_Serial_CMD/CPU_2_Serial_CMD.qip                     ;
+; Source/GABE/Cores Cyclone III/CPU_2_Serial_CMD/CPU_2_Serial_CMD.v                       ;
+; Source/GABE/Cores Cyclone III/CPU_2_Serial_CMD/CPU_2_Serial_CMD_bb.v                    ;
+; Source/GABE/Cores Cyclone III/CPU_2_Serial_CMD/CPU_2_Serial_CMD_inst.v                  ;
+; Source/GABE/Cores Cyclone III/Debug_Serial_Buffer/Debug_Serial_Buffer.qip               ;
+; Source/GABE/Cores Cyclone III/Debug_Serial_Buffer/Debug_Serial_Buffer.v                 ;
+; Source/GABE/Cores Cyclone III/Debug_Serial_Buffer/Debug_Serial_Buffer_bb.v              ;
+; Source/GABE/Cores Cyclone III/Debug_Serial_Buffer/Debug_Serial_Buffer_inst.v            ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIRD/LPC_BIDir.qip                                  ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIRD/LPC_BIDir.v                                    ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIRD/LPC_BIDir_bb.v                                 ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIRD/LPC_BIDir_inst.v                               ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIR_SIRQ/LPC_BIDir_SIRQ.qip                         ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIR_SIRQ/LPC_BIDir_SIRQ.v                           ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIR_SIRQ/LPC_BIDir_SIRQ_bb.v                        ;
+; Source/GABE/Cores Cyclone III/LPC_BIDIR_SIRQ/LPC_BIDir_SIRQ_inst.v                      ;
+; Source/GABE/Cores Cyclone III/LPC_CMD_FIFO/LPC_CMD_FIFO.qip                             ;
+; Source/GABE/Cores Cyclone III/LPC_CMD_FIFO/LPC_CMD_FIFO.v                               ;
+; Source/GABE/Cores Cyclone III/LPC_CMD_FIFO/LPC_CMD_FIFO_bb.v                            ;
+; Source/GABE/Cores Cyclone III/LPC_CMD_FIFO/LPC_CMD_FIFO_inst.v                          ;
+; Source/GABE/Cores Cyclone III/LPC_DATA_FIFO/LPC_DATA_FIFO.qip                           ;
+; Source/GABE/Cores Cyclone III/LPC_DATA_FIFO/LPC_DATA_FIFO.v                             ;
+; Source/GABE/Cores Cyclone III/LPC_DATA_FIFO/LPC_DATA_FIFO_bb.v                          ;
+; Source/GABE/Cores Cyclone III/LPC_DATA_FIFO/LPC_DATA_FIFO_inst.v                        ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_RXD_FIFO/MIDI_UART_RXD_FIFO.qip                 ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_RXD_FIFO/MIDI_UART_RXD_FIFO.v                   ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_RXD_FIFO/MIDI_UART_RXD_FIFO_bb.v                ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_RXD_FIFO/MIDI_UART_RXD_FIFO_inst.v              ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_TXD_FIFO/MIDI_UART_TXD_FIFO.qip                 ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_TXD_FIFO/MIDI_UART_TXD_FIFO.v                   ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_TXD_FIFO/MIDI_UART_TXD_FIFO_bb.v                ;
+; Source/GABE/Cores Cyclone III/MIDI_UART_TXD_FIFO/MIDI_UART_TXD_FIFO_inst.v              ;
+; Source/GABE/Cores Cyclone III/PLL_SDCard_Debug/PLL_SDCard_Debug.ppf                     ;
+; Source/GABE/Cores Cyclone III/PLL_SDCard_Debug/PLL_SDCard_Debug.qip                     ;
+; Source/GABE/Cores Cyclone III/PLL_SDCard_Debug/PLL_SDCard_Debug.v                       ;
+; Source/GABE/Cores Cyclone III/PLL_SDCard_Debug/PLL_SDCard_Debug_bb.v                    ;
+; Source/GABE/Cores Cyclone III/PLL_SDCard_Debug/PLL_SDCard_Debug_inst.v                  ;
+; Source/GABE/Cores Cyclone III/SIGNED_DIV16/SIGNED_DIV16.qip                             ;
+; Source/GABE/Cores Cyclone III/SIGNED_DIV16/SIGNED_DIV16.v                               ;
+; Source/GABE/Cores Cyclone III/SIGNED_DIV16/SIGNED_DIV16_bb.v                            ;
+; Source/GABE/Cores Cyclone III/SIGNED_DIV16/SIGNED_DIV16_inst.v                          ;
+; Source/GABE/Cores Cyclone III/SIGNED_MULT16/SIGNED_MULT16.qip                           ;
+; Source/GABE/Cores Cyclone III/SIGNED_MULT16/SIGNED_MULT16.v                             ;
+; Source/GABE/Cores Cyclone III/SIGNED_MULT16/SIGNED_MULT16_bb.v                          ;
+; Source/GABE/Cores Cyclone III/SIGNED_MULT16/SIGNED_MULT16_inst.v                        ;
+; Source/GABE/Cores Cyclone III/SerialRX/SerialRX.qip                                     ;
+; Source/GABE/Cores Cyclone III/SerialRX/SerialRX.v                                       ;
+; Source/GABE/Cores Cyclone III/SerialRX/SerialRX_bb.v                                    ;
+; Source/GABE/Cores Cyclone III/SerialRX/SerialRX_inst.v                                  ;
+; Source/GABE/Cores Cyclone III/Serial_2_Debug_CMD/Serial_2_Debug_CMD.qip                 ;
+; Source/GABE/Cores Cyclone III/Serial_2_Debug_CMD/Serial_2_Debug_CMD.v                   ;
+; Source/GABE/Cores Cyclone III/Serial_2_Debug_CMD/Serial_2_Debug_CMD_bb.v                ;
+; Source/GABE/Cores Cyclone III/Serial_2_Debug_CMD/Serial_2_Debug_CMD_inst.v              ;
+; Source/GABE/Cores Cyclone III/SourceAndProbe/SourceAndProbe.qip                         ;
+; Source/GABE/Cores Cyclone III/SourceAndProbe/SourceAndProbe.v                           ;
+; Source/GABE/Cores Cyclone III/SourceAndProbe/SourceAndProbe_bb.v                        ;
+; Source/GABE/Cores Cyclone III/SourceAndProbe/SourceAndProbe_inst.v                      ;
+; Source/GABE/Cores Cyclone III/TIMERCOMPARE32/TimerCompare32.qip                         ;
+; Source/GABE/Cores Cyclone III/TIMERCOMPARE32/TimerCompare32.v                           ;
+; Source/GABE/Cores Cyclone III/TIMERCOMPARE32/TimerCompare32_bb.v                        ;
+; Source/GABE/Cores Cyclone III/TIMERCOMPARE32/TimerCompare32_inst.v                      ;
+; Source/GABE/Cores Cyclone III/TIMERCOUNTER32/TimerCounter32.qip                         ;
+; Source/GABE/Cores Cyclone III/TIMERCOUNTER32/TimerCounter32.v                           ;
+; Source/GABE/Cores Cyclone III/TIMERCOUNTER32/TimerCounter32_bb.v                        ;
+; Source/GABE/Cores Cyclone III/TIMERCOUNTER32/TimerCounter32_inst.v                      ;
+; Source/GABE/Cores Cyclone III/TinyChipScope/TinyChipScope.qip                           ;
+; Source/GABE/Cores Cyclone III/TinyChipScope/TinyChipScope.v                             ;
+; Source/GABE/Cores Cyclone III/TinyChipScope/TinyChipScope_bb.v                          ;
+; Source/GABE/Cores Cyclone III/TinyChipScope/TinyChipScope_inst.v                        ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_DIV16/UNSIGNED_DIV16.qip                         ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_DIV16/UNSIGNED_DIV16.v                           ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_DIV16/UNSIGNED_DIV16_bb.v                        ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_DIV16/UNSIGNED_DIV16_inst.v                      ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_MULT16/UNSIGNED_MULT16.qip                       ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_MULT16/UNSIGNED_MULT16.v                         ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_MULT16/UNSIGNED_MULT16_bb.v                      ;
+; Source/GABE/Cores Cyclone III/UNSIGNED_MULT16/UNSIGNED_MULT16_inst.v                    ;
+; Source/GABE/Cores/WizFi360/A2560M_WIFI_Interface.v                                      ;
+; Source/GABE/Cores/WizFi360/Serial_WIFI_Rx.v                                             ;
+; Source/GABE/Cores/WizFi360/Serial_WIFI_Tx.v                                             ;
+; Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/serirq_defines.v                             ;
+; Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/serirq_host.v                                ;
+; Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/wb_lpc_defines.v                             ;
+; Source/GABE/Cores/wb_lpc/trunk/rtl/verilog/wb_lpc_host.v                                ;
+; Source/GABE/GAVIN_A2560XEmuTOS_Top.v                                                    ;
+; Source/GABE/LFSR.v                                                                      ;
+; Source/GABE/MathModule16.v                                                              ;
+; Source/GABE/New_DebugModuleExtra.v                                                      ;
+; Source/GABE/ProgramFlash32.v                                                            ;
+; Source/GABE/RGB_LED_Driver_Module40Mhz.v                                                ;
+; Source/GABE/RGB_STATUS_LED_Driver_Module40Mhz.v                                         ;
+; Source/GABE/Serial_Rx.v                                                                 ;
+; Source/GABE/Serial_Tx.v                                                                 ;
+; Source/GABE/SimpleSPI4SDCard.v                                                          ;
+; Source/GABE/TimerInterface32.V                                                          ;
+; Source/GABE/Top_LPC_Interface.v                                                         ;
+; Source/GABE/Transfer_Flash_2_Ram.v                                                      ;
+; Source/GABE/Unity.v                                                                     ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.bsf                                     ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.cmp                                     ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.inc                                     ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.ppf                                     ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.qip                                     ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK.v                                       ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK_bb.v                                    ;
+; Source/MERA/Cores_Cyclone_III/DDIO_CLK/DDIO_CLK_inst.v                                  ;
+; Source/MERA/Cores_Cyclone_III/DataBufferIO32/DataBufferIO32.qip                         ;
+; Source/MERA/Cores_Cyclone_III/DataBufferIO32/DataBufferIO32.v                           ;
+; Source/MERA/Cores_Cyclone_III/DataBufferIO32/DataBufferIO32_bb.v                        ;
+; Source/MERA/Cores_Cyclone_III/DataBufferIO32/DataBufferIO32_inst.v                      ;
+; Source/MERA/MERA_SDRAM_32Bits.v                                                         ;
+; Source/MERA/Mera_A2560X_Top.v                                                           ;
+; Source/VICKY_II/A2560K_VMemoryInterface.v                                               ;
+; Source/VICKY_II/BitMapRegisterFile.v                                                    ;
+; Source/VICKY_II/BitMap_State_Machine.v                                                  ;
+; Source/VICKY_II/CollisionRegisterFile.v                                                 ;
+; Source/VICKY_II/GraphicOutputMixer.v                                                    ;
+; Source/VICKY_II/InitClockAndVideo.v                                                     ;
+; Source/VICKY_II/MousePointerSpriteModule.v                                              ;
+; Source/VICKY_II/Sprite_State_Machine.v                                                  ;
+; Source/VICKY_II/TileMap_State_Machine.v                                                 ;
+; Source/VICKY_II/Tile_Map_Registers_Block.v                                              ;
+; Source/VICKY_II/VGE_Pixel_Priority_Collision_Encoder.v                                  ;
+; Source/VICKY_II/VickyII_Collision_System_Module.v                                       ;
+; Source/VICKY_II/Vicky_Register_Block.v                                                  ;
+; Source/VICKY_II/VideoGraphicEngine.v                                                    ;
+; Source/VICKY_II/VideoModeTimingInfo_Channel_A.v                                         ;
+; Source/VICKY_II/VideoTimingGenerator_A.v                                                ;
+; Source/VICKY_III/A2560x_GEN1_VSRAM_MMU.v                                                ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_ADDER/ADDY_ADDER.qip                            ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_ADDER/ADDY_ADDER.v                              ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_ADDER/ADDY_ADDER_bb.v                           ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_ADDER/ADDY_ADDER_inst.v                         ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COMPARE/ADDY_COMPARE.qip                        ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COMPARE/ADDY_COMPARE.v                          ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COMPARE/ADDY_COMPARE_bb.v                       ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COMPARE/ADDY_COMPARE_inst.v                     ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COUNTER/ADDY_COUNTER.qip                        ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COUNTER/ADDY_COUNTER.v                          ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COUNTER/ADDY_COUNTER_bb.v                       ;
+; Source/VICKY_III/Cores Cyclone III/ADDY_COUNTER/ADDY_COUNTER_inst.v                     ;
+; Source/VICKY_III/Cores Cyclone III/BIDIR_DATA8/BIDIR_DATA8.qip                          ;
+; Source/VICKY_III/Cores Cyclone III/BIDIR_DATA8/BIDIR_DATA8.v                            ;
+; Source/VICKY_III/Cores Cyclone III/BIDIR_DATA8/BIDIR_DATA8_bb.v                         ;
+; Source/VICKY_III/Cores Cyclone III/BIDIR_DATA8/BIDIR_DATA8_inst.v                       ;
+; Source/VICKY_III/Cores Cyclone III/CLK_SWITCH/Clk_Switch.qip                            ;
+; Source/VICKY_III/Cores Cyclone III/CLK_SWITCH/Clk_Switch.v                              ;
+; Source/VICKY_III/Cores Cyclone III/CLK_SWITCH/Clk_Switch_bb.v                           ;
+; Source/VICKY_III/Cores Cyclone III/CLK_SWITCH/Clk_Switch_inst.v                         ;
+; Source/VICKY_III/Cores Cyclone III/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO.qip                  ;
+; Source/VICKY_III/Cores Cyclone III/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO.v                    ;
+; Source/VICKY_III/Cores Cyclone III/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO_bb.v                 ;
+; Source/VICKY_III/Cores Cyclone III/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO_inst.v               ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.bsf                      ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.cmp                      ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.inc                      ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.ppf                      ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.qip                      ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out.v                        ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out_bb.v                     ;
+; Source/VICKY_III/Cores Cyclone III/DDR_Pixel_Out/DDR_Pixel_Out_inst.v                   ;
+; Source/VICKY_III/Cores Cyclone III/DMA_MULT_BLK/DMA_MULT_BLK.qip                        ;
+; Source/VICKY_III/Cores Cyclone III/DMA_MULT_BLK/DMA_MULT_BLK.v                          ;
+; Source/VICKY_III/Cores Cyclone III/DMA_MULT_BLK/DMA_MULT_BLK_bb.v                       ;
+; Source/VICKY_III/Cores Cyclone III/DMA_MULT_BLK/DMA_MULT_BLK_inst.v                     ;
+; Source/VICKY_III/Cores Cyclone III/EMUTOS_DP64/EMUTOS_DP64.qip                          ;
+; Source/VICKY_III/Cores Cyclone III/EMUTOS_DP64/EMUTOS_DP64.v                            ;
+; Source/VICKY_III/Cores Cyclone III/EMUTOS_DP64/EMUTOS_DP64_bb.v                         ;
+; Source/VICKY_III/Cores Cyclone III/EMUTOS_DP64/EMUTOS_DP64_inst.v                       ;
+; Source/VICKY_III/Cores Cyclone III/FONT8by16_DPROM/FONT8by16_DPROM.qip                  ;
+; Source/VICKY_III/Cores Cyclone III/FONT8by16_DPROM/FONT8by16_DPROM.v                    ;
+; Source/VICKY_III/Cores Cyclone III/FONT8by16_DPROM/FONT8by16_DPROM_bb.v                 ;
+; Source/VICKY_III/Cores Cyclone III/FONT_DP_MEM/FONT_DP_MEM.qip                          ;
+; Source/VICKY_III/Cores Cyclone III/FONT_DP_MEM/FONT_DP_MEM.v                            ;
+; Source/VICKY_III/Cores Cyclone III/FONT_DP_MEM/FONT_DP_MEM_bb.v                         ;
+; Source/VICKY_III/Cores Cyclone III/FONT_DP_MEM/FONT_DP_MEM_inst.v                       ;
+; Source/VICKY_III/Cores Cyclone III/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line.qip        ;
+; Source/VICKY_III/Cores Cyclone III/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line.v          ;
+; Source/VICKY_III/Cores Cyclone III/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line_bb.v       ;
+; Source/VICKY_III/Cores Cyclone III/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line_inst.v     ;
+; Source/VICKY_III/Cores Cyclone III/GAMMA_Channel/GAMMA_Channel.qip                      ;
+; Source/VICKY_III/Cores Cyclone III/GAMMA_Channel/GAMMA_Channel.v                        ;
+; Source/VICKY_III/Cores Cyclone III/GAMMA_Channel/GAMMA_Channel_bb.v                     ;
+; Source/VICKY_III/Cores Cyclone III/GAMMA_Channel/GAMMA_Channel_inst.v                   ;
+; Source/VICKY_III/Cores Cyclone III/I2CBIDIR/I2CBIDIR.qip                                ;
+; Source/VICKY_III/Cores Cyclone III/I2CBIDIR/I2CBIDIR.v                                  ;
+; Source/VICKY_III/Cores Cyclone III/I2CBIDIR/I2CBIDIR_bb.v                               ;
+; Source/VICKY_III/Cores Cyclone III/I2CBIDIR/I2CBIDIR_inst.v                             ;
+; Source/VICKY_III/Cores Cyclone III/LUT32/LUT32.qip                                      ;
+; Source/VICKY_III/Cores Cyclone III/LUT32/LUT32.v                                        ;
+; Source/VICKY_III/Cores Cyclone III/LUT32/LUT32_bb.v                                     ;
+; Source/VICKY_III/Cores Cyclone III/LUT32/LUT32_inst.v                                   ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_DP/MEMTEXT_DP.qip                            ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_DP/MEMTEXT_DP.v                              ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_DP/MEMTEXT_DP_bb.v                           ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_DP/MEMTEXT_DP_inst.v                         ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_FONT/MEMTEXT_FONT.qip                        ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_FONT/MEMTEXT_FONT.v                          ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_FONT/MEMTEXT_FONT_bb.v                       ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG.qip                    ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG.v                      ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG_bb.v                   ;
+; Source/VICKY_III/Cores Cyclone III/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG_inst.v                 ;
+; Source/VICKY_III/Cores Cyclone III/MouserPointerSprite/MousePointerSprite.qip           ;
+; Source/VICKY_III/Cores Cyclone III/MouserPointerSprite/MousePointerSprite.v             ;
+; Source/VICKY_III/Cores Cyclone III/MouserPointerSprite/MousePointerSprite_bb.v          ;
+; Source/VICKY_III/Cores Cyclone III/MouserPointerSprite/MousePointerSprite_inst.v        ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR.qip                ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR.v                  ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR_bb.v               ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR_inst.v             ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA.qip                ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA.v                  ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA_bb.v               ;
+; Source/VICKY_III/Cores Cyclone III/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA_inst.v             ;
+; Source/VICKY_III/Cores Cyclone III/Sprite_Register_Block/Sprite_Register_Block.qip      ;
+; Source/VICKY_III/Cores Cyclone III/Sprite_Register_Block/Sprite_Register_Block.v        ;
+; Source/VICKY_III/Cores Cyclone III/Sprite_Register_Block/Sprite_Register_Block_bb.v     ;
+; Source/VICKY_III/Cores Cyclone III/Sprite_Register_Block/Sprite_Register_Block_inst.v   ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_CLR_LUT/TEXT_CLR_LUT.qip                        ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_CLR_LUT/TEXT_CLR_LUT.v                          ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_CLR_LUT/TEXT_CLR_LUT_bb.v                       ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_CLR_LUT/TEXT_CLR_LUT_inst.v                     ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM16_BLK/TEXT_MEM16_BLK.qip                    ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM16_BLK/TEXT_MEM16_BLK.v                      ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM16_BLK/TEXT_MEM16_BLK_bb.v                   ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM16_BLK/TEXT_MEM16_BLK_inst.v                 ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM32_BLK/TEXT_MEM32_BLK.qip                    ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM32_BLK/TEXT_MEM32_BLK.v                      ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM32_BLK/TEXT_MEM32_BLK_bb.v                   ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM32_BLK/TEXT_MEM32_BLK_inst.v                 ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK.qip                    ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK.v                      ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK_bb.v                   ;
+; Source/VICKY_III/Cores Cyclone III/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK_inst.v                 ;
+; Source/VICKY_III/Cores Cyclone III/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture.qip    ;
+; Source/VICKY_III/Cores Cyclone III/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture.v      ;
+; Source/VICKY_III/Cores Cyclone III/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture_bb.v   ;
+; Source/VICKY_III/Cores Cyclone III/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture_inst.v ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_FIFO/TOSGRAPH_FIFO.qip                      ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_FIFO/TOSGRAPH_FIFO.v                        ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_FIFO/TOSGRAPH_FIFO_bb.v                     ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_FIFO/TOSGRAPH_FIFO_inst.v                   ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_PIXEL_LINE2K/TOSGRAPH_PIXEL_LINE2K.qip      ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_PIXEL_LINE2K/TOSGRAPH_PIXEL_LINE2K.v        ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_PIXEL_LINE2K/TOSGRAPH_PIXEL_LINE2K_bb.v     ;
+; Source/VICKY_III/Cores Cyclone III/TOSGRAPH_PIXEL_LINE2K/TOSGRAPH_PIXEL_LINE2K_inst.v   ;
+; Source/VICKY_III/Cores Cyclone III/TextAddy_Mult/TextAddy_Mult.qip                      ;
+; Source/VICKY_III/Cores Cyclone III/TextAddy_Mult/TextAddy_Mult.v                        ;
+; Source/VICKY_III/Cores Cyclone III/TextAddy_Mult/TextAddy_Mult_bb.v                     ;
+; Source/VICKY_III/Cores Cyclone III/TextAddy_Mult/TextAddy_Mult_inst.v                   ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE.qip    ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE.v      ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE_bb.v   ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE_inst.v ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line.qip      ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line.v        ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line_bb.v     ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line_inst.v   ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line.qip        ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line.v          ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line_bb.v       ;
+; Source/VICKY_III/Cores Cyclone III/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line_inst.v     ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL/VIDEO_PLL.ppf                              ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL/VIDEO_PLL.qip                              ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL/VIDEO_PLL.v                                ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL/VIDEO_PLL_bb.v                             ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL/VIDEO_PLL_inst.v                           ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB.ppf            ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB.qip            ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB.v              ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB_bb.v           ;
+; Source/VICKY_III/Cores Cyclone III/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB_inst.v         ;
+; Source/VICKY_III/Cores/verilog-i2c-master/rtl/i2c_init.v                                ;
+; Source/VICKY_III/Cores/verilog-i2c-master/rtl/i2c_master.v                              ;
+; Source/VICKY_III/EmuTOS/A2560x_EmuTOS_Bitmap.v                                          ;
+; Source/VICKY_III/Memtext/A2560Mx_MEMTEXT_SM.v                                           ;
+; Source/VICKY_III/Memtext/A2560Mx_MemoryManagementBlock.v                                ;
+; Source/VICKY_III/Memtext/MEMText_FONT_StateMachine.v                                    ;
+; Source/VICKY_III/SDMA/A2560Mx_DMA_Controller.v                                          ;
+; Source/VICKY_III/SDMA/A2560Mx_DMA_Reg_Block.v                                           ;
+; Source/VICKY_III/VICKYIII_NEW_TOP.v                                                     ;
+; Source/VICKY_III/VICKY_III_CS_And_Dout.v                                                ;
+; Source/VICKY_III/VICKY_III_Channel_A_Top.v                                              ;
+; Source/VICKY_III/VICKY_III_Channel_B_NEW_Top.v                                          ;
+; Source/VICKY_III/VICKY_III_Reset_Module.v                                               ;
+; Source/VICKY_III/VICKY_III_VGE_MSTR.v                                                   ;
+; Source/VICKY_III/VIII_GUI_MemText_Module.v                                              ;
+; Source/VICKY_III/VIII_Graphics_Mixer_B.v                                                ;
+; Source/VICKY_III/VIII_ModeTimingInfo_B_NEW.v                                            ;
+; Source/VICKY_III/VIII_RegisterBlock_B.v                                                 ;
+; Source/VICKY_III/VIII_Text_Block_A.v                                                    ;
+; Source/VICKY_III/VIII_Text_Block_B_new.v                                                ;
+; Source/VICKY_III/VIII_Text_FONT_SM_A2560x_B.v                                           ;
+; Source/VICKY_III/VIII_Text_ST_A.v                                                       ;
+; Source/VICKY_III/VIII_VideoGen_B_New.v                                                  ;
+; Source/VICKY_IV/Cores/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.ppf                             ;
+; Source/VICKY_IV/Cores/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.qip                             ;
+; Source/VICKY_IV/Cores/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.v                               ;
+; Source/VICKY_IV/Cores/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz_bb.v                            ;
+; Source/VICKY_IV/Cores/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz_inst.v                          ;
+; assignment_defaults.qdf                                                                 ;
++-----------------------------------------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

@@ -1,0 +1,355 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="38556a5463751bb3401c"/>
+  </project>
+  <file_info>
+    <file device="EP3C120F780C8" path="A2560X40.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <hub_info hub_ir_width="10" ir_width="10" node_addr_width="2" node_count="2"/>
+  <node_info>
+    <node hpath="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|altsource_probe:altsource_probe_component" instance_id="0" mfg_id="110" node_id="9" sld_node_info="0x486E00" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="BEEF"/>
+        <parameter name="probe_width" type="dec" value="32"/>
+        <parameter name="source_width" type="dec" value="32"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[0]"/>
+        <port name="probe[1]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[1]"/>
+        <port name="probe[2]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[2]"/>
+        <port name="probe[3]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[3]"/>
+        <port name="probe[4]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[4]"/>
+        <port name="probe[5]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[5]"/>
+        <port name="probe[6]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[6]"/>
+        <port name="probe[7]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[7]"/>
+        <port name="probe[8]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[8]"/>
+        <port name="probe[9]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[9]"/>
+        <port name="probe[10]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[10]"/>
+        <port name="probe[11]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[11]"/>
+        <port name="probe[12]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[12]"/>
+        <port name="probe[13]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[13]"/>
+        <port name="probe[14]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[14]"/>
+        <port name="probe[15]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[15]"/>
+        <port name="probe[16]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[16]"/>
+        <port name="probe[17]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[17]"/>
+        <port name="probe[18]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[18]"/>
+        <port name="probe[19]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[19]"/>
+        <port name="probe[20]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[20]"/>
+        <port name="probe[21]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[21]"/>
+        <port name="probe[22]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[22]"/>
+        <port name="probe[23]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[23]"/>
+        <port name="probe[24]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[24]"/>
+        <port name="probe[25]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[25]"/>
+        <port name="probe[26]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[26]"/>
+        <port name="probe[27]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[27]"/>
+        <port name="probe[28]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[28]"/>
+        <port name="probe[29]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[29]"/>
+        <port name="probe[30]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[30]"/>
+        <port name="probe[31]" source="MC68040V_Plus_Arbiter:M68040V|SourceAndProbe:SOURCE68K|probe[31]"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_raw_tck" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_tdi" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_usr1" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_cdr" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_sdr" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_udr" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_cir" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_uir" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_tlr" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_clrn" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ena" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ena"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_0_" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_1_" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_2_" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_3_" source="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="source[10]"/>
+        <port name="source[11]"/>
+        <port name="source[12]"/>
+        <port name="source[13]"/>
+        <port name="source[14]"/>
+        <port name="source[15]"/>
+        <port name="source[16]"/>
+        <port name="source[17]"/>
+        <port name="source[18]"/>
+        <port name="source[19]"/>
+        <port name="source[20]"/>
+        <port name="source[21]"/>
+        <port name="source[22]"/>
+        <port name="source[23]"/>
+        <port name="source[24]"/>
+        <port name="source[25]"/>
+        <port name="source[26]"/>
+        <port name="source[27]"/>
+        <port name="source[28]"/>
+        <port name="source[29]"/>
+        <port name="source[30]"/>
+        <port name="source[31]"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.M68040V_SOURCE68K_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|sld_signaltap:sld_signaltap_component" instance_id="0" mfg_id="110" node_id="2" sld_node_info="0x30106E00" version="6">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="sld_signaltap"/>
+        <parameter name="sld_node_info" type="dec" value="1076736"/>
+        <parameter name="SLD_IP_VERSION" type="dec" value="6"/>
+        <parameter name="SLD_IP_MINOR_VERSION" type="dec" value="0"/>
+        <parameter name="SLD_COMMON_IP_VERSION" type="dec" value="0"/>
+        <parameter name="sld_data_bits" type="dec" value="144"/>
+        <parameter name="sld_trigger_bits" type="dec" value="1"/>
+        <parameter name="sld_node_crc_bits" type="dec" value="32"/>
+        <parameter name="sld_node_crc_hiword" type="dec" value="24207"/>
+        <parameter name="sld_node_crc_loword" type="dec" value="26586"/>
+        <parameter name="SLD_INCREMENTAL_ROUTING" type="dec" value="0"/>
+        <parameter name="sld_sample_depth" type="dec" value="1024"/>
+        <parameter name="SLD_SEGMENT_SIZE" type="dec" value="0"/>
+        <parameter name="sld_ram_block_type" type="string" value="AUTO"/>
+        <parameter name="SLD_STATE_BITS" type="dec" value="11"/>
+        <parameter name="SLD_BUFFER_FULL_STOP" type="dec" value="1"/>
+        <parameter name="sld_mem_address_bits" type="dec" value="10"/>
+        <parameter name="sld_data_bit_cntr_bits" type="dec" value="9"/>
+        <parameter name="sld_trigger_level" type="dec" value="1"/>
+        <parameter name="sld_trigger_in_enabled" type="dec" value="1"/>
+        <parameter name="SLD_HPS_TRIGGER_IN_ENABLED" type="dec" value="0"/>
+        <parameter name="SLD_HPS_TRIGGER_OUT_ENABLED" type="dec" value="0"/>
+        <parameter name="SLD_HPS_EVENT_ENABLED" type="dec" value="0"/>
+        <parameter name="SLD_HPS_EVENT_ID" type="dec" value="0"/>
+        <parameter name="sld_advanced_trigger_entity" type="string" value="basic,1,"/>
+        <parameter name="sld_trigger_level_pipeline" type="dec" value="1"/>
+        <parameter name="sld_enable_advanced_trigger" type="dec" value="0"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_1" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_2" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_3" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_4" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_5" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_6" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_7" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_8" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_9" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_10" type="string" value="NONE"/>
+        <parameter name="SLD_INVERSION_MASK_LENGTH" type="dec" value="1"/>
+        <parameter name="SLD_INVERSION_MASK" type="ubin" value="0"/>
+        <parameter name="SLD_POWER_UP_TRIGGER" type="dec" value="0"/>
+        <parameter name="SLD_STATE_FLOW_MGR_ENTITY" type="string" value="state_flow_mgr_entity.vhd"/>
+        <parameter name="SLD_STATE_FLOW_USE_GENERATED" type="dec" value="0"/>
+        <parameter name="SLD_CURRENT_RESOURCE_WIDTH" type="dec" value="0"/>
+        <parameter name="SLD_ATTRIBUTE_MEM_MODE" type="string" value="OFF"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_BITS" type="dec" value="1"/>
+        <parameter name="sld_storage_qualifier_gap_record" type="dec" value="0"/>
+        <parameter name="sld_storage_qualifier_mode" type="string" value="OFF"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION" type="dec" value="0"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH" type="dec" value="0"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY" type="string" value="basic"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_PIPELINE" type="dec" value="0"/>
+      </parameters>
+      <inputs>
+        <port name="acq_clk" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_clk"/>
+        <port name="acq_data_in[0]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[0]"/>
+        <port name="acq_data_in[1]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[1]"/>
+        <port name="acq_data_in[2]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[2]"/>
+        <port name="acq_data_in[3]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[3]"/>
+        <port name="acq_data_in[4]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[4]"/>
+        <port name="acq_data_in[5]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[5]"/>
+        <port name="acq_data_in[6]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[6]"/>
+        <port name="acq_data_in[7]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[7]"/>
+        <port name="acq_data_in[8]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[8]"/>
+        <port name="acq_data_in[9]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[9]"/>
+        <port name="acq_data_in[10]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[10]"/>
+        <port name="acq_data_in[11]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[11]"/>
+        <port name="acq_data_in[12]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[12]"/>
+        <port name="acq_data_in[13]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[13]"/>
+        <port name="acq_data_in[14]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[14]"/>
+        <port name="acq_data_in[15]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[15]"/>
+        <port name="acq_data_in[16]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[16]"/>
+        <port name="acq_data_in[17]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[17]"/>
+        <port name="acq_data_in[18]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[18]"/>
+        <port name="acq_data_in[19]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[19]"/>
+        <port name="acq_data_in[20]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[20]"/>
+        <port name="acq_data_in[21]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[21]"/>
+        <port name="acq_data_in[22]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[22]"/>
+        <port name="acq_data_in[23]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[23]"/>
+        <port name="acq_data_in[24]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[24]"/>
+        <port name="acq_data_in[25]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[25]"/>
+        <port name="acq_data_in[26]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[26]"/>
+        <port name="acq_data_in[27]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[27]"/>
+        <port name="acq_data_in[28]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[28]"/>
+        <port name="acq_data_in[29]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[29]"/>
+        <port name="acq_data_in[30]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[30]"/>
+        <port name="acq_data_in[31]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[31]"/>
+        <port name="acq_data_in[32]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[32]"/>
+        <port name="acq_data_in[33]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[33]"/>
+        <port name="acq_data_in[34]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[34]"/>
+        <port name="acq_data_in[35]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[35]"/>
+        <port name="acq_data_in[36]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[36]"/>
+        <port name="acq_data_in[37]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[37]"/>
+        <port name="acq_data_in[38]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[38]"/>
+        <port name="acq_data_in[39]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[39]"/>
+        <port name="acq_data_in[40]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[40]"/>
+        <port name="acq_data_in[41]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[41]"/>
+        <port name="acq_data_in[42]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[42]"/>
+        <port name="acq_data_in[43]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[43]"/>
+        <port name="acq_data_in[44]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[44]"/>
+        <port name="acq_data_in[45]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[45]"/>
+        <port name="acq_data_in[46]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[46]"/>
+        <port name="acq_data_in[47]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[47]"/>
+        <port name="acq_data_in[48]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[48]"/>
+        <port name="acq_data_in[49]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[49]"/>
+        <port name="acq_data_in[50]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[50]"/>
+        <port name="acq_data_in[51]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[51]"/>
+        <port name="acq_data_in[52]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[52]"/>
+        <port name="acq_data_in[53]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[53]"/>
+        <port name="acq_data_in[54]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[54]"/>
+        <port name="acq_data_in[55]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[55]"/>
+        <port name="acq_data_in[56]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[56]"/>
+        <port name="acq_data_in[57]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[57]"/>
+        <port name="acq_data_in[58]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[58]"/>
+        <port name="acq_data_in[59]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[59]"/>
+        <port name="acq_data_in[60]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[60]"/>
+        <port name="acq_data_in[61]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[61]"/>
+        <port name="acq_data_in[62]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[62]"/>
+        <port name="acq_data_in[63]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[63]"/>
+        <port name="acq_data_in[64]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[64]"/>
+        <port name="acq_data_in[65]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[65]"/>
+        <port name="acq_data_in[66]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[66]"/>
+        <port name="acq_data_in[67]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[67]"/>
+        <port name="acq_data_in[68]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[68]"/>
+        <port name="acq_data_in[69]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[69]"/>
+        <port name="acq_data_in[70]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[70]"/>
+        <port name="acq_data_in[71]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[71]"/>
+        <port name="acq_data_in[72]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[72]"/>
+        <port name="acq_data_in[73]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[73]"/>
+        <port name="acq_data_in[74]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[74]"/>
+        <port name="acq_data_in[75]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[75]"/>
+        <port name="acq_data_in[76]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[76]"/>
+        <port name="acq_data_in[77]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[77]"/>
+        <port name="acq_data_in[78]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[78]"/>
+        <port name="acq_data_in[79]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[79]"/>
+        <port name="acq_data_in[80]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[80]"/>
+        <port name="acq_data_in[81]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[81]"/>
+        <port name="acq_data_in[82]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[82]"/>
+        <port name="acq_data_in[83]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[83]"/>
+        <port name="acq_data_in[84]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[84]"/>
+        <port name="acq_data_in[85]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[85]"/>
+        <port name="acq_data_in[86]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[86]"/>
+        <port name="acq_data_in[87]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[87]"/>
+        <port name="acq_data_in[88]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[88]"/>
+        <port name="acq_data_in[89]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[89]"/>
+        <port name="acq_data_in[90]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[90]"/>
+        <port name="acq_data_in[91]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[91]"/>
+        <port name="acq_data_in[92]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[92]"/>
+        <port name="acq_data_in[93]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[93]"/>
+        <port name="acq_data_in[94]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[94]"/>
+        <port name="acq_data_in[95]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[95]"/>
+        <port name="acq_data_in[96]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[96]"/>
+        <port name="acq_data_in[97]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[97]"/>
+        <port name="acq_data_in[98]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[98]"/>
+        <port name="acq_data_in[99]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[99]"/>
+        <port name="acq_data_in[100]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[100]"/>
+        <port name="acq_data_in[101]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[101]"/>
+        <port name="acq_data_in[102]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[102]"/>
+        <port name="acq_data_in[103]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[103]"/>
+        <port name="acq_data_in[104]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[104]"/>
+        <port name="acq_data_in[105]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[105]"/>
+        <port name="acq_data_in[106]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[106]"/>
+        <port name="acq_data_in[107]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[107]"/>
+        <port name="acq_data_in[108]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[108]"/>
+        <port name="acq_data_in[109]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[109]"/>
+        <port name="acq_data_in[110]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[110]"/>
+        <port name="acq_data_in[111]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[111]"/>
+        <port name="acq_data_in[112]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[112]"/>
+        <port name="acq_data_in[113]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[113]"/>
+        <port name="acq_data_in[114]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[114]"/>
+        <port name="acq_data_in[115]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[115]"/>
+        <port name="acq_data_in[116]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[116]"/>
+        <port name="acq_data_in[117]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[117]"/>
+        <port name="acq_data_in[118]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[118]"/>
+        <port name="acq_data_in[119]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[119]"/>
+        <port name="acq_data_in[120]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[120]"/>
+        <port name="acq_data_in[121]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[121]"/>
+        <port name="acq_data_in[122]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[122]"/>
+        <port name="acq_data_in[123]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[123]"/>
+        <port name="acq_data_in[124]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[124]"/>
+        <port name="acq_data_in[125]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[125]"/>
+        <port name="acq_data_in[126]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[126]"/>
+        <port name="acq_data_in[127]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[127]"/>
+        <port name="acq_data_in[128]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[128]"/>
+        <port name="acq_data_in[129]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[129]"/>
+        <port name="acq_data_in[130]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[130]"/>
+        <port name="acq_data_in[131]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[131]"/>
+        <port name="acq_data_in[132]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[132]"/>
+        <port name="acq_data_in[133]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[133]"/>
+        <port name="acq_data_in[134]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[134]"/>
+        <port name="acq_data_in[135]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[135]"/>
+        <port name="acq_data_in[136]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[136]"/>
+        <port name="acq_data_in[137]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[137]"/>
+        <port name="acq_data_in[138]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[138]"/>
+        <port name="acq_data_in[139]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[139]"/>
+        <port name="acq_data_in[140]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[140]"/>
+        <port name="acq_data_in[141]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[141]"/>
+        <port name="acq_data_in[142]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[142]"/>
+        <port name="acq_data_in[143]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_data_in[143]"/>
+        <port name="acq_trigger_in[0]" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|acq_trigger_in[0]"/>
+        <port name="trigger_in" source="MC68040V_Plus_Arbiter:M68040V|TinyChipScope:CHIPSCOPE68K|trigger_in"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_raw_tck" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_raw_tck"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_tdi" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_tdi"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_usr1" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_usr1"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_rti" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_rti"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_shift" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_shift"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_update" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_update"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_cdr" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_cdr"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_sdr" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_sdr"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_e1dr" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_udr" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_udr"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_uir" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_jtag_state_uir"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_clr" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_clr"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ena" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ena"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_0_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_0_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_1_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_1_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_2_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_2_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_3_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_3_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_4_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_4_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_5_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_5_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_6_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_6_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_7_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_7_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_8_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_8_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_9_" source="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_in_9_"/>
+      </inputs>
+      <outputs>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_0_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_1_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_2_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_3_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_4_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_5_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_6_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_7_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_8_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_ir_out_9_"/>
+        <port name="jtag.bp.M68040V_CHIPSCOPE68K_sld_signaltap_component_tdo"/>
+      </outputs>
+    </node>
+  </node_info>
+</sld_project_info>

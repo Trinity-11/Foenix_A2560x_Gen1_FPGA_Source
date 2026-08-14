@@ -1,0 +1,9 @@
+set_global_assignment -entity "Clk_Switch" -library "Clk_Switch" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "Clk_Switch" -library "Clk_Switch" -name IP_TOOL_VERSION "13.1"
+set_global_assignment -entity "Clk_Switch" -library "Clk_Switch" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "Clk_Switch" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../../Clk_Switch.sopcinfo"]
+set_global_assignment -entity "Clk_Switch" -library "Clk_Switch" -name SLD_INFO "QSYS_NAME Clk_Switch HAS_SOPCINFO 1 GENERATION_ID 1663719978"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "Clk_Switch" -name MISC_FILE [file join $::quartus(qip_path) "../../../Source/VICKY III/Core/CLK_SWITCH/Clk_Switch.qsys"]
+
+set_global_assignment -library "Clk_Switch" -name VERILOG_FILE [file join $::quartus(qip_path) "Clk_Switch.v"]

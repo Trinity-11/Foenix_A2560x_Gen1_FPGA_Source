@@ -1,0 +1,15 @@
+PLL_Name	PLL_40Mhz_108Mhz:PLL_40Mhz_108Mhz_inst|altpll:altpll_component|PLL_40Mhz_108Mhz_altpll:auto_generated|pll1
+PLLJITTER	35
+PLLSPEmax	84
+PLLSPEmin	-53
+
+PLL_Name	PLL_SDCard_Debug:PLL_SDCard_Debug_inst|altpll:altpll_component|PLL_SDCard_Debug_altpll:auto_generated|pll1
+PLLJITTER	31
+PLLSPEmax	84
+PLLSPEmin	-53
+
+PLL_Name	VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|VIDEO_PLL:VIDEO_PLL_A|altpll:altpll_component|VIDEO_PLL_altpll:auto_generated|pll1
+PLLJITTER	41
+PLLSPEmax	84
+PLLSPEmin	-53
+

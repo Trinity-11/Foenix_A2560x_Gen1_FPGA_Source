@@ -1,0 +1,192 @@
+#CPU Addy Bus
+set_location_assignment PIN_A19	-to CPU_A[0]
+set_location_assignment PIN_B19	-to CPU_A[1]
+set_location_assignment PIN_F18	-to CPU_A[2]
+set_location_assignment PIN_C19	-to CPU_A[3]
+set_location_assignment PIN_D19	-to CPU_A[4]
+set_location_assignment PIN_E19	-to CPU_A[5]
+set_location_assignment PIN_G17	-to CPU_A[6]
+set_location_assignment PIN_F19	-to CPU_A[7]
+set_location_assignment PIN_B23	-to CPU_A[8]
+set_location_assignment PIN_H17	-to CPU_A[9]
+set_location_assignment PIN_E7	-to CPU_A[10]
+set_location_assignment PIN_J10	-to CPU_A[11]
+set_location_assignment PIN_F7	-to CPU_A[12]
+set_location_assignment PIN_G7	-to CPU_A[13]
+set_location_assignment PIN_C6	-to CPU_A[14]
+set_location_assignment PIN_D6	-to CPU_A[15]
+set_location_assignment PIN_F8	-to CPU_A[16]
+set_location_assignment PIN_E5	-to CPU_A[17]
+set_location_assignment PIN_A4	-to CPU_A[18]
+set_location_assignment PIN_G8	-to CPU_A[19]
+set_location_assignment PIN_B4	-to CPU_A[20]
+set_location_assignment PIN_C4	-to CPU_A[21]
+set_location_assignment PIN_D4	-to CPU_A[22]
+set_location_assignment PIN_C9	-to CPU_A[23]
+set_location_assignment PIN_E4	-to CPU_A[24]
+set_location_assignment PIN_D9	-to CPU_A[25]
+set_location_assignment PIN_H8	-to CPU_A[26]
+set_location_assignment PIN_A3	-to CPU_A[27]
+set_location_assignment PIN_G9	-to CPU_A[28]
+set_location_assignment PIN_B3	-to CPU_A[29]
+set_location_assignment PIN_A8	-to CPU_A[30]
+set_location_assignment PIN_C3	-to CPU_A[31]
+
+#CPU Data Bus
+set_location_assignment PIN_B8	-to CPU_D[0]
+set_location_assignment PIN_C8	-to CPU_D[1]
+set_location_assignment PIN_D10	-to CPU_D[2]
+set_location_assignment PIN_A7	-to CPU_D[3]
+set_location_assignment PIN_D8	-to CPU_D[4]
+set_location_assignment PIN_E10	-to CPU_D[5]
+set_location_assignment PIN_G11	-to CPU_D[6]
+set_location_assignment PIN_E11	-to CPU_D[7]
+set_location_assignment PIN_A11	-to CPU_D[8]
+set_location_assignment PIN_B11	-to CPU_D[9]
+set_location_assignment PIN_G12	-to CPU_D[10]
+set_location_assignment PIN_E12	-to CPU_D[11]
+set_location_assignment PIN_A12	-to CPU_D[12]
+set_location_assignment PIN_H13	-to	CPU_D[13]
+set_location_assignment PIN_J14	-to	CPU_D[14]
+set_location_assignment PIN_E14	-to	CPU_D[15]
+set_location_assignment PIN_G13	-to	CPU_D[16]
+set_location_assignment PIN_J15	-to	CPU_D[17]
+set_location_assignment PIN_H14	-to	CPU_D[18]
+set_location_assignment PIN_E15	-to	CPU_D[19]
+set_location_assignment PIN_H16	-to	CPU_D[20]
+set_location_assignment PIN_A17	-to	CPU_D[21]
+set_location_assignment PIN_G16	-to	CPU_D[22]
+set_location_assignment PIN_D15	-to	CPU_D[23]
+set_location_assignment PIN_B18	-to	CPU_D[24]
+set_location_assignment PIN_D16	-to	CPU_D[25]
+set_location_assignment PIN_A18	-to	CPU_D[26]
+set_location_assignment PIN_C16	-to	CPU_D[27]
+set_location_assignment PIN_A22	-to	CPU_D[28]
+set_location_assignment PIN_J17	-to	CPU_D[29]
+set_location_assignment PIN_G18	-to	CPU_D[30]
+set_location_assignment PIN_A23	-to	CPU_D[31]
+
+#CPU Control Bus - MC68040V
+set_location_assignment PIN_C13	-to	CPU_AVECn
+set_location_assignment PIN_C14	-to	CPU_BGn
+set_location_assignment PIN_C18	-to	CPU_BGACKn
+set_location_assignment PIN_A21	-to	CPU_BRn
+set_location_assignment PIN_D5	-to CPU_BCLK
+set_location_assignment PIN_F11	-to	CPU_CDISn
+set_location_assignment PIN_C7	-to CPU_CIOUTn
+set_location_assignment PIN_C12	-to	CPU_DLE
+set_location_assignment PIN_B7	-to CPU_IPENDn
+set_location_assignment PIN_F12	-to CPU_IPL0n
+set_location_assignment PIN_H12	-to CPU_IPL1n
+set_location_assignment PIN_C11	-to CPU_IPL2n
+set_location_assignment PIN_C10	-to CPU_LFOn
+set_location_assignment PIN_B21	-to CPU_LOCKn
+set_location_assignment PIN_C21	-to	CPU_LOCKEn
+set_location_assignment PIN_B10	-to	CPU_LOC
+set_location_assignment PIN_D11	-to	CPU_MDISn
+set_location_assignment PIN_D17	-to	CPU_Min
+set_location_assignment PIN_D23	-to	CPU_PCLK
+set_location_assignment PIN_J16	-to	CPU_PST0
+set_location_assignment PIN_G15	-to	CPU_PST1
+set_location_assignment PIN_H15	-to	CPU_PST2
+set_location_assignment PIN_B17	-to	CPU_PST3
+set_location_assignment PIN_F17	-to	CPU_R/Wn
+set_location_assignment PIN_D12	-to	CPU_RESET_INn
+set_location_assignment PIN_F10	-to	CPU_RESET_OUTn
+set_location_assignment PIN_A10	-to	CPU_SCDn
+set_location_assignment PIN_F14	-to	CPU_SC0
+set_location_assignment PIN_G14	-to	CPU_SC1
+set_location_assignment PIN_D18	-to	CPU_SIZ0
+set_location_assignment PIN_E17	-to	CPU_SIZ1
+set_location_assignment PIN_F15	-to	CPU_TAn
+set_location_assignment PIN_D13	-to	CPU_TBIn
+set_location_assignment PIN_J13	-to	CPU_TCIn
+set_location_assignment PIN_D14	-to	CPU_TEAn
+set_location_assignment PIN_C15	-to	CPU_TIPn
+set_location_assignment PIN_C17	-to	CPU_TSn
+set_location_assignment PIN_C20	-to	CPU_TLN0
+set_location_assignment PIN_D20	-to	CPU_TLN1
+set_location_assignment PIN_G20	-to	CPU_TM0
+set_location_assignment PIN_D21	-to	CPU_TM1
+set_location_assignment PIN_E18	-to	CPU_TM2
+set_location_assignment PIN_H10	-to	CPU_TT0
+set_location_assignment PIN_E8	-to CPU_TT1
+set_location_assignment PIN_G10	-to	CPU_UPA0
+set_location_assignment PIN_D7	-to CPU_UPA1
+
+#Memory Interface Signals
+set_location_assignment PIN_E24	-to LOCAL_MEM_FLASH_CS0n_o
+set_location_assignment PIN_B22	-to LOCAL_MEM_FLASH_CS1n_o
+set_location_assignment PIN_F22	-to LOCAL_MEM_FLASH_OEn_o
+set_location_assignment PIN_C22	-to LOCAL_MEM_FLASH_WEn_o
+set_location_assignment PIN_D22	-to	LOCAL_MEM_FLASH_RSTn
+set_location_assignment PIN_P25	-to LOCAL_MEM_FLASH_WPn
+set_location_assignment PIN_C25	-to	LOCAL_MEM_SRAM_BE0n_o
+set_location_assignment PIN_C24	-to	LOCAL_MEM_SRAM_BE1n_o
+set_location_assignment PIN_A26	-to	LOCAL_MEM_SRAM_BE2n_o
+set_location_assignment PIN_A25	-to	LOCAL_MEM_SRAM_BE3n_o
+set_location_assignment PIN_B26	-to	LOCAL_MEM_SRAM_CS0n_o
+set_location_assignment PIN_B25	-to	LOCAL_MEM_SRAM_CS1n_o
+set_location_assignment PIN_D24	-to	LOCAL_MEM_SRAM_OEn_o
+set_location_assignment PIN_E22	-to	LOCAL_MEM_SRAM_WEn_o
+
+#Audio Buses
+set_location_assignment PIN_H24	-to	ABUS_CTRL_CLK_o
+set_location_assignment PIN_H25	-to	ABUS_CTRL_IN_o
+set_location_assignment PIN_H26	-to	ABUS_CTRL_LATCH_o
+set_location_assignment PIN_J25	-to	ABUS_DATA_CLK_o
+set_location_assignment PIN_K26	-to	ABUS_DATA_IN0_o
+set_location_assignment PIN_K25	-to	ABUS_DATA_IN1_o
+set_location_assignment PIN_J26	-to	ABUS_DATA_LATCH_o
+set_location_assignment PIN_G28	-to	ABUS_SID_CLK_o
+set_location_assignment PIN_G27	-to	ABUS_SID_IN_o
+set_location_assignment PIN_G26	-to	ABUS_SID_LATCH_o
+set_location_assignment PIN_G24	-to	ABUS_RSTn_o
+
+#Dual DAC Interface 
+set_location_assignment PIN_V21  -to AUD_PDn_o
+set_location_assignment PIN_AC25 -to AUD2_BICK_o
+set_location_assignment PIN_AE27 -to AUD2_LRCK_o
+set_location_assignment PIN_AB24 -to AUD2_MCLK_o
+set_location_assignment PIN_AD26 -to AUD2_SDTI_o
+set_location_assignment PIN_Y23  -to AUD3_BICK_o
+set_location_assignment PIN_AB25 -to AUD3_LRCK_o
+set_location_assignment PIN_W22	 -to AUD3_MCLK_o
+set_location_assignment PIN_AA24 -to AUD3_SDTI_o
+
+#Audio Amplifications Signals & MISC 
+set_location_assignment PIN_C26 -to	AMP_MUTE_o
+set_location_assignment PIN_C27 -to	AMP_SDBY_o
+set_location_assignment PIN_J3	-to BTX_BUZZER_o
+set_location_assignment PIN_G25	-to CHIPTUNE_RSTn_o
+set_location_assignment PIN_Y27	-to CLK_24_576Mhz_i
+
+#CODEC ADC
+set_location_assignment PIN_W21	 -to CODEC_ADC_BCLK
+set_location_assignment PIN_Y22	 -to CODEC_ADC_DAT
+set_location_assignment PIN_AA23 -to CODEC_ADC_LRCK
+set_location_assignment PIN_AF27 -to CODEC_ADC_MCLK
+
+#CODEC DAC 
+set_location_assignment PIN_AA22 -to CODEC_DAC_BCLK
+set_location_assignment PIN_AC24 -to CODEC_DAC_DAT
+set_location_assignment PIN_AB23 -to CODEC_DAC_LRCK
+set_location_assignment PIN_AE26 -to CODEC_DAC_MCLK
+
+#CODEC Control
+set_location_assignment PIN_AH19 -to CODEC_DI
+set_location_assignment PIN_AG19 -to CODEC_CE
+set_location_assignment PIN_AF19 -to CODEC_CL
+
+#System Control External FLASH for Splash Screen when Boot
+set_location_assignment PIN_F25	 -to CONFIG_CSn
+set_location_assignment PIN_D25	 -to CONFIG_MISO_i
+set_location_assignment PIN_E25	 -to CONFIG_MOSI_o
+set_location_assignment PIN_F24	 -to CONFIG_SCLK_o
+
+#debug Serial Port 
+set_location_assignment PIN_AH10 -to DBG_RX
+set_location_assignment PIN_AG10 -to DBG_TX
+
+
+

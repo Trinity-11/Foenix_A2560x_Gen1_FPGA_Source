@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat Dec 13 18:30:04 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : CFP95179K
+Top-level Entity Name : CFP95179K040V25_TOP
+Family : Cyclone IV E
+Total logic elements : 45,152
+    Total combinational functions : 31,084
+    Dedicated logic registers : 24,282
+Total registers : 24332
+Total pins : 514
+Total virtual pins : 0
+Total memory bits : 1,197,584
+Embedded Multiplier 9-bit elements : 71
+Total PLLs : 3

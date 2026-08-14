@@ -1,0 +1,1093 @@
+`timescale 1 ps / 1 ps
+module DebugModule (
+input		wire				Serial_Clk_i,
+input		wire				Serial_Rst_i,
+input		wire				System_Rst_i,
+input		wire				Dbg_Clk_i,
+output		reg					Dbg_Mode_o,
+output		wire	[31:0]		Dbg_A_o,
+output		wire	[31:0]		Dbg_D_o,
+input		wire	[31:0]		Dbg_D_i,
+output  	wire 	[3:0] 		Dbg_BEn_o,
+output		reg					Dbg_CPU_RSTn_o, /* synthesis preserve noprune */
+output		wire				Dbg_RW_o,
+output		wire				Dbg_RAM_CS_o,
+output		wire				Dbg_Flash_CS_o,
+output		wire				Dbg_Oe_o,
+output		wire				Dbg_Flash_WRn_o,
+output		wire				Dbg_Flash_OEn_o,
+input		wire				Rs_RX_i,
+output		wire				Rs_TX_o
+);
+//Hello Stefany was here
+//{Dbg_Data_In[7:0], Dbg_Data_In[15:8]} 
+wire [4:0] 	StateMachine_Debug;
+
+localparam DEBUG_REV = 8'h10;				// In the Future, there will be probably some different Support from the Debugger
+
+wire  	[3:0]		Dbg_BEn;
+wire 	[7:0]		Rx_Data_In;
+wire				Rx_Data_Rdy;
+wire				Tx_Data_Out_Done;
+wire	[7:0]		DP_Serial_Side_Data_Out;
+wire 	[8:0] 		Poke;
+wire	[47:0]		Dbg_CMD_FIFO_Out;
+wire				Dbg_CMD_Fifo_Empty;
+wire	[7:0]		Cmd_Acknowledged;
+wire				Cmd_Acknowledged_Empty;
+wire				Serial_CMD_FIFO_Accepted;
+wire 	[7:0]		usedwDataInPipe;
+wire 	[7:0]		SerialRxD_Data;
+wire				SerialRxD_Empty;
+wire 	[31:0]		Flash_Program_Data;
+wire	[31:0]		Flash_Program_Addy;
+wire				Flash_Program_RD_WRn;
+wire				Flash_Program_FLASH_OEn;
+wire				Flash_Program_FLASH_WRn;
+wire				Flash_Program_FLASH_CS;
+wire				Flash_Program_RAM_OEn;
+wire				Flash_Program_RAM_CSn;
+wire	[7:0]		CPU_Data_Out;
+wire				Dbg_Cmd_Ack_Empty;
+wire				Flash_Program_Done;
+wire				CPU_VDA;
+wire				CPU_VPA;
+
+reg		[7:0]		RX_CMD;
+reg		[23:0]		RX_ADDY;
+reg		[15:0]		RX_SIZE;
+reg		[7:0]		RX_LRC;
+reg		[7:0]		Tx_LRC;
+reg		[15:0]		TX_STAT;
+reg		[7:0]		LRC_CALC;
+reg		[7:0]		RX_Buffer;
+reg		[12:0]		Rx_Serial_Byte_Counter;		//8K Buffer Write
+reg		[12:0]		Tx_Serial_Byte_Counter;		//8K Buffer Read
+reg		[5:0]		Parser_SM;
+reg		[5:0]		Parser_SSM;
+reg		[7:0]		TimeOut;
+reg		[7:0]    	Tx_Data_Out;
+reg					Tx_Data_Out_Trig;
+reg					Rx_Wren;
+reg					Cmd_Acknowledged_Rd = 0;
+reg		[15:0]		Dbg_DP_Pointer = 16'b0000_0000_0000_0000;
+wire				Dbg_DP_Wren;
+reg					Dbg_FIFO_Read	= 1'b0;
+reg					Serial_CMD_FIFO_Wren = 1'b0;
+reg					Dbg_Advance_Pointer = 1'b0;
+reg					SerialRxD_Rd;
+reg		[31:0] 		RAM_FLash_Pointer;
+reg					CS_Trig;
+reg					Flash_Program_Mode;
+reg					Flash_Program;
+reg		[7:0]		Dbg_Cmd_Ack_Stat;
+reg					Dbg_Cmd_Ack_Wr;
+reg					ResponseWithPayload;
+reg		[31:0]		CPU_Address;
+wire				CPU_W_Rn;
+reg					CPU_Oe;
+reg		[3:0]		Trigger_Flash_Program;
+
+// Big Endian
+assign Dbg_BEn[0] = !(CPU_Address_DLY[1:0] == 2'b11) ;
+assign Dbg_BEn[1] = !(CPU_Address_DLY[1:0] == 2'b10) ;
+assign Dbg_BEn[2] = !(CPU_Address_DLY[1:0] == 2'b01) ;
+assign Dbg_BEn[3] = !(CPU_Address_DLY[1:0] == 2'b00) ;
+
+assign Dbg_RAM_CS_o 	= Flash_Program_Mode ? Flash_Program_RAM_CSn  : ((Dbg_A_o[31:22]  == 10'b0000_0000_00) & CS_Trig); 	// $0000:0000 - $003F:FFFF - 2Meg		// User RAM
+assign Dbg_Flash_CS_o 	= Flash_Program_Mode ? Flash_Program_FLASH_CS : ((Dbg_A_o[31:22]  == 10'b1111_1111_11) & CS_Trig); 	// $FFC0:0000 - $FFFF:FFFF - 4Meg		// System FLASH/7			
+// CPU SIDE
+assign Dbg_A_o 		=  Flash_Program_Mode ? Flash_Program_Addy : CPU_Address_DLY;
+assign Dbg_D_o  	= Flash_Program_Mode ? Flash_Program_Data   : { CPU_Data_Out, CPU_Data_Out, CPU_Data_Out, CPU_Data_Out};
+assign Dbg_BEn_o 	= Flash_Program_Mode ? 4'b0000 : CPU_W_Rn ? Dbg_BEn[3:0] : CPU_Oe ? 4'b1111: 4'b0000;
+assign Dbg_RW_o 	= Flash_Program_Mode ? Flash_Program_RD_WRn : !CPU_W_Rn;
+assign Dbg_Oe_o 	= Flash_Program_Mode ? Flash_Program_RAM_OEn: CPU_Oe;
+
+assign Dbg_Flash_WRn_o = Flash_Program_Mode ? Flash_Program_FLASH_WRn : 1'b1;
+assign Dbg_Flash_OEn_o = Flash_Program_Mode ? Flash_Program_FLASH_OEn : CPU_Oe;
+
+
+reg [31:0] CPU_Address_DLY;
+always @ ( posedge Dbg_Clk_i ) begin 
+	CPU_Address_DLY <= CPU_Address;
+end 
+
+// July 15, 2021 Note: Right now, the Flash Programming module only deal with 1 Flash Chip
+// To be modified later to deal with 2x 16bits wide or 8bit wide, actually we might have to change it to program 32bits wide (2x16)
+// December 26th 2021: The new module deal with 2 1Mx16 Flash Chip
+ProgramFlash32 FlashProgramming_Module(
+
+	.Clk_i( Dbg_Clk_i ),
+	.Rst_i( System_Rst_i ),
+	.Erase_Flash_i( !Flash_Program & Trigger_Flash_Program[3] ),
+	.Program_Flash_i( Flash_Program & Trigger_Flash_Program[3] ),
+// RAM Interface
+	.Ram_Pointer_Addy_i( 32'h0000_0000 ),		// This is the Pointer where the Data will be.
+	.Org_Flash_Address_i( 32'h0000_0000 ),			// Base Address of the Flash we want to program
+
+	.Mem_Pointer_Data_i( Dbg_D_i ),					// Data Input - 32Bits
+	.Mem_Pointer_Data_o( Flash_Program_Data ),	// Data Output - 32bits
+	.Mem_Pointer_Addy_o( Flash_Program_Addy ),	// Addy Output - 32bits
+	.Mem_Pointer_RD_WRn_o( Flash_Program_RD_WRn ),	// Read/WriteN Strobe
+	.Mem_Pointer_OEn_o( Flash_Program_RAM_OEn ),			// Output Enable Strobe
+	
+	.Flash_CS_o( Flash_Program_FLASH_CS ),					// Flash Chip Select	
+	.Flash_OEn_o( Flash_Program_FLASH_OEn ), 
+	.Flash_WRn_o( Flash_Program_FLASH_WRn ),					// Flash Write
+	.RAM_CSn_o( Flash_Program_RAM_CSn ),				// RAM Chip Select 0
+
+	.Process_Done_o( Flash_Program_Done ),
+	.StateMachine_Debug_o( StateMachine_Debug )	
+);
+
+Serial_Rx Serial_Receiver( 
+	.Serial_Clk_i( Serial_Clk_i ),
+	.Serial_Reset_i( Serial_Rst_i ),
+	.Rx_i( Rs_RX_i ),		// Int
+	.Data_Out_o( Rx_Data_In ),			// Data Value
+	.Data_Rdy_o( Rx_Data_Rdy )				// Data Value Strobe 
+);
+
+//Fifo In the Data
+SerialRX SerialRxD_FIFO(
+	.clock( Serial_Clk_i ),
+	// Write Data
+	.data( Rx_Data_In ),
+	.wrreq( Rx_Data_Rdy ),	
+	
+	// Read Data
+	.rdreq( SerialRxD_Rd ),
+	.q( SerialRxD_Data ),
+	.empty( SerialRxD_Empty ),
+	.full(),
+
+	.usedw(usedwDataInPipe)
+);
+
+Serial_Tx Serial_Transmiter(
+	.Serial_Clk_i( Serial_Clk_i),
+	.Serial_Reset_i( Serial_Rst_i ),
+	.Tx_o( Rs_TX_o ),
+	.Data_In_i( Tx_Data_Out ),
+	.Data_Rdy_i( Tx_Data_Out_Trig ),
+	.Data_Sent_Strobe_o( Tx_Data_Out_Done )
+);
+
+reg [7:0] DP_Data_in;
+
+//{Dbg_D_i[7:0], Dbg_D_i[15:8], Dbg_D_i[23:16], Dbg_D_i[31:24]}
+always @ ( * ) begin
+	case(Dbg_DP_Pointer[1:0])
+		2'b00: begin DP_Data_in = Dbg_D_i[31:24]; end
+		2'b01: begin DP_Data_in = Dbg_D_i[23:16]; end
+		2'b10: begin DP_Data_in = Dbg_D_i[15:8]; end
+		2'b11: begin DP_Data_in = Dbg_D_i[7:0]; end
+		//2'b00: begin DP_Data_in = Dbg_D_i[7:0]; end
+		//2'b01: begin DP_Data_in = Dbg_D_i[15:8]; end
+		//2'b10: begin DP_Data_in = Dbg_D_i[23:16]; end
+		//2'b11: begin DP_Data_in = Dbg_D_i[31:24]; end
+	endcase
+end 
+assign Dbg_DP_Wren = ( DBG_SM == DBG_READ1 );
+assign CPU_W_Rn = ( DBG_SM == DBG_WRITE2 );
+// Max Buffer 8K
+// DUAL PORT Memory
+Debug_Serial_Buffer DEBUG_SERIAL_BUF(
+	// Serial Side
+	.clock_b( Serial_Clk_i ),
+	.address_b( ResponseWithPayload ? Tx_Serial_Byte_Counter[12:0] : Rx_Serial_Byte_Counter[12:0] ),	
+	.data_b( SerialRxD_Data ),
+	.wren_b( Rx_Wren ),
+	.q_b( DP_Serial_Side_Data_Out ),
+	
+	// CPU Side - the New Version is 16Bit
+	.clock_a( Dbg_Clk_i ),		//	.clock_a( !Dbg_Clk_i ),
+	.address_a( Dbg_DP_Pointer[12:0] ),
+	.data_a( DP_Data_in  ),
+	.wren_a( Dbg_DP_Wren ),
+	.q_a( CPU_Data_Out )
+);
+
+// FIFO CMD - Rx Data from Serial Port and Execute State Machine to Read or Write from memory
+// The Direction Data is going from the Serial Port to the CPU Side --- Serial >>>> CPU
+Serial_2_Debug_CMD Serial2CPU(
+
+	.rdclk( Dbg_Clk_i ),
+	.rdreq( Dbg_FIFO_Read ),
+	.rdempty( Dbg_CMD_Fifo_Empty ),	
+	.q( Dbg_CMD_FIFO_Out ),
+
+	.data( {RX_CMD, RX_SIZE, RX_ADDY} ),	// Command (8Bits), Size(16Bits), Full Address (24bits)	
+	.wrclk( Serial_Clk_i ),
+	.wrreq( Serial_CMD_FIFO_Wren ),
+	.wrempty( Serial_CMD_FIFO_Accepted ),
+	.wrfull(  )
+);
+
+// The Direction of the Data is going from the CPU to the Serial Side --- CPU >>>> Serial
+CPU_2_Serial_CMD CPU2Serial(
+
+	.wrclk( Dbg_Clk_i ),
+	.wrreq( Dbg_Cmd_Ack_Wr ),
+	.data( Dbg_Cmd_Ack_Stat ),	
+	.wrfull(  ),
+	.wrempty( Dbg_Cmd_Ack_Empty ),
+
+	.rdclk( Serial_Clk_i ),
+	.rdreq( Cmd_Acknowledged_Rd ),
+	.q( Cmd_Acknowledged ),
+	.rdempty( Cmd_Acknowledged_Empty )
+
+);
+/////////////////////////////////////////////////////////////////////
+/*
+wire [143:0] TinyTP;
+wire 			TinyTrigger;
+
+wire [31:0] Source;
+wire [31:0] Probe;
+
+SourceAndProbe SOURCE68K (
+	.source (Source), // sources.source
+	.probe  (Probe)   //  probes.probe
+);
+assign Probe = 32'h0000_0000;
+
+assign TinyTrigger = ((StateMachine_Debug == 5'b1_0100) & (Dbg_A_o == Source)) || ((DBG_SM == DBG_WRITE0) || (DBG_SM == DBG_READ0));
+//assign TinyTrigger =  ((DBG_SM == DBG_WRITE0) || (DBG_SM == DBG_READ0));
+
+assign TinyTP[31:0]  	= Dbg_A_o;
+assign TinyTP[63:32] 	= Dbg_D_o;
+assign TinyTP[95:64]   	= Dbg_D_i;
+// RAM
+assign TinyTP[96]   	= Dbg_RAM_CS_o;
+assign TinyTP[97]   	= Dbg_Flash_CS_o;
+assign TinyTP[98]   	= Dbg_RW_o;
+assign TinyTP[99]   	= Dbg_Oe_o;
+assign TinyTP[103:100]	= Dbg_BEn[3:0];
+assign TinyTP[104]		= Dbg_CPU_RSTn_o;
+assign TinyTP[105]		= Dbg_Mode_o;
+assign TinyTP[106]		= 1'b0;
+assign TinyTP[107]		= 1'b0;
+assign TinyTP[108]		= 1'b0;
+assign TinyTP[109]   	= Dbg_DP_Wren;
+assign TinyTP[122:110]	= Dbg_DP_Pointer;
+assign TinyTP[139:124] 	= Dbg_CMD_FIFO_Out[39:24];
+
+TinyChipScope u0 (
+	.acq_data_in    (TinyTP),    //        tap.acq_data_in
+	.acq_trigger_in (TinyTrigger), //           .acq_trigger_in
+	.acq_clk        (Dbg_Clk_i),        //    acq_clk.clk
+	.trigger_in     (TinyTrigger)      // trigger_in.trigger_in
+);
+*/
+////////////////////////////////////////////////////////////////////
+reg	[4:0]		DBG_SM;
+
+localparam				DBG_IDLE 		= 5'b0_0000,
+						DBG_CMD0  		= 5'b0_0001,
+						DBG_CMD1		= 5'b0_0010,
+						DBG_CMD2		= 5'b0_0011,						
+						DBG_READ0   	= 5'b0_0100,
+						DBG_READ1		= 5'b0_0101,
+						DBG_READ2   	= 5'b0_0110,
+						DBG_READ3		= 5'b0_0111,
+						DBG_READ4		= 5'b0_1000,
+						DBG_WRITE0  	= 5'b0_1001,
+						DBG_WRITE1		= 5'b0_1010,
+						DBG_WRITE2  	= 5'b0_1011,
+						DBG_WRITE3		= 5'b0_1100,
+						DBG_WRITE4		= 5'b0_1101,
+						// Stop the CPU, by Reseting it
+						DBG_STOP_CPU0  = 5'b0_1110,
+						DBG_STOP_CPU1  = 5'b0_1111,
+						//
+						DBG_RESTART0   = 5'b1_0000,
+						DBG_RESTART1   = 5'b1_0001,
+						// Reset the System After the Debug has terminated its processes
+						DBG_RESET_CPU0 = 5'b1_0010,
+						DBG_RESET_CPU1 = 5'b1_0011,
+						// When the Execution Done, Return an Acknowledgement Status
+						DBG_EXEC_ACK0	= 5'b1_1100,
+						DBG_EXEC_ACK1	= 5'b1_1101,
+						DBG_EXEC_ACK2	= 5'b1_1110,
+
+						DBG_FLASH_BRD0 = 5'b1_1000,
+						DBG_FLASH_BRD1 = 5'b1_1001,
+						DBG_FLASH_BRD2 = 5'b1_1010,
+						DBG_FLASH_BRD3 = 5'b1_1011,
+						DBG_FLASH_BRD4 = 5'b1_1100,
+						DBG_FLASH_BRD5 = 5'b1_1101;
+
+
+localparam	DbgAckStatus_Dbg_Mode	=	8'b0000_0001,
+				DbgAckStatus_CPU_Stop	=	8'b0000_0010,
+				DbgAckStatus_Exe_Done	=  8'b1000_0000,
+				DbgAckStatus_Flsh_Erase =  8'b0001_0000,
+				DbgAckStatus_Flsh_Prog  =  8'b0010_0000;
+
+always @ (posedge Dbg_Clk_i)
+begin
+	if (System_Rst_i) begin
+		DBG_SM 				<= DBG_IDLE;
+		Dbg_CPU_RSTn_o  	<= 1'b1;
+		Dbg_Mode_o			<= 1'b0;
+		CS_Trig		   		<= 1'b0;
+		Dbg_Cmd_Ack_Wr		<= 1'b0;
+		Dbg_Cmd_Ack_Stat 	<= 8'h00;
+		Flash_Program_Mode	<= 1'b0;
+	end
+	else
+	begin
+		Trigger_Flash_Program <= Trigger_Flash_Program << 1'b1;
+		
+		case(DBG_SM)
+		
+			IDLE: begin
+				if (Dbg_CMD_Fifo_Empty == 1'b0) begin
+					DBG_SM 			<= DBG_CMD0;
+					Dbg_FIFO_Read	<= 1'b1;
+				end
+				else begin
+					CPU_Oe			<= 1'b1;			
+					DBG_SM 			<= DBG_IDLE;
+				end
+			end
+			
+			DBG_CMD0: begin
+				Dbg_FIFO_Read	<= 1'b0;
+				DBG_SM 			<= DBG_CMD1;				
+			end
+			
+			// Now that we have a command, go Stop the CPU First and let's take control of the Bus so we can execute the command requested. This has the highest priority
+			// Command (8Bits), Size(16Bits), Full Address (24bits)	
+			DBG_CMD1: begin
+				DBG_SM 			<= DBG_CMD2;
+			end
+
+			DBG_CMD2: begin
+
+				case (Dbg_CMD_FIFO_Out[47:40])		// Get the Command
+					// Read Foenix Memory (CPU Read its mem and Write to DP, Serial Read DP and TX Out)
+					CMD_RD_MEM_BLK: begin
+						CPU_Address[31:0] <= {8'b0000_0000, Dbg_CMD_FIFO_Out[23:0]};	// Divide the Incoming Address By 2, we are fetching Words Now
+						DBG_SM 				<= DBG_READ0;				
+					end
+				
+					// Write Foenix Memory (CPU Write Memory from the Content of DP, Serial has previously wrote the Content in the DP)
+					CMD_WR_MEM_BLK: begin
+						CPU_Address[31:0] <= {8'b0000_0000, Dbg_CMD_FIFO_Out[23:0]};
+						DBG_SM 				<= DBG_WRITE0;
+					end
+				
+					// This is to Execute the Write 
+					CMD_PROG_FLASH: begin
+						RAM_FLash_Pointer <= {8'b0000_0000, Dbg_CMD_FIFO_Out[23:0]};
+						DBG_SM 				 <= DBG_FLASH_BRD0;	// Now we have out parameters, lets go
+					end
+
+					// This will be to Erase Block
+					CMD_ERASE_FLSH: begin
+						DBG_SM 				 <= DBG_FLASH_BRD2;	// Now we have out parameters, lets go				
+					end
+				
+					// This is a Command that needs to be passed to the CPU Side for it to stop Process and Make the State Machine Ready to Do Shit on the Fnx Memory)
+					CMD_STOP_CPU: begin
+						DBG_SM	<= DBG_STOP_CPU0;
+					end
+				
+					// This is a Command that Needs to be passed to the CPU Side for it to Restart the CPU
+					CMD_START_CPU: begin
+						DBG_SM 	<= DBG_RESTART0;	
+					end
+
+					default: begin 
+						DBG_SM 	<= DBG_EXEC_ACK0;	// Then, Go and Acknowledged that the Command was Executed			
+					end
+				endcase	
+				Dbg_DP_Pointer 	<= 16'b0000_0000_0000_0000;
+		
+			end	
+			
+			//////////////////////////////////////////////
+			////   READ ROUTINE 
+			//////////////////////////////////////////////
+			// READ to Memory Sequence
+			// New Code - March 26th, replicates FA2560K2 code
+			DBG_READ0: begin
+				CS_Trig			<= 1'b1;
+				CPU_Oe			<= 1'b0;
+				DBG_SM 			<= DBG_READ1;
+			end
+			
+			DBG_READ1: begin
+				DBG_SM 			<= DBG_READ2;
+			end
+			
+			DBG_READ2: begin
+				Dbg_DP_Pointer 	    <= Dbg_DP_Pointer + 16'h0001;				
+				CPU_Address			<= CPU_Address    + 32'h0000_0001; // Address = Address + 2 (we are in bytes)				
+				DBG_SM 				<= DBG_READ3;
+			end
+			
+			DBG_READ3: begin
+				if (Dbg_DP_Pointer == Dbg_CMD_FIFO_Out[39:24]) begin 
+					CPU_Oe			<= 1'b1;					
+					CS_Trig			<= 1'b1;					
+					DBG_SM 			<= DBG_READ4;
+				end 
+				else begin 
+					DBG_SM 			<= DBG_READ1;
+				end 
+
+			end
+			
+			DBG_READ4: begin
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat | DbgAckStatus_Exe_Done;
+				DBG_SM 			<= DBG_EXEC_ACK0;	// Then, Go and Acknowledged that the Command was Executed
+			end
+			
+			//////////////////////////////////////////////
+			////   WRITE ROUTINE 
+			//////////////////////////////////////////////
+			// Write to Memory Sequence
+			DBG_WRITE0: begin
+				CS_Trig			<= 1'b1;	
+				CPU_Oe			<= 1'b1;								
+				DBG_SM 			<= DBG_WRITE1;			
+			end
+			
+			DBG_WRITE1: begin
+				DBG_SM 			<= DBG_WRITE2;
+			end			
+			// Data Valid Here 
+			DBG_WRITE2: begin	
+				Dbg_DP_Pointer  <= Dbg_DP_Pointer + 16'h0001;					
+				CPU_Address		<= CPU_Address    + 32'h0000_0001;
+				DBG_SM 			<= DBG_WRITE3;
+			end
+			// New Addy Valid Here 
+			DBG_WRITE3: begin
+				if (Dbg_DP_Pointer == Dbg_CMD_FIFO_Out[39:24]) begin
+					CS_Trig			<= 1'b0;					
+					CPU_Oe			<= 1'b0;
+					DBG_SM 			<= DBG_WRITE4;
+				end
+				else begin
+					DBG_SM 			<= DBG_WRITE1;
+				end
+			end
+			
+			DBG_WRITE4: begin
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat | DbgAckStatus_Exe_Done;			
+				DBG_SM 			<= DBG_EXEC_ACK0;	// Then, Go and Acknowledged that the Command was Executed		
+			end
+
+			//////////////////////////////////////////////
+			////   CPU CONTROL ROUTINES
+			//////////////////////////////////////////////
+			// 		
+			// Stop the CPU
+			DBG_STOP_CPU0: begin
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat |	DbgAckStatus_Dbg_Mode | DbgAckStatus_CPU_Stop;		// It is in Debug Mode and the CPU is stopped
+				Dbg_Mode_o 		<= 1'b1;			// Switch Muxes to Feed the Signals from the DBG Module
+				DBG_SM 			<= DBG_STOP_CPU1;
+				Dbg_CPU_RSTn_o	<= 1'b0;		// Now that we are going to take over the bus, let's first Reset the CPU. Later we will try to only stop it.
+//				Dbg_CPU_Halt_o <= 1'b0;		// To do a Full Reset with the MC68SEC000 you need to pull down the Reset and Halt
+			end
+			// This is 1 Clock of Latency to make sure everything is now beautiful and Stable and then Go Acknowledged that the Command was Executed
+			DBG_STOP_CPU1: begin
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat | DbgAckStatus_Exe_Done;
+				DBG_SM 				<= DBG_EXEC_ACK0;	// Then, Go and Acknowledged that the Command was Executed
+			end
+			
+			// Restart the CPU
+			DBG_RESTART0: begin
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat &	~(DbgAckStatus_Dbg_Mode | DbgAckStatus_CPU_Stop);		// Cleat the Debug Mode and the CPU Stop Flag			
+				CPU_Oe				<= 1'b1;			
+				Dbg_Mode_o 			<= 1'b0;			// Switch Muxes to Feed the Signals from the DBG Module
+				DBG_SM 				<= DBG_RESTART1;				
+			end
+			
+			DBG_RESTART1: begin
+				Dbg_Cmd_Ack_Stat 	<= Dbg_Cmd_Ack_Stat | DbgAckStatus_Exe_Done;				
+				Dbg_CPU_RSTn_o		<= 1'b1;				// Now that we are going to take over the bus, let's first Reset the CPU. Later we will try to only stop it.			
+				DBG_SM 				<= DBG_EXEC_ACK0;	// Then, Go and Acknowledged that the Command was Executed
+			end
+
+			// Restart the CPU
+			DBG_RESET_CPU0: begin
+			
+			end
+			
+			DBG_RESET_CPU1: begin
+			
+			end
+
+			// 
+			DBG_EXEC_ACK0: begin
+					Dbg_Cmd_Ack_Wr			<= 1'b1;
+					DBG_SM 					<= DBG_EXEC_ACK1;					
+			end
+			
+			DBG_EXEC_ACK1: begin
+					Dbg_Cmd_Ack_Wr 		<= 1'b0;
+					DBG_SM 					<= DBG_EXEC_ACK2;
+			end
+			
+			DBG_EXEC_ACK2: begin
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat &  ~DbgAckStatus_Exe_Done;				
+				DBG_SM 	<= IDLE;			
+			end
+		
+		
+			DBG_FLASH_BRD0: begin
+				Trigger_Flash_Program <= 4'b1111;
+				Flash_Program_Mode <= 1'b1;
+				Flash_Program <= 1'b1;
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat | DbgAckStatus_Flsh_Prog;			//DbgAckStatus_Flsh_Erase	
+				DBG_SM 			<= DBG_FLASH_BRD1;		
+			end
+			
+			DBG_FLASH_BRD1: begin
+				if (Flash_Program_Done) begin
+					Flash_Program_Mode <= 1'b0;
+					DBG_SM 			<= DBG_EXEC_ACK0;	// Then, Go and Acknowledged that the Command was Executed						
+				end
+				else begin
+					DBG_SM 			<= DBG_FLASH_BRD1;
+				end
+			end
+
+			DBG_FLASH_BRD2: begin
+				Trigger_Flash_Program <= 4'b1111;
+				Flash_Program_Mode <= 1'b1;
+				Flash_Program <= 1'b0;		// 0 - Flash Erase, 1 - Flash Program
+				Dbg_Cmd_Ack_Stat <= Dbg_Cmd_Ack_Stat | DbgAckStatus_Flsh_Erase;			//DbgAckStatus_Flsh_Erase				
+				DBG_SM 			<= DBG_FLASH_BRD1;		
+			end
+			
+			
+		
+			default: begin
+			
+			
+			end
+			
+		endcase
+		
+	end
+end
+
+/*
+reg	[7:0]	Dbg_Cmd_Ack_Stat;
+reg			Dbg_Cmd_Ack_Wr;
+reg			Dbg_Cmd_Ack_Empty;
+*/
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+///
+/// Serial Receive State Machine
+///
+///
+///
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+localparam		   	CMD_RD_MEM_BLK 			= 8'h00,	// This corresponds to RAM and or FLASH
+					CMD_WR_MEM_BLK			= 8'h01,	// This corresponds to RAM and or FLASH
+					CMD_RD_REG_LOC 			= 8'h02,	// Go Read 1 Register Only
+					CMD_WR_REG_LOC 			= 8'h03,	// Go Write 1 Register Only
+					// New Commands
+					CMD_RD_MEM32_BE_BLK 	= 8'h08,	// Protocol Uses 4 bytes instead of 3 for Address Big Endian
+					CMD_WR_MEM32_BE_BLK 	= 8'h09,	// Protocol Uses 4 bytes instead of 3 for Address Big Endian
+					CMD_RD_MEM32_LE_BLK 	= 8'h0A,	// Protocol Uses 4 bytes instead of 3 for Address Little Endian
+					CMD_WR_MEM32_LE_BLK 	= 8'h0B,	// Protocol Uses 4 bytes instead of 3 for Address Little Endian
+					// Commands to be sent to Peek and Poke in memory while the CPU and program is running
+					CMD_RD_LIVE_BE			= 8'h0C,	// Protocal Used 4 bytes instead of 3 - Use Bus Master to fetch data Big Endian
+					CMD_WR_LIVE_BE			= 8'h0D,	// Protocal Used 4 bytes instead of 3 - Use Bus Master to fetch data Big Endian
+					CMD_RD_LIVE_BE			= 8'h0E,	// Protocal Used 4 bytes instead of 3 - Use Bus Master to fetch data Little Endian
+					CMD_WR_LIVE_BE			= 8'h0F,	// Protocal Used 4 bytes instead of 3 - Use Bus Master to fetch data Little Endian
+
+					CMD_PROG_FLASH 			= 8'h10,		// Setup the Flash Programming parameters
+					CMD_ERASE_FLSH 			= 8'h11,		// Execute the Write Procedure - 
+
+					CMD_PRG_BRK				= 8'h20,		// Setup BreakPoint Controller (Stops the CPU by Bring RDY low and poking around)
+					CMD_PRG_BRKPT			= 8'h21,		// Setup BreakPoints
+
+					CMD_FILL_MEM			= 8'h40,		// FILL a memory region with a Byte
+					CMD_TSF_MEM				= 8'h41,		// Transfer a Block of Memory From Src to Dst
+					CMD_TSF_MEMCPX 			= 8'h42,		// Transfer a Block of Memory From Src to Dst Complexed (with Stride)
+					
+					CMD_STOP_CPU   			= 8'h80,		// This needs to be done before doing anything else
+					CMD_START_CPU  			= 8'h81,		// This needs to be done after everything has been done
+					
+					CMD_RLSE_RDY			= 8'h82,		// Release RDY created by a BreakPoint
+					CMD_GET_REV				= 8'hFE,		// Get the Revision of the Debug Block
+					CMD_GET_STATUS  		= 8'hFF;		// Get the Status
+
+localparam 			HEADER_RX				= 8'h55,
+					HEADER_TX				= 8'hAA;
+
+// Structure of the Packet:
+// READ
+// RX:{ 0xAA, CMD(1), ADDY(3), SIZE(2), LRC} TX: {0x55, STAT, DATA, LRC}
+// WRITE
+// RX:{ 0xAA, CMD(1), ADDY(3), SIZE(2), (DATA) x(SIZE), LRC} TX: {0x55, STAT(2), LRC}
+
+localparam		IDLE 						= 5'b00000,
+					RX_CHK_HDR_BYTE			= 5'b00001,	// Receive the Header Byte (0x55)
+					RX_GET_CMD_BYTE			= 5'b00010,	// Receive the Command Byte
+					RX_GET_ADDY_H			= 5'b00011,	// Receive the Addy High
+					RX_GET_ADDY_M			= 5'b00100,	// Receive the Addy Med
+					RX_GET_ADDY_L			= 5'b00101,	// Reveive the Addy Low
+					RX_GET_SIZE_H			= 5'b00110,	// Receive the Size High Max 8KBytes ($2000)
+					RX_GET_SIZE_L			= 5'b00111,	// Receive the Size Low Max 8KBytes ($2000)
+					
+					//Receive Data and Store in DP Memory
+					RX_WRITE_GET_DATA0	= 5'b01000,
+					RX_WRITE_GET_DATA1	= 5'b01001,
+					RX_WRITE_GET_DATA2	= 5'b01010,
+					RX_WRITE_GET_DATA3   = 5'b01011,
+					RX_LRC_ST				= 5'b01100,
+					// This is the Core of the State Machine, this is where things will be parsed.
+					RSP_PARSE				= 5'b01101,
+					// Response
+					RSP_HEADER				= 5'b01110,	// Send the Response Header
+					RSP_STAT_L				= 5'b01111,	// Send the Lower Byte of the Stat
+					RSP_STAT_H				= 5'b10000,	// Send the Higher Byte of the Stat
+					// Read DP Memory and Send each Byte through the Serial Communication Block
+					RSP_PAYLOAD_LATENCY  = 5'b10001,
+					RSP_PAYLOAD0			= 5'b10010,	// Send the Payload
+					RSP_PAYLOAD1			= 5'b10011,
+					RSP_LRC					= 5'b10100,	// Send the Final LRC
+					
+					// Send a Command to the CPU Side for Execution
+					CMD_SEND_2_CPU0		= 5'b10101,	// Send a Command
+					CMD_SEND_2_CPU1		= 5'b10110,	
+					CMD_SEND_2_CPU2		= 5'b10111, // Wait for the Acknoledgement of the Command (Wait for the FIFO to be empty again)
+					
+					// Wait for the Response to the 
+					CMD_WAIT_4_CPU0		= 5'b11000, // Wait for the Execution of the Command to be over with
+					CMD_WAIT_4_CPU1		= 5'b11001,
+					CMD_WAIT_4_CPU2		= 5'b11010,
+					
+					// Receive Byte Over the Serial
+					WAIT_RX_BYTE			= 5'b11011,
+					WAIT_RX_BYTE0			= 5'b11100,
+					WAIT_RX_BYTE1			= 5'b11101,
+					// Send Byte Over the Serial Port
+					TX_BYTE					= 5'b11110,
+					TX_BYTE_WAIT			= 5'b11111;
+
+localparam		Status_Bad_LRC			= 8'b0000_0001,		// The LRC of the Received Message is not valid
+					Status_Mess_Not_Comp	= 8'b0000_0010,		// The Received Message is not complete (Timed out)
+					Status_Cmd_Not_Supp  = 8'b0000_0100,		// THe Requested Command is not Supported or Invalid
+					Status_System_Is0		= 8'b0000_1000,		// [00] - System is Working Normaly, [01] - System is in Reset State (Ready to be Reseted)
+					Status_System_Is1  	= 8'b0001_0000,		// [10] - System is Waiting (RDY line LOW) - [11] - Not Used
+					Status_ToBeDefined0	= 8'b0010_0000,		// Not Used Right Now
+					Status_ToBeDefined1	= 8'b0010_0000,		// Not Used Right Now
+					Status_Busy				= 8'b1000_0000;		// The Debug System is Busy
+
+
+					
+					
+/*
+reg Rx_Data_Rdy_EDGE;
+always @ (posedge Serial_Clk_i)
+begin
+		Rx_Data_Rdy_EDGE <= Rx_Data_Rdy;
+
+	if (Rx_Wren) begin
+		if ({Rx_Data_Rdy_EDGE, Rx_Data_Rdy} == 2'b10)
+			Rx_Serial_Byte_Counter <= Rx_Serial_Byte_Counter + 1'b1;
+	end
+	else
+			Rx_Serial_Byte_Counter <= 13'b0_0000_0000_0000;		// Max 8K buffer = 8192
+end
+*/
+					
+always @ (posedge Serial_Clk_i)
+begin
+	if (Serial_Rst_i) begin
+		Parser_SM 				<= IDLE;
+		Parser_SSM  			<= IDLE;
+		RX_CMD 					<= 8'h00;
+		TX_STAT					<= 16'h0000;
+		RX_ADDY 					<= 24'h000000;
+		RX_SIZE 					<= 16'h0000;
+		RX_LRC					<= 8'h00;
+		Rx_Wren					<= 1'b0;
+		ResponseWithPayload 	<= 1'b0;
+		Cmd_Acknowledged_Rd 	<= 1'b0;	
+		SerialRxD_Rd			<= 1'b0;
+	end
+	else
+	begin
+		case(Parser_SM)
+			IDLE: begin
+				if (SerialRxD_Empty == 1'b0) begin
+					SerialRxD_Rd 			<= 1'b1;
+					Parser_SM 				<= WAIT_RX_BYTE0;
+					Parser_SSM 				<= RX_CHK_HDR_BYTE;	// Set Next Step when the next Valid Arrives					
+				end
+				else begin
+					ResponseWithPayload 	<= 1'b0;
+					Parser_SM 				<= IDLE;
+					SerialRxD_Rd			<= 1'b0;
+					LRC_CALC					<= 8'h00;			// Initialize LRC					
+				end
+			end
+			
+			RX_CHK_HDR_BYTE:
+			begin
+				if (HEADER_RX == SerialRxD_Data) begin
+
+					Parser_SSM 	<= RX_GET_CMD_BYTE;	// Set Next Step when the next Valid Arrives
+					Parser_SM 	<= WAIT_RX_BYTE;
+				end
+				else begin
+					Parser_SM 	<= IDLE;
+				end
+			end
+			// We have the Command Now, so we know if it is going to be a read or a write
+			RX_GET_CMD_BYTE:	// We will assume that all the bytes following are good
+			begin
+				RX_CMD 			<= SerialRxD_Data;
+				Parser_SSM 		<= RX_GET_ADDY_H;			// Set Next Step when the next Valid Arrives
+				Parser_SM 		<= WAIT_RX_BYTE;
+			end
+			
+			RX_GET_ADDY_H:
+			begin
+				RX_ADDY[23:16]	<= SerialRxD_Data;
+				Parser_SSM 		<= RX_GET_ADDY_M;			// Set Next Step when the next Valid Arrives
+				Parser_SM 		<= WAIT_RX_BYTE;			
+			end
+			
+			RX_GET_ADDY_M:
+			begin
+				RX_ADDY[15:8] 	<= SerialRxD_Data;
+				Parser_SSM 		<= RX_GET_ADDY_L;			// Set Next Step when the next Valid Arrives
+				Parser_SM 		<= WAIT_RX_BYTE;			
+			end
+
+			RX_GET_ADDY_L:
+			begin
+				RX_ADDY[7:0] 	<= SerialRxD_Data;
+				Parser_SSM 		<= RX_GET_SIZE_H;			// Set Next Step when the next Valid Arrives
+				Parser_SM 		<= WAIT_RX_BYTE;				
+			end
+
+			RX_GET_SIZE_H:
+			begin 
+				RX_SIZE[15:8] 	<= SerialRxD_Data;
+				Parser_SSM 		<= RX_GET_SIZE_L;			// Set Next Step when the next Valid Arrives
+				Parser_SM 		<= WAIT_RX_BYTE;					
+			end
+
+			RX_GET_SIZE_L:
+			begin
+				RX_SIZE[7:0] 	<= SerialRxD_Data;
+				Parser_SM 		<= RX_WRITE_GET_DATA0;	// Set Next Step when the next Valid Arrives
+			end
+			
+
+			// Now, if there is no Payload or we want to Receive stuff, then Move on to get the LRC and be done with it.
+			// Otherwise, Let's Capture the Data and Write in the Memory.
+			RX_WRITE_GET_DATA0:
+			begin
+				if ((RX_SIZE == 16'h0000) || (RX_CMD == CMD_RD_MEM_BLK))	// if the Size is Zero, let's complete the Reception of the Packet, then parse the Results.
+				begin
+					Parser_SM 			<= RX_LRC_ST;
+				end
+				else begin
+					Rx_Serial_Byte_Counter <= 13'b0_0000_0000_0000;		// Max 8K buffer = 8192
+					Parser_SSM 			<= RX_WRITE_GET_DATA1;
+					Parser_SM 			<= WAIT_RX_BYTE;
+				end
+			end
+
+			RX_WRITE_GET_DATA1:
+			begin
+					Rx_Wren				<= 1'b1;
+					Parser_SM 			<= RX_WRITE_GET_DATA2;					
+
+			end
+			
+			RX_WRITE_GET_DATA2:
+			begin
+					Rx_Wren						<= 1'b0;
+					Rx_Serial_Byte_Counter 	<= Rx_Serial_Byte_Counter + 1'b1;
+					Parser_SM 					<= RX_WRITE_GET_DATA3;							
+			end
+			
+			RX_WRITE_GET_DATA3:
+			begin
+					if (Rx_Serial_Byte_Counter < RX_SIZE[12:0]) begin
+						Parser_SSM 			<= RX_WRITE_GET_DATA1;
+						Parser_SM 			<= WAIT_RX_BYTE;					
+					end
+					else begin
+						Parser_SM 			<= RX_LRC_ST;					
+					end
+			end
+
+			// Okay go get the last Byte in FIFO for the RLC (in the end the LRC == 0)
+			RX_LRC_ST:
+			begin
+				Parser_SM 		<= WAIT_RX_BYTE;				
+				Parser_SSM		<= RSP_PARSE;			// Okay, The whole message has been received, let's have Fun.
+			end
+			
+			// THis is where the Good Stuff Happens!
+			RSP_PARSE: begin
+				case (RX_CMD)
+				// Read Foenix Memory (CPU Read its mem and Write to DP, Serial Read DP and TX Out)
+				// Command (8Bits), Size(16Bits), Full Address (24bits)				
+				CMD_RD_MEM_BLK: begin
+					ResponseWithPayload 	<= 1'b1;					
+					Parser_SM				<= CMD_SEND_2_CPU0; //Send the Command to the CPU Side
+					Parser_SSM				<= RSP_HEADER;
+				end
+				
+				// Write Foenix Memory (CPU Write Memory from the Content of DP, Serial has previously wrote the Content in the DP)
+				CMD_WR_MEM_BLK: begin
+					Parser_SM				<= CMD_SEND_2_CPU0; //Send the Command to the CPU Side to go Write the Received Data	
+					Parser_SSM				<= RSP_HEADER;					
+				end
+				
+				// This is to Define What will be the Block to Write 
+				CMD_PROG_FLASH: begin
+					Parser_SM				<= CMD_SEND_2_CPU0; //Send the Command to the CPU Side to go Write the Received Data	
+					Parser_SSM				<= RSP_HEADER;	
+				end
+
+				// This ought to be the Block Write Sequence
+				CMD_ERASE_FLSH: begin
+					Parser_SM				<= CMD_SEND_2_CPU0; //Send the Command to the CPU Side to go Write the Received Data	
+					Parser_SSM				<= RSP_HEADER;					
+				end
+				
+				// This is a Command that needs to be passed to the CPU Side for it to stop Process and Make the State Machine Ready to Do Shit on the Fnx Memory)
+				CMD_STOP_CPU: begin
+					Parser_SM				<= CMD_SEND_2_CPU0; //Send the Command to the CPU Side to go Write the Received Data
+					Parser_SSM				<= RSP_HEADER;
+				end
+				
+				// This is a Command that Needs to be passed to the CPU Side for it to Restart the CPU
+				CMD_START_CPU: begin
+					Parser_SM				<= CMD_SEND_2_CPU0; //Send the Command to the CPU Side to go Write the Received Data
+					Parser_SSM				<= RSP_HEADER;					
+				end
+				
+				CMD_GET_REV: begin
+					TX_STAT[15:8] 			<= DEBUG_REV;
+					Parser_SM 				<= RSP_HEADER;				
+				end
+				
+				// This is a Local Command, no Need to Pass any command
+				CMD_GET_STATUS: begin
+					Parser_SM 				<= RSP_HEADER;				
+				end
+
+				default: begin 
+					Parser_SM 				<= RSP_HEADER;					
+				
+				end
+				endcase			
+			
+			end
+			
+			// This is the Part when there is Command without Payload
+			RSP_HEADER: begin
+				Tx_Data_Out <= HEADER_TX;
+				Tx_LRC		<= HEADER_TX;
+				Parser_SM 	<= TX_BYTE;				
+				Parser_SSM 	<= RSP_STAT_L;				
+			end
+			
+			RSP_STAT_L: begin
+				Tx_Data_Out <= TX_STAT[7:0];
+				Tx_LRC <= Tx_LRC ^ TX_STAT[7:0];
+				Parser_SM 	<= TX_BYTE;				
+				Parser_SSM 	<= RSP_STAT_H;				
+			end
+			
+			RSP_STAT_H: begin
+				Tx_Data_Out <= TX_STAT[15:8];
+				Tx_LRC <= Tx_LRC ^ TX_STAT[15:8];
+				Parser_SM 	<= TX_BYTE;						
+				if (ResponseWithPayload) begin
+					Tx_Serial_Byte_Counter <= 13'b0_0000_0000_0000_0000;
+					Parser_SSM 	<= RSP_PAYLOAD_LATENCY;
+				end 
+				else begin
+					Parser_SSM <= RSP_LRC;
+				end
+
+			end
+			
+			RSP_PAYLOAD_LATENCY:
+			begin
+				Parser_SM 	<= RSP_PAYLOAD0;				
+			
+			end
+
+			//DP_Serial_Side_Data_Out
+			RSP_PAYLOAD0:
+			begin
+				Tx_Data_Out <= DP_Serial_Side_Data_Out;
+				Tx_LRC 		<= Tx_LRC ^ DP_Serial_Side_Data_Out;
+				Parser_SSM 	<= RSP_PAYLOAD1;
+				Parser_SM 	<= TX_BYTE;
+			end
+			
+			RSP_PAYLOAD1:
+			begin
+				if (Tx_Serial_Byte_Counter < (RX_SIZE[12:0] - 1)) begin
+					Tx_Serial_Byte_Counter <= Tx_Serial_Byte_Counter + 13'b0_0000_0000_0000_0001;
+					Parser_SM 	<= RSP_PAYLOAD_LATENCY;
+				end
+				else begin
+					Parser_SM 	<= RSP_LRC;
+				end
+			end
+			
+			// This is the last byte Sent whether there was a payload or Not
+			RSP_LRC: 
+			begin
+				Tx_Data_Out <= Tx_LRC;
+				Parser_SM 	<= TX_BYTE;
+				Parser_SSM	<= IDLE;
+			end			
+
+
+			// Wait for Byte in FIFO, then Get is out
+			WAIT_RX_BYTE:
+			begin
+				if (SerialRxD_Empty == 1'b0) begin			
+					SerialRxD_Rd <= 1'b1;
+					Parser_SM 	 <= WAIT_RX_BYTE0;							
+				end
+				else
+				begin
+					Parser_SM 	 <= WAIT_RX_BYTE;				
+				end
+			
+			end
+			// Strobe the Read Signal to get FIFO Data Out.
+			WAIT_RX_BYTE0:
+			begin
+				Parser_SM 	 <= WAIT_RX_BYTE1;
+				SerialRxD_Rd <= 1'b0;
+			end
+
+			WAIT_RX_BYTE1:
+			begin				
+				LRC_CALC  <= LRC_CALC ^ SerialRxD_Data;
+				Parser_SM <= Parser_SSM;				
+			end
+			
+			
+			
+			
+			// Send the Data out of the Unit
+			TX_BYTE:
+			begin
+				Tx_Data_Out_Trig <= 1'b1;			// Enable the Trigger
+				Parser_SM 	<= TX_BYTE_WAIT;			
+			end
+			
+			TX_BYTE_WAIT:
+			begin
+				Tx_Data_Out_Trig <= 1'b0;			// Disable the Trigger
+				if (Tx_Data_Out_Done)				// Wait for the Finished Flag
+					Parser_SM <= Parser_SSM;					
+				else
+					Parser_SM <= TX_BYTE_WAIT;
+			end
+
+			// Send a Command to the CPU Side
+			CMD_SEND_2_CPU0:
+			begin
+				Serial_CMD_FIFO_Wren <= 1'b1;
+				Parser_SM 				<= CMD_SEND_2_CPU1;
+			end
+
+			CMD_SEND_2_CPU1:
+			begin
+				Serial_CMD_FIFO_Wren <= 1'b0;
+				Parser_SM 				<= CMD_SEND_2_CPU2;			
+			end
+			
+			// Wait for the Command Acknowledgement	(The Command has been read on the CPU Side)		
+			CMD_SEND_2_CPU2:
+			begin
+				if (Serial_CMD_FIFO_Accepted)	// Wait for the Fifo to be Empty Again
+					Parser_SM 				<= CMD_WAIT_4_CPU0;
+				else
+					Parser_SM 				<= CMD_SEND_2_CPU2;
+			end
+			
+			// Wait for the FIFO CMD to not be empty
+			CMD_WAIT_4_CPU0:
+			begin
+				if (Cmd_Acknowledged_Empty) begin // if 1 = FIFO is Empty
+						Parser_SM 				<= CMD_WAIT_4_CPU0;				
+				end
+				else begin
+						Parser_SM 				<= CMD_WAIT_4_CPU1;
+						Cmd_Acknowledged_Rd	<= 1'b1;	// Go Read the Data off the FIFO
+				end
+				
+				
+			end
+
+			//	There is a Data in FIFO
+			CMD_WAIT_4_CPU1:
+			begin
+				Cmd_Acknowledged_Rd  <= 1'b0;
+				Parser_SM 				<= CMD_WAIT_4_CPU2;
+			end
+			
+			//
+			CMD_WAIT_4_CPU2:
+			begin
+				TX_STAT[15:8] 	<= Cmd_Acknowledged;		//Just Pass the Status from the CPU Side to the Application Software, the FPGA won't do anything about it @ this point
+				Parser_SM 		<= Parser_SSM;
+			end
+		
+
+			default:
+			begin
+				Parser_SM 	<= IDLE;			
+				Parser_SSM	<= IDLE;			
+			end
+			
+		endcase
+	end
+end
+
+
+
+
+/*
+reg	[7:0]		Cmd_Acknowledged = 8'h00;
+reg				Cmd_Acknowledged_Rd = 0;
+wire				Cmd_Acknowledged_Empty;
+
+reg	[7:0]    Tx_Data_Out;
+reg				Tx_Data_Out_Trig;
+wire				Tx_Data_Out_Done;
+*/
+
+
+
+
+
+
+endmodule
+

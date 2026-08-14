@@ -1,0 +1,271 @@
+Flow report for A2560K25
+Wed Jun 10 00:37:32 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Wed Jun 10 00:37:03 2026       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; A2560K25                                    ;
+; Top-level Entity Name              ; A2560K25_Top                                ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE115F29C8                               ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 41,656 / 114,480 ( 36 % )                   ;
+;     Total combinational functions  ; 31,776 / 114,480 ( 28 % )                   ;
+;     Dedicated logic registers      ; 24,902 / 114,480 ( 22 % )                   ;
+; Total registers                    ; 24952                                       ;
+; Total pins                         ; 514 / 529 ( 97 % )                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 1,607,051 / 3,981,312 ( 40 % )              ;
+; Embedded Multiplier 9-bit elements ; 69 / 532 ( 13 % )                           ;
+; Total PLLs                         ; 3 / 4 ( 75 % )                              ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 06/10/2026 00:31:20 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; A2560K25            ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                            ;
++-------------------------------------+-------------------------------------------------------------------------------------------+---------------+--------------+------------+
+; Assignment Name                     ; Value                                                                                     ; Default Value ; Entity Name  ; Section Id ;
++-------------------------------------+-------------------------------------------------------------------------------------------+---------------+--------------+------------+
+; COMPILER_SIGNATURE_ID               ; 57562770614921.178107667927664                                                            ; --            ; --           ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                        ; --            ; --           ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO_inst.v       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/CPU_2_CODEC_DAC_FIFO/CPU_2_CODEC_DAC_FIFO_bb.v         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/CT_FIFO/CT_FIFO_inst.v                                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/CT_FIFO/CT_FIFO_bb.v                                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO_inst.v           ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/SID_CMD_Write_FIFO/SID_CMD_Write_FIFO_bb.v             ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/CHIPTUNE_FIFO/CHIPTUNE_FIFO_inst.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/BEATRIX/Cores Cyclone IV/CHIPTUNE_FIFO/CHIPTUNE_FIFO_bb.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/CPU/Cores Cyclone IV/A2560K_KB_FIFO16/A2560K_KB_FIFO16_inst.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/CPU/Cores Cyclone IV/A2560K_KB_FIFO16/A2560K_KB_FIFO16_bb.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/PLL_SDCard_Debug/PLL_SDCard_Debug_inst.v                  ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/PLL_SDCard_Debug/PLL_SDCard_Debug_bb.v                    ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/PLL_SDCard_Debug/PLL_SDCard_Debug.ppf                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SIGNAL_TA_GROUP_OC/SIGNAL_TA_GROUP_OC_inst.v              ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SIGNAL_TA_GROUP_OC/SIGNAL_TA_GROUP_OC_bb.v                ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/RTC_BIDIR_8BITS/RTC_BIDIR_8BITS_inst.v                    ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/RTC_BIDIR_8BITS/RTC_BIDIR_8BITS_bb.v                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/Serial_2_Debug_CMD/Serial_2_Debug_CMD_inst.v              ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/Serial_2_Debug_CMD/Serial_2_Debug_CMD_bb.v                ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/CPU_2_Serial_CMD/CPU_2_Serial_CMD_inst.v                  ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/CPU_2_Serial_CMD/CPU_2_Serial_CMD_bb.v                    ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/Debug_Serial_Buffer/Debug_Serial_Buffer_inst.v            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/Debug_Serial_Buffer/Debug_Serial_Buffer_bb.v              ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SerialRX/SerialRX_inst.v                                  ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SerialRX/SerialRX_bb.v                                    ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_DATA_FIFO/LPC_DATA_FIFO_inst.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_DATA_FIFO/LPC_DATA_FIFO_bb.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_CMD_FIFO/LPC_CMD_FIFO_inst.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_CMD_FIFO/LPC_CMD_FIFO_bb.v                            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SIGNED_MULT16/SIGNED_MULT16_inst.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SIGNED_MULT16/SIGNED_MULT16_bb.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SIGNED_DIV16/SIGNED_DIV16_inst.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/SIGNED_DIV16/SIGNED_DIV16_bb.v                            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/UNSIGNED_DIV16/UNSIGNED_DIV16_inst.v                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/UNSIGNED_DIV16/UNSIGNED_DIV16_bb.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/UNSIGNED_MULT16/UNSIGNED_MULT16_inst.v                    ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/UNSIGNED_MULT16/UNSIGNED_MULT16_bb.v                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/CLK32_COUNTER/CLK32_COUNTER_inst.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/CLK32_COUNTER/CLK32_COUNTER_bb.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_ADDY/BIDIR_ADDY_inst.v                              ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_ADDY/BIDIR_ADDY_bb.v                                ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_DATA16/BIDIR_DATA16_bb.v                            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_DATA32/BIDIR_DATA32_inst.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_DATA32/BIDIR_DATA32_bb.v                            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_SIGNAL/BIDIR_SIGNAL_inst.v                          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/BIDIR_SIGNAL/BIDIR_SIGNAL_bb.v                            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_BIDIRD/LPC_BIDir_inst.v                               ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_BIDIRD/LPC_BIDir_bb.v                                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/LPC_BIDIR_SIRQ/LPC_BIDir_SIRQ_bb.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/TIMERCOMPARE32/TimerCompare32_inst.v                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/TIMERCOMPARE32/TimerCompare32_bb.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/TIMERCOUNTER32/TimerCounter32_inst.v                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/GABE/Cores Cyclone IV/TIMERCOUNTER32/TimerCounter32_bb.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DataBufferIO32/DataBufferIO32_inst.v                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DataBufferIO32/DataBufferIO32_bb.v                        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DDIO_CLK/DDIO_CLK.bsf                                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DDIO_CLK/DDIO_CLK_inst.v                                  ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DDIO_CLK/DDIO_CLK_bb.v                                    ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DDIO_CLK/DDIO_CLK.inc                                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DDIO_CLK/DDIO_CLK.cmp                                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/MERA/Cores_Cyclone_IV/DDIO_CLK/DDIO_CLK.ppf                                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line_inst.v     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VICKYII_Pixel8_8Line/VICKYII_Pixel8_8Line_bb.v       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture_inst.v ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TILEMAP_2Lines_Capture/TILEMAP_2Lines_Capture_bb.v   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/ADDY_ADDER/ADDY_ADDER_inst.v                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/ADDY_ADDER/ADDY_ADDER_bb.v                           ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR_inst.v             ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/SPRITE_FIFO_ATTR/SPRITE_FIFO_ATTR_bb.v               ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA_inst.v             ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/SPRITE_FIFO_DATA/SPRITE_FIFO_DATA_bb.v               ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE_inst.v ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VICKYII_PIXEL16_16LINE/VICKYII_PIXEL16_16LINE_bb.v   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line_inst.v   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VICKYII_Pixel32_8Line/VICKYII_Pixel32_8Line_bb.v     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DMA_MULT_BLK/DMA_MULT_BLK_inst.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DMA_MULT_BLK/DMA_MULT_BLK_bb.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/ADDY_COMPARE/ADDY_COMPARE_inst.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/ADDY_COMPARE/ADDY_COMPARE_bb.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/ADDY_COUNTER/ADDY_COUNTER_inst.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/ADDY_COUNTER/ADDY_COUNTER_bb.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/BIDIR_DATA8/BIDIR_DATA8_inst.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/BIDIR_DATA8/BIDIR_DATA8_bb.v                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO_inst.v               ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/CPU_2_DRAM_FIFO/CPU_2_DRAM_FIFO_bb.v                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/Sprite_Register_Block/Sprite_Register_Block_inst.v   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/Sprite_Register_Block/Sprite_Register_Block_bb.v     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TextAddy_Mult/TextAddy_Mult_inst.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TextAddy_Mult/TextAddy_Mult_bb.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_MEM16_BLK/TEXT_MEM16_BLK_inst.v                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_MEM16_BLK/TEXT_MEM16_BLK_bb.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/I2CBIDIR/I2CBIDIR_inst.v                             ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/I2CBIDIR/I2CBIDIR_bb.v                               ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/CLK_SWITCH/Clk_Switch_inst.v                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/CLK_SWITCH/Clk_Switch_bb.v                           ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VIDEO_PLL/VIDEO_PLL_inst.v                           ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VIDEO_PLL/VIDEO_PLL_bb.v                             ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VIDEO_PLL/VIDEO_PLL.ppf                              ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB_inst.v         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB_bb.v           ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/VIDEO_PLL_CHANNELB/VIDEO_PLL_CHANNELB.ppf            ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MouserPointerSprite/MousePointerSprite_inst.v        ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MouserPointerSprite/MousePointerSprite_bb.v          ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/FONT_DP_MEM/FONT_DP_MEM_inst.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/FONT_DP_MEM/FONT_DP_MEM_bb.v                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_CLR_LUT/TEXT_CLR_LUT_inst.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_CLR_LUT/TEXT_CLR_LUT_bb.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_MEM32_BLK/TEXT_MEM32_BLK_inst.v                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_MEM32_BLK/TEXT_MEM32_BLK_bb.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/GAMMA_Channel/GAMMA_Channel_inst.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/GAMMA_Channel/GAMMA_Channel_bb.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DDR_Pixel_Out/DDR_Pixel_Out.bsf                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DDR_Pixel_Out/DDR_Pixel_Out_inst.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DDR_Pixel_Out/DDR_Pixel_Out_bb.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DDR_Pixel_Out/DDR_Pixel_Out.inc                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DDR_Pixel_Out/DDR_Pixel_Out.cmp                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/DDR_Pixel_Out/DDR_Pixel_Out.ppf                      ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line_inst.v     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/Final_RGB_Pixel_Line/Final_RGB_Pixel_Line_bb.v       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/LUT32/LUT32_inst.v                                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/LUT32/LUT32_bb.v                                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_IV/Cores Cyclone IV/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz_inst.v              ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_IV/Cores Cyclone IV/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz_bb.v                ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_IV/Cores Cyclone IV/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.ppf                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK_inst.v                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TEXT_MEM8K_BLK/TEXT_MEM8K_BLK_bb.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/FONT8by16_DPROM/FONT8by16_DPROM_bb.v                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MEMTEXT_DP/MEMTEXT_DP_inst.v                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MEMTEXT_DP/MEMTEXT_DP_bb.v                           ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG_inst.v                 ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MEMTEXT_LUT_xG/MEMTEXT_LUT_xG_bb.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MEMTEXT_FONT/MEMTEXT_FONT_inst.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/MEMTEXT_FONT/MEMTEXT_FONT_bb.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TOSGRAPH_FIFO/TOSGRAPH_FIFO_inst.v                   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TOSGRAPH_FIFO/TOSGRAPH_FIFO_bb.v                     ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/EMUTOS_DP64/EMUTOS_DP64_inst.v                       ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/EMUTOS_DP64/EMUTOS_DP64_bb.v                         ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TOSGRAPH_PIXEL_LINE2K/TOSGRAPH_PIXEL_LINE2K_inst.v   ; --            ; --           ; --         ;
+; MISC_FILE                           ; ../Source/VICKY_III/Cores Cyclone IV/TOSGRAPH_PIXEL_LINE2K/TOSGRAPH_PIXEL_LINE2K_bb.v     ; --            ; --           ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                         ; --            ; --           ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                         ; --            ; --           ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                                ; --            ; --           ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                                ; --            ; --           ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                                    ; --            ; A2560K25_Top ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                                    ; --            ; A2560K25_Top ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                                    ; --            ; A2560K25_Top ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                       ; --            ; --           ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                     ; --            ; --           ; --         ;
+; SEED                                ; 9                                                                                         ; 1             ; --           ; --         ;
+; SYNTHESIS_SEED                      ; 11                                                                                        ; 1             ; --           ; --         ;
+; TOP_LEVEL_ENTITY                    ; A2560K25_Top                                                                              ; A2560K25      ; --           ; --         ;
+; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                                                                        ; Verilog_2001  ; --           ; --         ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                                                                       ; --            ; --           ; --         ;
++-------------------------------------+-------------------------------------------------------------------------------------------+---------------+--------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:03:25     ; 1.0                     ; 5466 MB             ; 00:03:55                           ;
+; Fitter               ; 00:01:59     ; 1.6                     ; 7372 MB             ; 00:05:11                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; 4839 MB             ; 00:00:08                           ;
+; Timing Analyzer      ; 00:00:27     ; 2.1                     ; 5469 MB             ; 00:00:32                           ;
+; Total                ; 00:05:59     ; --                      ; --                  ; 00:09:46                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-6VPAMHN  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-6VPAMHN  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-6VPAMHN  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-6VPAMHN  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off A2560K25_Project -c A2560K25
+quartus_fit --read_settings_files=off --write_settings_files=off A2560K25_Project -c A2560K25
+quartus_asm --read_settings_files=off --write_settings_files=off A2560K25_Project -c A2560K25
+quartus_sta A2560K25_Project -c A2560K25
+
+
+

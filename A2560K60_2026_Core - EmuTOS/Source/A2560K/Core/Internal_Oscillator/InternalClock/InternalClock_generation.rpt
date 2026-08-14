@@ -1,0 +1,29 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate "E:\A2560K Project\FPGA\CFP95179K\Source\A2560K\Core\Internal_Oscillator\InternalClock.qsys" --block-symbol-file --output-directory="E:\A2560K Project\FPGA\CFP95179K\Source\A2560K\Core\Internal_Oscillator\InternalClock" --family="Cyclone IV E" --part=EP4CE115F29C8
+Progress: Loading Internal_Oscillator/InternalClock.qsys
+Progress: Reading input file
+Progress: Adding int_osc_0 [altera_int_osc 18.1]
+Progress: Parameterizing module int_osc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate "E:\A2560K Project\FPGA\CFP95179K\Source\A2560K\Core\Internal_Oscillator\InternalClock.qsys" --synthesis=VERILOG --output-directory="E:\A2560K Project\FPGA\CFP95179K\Source\A2560K\Core\Internal_Oscillator\InternalClock\synthesis" --family="Cyclone IV E" --part=EP4CE115F29C8
+Progress: Loading Internal_Oscillator/InternalClock.qsys
+Progress: Reading input file
+Progress: Adding int_osc_0 [altera_int_osc 18.1]
+Progress: Parameterizing module int_osc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: InternalClock: Generating InternalClock "InternalClock" for QUARTUS_SYNTH
+Info: int_osc_0: Generating top-level entity altera_int_osc.
+Info: int_osc_0: "InternalClock" instantiated altera_int_osc "int_osc_0"
+Info: InternalClock: Done "InternalClock" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

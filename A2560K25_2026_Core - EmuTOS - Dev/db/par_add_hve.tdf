@@ -1,0 +1,94 @@
+--parallel_add DEVICE_FAMILY="Cyclone IV E" MSW_SUBTRACT="NO" PIPELINE=0 REPRESENTATION="UNSIGNED" RESULT_ALIGNMENT="LSB" SHIFT=0 SIZE=8 WIDTH=32 WIDTHR=32 data result
+--VERSION_BEGIN 18.1 cbx_cycloneii 2018:09:12:13:04:24:SJ cbx_lpm_add_sub 2018:09:12:13:04:24:SJ cbx_mgl 2018:09:12:13:10:36:SJ cbx_nadder 2018:09:12:13:04:24:SJ cbx_padd 2018:09:12:13:04:24:SJ cbx_parallel_add 2018:09:12:13:04:24:SJ cbx_stratix 2018:09:12:13:04:24:SJ cbx_stratixii 2018:09:12:13:04:24:SJ cbx_util_mgl 2018:09:12:13:04:24:SJ  VERSION_END
+
+
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+--  Your use of Intel Corporation's design tools, logic functions 
+--  and other software and tools, and its AMPP partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Intel Program License 
+--  Subscription Agreement, the Intel Quartus Prime License Agreement,
+--  the Intel FPGA IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Intel and sold by Intel or its authorized distributors.  Please
+--  refer to the applicable agreement for further details.
+
+
+FUNCTION soft (in)
+RETURNS ( out);
+
+--synthesis_resources = lut 235 
+SUBDESIGN par_add_hve
+( 
+	data[255..0]	:	input;
+	result[31..0]	:	output;
+) 
+VARIABLE
+	add1_result[32..0]	:	WIRE;
+	add13_result[32..0]	:	WIRE;
+	add17_result[32..0]	:	WIRE;
+	add21_result[33..0]	:	WIRE;
+	add25_result[34..0]	:	WIRE;
+	add5_result[32..0]	:	WIRE;
+	add9_result[33..0]	:	WIRE;
+	sft10a[33..0] : soft;
+	sft11a[33..0] : soft;
+	sft12a[33..0] : soft;
+	sft14a[32..0] : soft;
+	sft15a[32..0] : soft;
+	sft16a[32..0] : soft;
+	sft18a[32..0] : soft;
+	sft19a[32..0] : soft;
+	sft20a[32..0] : soft;
+	sft22a[33..0] : soft;
+	sft23a[33..0] : soft;
+	sft24a[33..0] : soft;
+	sft26a[34..0] : soft;
+	sft27a[34..0] : soft;
+	sft28a[34..0] : soft;
+	sft2a[32..0] : soft;
+	sft3a[32..0] : soft;
+	sft4a[32..0] : soft;
+	sft6a[32..0] : soft;
+	sft7a[32..0] : soft;
+	sft8a[32..0] : soft;
+	w1200w[34..0]	: WIRE;
+	w564w	: WIRE;
+
+BEGIN 
+	add1_result[] = sft2a[].out + sft3a[].out;
+	add13_result[] = sft14a[].out + sft15a[].out;
+	add17_result[] = sft18a[].out + sft19a[].out;
+	add21_result[] = sft22a[].out + sft23a[].out;
+	add25_result[] = sft26a[].out + sft27a[].out;
+	add5_result[] = sft6a[].out + sft7a[].out;
+	add9_result[] = sft10a[].out + sft11a[].out;
+	sft10a[].in = ( w564w, ( sft4a[32..32].out, ( sft4a[31..31].out, ( sft4a[30..30].out, ( sft4a[29..29].out, ( sft4a[28..28].out, ( sft4a[27..27].out, ( sft4a[26..26].out, ( sft4a[25..25].out, ( sft4a[24..24].out, ( sft4a[23..23].out, ( sft4a[22..22].out, ( sft4a[21..21].out, ( sft4a[20..20].out, ( sft4a[19..19].out, ( sft4a[18..18].out, ( sft4a[17..17].out, ( sft4a[16..16].out, ( sft4a[15..15].out, ( sft4a[14..14].out, ( sft4a[13..13].out, ( sft4a[12..12].out, ( sft4a[11..11].out, ( sft4a[10..10].out, ( sft4a[9..9].out, ( sft4a[8..8].out, ( sft4a[7..7].out, ( sft4a[6..6].out, ( sft4a[5..5].out, ( sft4a[4..4].out, ( sft4a[3..3].out, ( sft4a[2..2].out, ( sft4a[1..1].out, sft4a[0..0].out)))))))))))))))))))))))))))))))));
+	sft11a[].in = ( w564w, ( sft16a[32..32].out, ( sft8a[31..31].out, ( sft8a[30..30].out, ( sft8a[29..29].out, ( sft8a[28..28].out, ( sft8a[27..27].out, ( sft8a[26..26].out, ( sft8a[25..25].out, ( sft8a[24..24].out, ( sft8a[23..23].out, ( sft8a[22..22].out, ( sft8a[21..21].out, ( sft8a[20..20].out, ( sft8a[19..19].out, ( sft8a[18..18].out, ( sft8a[17..17].out, ( sft8a[16..16].out, ( sft8a[15..15].out, ( sft8a[14..14].out, ( sft8a[13..13].out, ( sft8a[12..12].out, ( sft8a[11..11].out, ( sft8a[10..10].out, ( sft8a[9..9].out, ( sft8a[8..8].out, ( sft8a[7..7].out, ( sft8a[6..6].out, ( sft8a[5..5].out, ( sft8a[4..4].out, ( sft8a[3..3].out, ( sft8a[2..2].out, ( sft8a[1..1].out, sft8a[0..0].out)))))))))))))))))))))))))))))))));
+	sft12a[].in = add9_result[];
+	sft14a[].in = ( w564w, ( data[191..191], ( data[190..190], ( data[189..189], ( data[188..188], ( data[187..187], ( data[186..186], ( data[185..185], ( data[184..184], ( data[183..183], ( data[182..182], ( data[181..181], ( data[180..180], ( data[179..179], ( data[178..178], ( data[177..177], ( data[176..176], ( data[175..175], ( data[174..174], ( data[173..173], ( data[172..172], ( data[171..171], ( data[170..170], ( data[169..169], ( data[168..168], ( data[167..167], ( data[166..166], ( data[165..165], ( data[164..164], ( data[163..163], ( data[162..162], ( data[161..160]))))))))))))))))))))))))))))))));
+	sft15a[].in = ( w564w, ( data[31..31], ( data[30..30], ( data[29..29], ( data[28..28], ( data[27..27], ( data[26..26], ( data[25..25], ( data[24..24], ( data[23..23], ( data[22..22], ( data[21..21], ( data[20..20], ( data[19..19], ( data[18..18], ( data[17..17], ( data[16..16], ( data[15..15], ( data[14..14], ( data[13..13], ( data[12..12], ( data[11..11], ( data[10..10], ( data[9..9], ( data[8..8], ( data[7..7], ( data[6..6], ( data[5..5], ( data[4..4], ( data[3..3], ( data[2..2], ( data[1..0]))))))))))))))))))))))))))))))));
+	sft16a[].in = add13_result[];
+	sft18a[].in = ( w564w, ( data[255..255], ( data[254..254], ( data[253..253], ( data[252..252], ( data[251..251], ( data[250..250], ( data[249..249], ( data[248..248], ( data[247..247], ( data[246..246], ( data[245..245], ( data[244..244], ( data[243..243], ( data[242..242], ( data[241..241], ( data[240..240], ( data[239..239], ( data[238..238], ( data[237..237], ( data[236..236], ( data[235..235], ( data[234..234], ( data[233..233], ( data[232..232], ( data[231..231], ( data[230..230], ( data[229..229], ( data[228..228], ( data[227..227], ( data[226..226], ( data[225..224]))))))))))))))))))))))))))))))));
+	sft19a[].in = ( w564w, ( data[127..127], ( data[126..126], ( data[125..125], ( data[124..124], ( data[123..123], ( data[122..122], ( data[121..121], ( data[120..120], ( data[119..119], ( data[118..118], ( data[117..117], ( data[116..116], ( data[115..115], ( data[114..114], ( data[113..113], ( data[112..112], ( data[111..111], ( data[110..110], ( data[109..109], ( data[108..108], ( data[107..107], ( data[106..106], ( data[105..105], ( data[104..104], ( data[103..103], ( data[102..102], ( data[101..101], ( data[100..100], ( data[99..99], ( data[98..98], ( data[97..96]))))))))))))))))))))))))))))))));
+	sft20a[].in = add17_result[];
+	sft22a[].in = ( w564w, ( sft8a[32..32].out, ( sft16a[31..31].out, ( sft16a[30..30].out, ( sft16a[29..29].out, ( sft16a[28..28].out, ( sft16a[27..27].out, ( sft16a[26..26].out, ( sft16a[25..25].out, ( sft16a[24..24].out, ( sft16a[23..23].out, ( sft16a[22..22].out, ( sft16a[21..21].out, ( sft16a[20..20].out, ( sft16a[19..19].out, ( sft16a[18..18].out, ( sft16a[17..17].out, ( sft16a[16..16].out, ( sft16a[15..15].out, ( sft16a[14..14].out, ( sft16a[13..13].out, ( sft16a[12..12].out, ( sft16a[11..11].out, ( sft16a[10..10].out, ( sft16a[9..9].out, ( sft16a[8..8].out, ( sft16a[7..7].out, ( sft16a[6..6].out, ( sft16a[5..5].out, ( sft16a[4..4].out, ( sft16a[3..3].out, ( sft16a[2..2].out, ( sft16a[1..1].out, sft16a[0..0].out)))))))))))))))))))))))))))))))));
+	sft23a[].in = ( w564w, ( sft20a[32..32].out, ( sft20a[31..31].out, ( sft20a[30..30].out, ( sft20a[29..29].out, ( sft20a[28..28].out, ( sft20a[27..27].out, ( sft20a[26..26].out, ( sft20a[25..25].out, ( sft20a[24..24].out, ( sft20a[23..23].out, ( sft20a[22..22].out, ( sft20a[21..21].out, ( sft20a[20..20].out, ( sft20a[19..19].out, ( sft20a[18..18].out, ( sft20a[17..17].out, ( sft20a[16..16].out, ( sft20a[15..15].out, ( sft20a[14..14].out, ( sft20a[13..13].out, ( sft20a[12..12].out, ( sft20a[11..11].out, ( sft20a[10..10].out, ( sft20a[9..9].out, ( sft20a[8..8].out, ( sft20a[7..7].out, ( sft20a[6..6].out, ( sft20a[5..5].out, ( sft20a[4..4].out, ( sft20a[3..3].out, ( sft20a[2..2].out, ( sft20a[1..1].out, sft20a[0..0].out)))))))))))))))))))))))))))))))));
+	sft24a[].in = add21_result[];
+	sft26a[].in = ( w564w, ( sft12a[33..33].out, ( sft12a[32..32].out, ( sft12a[31..31].out, ( sft12a[30..30].out, ( sft12a[29..29].out, ( sft12a[28..28].out, ( sft12a[27..27].out, ( sft12a[26..26].out, ( sft12a[25..25].out, ( sft12a[24..24].out, ( sft12a[23..23].out, ( sft12a[22..22].out, ( sft12a[21..21].out, ( sft12a[20..20].out, ( sft12a[19..19].out, ( sft12a[18..18].out, ( sft12a[17..17].out, ( sft12a[16..16].out, ( sft12a[15..15].out, ( sft12a[14..14].out, ( sft12a[13..13].out, ( sft12a[12..12].out, ( sft12a[11..11].out, ( sft12a[10..10].out, ( sft12a[9..9].out, ( sft12a[8..8].out, ( sft12a[7..7].out, ( sft12a[6..6].out, ( sft12a[5..5].out, ( sft12a[4..4].out, ( sft12a[3..3].out, ( sft12a[2..2].out, ( sft12a[1..1].out, sft12a[0..0].out))))))))))))))))))))))))))))))))));
+	sft27a[].in = ( w564w, ( sft24a[33..33].out, ( sft24a[32..32].out, ( sft24a[31..31].out, ( sft24a[30..30].out, ( sft24a[29..29].out, ( sft24a[28..28].out, ( sft24a[27..27].out, ( sft24a[26..26].out, ( sft24a[25..25].out, ( sft24a[24..24].out, ( sft24a[23..23].out, ( sft24a[22..22].out, ( sft24a[21..21].out, ( sft24a[20..20].out, ( sft24a[19..19].out, ( sft24a[18..18].out, ( sft24a[17..17].out, ( sft24a[16..16].out, ( sft24a[15..15].out, ( sft24a[14..14].out, ( sft24a[13..13].out, ( sft24a[12..12].out, ( sft24a[11..11].out, ( sft24a[10..10].out, ( sft24a[9..9].out, ( sft24a[8..8].out, ( sft24a[7..7].out, ( sft24a[6..6].out, ( sft24a[5..5].out, ( sft24a[4..4].out, ( sft24a[3..3].out, ( sft24a[2..2].out, ( sft24a[1..1].out, sft24a[0..0].out))))))))))))))))))))))))))))))))));
+	sft28a[].in = add25_result[];
+	sft2a[].in = ( w564w, ( data[159..159], ( data[158..158], ( data[157..157], ( data[156..156], ( data[155..155], ( data[154..154], ( data[153..153], ( data[152..152], ( data[151..151], ( data[150..150], ( data[149..149], ( data[148..148], ( data[147..147], ( data[146..146], ( data[145..145], ( data[144..144], ( data[143..143], ( data[142..142], ( data[141..141], ( data[140..140], ( data[139..139], ( data[138..138], ( data[137..137], ( data[136..136], ( data[135..135], ( data[134..134], ( data[133..133], ( data[132..132], ( data[131..131], ( data[130..130], ( data[129..128]))))))))))))))))))))))))))))))));
+	sft3a[].in = ( w564w, ( data[63..63], ( data[62..62], ( data[61..61], ( data[60..60], ( data[59..59], ( data[58..58], ( data[57..57], ( data[56..56], ( data[55..55], ( data[54..54], ( data[53..53], ( data[52..52], ( data[51..51], ( data[50..50], ( data[49..49], ( data[48..48], ( data[47..47], ( data[46..46], ( data[45..45], ( data[44..44], ( data[43..43], ( data[42..42], ( data[41..41], ( data[40..40], ( data[39..39], ( data[38..38], ( data[37..37], ( data[36..36], ( data[35..35], ( data[34..34], ( data[33..32]))))))))))))))))))))))))))))))));
+	sft4a[].in = add1_result[];
+	sft6a[].in = ( w564w, ( data[223..223], ( data[222..222], ( data[221..221], ( data[220..220], ( data[219..219], ( data[218..218], ( data[217..217], ( data[216..216], ( data[215..215], ( data[214..214], ( data[213..213], ( data[212..212], ( data[211..211], ( data[210..210], ( data[209..209], ( data[208..208], ( data[207..207], ( data[206..206], ( data[205..205], ( data[204..204], ( data[203..203], ( data[202..202], ( data[201..201], ( data[200..200], ( data[199..199], ( data[198..198], ( data[197..197], ( data[196..196], ( data[195..195], ( data[194..194], ( data[193..192]))))))))))))))))))))))))))))))));
+	sft7a[].in = ( w564w, ( data[95..95], ( data[94..94], ( data[93..93], ( data[92..92], ( data[91..91], ( data[90..90], ( data[89..89], ( data[88..88], ( data[87..87], ( data[86..86], ( data[85..85], ( data[84..84], ( data[83..83], ( data[82..82], ( data[81..81], ( data[80..80], ( data[79..79], ( data[78..78], ( data[77..77], ( data[76..76], ( data[75..75], ( data[74..74], ( data[73..73], ( data[72..72], ( data[71..71], ( data[70..70], ( data[69..69], ( data[68..68], ( data[67..67], ( data[66..66], ( data[65..64]))))))))))))))))))))))))))))))));
+	sft8a[].in = add5_result[];
+	result[31..0] = w1200w[31..0];
+	w1200w[] = ( sft28a[34..33].out, sft28a[32..31].out, sft28a[30..29].out, sft28a[28..27].out, sft28a[26..25].out, sft28a[24..23].out, sft28a[22..21].out, sft28a[20..19].out, sft28a[18..17].out, sft28a[16..15].out, sft28a[14..13].out, sft28a[12..11].out, sft28a[10..9].out, sft28a[8..7].out, sft28a[6..5].out, sft28a[4..3].out, sft28a[2..1].out, sft28a[0..0].out);
+	w564w = B"0";
+END;
+--VALID FILE

@@ -1,0 +1,12 @@
+LPM_DIRECTION=UNUSED
+LPM_PORT_UPDOWN=PORT_USED
+LPM_TYPE=LPM_COUNTER
+LPM_WIDTH=32
+DEVICE_FAMILY="Cyclone III"
+clock
+cnt_en
+data
+sclr
+sload
+updown
+q

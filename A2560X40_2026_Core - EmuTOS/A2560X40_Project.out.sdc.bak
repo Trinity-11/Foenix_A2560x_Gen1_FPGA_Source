@@ -1,0 +1,190 @@
+## Generated SDC file "CFP95179X32.out.sdc"
+
+## Copyright (C) 1991-2014 Altera Corporation
+## Your use of Altera Corporation's design tools, logic functions 
+## and other software and tools, and its AMPP partner logic 
+## functions, and any output files from any of the foregoing 
+## (including device programming or simulation files), and any 
+## associated documentation or information are expressly subject 
+## to the terms and conditions of the Altera Program License 
+## Subscription Agreement, Altera MegaCore Function License 
+## Agreement, or other applicable license agreement, including, 
+## without limitation, that your use is for the sole purpose of 
+## programming logic devices manufactured by Altera and sold by 
+## Altera or its authorized distributors.  Please refer to the 
+## applicable agreement for further details.
+
+
+## VENDOR  "Altera"
+## PROGRAM "Quartus II"
+## VERSION "Version 13.1.4 Build 182 03/12/2014 SJ Web Edition"
+
+## DATE    "Thu Nov 20 00:02:06 2025"
+
+##
+## DEVICE  "EP3C120F780C8"
+##
+
+
+#**************************************************************
+# Time Information
+#**************************************************************
+
+set_time_format -unit ns -decimal_places 3
+
+
+
+#**************************************************************
+# Create Clock
+#**************************************************************
+
+create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
+create_clock -name {OSC_CLK_14_318Mhz_i} -period 69.840 -waveform { 0.000 34.920 } [get_ports {OSC_CLK_14_318Mhz_i}]
+create_clock -name {OSC_CLK_22_579Mhz_i} -period 44.288 -waveform { 0.000 22.144 } [get_ports {OSC_CLK_22_579Mhz_i}]
+create_clock -name {OSC_CLK_24_576Mhz_i} -period 40.690 -waveform { 0.000 20.340 } [get_ports {OSC_CLK_24_576Mhz_i}]
+create_clock -name {OSC_CLK_80_000Mhz_i} -period 12.500 -waveform { 0.000 6.250 } [get_ports {OSC_CLK_80_000Mhz_i}]
+create_clock -name {OSC_CLK_80_000Mhz_A_i} -period 12.500 -waveform { 0.000 6.250 } [get_ports {OSC_CLK_80_000Mhz_A_i}]
+create_clock -name {OSC_CLK_33_333Mhz_i} -period 30.000 -waveform { 0.000 15.000 } [get_ports {OSC_CLK_33_333Mhz_i}]
+create_clock -name {OSC_CLK_33_333Mhz_B_i} -period 30.000 -waveform { 0.000 15.000 } [get_ports {OSC_CLK_33_333Mhz_B_i}]
+create_clock -name {OSC_CLK_33_333Mhz_C_i} -period 30.000 -waveform { 0.000 15.000 } [get_ports {OSC_CLK_33_333Mhz_C_i}]
+create_clock -name {OSC_CLK_40_000Mhz_A_i} -period 25.000 -waveform { 0.000 12.500 } [get_ports {OSC_CLK_40_000Mhz_A_i}]
+create_clock -name {OSC_CLK_65_000Mhz_i} -period 15.384 -waveform { 0.000 7.692 } [get_ports {OSC_CLK_65_000Mhz_i}]
+create_clock -name {OSC_CLK_25_175Mhz_i} -period 39.720 -waveform { 0.000 19.860 } [get_ports {OSC_CLK_25_175Mhz_i}]
+create_clock -name {OSC_CLK_40_000Mhz_B_i} -period 25.000 -waveform { 0.000 12.500 } [get_ports {OSC_CLK_40_000Mhz_B_i}]
+
+
+#**************************************************************
+# Create Generated Clock
+#**************************************************************
+
+create_generated_clock -name {Clk40VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_40_000Mhz_A_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {Clk20VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 2 -master_clock {OSC_CLK_40_000Mhz_A_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {Clk40VID_B} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_40_000Mhz_A_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_A_Top|VIDEO_PLL_A|altpll_component|auto_generated|pll1|clk[2]}] 
+create_generated_clock -name {Clk25VID_A} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_B_Top|VIDEO_PLL_B|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_25_175Mhz_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_B_Top|VIDEO_PLL_B|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {Clk12_5VID} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_B_Top|VIDEO_PLL_B|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 2 -master_clock {OSC_CLK_25_175Mhz_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_B_Top|VIDEO_PLL_B|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {Clk25VID_B} -source [get_pins {VICKYIII_TOP_LEVEL|Channel_B_Top|VIDEO_PLL_B|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {OSC_CLK_25_175Mhz_i} [get_pins {VICKYIII_TOP_LEVEL|Channel_B_Top|VIDEO_PLL_B|altpll_component|auto_generated|pll1|clk[2]}] 
+create_generated_clock -name {RGB_Status_40Mhz} -source [get_ports {OSC_CLK_40_000Mhz_B_i}] -divide_by 2 -master_clock {OSC_CLK_40_000Mhz_B_i} [get_registers {GABE_Top:GABE_TOP_LEVEL|RGB_STATUS_LED_Driver_Module:STATUS_RGB_MOD|Clk40Mhz_i}] 
+create_generated_clock -name {Clk_RGB_LED} -source [get_ports {OSC_CLK_40_000Mhz_B_i}] -divide_by 2 -master_clock {OSC_CLK_40_000Mhz_B_i} [get_registers {GABE_Top:GABE_TOP_LEVEL|RGB_LED_Driver_Module:PowerOn_RGB_LED_A2560K|Clk40Mhz_i}] 
+create_generated_clock -name {CLK358} -source [get_nets {OSC_CLK_14_318Mhz_i~input}] -divide_by 4 -master_clock {OSC_CLK_14_318Mhz_i} [get_registers {Clk3_58Mhz[1]}] 
+create_generated_clock -name {CLK24Mhz} -source [get_ports {OSC_CLK_80_000Mhz_A_i}] -multiply_by 3 -divide_by 10 -master_clock {OSC_CLK_80_000Mhz_A_i} [get_nets {PLL_SDCard_Debug_inst|altpll_component|auto_generated|wire_pll1_clk[0]}] 
+create_generated_clock -name {CLK133Mhz} -source [get_ports {OSC_CLK_80_000Mhz_A_i}] -multiply_by 5 -divide_by 3 -master_clock {OSC_CLK_80_000Mhz_A_i} [get_nets {PLL_SDCard_Debug_inst|altpll_component|auto_generated|wire_pll1_clk[1]}] 
+create_generated_clock -name {CLK200Mhz} -source [get_ports {OSC_CLK_80_000Mhz_A_i}] -multiply_by 5 -divide_by 2 -master_clock {OSC_CLK_80_000Mhz_A_i} [get_nets {PLL_SDCard_Debug_inst|altpll_component|auto_generated|wire_pll1_clk[2]}] 
+
+create_generated_clock -name {CLK66Mhz} -source [get_nets {PLL_SDCard_Debug_inst|altpll_component|auto_generated|wire_pll1_clk[2]}] -divide_by 2 -master_clock {CLK133Mhz} [get_registers {MC68040V_Interface:M68040V|ClockDivide[0]}] 
+create_generated_clock -name {CLK33Mhz} -source [get_nets {PLL_SDCard_Debug_inst|altpll_component|auto_generated|wire_pll1_clk[2]}] -divide_by 4 -master_clock {CLK133Mhz} [get_registers {MC68040V_Interface:M68040V|ClockDivide[1]}] 
+create_generated_clock -name {CLK100Mhz} -source [get_nets {PLL_SDCard_Debug_inst|altpll_component|auto_generated|wire_pll1_clk[2]}] -divide_by 2 -master_clock {CLK200Mhz} [get_registers {Clock100Mhz}]
+
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Output Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Groups
+#**************************************************************
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+#set_clock_groups -name CPU_Clock_Groups -asynchronous -group [get_clocks {CLK133Mhz CLK66Mhz CLK33Mhz CLK199Mhz_A CLK99Mhz_A CLK199Mhz_B CLK99Mhz_B}]
+
+#**************************************************************
+# Set False Path
+#**************************************************************
+#New New Stuff
+#set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {CLK66Mhz}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {CLK358}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {OSC_CLK_25_175Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {OSC_CLK_80_000Mhz_A_i}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {OSC_CLK_33_333Mhz_i}]
+#New Stuff
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {Clk25VID_A}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {Clk12_5VID}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {OSC_CLK_24_576Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {OSC_CLK_14_318Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {OSC_CLK_22_579Mhz_i}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {Clk40VID_A}]
+set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {Clk20VID_A}]
+
+#set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {CLK199Mhz_B}]
+#set_false_path  -from  [get_clocks {CLK33Mhz}]  -to  [get_clocks {CLK133Mhz}]
+#set_false_path  -from  [get_clocks {OSC_CLK_33_333Mhz_i}]  -to  [get_clocks {CLK33Mhz}]
+#****
+
+set_false_path  -from  [get_clocks {CLK24Mhz}]  -to  [get_clocks {Clk40VID_A}]
+set_false_path  -from  [get_clocks {CLK24Mhz}]  -to  [get_clocks {Clk20VID_A}]
+set_false_path  -from  [get_clocks {CLK24Mhz}]  -to  [get_clocks {Clk25VID_A}]
+set_false_path  -from  [get_clocks {CLK24Mhz}]  -to  [get_clocks {Clk12_5VID}]
+set_false_path  -from  [get_clocks {Clk25VID_A}]  -to  [get_clocks {OSC_CLK_80_000Mhz_A_i}]
+set_false_path  -from  [get_clocks {Clk25VID_A}]  -to  [get_clocks {CLK100Mhz}]
+set_false_path  -from  [get_clocks {Clk25VID_A}]  -to  [get_clocks {OSC_CLK_14_318Mhz_i}]
+set_false_path  -from  [get_clocks {Clk25VID_A}]  -to  [get_clocks {OSC_CLK_22_579Mhz_i}]
+set_false_path  -from  [get_clocks {Clk25VID_A}]  -to  [get_clocks {OSC_CLK_24_576Mhz_i}]
+set_false_path  -from  [get_clocks {OSC_CLK_14_318Mhz_i}]  -to  [get_clocks {OSC_CLK_24_576Mhz_i}]
+
+set_false_path -from [get_ports COLD_RESETn_io]
+
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_5v8:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_4v8:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_qd9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_pd9:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_te9:dffpipe16|dffe17a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_se9:dffpipe13|dffe14a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_qe9:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_pe9:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_md9:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_ld9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_kd9:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_jd9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_d09:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_c09:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_3v8:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_2v8:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_b09:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_a09:dffpipe12|dffe13a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_ve9:dffpipe10|dffe11a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_ue9:dffpipe7|dffe8a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_od9:dffpipe9|dffe10a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_nd9:dffpipe6|dffe7a*}]
+set_false_path -from [get_keepers {*rdptr_g*}] -to [get_keepers {*ws_dgrp|dffpipe_id9:dffpipe15|dffe16a*}]
+set_false_path -from [get_keepers {*delayed_wrptr_g*}] -to [get_keepers {*rs_dgwp|dffpipe_hd9:dffpipe12|dffe13a*}]
+
+
+#**************************************************************
+# Set Multicycle Path
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Maximum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Minimum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Transition
+#**************************************************************
+

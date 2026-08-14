@@ -1,0 +1,10 @@
+
+
+E:/GEN1_ACTIVE_FPGA/Source/VICKY_IV/Cores Cyclone IV/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.v
+
+Feb 22 03PM:11:28>: Error in CNX file format.
+
+Error messages are listed in file
+E:/GEN1_ACTIVE_FPGA/Source/VICKY_IV/Cores Cyclone IV/PLL_40Mhz_108Mhz/PLL_40Mhz_108Mhz.cnxerr.
+
+Can't create the custom megafunction variation file(s)

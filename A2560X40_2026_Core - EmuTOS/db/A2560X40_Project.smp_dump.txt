@@ -1,0 +1,768 @@
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|Parser_SSM
+Name Parser_SSM.RSP_LRC Parser_SSM.RSP_PAYLOAD1 Parser_SSM.RSP_PAYLOAD_LATENCY Parser_SSM.RSP_STAT_H Parser_SSM.RSP_STAT_L Parser_SSM.RSP_HEADER Parser_SSM.RSP_PARSE Parser_SSM.RX_WRITE_GET_DATA1 Parser_SSM.RX_GET_SIZE_L Parser_SSM.RX_GET_SIZE_H Parser_SSM.RX_GET_ADDY_L Parser_SSM.RX_GET_ADDY_M Parser_SSM.RX_GET_ADDY_H Parser_SSM.RX_GET_CMD_BYTE Parser_SSM.RX_CHK_HDR_BYTE Parser_SSM.IDLE 
+Parser_SSM.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Parser_SSM.RX_CHK_HDR_BYTE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Parser_SSM.RX_GET_CMD_BYTE 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Parser_SSM.RX_GET_ADDY_H 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Parser_SSM.RX_GET_ADDY_M 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+Parser_SSM.RX_GET_ADDY_L 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+Parser_SSM.RX_GET_SIZE_H 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+Parser_SSM.RX_GET_SIZE_L 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+Parser_SSM.RX_WRITE_GET_DATA1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_PARSE 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_HEADER 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_STAT_L 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_STAT_H 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_PAYLOAD_LATENCY 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_PAYLOAD1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SSM.RSP_LRC 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|Parser_SM
+Name Parser_SM.TX_BYTE_WAIT Parser_SM.TX_BYTE Parser_SM.WAIT_RX_BYTE1 Parser_SM.WAIT_RX_BYTE0 Parser_SM.WAIT_RX_BYTE Parser_SM.CMD_WAIT_4_CPU2 Parser_SM.CMD_WAIT_4_CPU1 Parser_SM.CMD_WAIT_4_CPU0 Parser_SM.CMD_SEND_2_CPU2 Parser_SM.CMD_SEND_2_CPU1 Parser_SM.CMD_SEND_2_CPU0 Parser_SM.RSP_LRC Parser_SM.RSP_PAYLOAD1 Parser_SM.RSP_PAYLOAD0 Parser_SM.RSP_PAYLOAD_LATENCY Parser_SM.RSP_STAT_H Parser_SM.RSP_STAT_L Parser_SM.RSP_HEADER Parser_SM.RSP_PARSE Parser_SM.RX_LRC_ST Parser_SM.RX_WRITE_GET_DATA3 Parser_SM.RX_WRITE_GET_DATA2 Parser_SM.RX_WRITE_GET_DATA1 Parser_SM.RX_WRITE_GET_DATA0 Parser_SM.RX_GET_SIZE_L Parser_SM.RX_GET_SIZE_H Parser_SM.RX_GET_ADDY_L Parser_SM.RX_GET_ADDY_M Parser_SM.RX_GET_ADDY_H Parser_SM.RX_GET_CMD_BYTE Parser_SM.RX_CHK_HDR_BYTE Parser_SM.IDLE 
+Parser_SM.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Parser_SM.RX_CHK_HDR_BYTE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Parser_SM.RX_GET_CMD_BYTE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Parser_SM.RX_GET_ADDY_H 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Parser_SM.RX_GET_ADDY_M 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+Parser_SM.RX_GET_ADDY_L 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+Parser_SM.RX_GET_SIZE_H 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+Parser_SM.RX_GET_SIZE_L 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+Parser_SM.RX_WRITE_GET_DATA0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+Parser_SM.RX_WRITE_GET_DATA1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+Parser_SM.RX_WRITE_GET_DATA2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RX_WRITE_GET_DATA3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RX_LRC_ST 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_PARSE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_HEADER 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_STAT_L 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_STAT_H 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_PAYLOAD_LATENCY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_PAYLOAD0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_PAYLOAD1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.RSP_LRC 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.CMD_SEND_2_CPU0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.CMD_SEND_2_CPU1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.CMD_SEND_2_CPU2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.CMD_WAIT_4_CPU0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.CMD_WAIT_4_CPU1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.CMD_WAIT_4_CPU2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.WAIT_RX_BYTE 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.WAIT_RX_BYTE0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.WAIT_RX_BYTE1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.TX_BYTE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Parser_SM.TX_BYTE_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|DBG_SM
+Name DBG_SM.DBG_EXEC_ACK2 DBG_SM.DBG_EXEC_ACK1 DBG_SM.DBG_EXEC_ACK0 DBG_SM.DBG_FLASH_BRD2 DBG_SM.DBG_FLASH_BRD1 DBG_SM.DBG_FLASH_BRD0 DBG_SM.DBG_RESET_CPU1 DBG_SM.DBG_RESET_CPU0 DBG_SM.DBG_RESTART1 DBG_SM.DBG_RESTART0 DBG_SM.DBG_STOP_CPU1 DBG_SM.DBG_STOP_CPU0 DBG_SM.DBG_WRITE4 DBG_SM.DBG_WRITE3 DBG_SM.DBG_WRITE2 DBG_SM.DBG_WRITE1 DBG_SM.DBG_WRITE0 DBG_SM.DBG_READ4 DBG_SM.DBG_READ3 DBG_SM.DBG_READ2 DBG_SM.DBG_READ1 DBG_SM.DBG_READ0 DBG_SM.DBG_CMD2 DBG_SM.DBG_CMD1 DBG_SM.DBG_CMD0 DBG_SM.DBG_IDLE 
+DBG_SM.DBG_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+DBG_SM.DBG_CMD0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+DBG_SM.DBG_CMD1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+DBG_SM.DBG_CMD2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+DBG_SM.DBG_READ0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+DBG_SM.DBG_READ1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+DBG_SM.DBG_READ2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+DBG_SM.DBG_READ3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+DBG_SM.DBG_READ4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_WRITE0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_WRITE1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_WRITE2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_WRITE3 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_WRITE4 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_STOP_CPU0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_STOP_CPU1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_RESTART0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_RESTART1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_RESET_CPU0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_RESET_CPU1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_FLASH_BRD0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_FLASH_BRD1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_FLASH_BRD2 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_EXEC_ACK0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_EXEC_ACK1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+DBG_SM.DBG_EXEC_ACK2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|Serial_Tx:Serial_Transmiter|SSM_Tx
+Name SSM_Tx.FINISHED SSM_Tx.STOP_BIT SSM_Tx.BIT_0 SSM_Tx.BIT_1 SSM_Tx.BIT_2 SSM_Tx.BIT_3 SSM_Tx.BIT_4 SSM_Tx.BIT_5 SSM_Tx.BIT_6 SSM_Tx.BIT_7 SSM_Tx.START_BIT 
+SSM_Tx.START_BIT 0 0 0 0 0 0 0 0 0 0 0 
+SSM_Tx.BIT_7 0 0 0 0 0 0 0 0 0 1 1 
+SSM_Tx.BIT_6 0 0 0 0 0 0 0 0 1 0 1 
+SSM_Tx.BIT_5 0 0 0 0 0 0 0 1 0 0 1 
+SSM_Tx.BIT_4 0 0 0 0 0 0 1 0 0 0 1 
+SSM_Tx.BIT_3 0 0 0 0 0 1 0 0 0 0 1 
+SSM_Tx.BIT_2 0 0 0 0 1 0 0 0 0 0 1 
+SSM_Tx.BIT_1 0 0 0 1 0 0 0 0 0 0 1 
+SSM_Tx.BIT_0 0 0 1 0 0 0 0 0 0 0 1 
+SSM_Tx.STOP_BIT 0 1 0 0 0 0 0 0 0 0 1 
+SSM_Tx.FINISHED 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|Serial_Tx:Serial_Transmiter|SM_Tx
+Name SM_Tx.WAIT2 SM_Tx.WAIT1 SM_Tx.WAIT0 SM_Tx.FINISHED SM_Tx.STOP_BIT SM_Tx.BIT_0 SM_Tx.BIT_1 SM_Tx.BIT_2 SM_Tx.BIT_3 SM_Tx.BIT_4 SM_Tx.BIT_5 SM_Tx.BIT_6 SM_Tx.BIT_7 SM_Tx.START_BIT SM_Tx.WAIT_RDY 
+SM_Tx.WAIT_RDY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+SM_Tx.START_BIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+SM_Tx.BIT_7 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+SM_Tx.BIT_6 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+SM_Tx.BIT_5 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+SM_Tx.BIT_4 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+SM_Tx.BIT_3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+SM_Tx.BIT_2 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+SM_Tx.BIT_1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+SM_Tx.BIT_0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+SM_Tx.STOP_BIT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+SM_Tx.FINISHED 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+SM_Tx.WAIT0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+SM_Tx.WAIT1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SM_Tx.WAIT2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|Serial_Rx:Serial_Receiver|StateMachine_Rx
+Name StateMachine_Rx.BACK_DELAY1 StateMachine_Rx.BACK_DELAY0 StateMachine_Rx.READ_VALUE StateMachine_Rx.FRONT_DELAY1 StateMachine_Rx.FRONT_DELAY0 StateMachine_Rx.DELAY3CLK StateMachine_Rx.WAIT_START 
+StateMachine_Rx.WAIT_START 0 0 0 0 0 0 0 
+StateMachine_Rx.DELAY3CLK 0 0 0 0 0 1 1 
+StateMachine_Rx.FRONT_DELAY0 0 0 0 0 1 0 1 
+StateMachine_Rx.FRONT_DELAY1 0 0 0 1 0 0 1 
+StateMachine_Rx.READ_VALUE 0 0 1 0 0 0 1 
+StateMachine_Rx.BACK_DELAY0 0 1 0 0 0 0 1 
+StateMachine_Rx.BACK_DELAY1 1 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|ProgramFlash32:FlashProgramming_Module|StateStateMachine
+Name StateStateMachine.STATE_PRG_FLASH1 StateStateMachine.STATE_PRG_FLASH2 StateStateMachine.STATE_DONE StateStateMachine.STATE_WRITE_BT2 StateStateMachine.STATE_WRITE_BT3 StateStateMachine.STATE_WRITE_BT1 StateStateMachine.STATE_WRITE_BT4 StateStateMachine.STATE_ERASE_ST4 StateStateMachine.STATE_ERASE_ST3 StateStateMachine.STATE_ERASE_ST5 StateStateMachine.STATE_ERASE_ST6 StateStateMachine.STATE_ERASE_ST1 StateStateMachine.STATE_ERASE_ST2 
+StateStateMachine.STATE_ERASE_ST2 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateStateMachine.STATE_ERASE_ST1 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateStateMachine.STATE_ERASE_ST6 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateStateMachine.STATE_ERASE_ST5 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateStateMachine.STATE_ERASE_ST3 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateStateMachine.STATE_ERASE_ST4 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateStateMachine.STATE_WRITE_BT4 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateStateMachine.STATE_WRITE_BT1 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateStateMachine.STATE_WRITE_BT3 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateStateMachine.STATE_WRITE_BT2 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateStateMachine.STATE_DONE 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateStateMachine.STATE_PRG_FLASH2 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateStateMachine.STATE_PRG_FLASH1 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|New_DebugModuleExtra:GavinDebug|ProgramFlash32:FlashProgramming_Module|StateMachine
+Name StateMachine.STATE_WR_ST1 StateMachine.STATE_READ_RAM0 StateMachine.STATE_READ_RAM1 StateMachine.STATE_POLL_ST5 StateMachine.STATE_WR_ST0 StateMachine.STATE_POLL_ST4 StateMachine.STATE_POLL_ST3 StateMachine.STATE_PRG_FLASH1 StateMachine.STATE_PRG_FLASH2 StateMachine.STATE_PRG_FLASH0 StateMachine.STATE_READ_RAM2 StateMachine.STATE_WRITE_DLY0 StateMachine.STATE_PRG_FLASH3 StateMachine.STATE_WRITE_DLY1 StateMachine.STATE_DONE StateMachine.STATE_WRITE_BT2 StateMachine.STATE_WRITE_BT3 StateMachine.STATE_WRITE_BT1 StateMachine.STATE_WRITE_BT0 StateMachine.STATE_POLL_ST0 StateMachine.STATE_WRITE_BT4 StateMachine.STATE_POLL_ST1 StateMachine.STATE_POLL_ST2 StateMachine.STATE_ERASE_ST4 StateMachine.STATE_ERASE_ST3 StateMachine.STATE_ERASE_ST5 StateMachine.STATE_ERASE_ST6 StateMachine.STATE_ERASE_ST1 StateMachine.STATE_ERASE_ST2 StateMachine.STATE_ERASE_ST0 StateMachine.STATE_IDLE 
+StateMachine.STATE_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateMachine.STATE_ERASE_ST0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateMachine.STATE_ERASE_ST2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateMachine.STATE_ERASE_ST1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateMachine.STATE_ERASE_ST6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateMachine.STATE_ERASE_ST5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateMachine.STATE_ERASE_ST3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateMachine.STATE_ERASE_ST4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateMachine.STATE_POLL_ST2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateMachine.STATE_POLL_ST1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_BT4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_POLL_ST0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_BT0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_BT1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_BT3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_BT2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_DONE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_DLY1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_PRG_FLASH3 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WRITE_DLY0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_READ_RAM2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_PRG_FLASH0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_PRG_FLASH2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_PRG_FLASH1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_POLL_ST3 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_POLL_ST4 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WR_ST0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_POLL_ST5 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_READ_RAM1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_READ_RAM0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.STATE_WR_ST1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|VGE_Master_Engine_SM_SM
+Name VGE_Master_Engine_SM_SM.WAIT_4_LINE VGE_Master_Engine_SM_SM.VBLANKING_TIME VGE_Master_Engine_SM_SM.IDLE 
+VGE_Master_Engine_SM_SM.IDLE 0 0 0 
+VGE_Master_Engine_SM_SM.WAIT_4_LINE 1 0 1 
+VGE_Master_Engine_SM_SM.VBLANKING_TIME 0 1 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|VGE_Master_Engine_SM
+Name VGE_Master_Engine_SM.CPU_ACCESS3 VGE_Master_Engine_SM.VDMA_ACCESS0 VGE_Master_Engine_SM.VDMA_ACCESS1 VGE_Master_Engine_SM.CPU_ACCESS1 VGE_Master_Engine_SM.CPU_ACCESS2 VGE_Master_Engine_SM.CPU_ACCESS0 VGE_Master_Engine_SM.END VGE_Master_Engine_SM.VDMA_ACCESS4 VGE_Master_Engine_SM.VDMA_ACCESS3 VGE_Master_Engine_SM.VDMA_ACCESS2 VGE_Master_Engine_SM.TILE_PROCESS3 VGE_Master_Engine_SM.SPRITE_PROCESS0 VGE_Master_Engine_SM.TILE_PROCESS2 VGE_Master_Engine_SM.TILE_PROCESS1 VGE_Master_Engine_SM.SPRITE_PROCESS2 VGE_Master_Engine_SM.SPRITE_PROCESS1 VGE_Master_Engine_SM.SPRITE_PROCESS3 VGE_Master_Engine_SM.INCREMENT_LINE VGE_Master_Engine_SM.BITMAP_PROCESS2 VGE_Master_Engine_SM.BITMAP_PROCESS1 VGE_Master_Engine_SM.BITMAP_PROCESS3 VGE_Master_Engine_SM.TILE_PROCESS0 VGE_Master_Engine_SM.VBLANKING_TIME VGE_Master_Engine_SM.BITMAP_PROCESS0 VGE_Master_Engine_SM.WAIT_4_LINE VGE_Master_Engine_SM.IDLE 
+VGE_Master_Engine_SM.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+VGE_Master_Engine_SM.WAIT_4_LINE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+VGE_Master_Engine_SM.BITMAP_PROCESS0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+VGE_Master_Engine_SM.VBLANKING_TIME 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+VGE_Master_Engine_SM.TILE_PROCESS0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+VGE_Master_Engine_SM.BITMAP_PROCESS3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+VGE_Master_Engine_SM.BITMAP_PROCESS1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+VGE_Master_Engine_SM.BITMAP_PROCESS2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.INCREMENT_LINE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.SPRITE_PROCESS3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.SPRITE_PROCESS1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.SPRITE_PROCESS2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.TILE_PROCESS1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.TILE_PROCESS2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.SPRITE_PROCESS0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.TILE_PROCESS3 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.VDMA_ACCESS2 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.VDMA_ACCESS3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.VDMA_ACCESS4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.END 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.CPU_ACCESS0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.CPU_ACCESS2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.CPU_ACCESS1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.VDMA_ACCESS1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.VDMA_ACCESS0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Master_Engine_SM.CPU_ACCESS3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|VGE_Pixel_Priority_Collision_Encoder:VGE_Serializer|PIXEL_TF_SM
+Name PIXEL_TF_SM.DONE PIXEL_TF_SM.WRITE PIXEL_TF_SM.IDLE_PIXEL 
+PIXEL_TF_SM.IDLE_PIXEL 0 0 0 
+PIXEL_TF_SM.WRITE 0 1 1 
+PIXEL_TF_SM.DONE 1 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|Sprite_State_Machine:SPRITE_SM|VGE_Sprite_Engine_SM
+Name VGE_Sprite_Engine_SM.SP_TRF_DONE VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM6 VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM5 VGE_Sprite_Engine_SM.SP_WRITE_ATTRIB2 VGE_Sprite_Engine_SM.SP_WRITE_ATTRIB1 VGE_Sprite_Engine_SM.SP_WRITE_ATTRIB0 VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM1 VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM0 VGE_Sprite_Engine_SM.NEXTCHANNEL VGE_Sprite_Engine_SM.ENABLED VGE_Sprite_Engine_SM.SP_STATE1 VGE_Sprite_Engine_SM.SP_STATE0 VGE_Sprite_Engine_SM.SP_PRESTATE VGE_Sprite_Engine_SM.SP_IDLE 
+VGE_Sprite_Engine_SM.SP_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+VGE_Sprite_Engine_SM.SP_PRESTATE 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+VGE_Sprite_Engine_SM.SP_STATE0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+VGE_Sprite_Engine_SM.SP_STATE1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+VGE_Sprite_Engine_SM.ENABLED 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+VGE_Sprite_Engine_SM.NEXTCHANNEL 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_WRITE_ATTRIB0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_WRITE_ATTRIB1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_WRITE_ATTRIB2 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM5 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_GET_DATA_VRAM6 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Sprite_Engine_SM.SP_TRF_DONE 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|Sprite_State_Machine:SPRITE_SM|SP_DTA_SM
+Name SP_DTA_SM.SD_STATE7 SP_DTA_SM.SD_STATE6 SP_DTA_SM.SD_STATE5 SP_DTA_SM.SD_STATE1 SP_DTA_SM.SD_STATE0 SP_DTA_SM.SD_PRESTATE SP_DTA_SM.SD_IDLE SP_DTA_SM.SD_STATE8 
+SP_DTA_SM.SD_IDLE 0 0 0 0 0 0 0 0 
+SP_DTA_SM.SD_PRESTATE 0 0 0 0 0 1 1 0 
+SP_DTA_SM.SD_STATE0 0 0 0 0 1 0 1 0 
+SP_DTA_SM.SD_STATE1 0 0 0 1 0 0 1 0 
+SP_DTA_SM.SD_STATE5 0 0 1 0 0 0 1 0 
+SP_DTA_SM.SD_STATE6 0 1 0 0 0 0 1 0 
+SP_DTA_SM.SD_STATE7 1 0 0 0 0 0 1 0 
+SP_DTA_SM.SD_STATE8 0 0 0 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|TileMap_State_Machine:TILE_SM|VGE_Tile_Engine_SM
+Name VGE_Tile_Engine_SM.TL_STATE_LATENCY VGE_Tile_Engine_SM.TL_TRF_DONE VGE_Tile_Engine_SM.TL_STATE5 VGE_Tile_Engine_SM.TL_STATE4 VGE_Tile_Engine_SM.TL_STATE9 VGE_Tile_Engine_SM.TL_STATE8 VGE_Tile_Engine_SM.TL_CLEAN_LINE0 VGE_Tile_Engine_SM.TL_STATE1 VGE_Tile_Engine_SM.TL_STATE0 VGE_Tile_Engine_SM.TL_STATE2 VGE_Tile_Engine_SM.TL_STATE_LOAD_ADDY VGE_Tile_Engine_SM.TL_PRESTATE0 VGE_Tile_Engine_SM.TL_PRESTATE VGE_Tile_Engine_SM.TL_IDLE 
+VGE_Tile_Engine_SM.TL_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+VGE_Tile_Engine_SM.TL_PRESTATE 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+VGE_Tile_Engine_SM.TL_PRESTATE0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+VGE_Tile_Engine_SM.TL_STATE_LOAD_ADDY 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE2 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_CLEAN_LINE0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE8 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE9 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE4 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE5 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_TRF_DONE 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+VGE_Tile_Engine_SM.TL_STATE_LATENCY 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|TileMap_State_Machine:TILE_SM|VGE_TileMap_SM
+Name VGE_TileMap_SM.TLMAP_WAIT_END VGE_TileMap_SM.TLMAP_UPDCH VGE_TileMap_SM.TLMAP_READ1 VGE_TileMap_SM.TLMAP_WAIT2 VGE_TileMap_SM.TLMAP_WAIT1 VGE_TileMap_SM.TLMAP_WAIT0 VGE_TileMap_SM.TLMAP_READ0 VGE_TileMap_SM.TLMAP_WAIT VGE_TileMap_SM.TLMAP_PREP1 VGE_TileMap_SM.TLMAP_PREP0 VGE_TileMap_SM.TL_IDLE 
+VGE_TileMap_SM.TL_IDLE 0 0 0 0 0 0 0 0 0 0 0 
+VGE_TileMap_SM.TLMAP_PREP0 0 0 0 0 0 0 0 0 0 1 1 
+VGE_TileMap_SM.TLMAP_PREP1 0 0 0 0 0 0 0 0 1 0 1 
+VGE_TileMap_SM.TLMAP_WAIT 0 0 0 0 0 0 0 1 0 0 1 
+VGE_TileMap_SM.TLMAP_READ0 0 0 0 0 0 0 1 0 0 0 1 
+VGE_TileMap_SM.TLMAP_WAIT0 0 0 0 0 0 1 0 0 0 0 1 
+VGE_TileMap_SM.TLMAP_WAIT1 0 0 0 0 1 0 0 0 0 0 1 
+VGE_TileMap_SM.TLMAP_WAIT2 0 0 0 1 0 0 0 0 0 0 1 
+VGE_TileMap_SM.TLMAP_READ1 0 0 1 0 0 0 0 0 0 0 1 
+VGE_TileMap_SM.TLMAP_UPDCH 0 1 0 0 0 0 0 0 0 0 1 
+VGE_TileMap_SM.TLMAP_WAIT_END 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|A2560K_VMemoryInterface:A2560K_VMEM_CTRL_BANK_B|MiniStateMachine
+Name MiniStateMachine.ST4 MiniStateMachine.ST3 MiniStateMachine.ST2 MiniStateMachine.ST1 MiniStateMachine.ST0 MiniStateMachine.IDLE 
+MiniStateMachine.IDLE 0 0 0 0 0 0 
+MiniStateMachine.ST0 0 0 0 0 1 1 
+MiniStateMachine.ST1 0 0 0 1 0 1 
+MiniStateMachine.ST2 0 0 1 0 0 1 
+MiniStateMachine.ST3 0 1 0 0 0 1 
+MiniStateMachine.ST4 1 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VICKY_III_VGE_MSTR:VGE_MasterCTRL_Module_B|VideoGraphicEngine:VGE|A2560K_VMemoryInterface:A2560K_VMEM_CTRL_BANK_A|MiniStateMachine
+Name MiniStateMachine.ST4 MiniStateMachine.ST3 MiniStateMachine.ST2 MiniStateMachine.ST1 MiniStateMachine.ST0 MiniStateMachine.IDLE 
+MiniStateMachine.IDLE 0 0 0 0 0 0 
+MiniStateMachine.ST0 0 0 0 0 1 1 
+MiniStateMachine.ST1 0 0 0 1 0 1 
+MiniStateMachine.ST2 0 0 1 0 0 1 
+MiniStateMachine.ST3 0 1 0 0 0 1 
+MiniStateMachine.ST4 1 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|MousePointerSpriteModule:MousePointerModule|Mouse_state
+Name Mouse_state.State5 Mouse_state.State4 Mouse_state.State3 Mouse_state.State2 Mouse_state.State1 Mouse_state.State0 Mouse_state.IDLE_ST 
+Mouse_state.IDLE_ST 0 0 0 0 0 0 0 
+Mouse_state.State0 0 0 0 0 0 1 1 
+Mouse_state.State1 0 0 0 0 1 0 1 
+Mouse_state.State2 0 0 0 1 0 0 1 
+Mouse_state.State3 0 0 1 0 0 0 1 
+Mouse_state.State4 0 1 0 0 0 0 1 
+Mouse_state.State5 1 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|MousePointerSpriteModule:MousePointerModule|StateMachine
+Name StateMachine.STATE_3 StateMachine.STATE_2 StateMachine.STATE_1 StateMachine.IDLE StateMachine.STATE_4 
+StateMachine.IDLE 0 0 0 0 0 
+StateMachine.STATE_1 0 0 1 1 0 
+StateMachine.STATE_2 0 1 0 1 0 
+StateMachine.STATE_3 1 0 0 1 0 
+StateMachine.STATE_4 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VIII_Text_Block_B_NEW:Monochrome_FONT_Block|VIII_Text_FONT_SM_A2560x_B:Monochrome_Text_SM|StateMachine
+Name StateMachine.MEM_CMD_REQUEST3 StateMachine.MEM_CMD_REQUEST2 StateMachine.MEM_CMD_REQUEST1 StateMachine.MEM_CMD_REQUEST0 StateMachine.CHECK_Y_POSITION StateMachine.CHANGE_HEIGHT StateMachine.CHECK_X_POSITION StateMachine.INCREMENT_X_POSITION StateMachine.LOAD_SERIAL_REGISTER StateMachine.WAIT_MEM_LATENCY6 StateMachine.WAIT_MEM_LATENCY5 StateMachine.WAIT_MEM_LATENCY4 StateMachine.WAIT_MEM_LATENCY3 StateMachine.WAIT_MEM_LATENCY2 StateMachine.WAIT_MEM_LATENCY1 StateMachine.WAIT_MEM_LATENCY0 StateMachine.SET_ADDY_XYPOSITION StateMachine.NEW_LINE_PREPARE StateMachine.IDLE 
+StateMachine.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateMachine.NEW_LINE_PREPARE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateMachine.SET_ADDY_XYPOSITION 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateMachine.WAIT_MEM_LATENCY0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateMachine.WAIT_MEM_LATENCY1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY3 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY4 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY5 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY6 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateMachine.LOAD_SERIAL_REGISTER 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateMachine.INCREMENT_X_POSITION 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.CHECK_X_POSITION 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.CHANGE_HEIGHT 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.CHECK_Y_POSITION 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VIII_GUI_MemText_Module:VSRAM_MANAGE|A2560x_EmuTOS_Bitmap:TOS_GRAPH|SM_Addy
+Name SM_Addy.ADDY_SM9 SM_Addy.ADDY_SM10 SM_Addy.ADDY_SM8 SM_Addy.ADDY_SM7 SM_Addy.ADDY_SM11 SM_Addy.ADDY_SM4 SM_Addy.ADDY_SM3 SM_Addy.ADDY_SM5 SM_Addy.ADDY_SM6 SM_Addy.ADDY_SM1 SM_Addy.ADDY_SM2 SM_Addy.ADDY_SM0 SM_Addy.ADDY_IDLE 
+SM_Addy.ADDY_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 
+SM_Addy.ADDY_SM0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+SM_Addy.ADDY_SM2 0 0 0 0 0 0 0 0 0 0 1 0 1 
+SM_Addy.ADDY_SM1 0 0 0 0 0 0 0 0 0 1 0 0 1 
+SM_Addy.ADDY_SM6 0 0 0 0 0 0 0 0 1 0 0 0 1 
+SM_Addy.ADDY_SM5 0 0 0 0 0 0 0 1 0 0 0 0 1 
+SM_Addy.ADDY_SM3 0 0 0 0 0 0 1 0 0 0 0 0 1 
+SM_Addy.ADDY_SM4 0 0 0 0 0 1 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM11 0 0 0 0 1 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM7 0 0 0 1 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM8 0 0 1 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM10 0 1 0 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM9 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VIII_GUI_MemText_Module:VSRAM_MANAGE|A2560Mx_MEMTEXT_SM:A2560Mx_MemText|SM_Addy
+Name SM_Addy.ADDY_SM9 SM_Addy.ADDY_SM10 SM_Addy.ADDY_SM8 SM_Addy.ADDY_SM7 SM_Addy.ADDY_BR1 SM_Addy.ADDY_BR0 SM_Addy.ADDY_BR2 SM_Addy.ADDY_BR3 SM_Addy.ADDY_SM4 SM_Addy.ADDY_SM3 SM_Addy.ADDY_SM5 SM_Addy.ADDY_SM6 SM_Addy.ADDY_SM1 SM_Addy.ADDY_SM2 SM_Addy.ADDY_SM0 SM_Addy.ADDY_IDLE 
+SM_Addy.ADDY_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+SM_Addy.ADDY_SM0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+SM_Addy.ADDY_SM2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+SM_Addy.ADDY_SM1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+SM_Addy.ADDY_SM6 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+SM_Addy.ADDY_SM5 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+SM_Addy.ADDY_SM3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+SM_Addy.ADDY_SM4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+SM_Addy.ADDY_BR3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_BR2 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_BR0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_BR1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM7 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM8 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM10 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SM_Addy.ADDY_SM9 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_B_NEW_Top:Channel_B_Top|VIII_GUI_MemText_Module:VSRAM_MANAGE|A2560Mx_MEMTEXT_SM:A2560Mx_MemText|MEMText_FONT_StateMachine:MEMText_FONT_SM|StateMachine
+Name StateMachine.MEM_CMD_REQUEST2 StateMachine.MEM_CMD_REQUEST3 StateMachine.MEM_CMD_REQUEST1 StateMachine.MEM_CMD_REQUEST0 StateMachine.WAIT_MEM_LATENCY6 StateMachine.LOAD_SERIAL_REGISTER StateMachine.WAIT_MEM_LATENCY5 StateMachine.WAIT_MEM_LATENCY4 StateMachine.CHECK_X_POSITION StateMachine.INCREMENT_X_POSITION StateMachine.CHANGE_HEIGHT StateMachine.CHECK_Y_POSITION StateMachine.WAIT_MEM_LATENCY1 StateMachine.WAIT_MEM_LATENCY0 StateMachine.WAIT_MEM_LATENCY2 StateMachine.WAIT_MEM_LATENCY3 StateMachine.NEW_LINE_PREPARE StateMachine.SET_ADDY_XYPOSITION StateMachine.IDLE 
+StateMachine.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateMachine.SET_ADDY_XYPOSITION 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateMachine.NEW_LINE_PREPARE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateMachine.WAIT_MEM_LATENCY3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateMachine.WAIT_MEM_LATENCY2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateMachine.CHECK_Y_POSITION 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateMachine.CHANGE_HEIGHT 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateMachine.INCREMENT_X_POSITION 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateMachine.CHECK_X_POSITION 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY5 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.LOAD_SERIAL_REGISTER 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY6 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST3 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|MousePointerSpriteModule:MousePointerModule|Mouse_state
+Name Mouse_state.State5 Mouse_state.State4 Mouse_state.State3 Mouse_state.State2 Mouse_state.State1 Mouse_state.State0 Mouse_state.IDLE_ST 
+Mouse_state.IDLE_ST 0 0 0 0 0 0 0 
+Mouse_state.State0 0 0 0 0 0 1 1 
+Mouse_state.State1 0 0 0 0 1 0 1 
+Mouse_state.State2 0 0 0 1 0 0 1 
+Mouse_state.State3 0 0 1 0 0 0 1 
+Mouse_state.State4 0 1 0 0 0 0 1 
+Mouse_state.State5 1 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|MousePointerSpriteModule:MousePointerModule|StateMachine
+Name StateMachine.STATE_3 StateMachine.STATE_2 StateMachine.STATE_1 StateMachine.IDLE StateMachine.STATE_4 
+StateMachine.IDLE 0 0 0 0 0 
+StateMachine.STATE_1 0 0 1 1 0 
+StateMachine.STATE_2 0 1 0 1 0 
+StateMachine.STATE_3 1 0 0 1 0 
+StateMachine.STATE_4 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|VICKY_III_Channel_A_Top:Channel_A_Top|VIII_Text_Block_A:Text_Creation_Module_A|VIII_Text_ST_A:Monochrome_Text_SM|StateMachine
+Name StateMachine.MEM_CMD_REQUEST2 StateMachine.MEM_CMD_REQUEST3 StateMachine.MEM_CMD_REQUEST1 StateMachine.MEM_CMD_REQUEST0 StateMachine.WAIT_MEM_LATENCY6 StateMachine.LOAD_SERIAL_REGISTER StateMachine.WAIT_MEM_LATENCY5 StateMachine.WAIT_MEM_LATENCY4 StateMachine.CHECK_X_POSITION StateMachine.INCREMENT_X_POSITION StateMachine.CHANGE_HEIGHT StateMachine.CHECK_Y_POSITION StateMachine.WAIT_MEM_LATENCY1 StateMachine.WAIT_MEM_LATENCY0 StateMachine.WAIT_MEM_LATENCY2 StateMachine.WAIT_MEM_LATENCY3 StateMachine.NEW_LINE_PREPARE StateMachine.SET_ADDY_XYPOSITION StateMachine.IDLE 
+StateMachine.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateMachine.SET_ADDY_XYPOSITION 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateMachine.NEW_LINE_PREPARE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateMachine.WAIT_MEM_LATENCY3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateMachine.WAIT_MEM_LATENCY2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateMachine.CHECK_Y_POSITION 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateMachine.CHANGE_HEIGHT 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateMachine.INCREMENT_X_POSITION 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateMachine.CHECK_X_POSITION 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY5 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.LOAD_SERIAL_REGISTER 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.WAIT_MEM_LATENCY6 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST3 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.MEM_CMD_REQUEST2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|InitClockAndVideo:InitClk4Vid|i2c_master:MasterI2C_Block|phy_state_reg
+Name phy_state_reg.PHY_STATE_STOP_3 phy_state_reg.PHY_STATE_STOP_2 phy_state_reg.PHY_STATE_STOP_1 phy_state_reg.PHY_STATE_READ_BIT_4 phy_state_reg.PHY_STATE_READ_BIT_3 phy_state_reg.PHY_STATE_READ_BIT_2 phy_state_reg.PHY_STATE_READ_BIT_1 phy_state_reg.PHY_STATE_WRITE_BIT_3 phy_state_reg.PHY_STATE_WRITE_BIT_2 phy_state_reg.PHY_STATE_WRITE_BIT_1 phy_state_reg.PHY_STATE_START_2 phy_state_reg.PHY_STATE_START_1 phy_state_reg.PHY_STATE_REPEATED_START_2 phy_state_reg.PHY_STATE_REPEATED_START_1 phy_state_reg.PHY_STATE_ACTIVE phy_state_reg.PHY_STATE_IDLE 
+phy_state_reg.PHY_STATE_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+phy_state_reg.PHY_STATE_ACTIVE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+phy_state_reg.PHY_STATE_REPEATED_START_1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+phy_state_reg.PHY_STATE_REPEATED_START_2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+phy_state_reg.PHY_STATE_START_1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+phy_state_reg.PHY_STATE_START_2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+phy_state_reg.PHY_STATE_WRITE_BIT_1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_WRITE_BIT_2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_WRITE_BIT_3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_READ_BIT_1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_READ_BIT_2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_READ_BIT_3 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_READ_BIT_4 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_STOP_1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_STOP_2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+phy_state_reg.PHY_STATE_STOP_3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|InitClockAndVideo:InitClk4Vid|i2c_master:MasterI2C_Block|state_reg
+Name state_reg.STATE_STOP state_reg.STATE_READ state_reg.STATE_WRITE_3 state_reg.STATE_WRITE_2 state_reg.STATE_WRITE_1 state_reg.STATE_ADDRESS_2 state_reg.STATE_ADDRESS_1 state_reg.STATE_START state_reg.STATE_START_WAIT state_reg.STATE_ACTIVE_READ state_reg.STATE_ACTIVE_WRITE state_reg.STATE_IDLE 
+state_reg.STATE_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 
+state_reg.STATE_ACTIVE_WRITE 0 0 0 0 0 0 0 0 0 0 1 1 
+state_reg.STATE_ACTIVE_READ 0 0 0 0 0 0 0 0 0 1 0 1 
+state_reg.STATE_START_WAIT 0 0 0 0 0 0 0 0 1 0 0 1 
+state_reg.STATE_START 0 0 0 0 0 0 0 1 0 0 0 1 
+state_reg.STATE_ADDRESS_1 0 0 0 0 0 0 1 0 0 0 0 1 
+state_reg.STATE_ADDRESS_2 0 0 0 0 0 1 0 0 0 0 0 1 
+state_reg.STATE_WRITE_1 0 0 0 0 1 0 0 0 0 0 0 1 
+state_reg.STATE_WRITE_2 0 0 0 1 0 0 0 0 0 0 0 1 
+state_reg.STATE_WRITE_3 0 0 1 0 0 0 0 0 0 0 0 1 
+state_reg.STATE_READ 0 1 0 0 0 0 0 0 0 0 0 1 
+state_reg.STATE_STOP 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|VICKYIII_NEW_TOP:VICKYIII_TOP_LEVEL|InitClockAndVideo:InitClk4Vid|i2c_init:Init_Block|state_reg
+Name state_reg.STATE_TABLE_2 state_reg.STATE_TABLE_1 state_reg.STATE_RUN state_reg.STATE_IDLE state_reg.STATE_TABLE_3 
+state_reg.STATE_IDLE 0 0 0 0 0 
+state_reg.STATE_RUN 0 0 1 1 0 
+state_reg.STATE_TABLE_1 0 1 0 1 0 
+state_reg.STATE_TABLE_2 1 0 0 1 0 
+state_reg.STATE_TABLE_3 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|SoundChips2DAC_Interface:SOUNDCHIP_INTERFACE|CT_SM
+Name CT_SM.ST14 CT_SM.ST13 CT_SM.ST12 CT_SM.ST11 CT_SM.ST10 CT_SM.ST9 CT_SM.ST8 CT_SM.ST7 CT_SM.ST6 CT_SM.ST5 CT_SM.ST4 CT_SM.ST3 CT_SM.ST2 CT_SM.ST1 CT_SM.ST0 CT_SM.IDLE 
+CT_SM.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+CT_SM.ST0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+CT_SM.ST1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+CT_SM.ST2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+CT_SM.ST3 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+CT_SM.ST4 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+CT_SM.ST5 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+CT_SM.ST6 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+CT_SM.ST7 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+CT_SM.ST8 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+CT_SM.ST9 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+CT_SM.ST10 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+CT_SM.ST11 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+CT_SM.ST12 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+CT_SM.ST13 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+CT_SM.ST14 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|Parallel2SerialAudio:AudioChipSerializer|StateMachine
+Name StateMachine.STATE5 StateMachine.STATE4 StateMachine.STATE2 StateMachine.STATE3 StateMachine.STATE1 StateMachine.IDLE 
+StateMachine.IDLE 0 0 0 0 0 0 
+StateMachine.STATE1 0 0 0 0 1 1 
+StateMachine.STATE3 0 0 0 1 0 1 
+StateMachine.STATE2 0 0 1 0 0 1 
+StateMachine.STATE4 0 1 0 0 0 1 
+StateMachine.STATE5 1 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|Parallel2Serial_SID:SID_HardwareSerializer|StateMachine
+Name StateMachine.STATE5 StateMachine.STATE4 StateMachine.STATE2 StateMachine.STATE3 StateMachine.STATE1 StateMachine.SERIAL_IDLE 
+StateMachine.SERIAL_IDLE 0 0 0 0 0 0 
+StateMachine.STATE1 0 0 0 0 1 1 
+StateMachine.STATE3 0 0 0 1 0 1 
+StateMachine.STATE2 0 0 1 0 0 1 
+StateMachine.STATE4 0 1 0 0 0 1 
+StateMachine.STATE5 1 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|Parallel2Serial_SID:SID_HardwareSerializer|SM_SID
+Name SM_SID.DONE SM_SID.WAIT_FALLING_EDGE SM_SID.Enable_Transaction SM_SID.WAIT_RISING_EDGE SM_SID.LATENCY_READ SM_SID.READ_FIFO SM_SID.PARA_IDLE 
+SM_SID.PARA_IDLE 0 0 0 0 0 0 0 
+SM_SID.READ_FIFO 0 0 0 0 0 1 1 
+SM_SID.LATENCY_READ 0 0 0 0 1 0 1 
+SM_SID.WAIT_RISING_EDGE 0 0 0 1 0 0 1 
+SM_SID.Enable_Transaction 0 0 1 0 0 0 1 
+SM_SID.WAIT_FALLING_EDGE 0 1 0 0 0 0 1 
+SM_SID.DONE 1 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|BUS_2_ChipTune_Interface:ChipTune_Block|ST_PSG_Delay
+Name ST_PSG_Delay.Wait_Count ST_PSG_Delay.Done_Count ST_PSG_Delay.Count_Count 
+ST_PSG_Delay.Wait_Count 0 0 0 
+ST_PSG_Delay.Count_Count 1 0 1 
+ST_PSG_Delay.Done_Count 1 1 0 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|BUS_2_ChipTune_Interface:ChipTune_Block|ST_OPM_Delay
+Name ST_OPM_Delay.Wait_Count ST_OPM_Delay.Done_Count ST_OPM_Delay.Count_Count 
+ST_OPM_Delay.Wait_Count 0 0 0 
+ST_OPM_Delay.Count_Count 1 0 1 
+ST_OPM_Delay.Done_Count 1 1 0 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|BUS_2_ChipTune_Interface:ChipTune_Block|ST_OPN2_Delay
+Name ST_OPN2_Delay.Wait_Count ST_OPN2_Delay.Done_Count ST_OPN2_Delay.Count_Count 
+ST_OPN2_Delay.Wait_Count 0 0 0 
+ST_OPN2_Delay.Count_Count 1 0 1 
+ST_OPN2_Delay.Done_Count 1 1 0 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|BUS_2_ChipTune_Interface:ChipTune_Block|St_St_StateMachine
+Name St_St_StateMachine.WRITE_DATA_PTR2 St_St_StateMachine.WRITE_DATA_PTR3 St_St_StateMachine.WRITE_DATA_PTR0 St_St_StateMachine.WRITE_ADDY_PTR1 St_St_StateMachine.WRITE_ADDY_PTR2 St_St_StateMachine.IDLE St_St_StateMachine.EXTENTION_PSG 
+St_St_StateMachine.IDLE 0 0 0 0 0 0 0 
+St_St_StateMachine.WRITE_ADDY_PTR2 0 0 0 0 1 1 0 
+St_St_StateMachine.WRITE_ADDY_PTR1 0 0 0 1 0 1 0 
+St_St_StateMachine.WRITE_DATA_PTR0 0 0 1 0 0 1 0 
+St_St_StateMachine.WRITE_DATA_PTR3 0 1 0 0 0 1 0 
+St_St_StateMachine.WRITE_DATA_PTR2 1 0 0 0 0 1 0 
+St_St_StateMachine.EXTENTION_PSG 0 0 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|BUS_2_ChipTune_Interface:ChipTune_Block|St_StateMachine
+Name St_StateMachine.WRITE_DATA_PTR1 St_StateMachine.WRITE_ADDY_PTR0 St_StateMachine.WRITE_ADDY_PTR3 St_StateMachine.READ_FIFO St_StateMachine.IDLE St_StateMachine.DELAY_IN_BETWEEN0 
+St_StateMachine.IDLE 0 0 0 0 0 0 
+St_StateMachine.READ_FIFO 0 0 0 1 1 0 
+St_StateMachine.WRITE_ADDY_PTR3 0 0 1 0 1 0 
+St_StateMachine.WRITE_ADDY_PTR0 0 1 0 0 1 0 
+St_StateMachine.WRITE_DATA_PTR1 1 0 0 0 1 0 
+St_StateMachine.DELAY_IN_BETWEEN0 0 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|BUS_2_ChipTune_Interface:ChipTune_Block|StateMachine
+Name StateMachine.ID_FIFO0 StateMachine.TIP StateMachine.EXTENTION_PSG StateMachine.DELAY_IN_BETWEEN0 StateMachine.WRITE_DATA_PTR2 StateMachine.WRITE_DATA_PTR3 StateMachine.WRITE_DATA_PTR1 StateMachine.WRITE_DATA_PTR0 StateMachine.WRITE_ADDY_PTR1 StateMachine.WRITE_ADDY_PTR0 StateMachine.WRITE_ADDY_PTR2 StateMachine.WRITE_ADDY_PTR3 StateMachine.FIFO_LATENCY StateMachine.READ_FIFO StateMachine.IDLE 
+StateMachine.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateMachine.READ_FIFO 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateMachine.FIFO_LATENCY 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateMachine.WRITE_ADDY_PTR3 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateMachine.WRITE_ADDY_PTR2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateMachine.WRITE_ADDY_PTR0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateMachine.WRITE_ADDY_PTR1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateMachine.WRITE_DATA_PTR0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateMachine.WRITE_DATA_PTR1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateMachine.WRITE_DATA_PTR3 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateMachine.WRITE_DATA_PTR2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateMachine.DELAY_IN_BETWEEN0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.EXTENTION_PSG 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.TIP 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateMachine.ID_FIFO0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|A2560X_CODEC:CPU2CODEC|CODEC_SM_SM
+Name CODEC_SM_SM.ST2 CODEC_SM_SM.ST0 CODEC_SM_SM.ST7 CODEC_SM_SM.ST5 
+CODEC_SM_SM.ST0 0 0 0 0 
+CODEC_SM_SM.ST2 1 1 0 0 
+CODEC_SM_SM.ST5 0 1 0 1 
+CODEC_SM_SM.ST7 0 1 1 0 
+
+State Machine - |A2560X40_Top|BEATRIX_TOP:BEATRIX_TOP_LEVEL|A2560X_CODEC:CPU2CODEC|CODEC_SM
+Name CODEC_SM.DELAY CODEC_SM.ST7 CODEC_SM.ST6 CODEC_SM.ST5 CODEC_SM.ST4 CODEC_SM.ST3 CODEC_SM.ST2 CODEC_SM.ST1 CODEC_SM.ST0 CODEC_SM.IDLE 
+CODEC_SM.IDLE 0 0 0 0 0 0 0 0 0 0 
+CODEC_SM.ST0 0 0 0 0 0 0 0 0 1 1 
+CODEC_SM.ST1 0 0 0 0 0 0 0 1 0 1 
+CODEC_SM.ST2 0 0 0 0 0 0 1 0 0 1 
+CODEC_SM.ST3 0 0 0 0 0 1 0 0 0 1 
+CODEC_SM.ST4 0 0 0 0 1 0 0 0 0 1 
+CODEC_SM.ST5 0 0 0 1 0 0 0 0 0 1 
+CODEC_SM.ST6 0 0 1 0 0 0 0 0 0 1 
+CODEC_SM.ST7 0 1 0 0 0 0 0 0 0 1 
+CODEC_SM.DELAY 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|A2560Mx_DMA_Controller:A2560Mx_SDMA_CTLR|SDMA_SM_SM_SM
+Name SDMA_SM_SM_SM.VRAM_2D_ST01 SDMA_SM_SM_SM.VRAM_1D_FILL_ST01 SDMA_SM_SM_SM.VALIDATE2 SDMA_SM_SM_SM.IDLE SDMA_SM_SM_SM.VRAM_VRAM_ST0F SDMA_SM_SM_SM.VRAM_1D_ST01 
+SDMA_SM_SM_SM.IDLE 0 0 0 0 0 0 
+SDMA_SM_SM_SM.VALIDATE2 0 0 1 1 0 0 
+SDMA_SM_SM_SM.VRAM_1D_ST01 0 0 0 1 0 1 
+SDMA_SM_SM_SM.VRAM_1D_FILL_ST01 0 1 0 1 0 0 
+SDMA_SM_SM_SM.VRAM_2D_ST01 1 0 0 1 0 0 
+SDMA_SM_SM_SM.VRAM_VRAM_ST0F 0 0 0 1 1 0 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|A2560Mx_DMA_Controller:A2560Mx_SDMA_CTLR|SDMA_SM_SM
+Name SDMA_SM_SM.VRAM_2D_ST01 SDMA_SM_SM.VRAM_1D_FILL_ST01 SDMA_SM_SM.VALIDATE2 SDMA_SM_SM.IDLE SDMA_SM_SM.VRAM_VRAM_ST0F SDMA_SM_SM.VRAM_1D_ST01 
+SDMA_SM_SM.IDLE 0 0 0 0 0 0 
+SDMA_SM_SM.VALIDATE2 0 0 1 1 0 0 
+SDMA_SM_SM.VRAM_1D_ST01 0 0 0 1 0 1 
+SDMA_SM_SM.VRAM_1D_FILL_ST01 0 1 0 1 0 0 
+SDMA_SM_SM.VRAM_2D_ST01 1 0 0 1 0 0 
+SDMA_SM_SM.VRAM_VRAM_ST0F 0 0 0 1 1 0 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|A2560Mx_DMA_Controller:A2560Mx_SDMA_CTLR|SDMA_SM
+Name SDMA_SM.END_GEN_INT SDMA_SM.THE_END SDMA_SM.WAIT_2_TRF SDMA_SM.VRAM_VRAM_ST0F SDMA_SM.WAIT_NEXT_SOF SDMA_SM.VRAM_1D_FILL_ST03 SDMA_SM.VRAM_2D_ST01 SDMA_SM.VRAM_1D_FILL_ST02 SDMA_SM.VRAM_1D_FILL_ST01 SDMA_SM.VRAM_2D_ST03 SDMA_SM.VRAM_2D_ST02 SDMA_SM.VRAM_2D_ST04 SDMA_SM.VRAM_2D_ST05 SDMA_SM.VRAM_1D_ST01 SDMA_SM.VRAM_VRAM_ST00 SDMA_SM.VRAM_1D_ST02 SDMA_SM.VRAM_1D_ST03 SDMA_SM.VALIDATE1 SDMA_SM.VALIDATE2 SDMA_SM.VALIDATE0 SDMA_SM.IDLE 
+SDMA_SM.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+SDMA_SM.VALIDATE0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+SDMA_SM.VALIDATE2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+SDMA_SM.VALIDATE1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+SDMA_SM.VRAM_1D_ST03 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+SDMA_SM.VRAM_1D_ST02 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+SDMA_SM.VRAM_VRAM_ST00 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+SDMA_SM.VRAM_1D_ST01 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_2D_ST05 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_2D_ST04 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_2D_ST02 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_2D_ST03 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_1D_FILL_ST01 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_1D_FILL_ST02 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_2D_ST01 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_1D_FILL_ST03 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.WAIT_NEXT_SOF 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.VRAM_VRAM_ST0F 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.WAIT_2_TRF 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.THE_END 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+SDMA_SM.END_GEN_INT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|A2560x_IRQ_CTRL:IRQ_CTRL32s|serirq_host:LPC_SerialIRQ_Block|state
+Name state.0000000000000 state.0000100000000 state.0000010000000 state.0000001000000 state.0000000100000 state.0000000010000 state.0000000001000 state.0000000000100 state.0000000000010 state.0000000000001 
+state.0000000000000 0 0 0 0 0 0 0 0 0 0 
+state.0000000000001 1 0 0 0 0 0 0 0 0 1 
+state.0000000000010 1 0 0 0 0 0 0 0 1 0 
+state.0000000000100 1 0 0 0 0 0 0 1 0 0 
+state.0000000001000 1 0 0 0 0 0 1 0 0 0 
+state.0000000010000 1 0 0 0 0 1 0 0 0 0 
+state.0000000100000 1 0 0 0 1 0 0 0 0 0 
+state.0000001000000 1 0 0 1 0 0 0 0 0 0 
+state.0000010000000 1 0 1 0 0 0 0 0 0 0 
+state.0000100000000 1 1 0 0 0 0 0 0 0 0 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|SimpleSPI4SDCard:NewSDCard_Controller|SD_SM_SM
+Name SD_SM_SM.TRSF2 SD_SM_SM.TRSF1 SD_SM_SM.TRSF0 SD_SM_SM.IDLE SD_SM_SM.TRSF3 
+SD_SM_SM.IDLE 0 0 0 0 0 
+SD_SM_SM.TRSF0 0 0 1 1 0 
+SD_SM_SM.TRSF1 0 1 0 1 0 
+SD_SM_SM.TRSF2 1 0 0 1 0 
+SD_SM_SM.TRSF3 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|SimpleSPI4SDCard:NewSDCard_Controller|SD_SM
+Name SD_SM.DELAY1 SD_SM.DELAY0 SD_SM.TRSF3 SD_SM.TRSF2 SD_SM.TRSF1 SD_SM.TRSF0 SD_SM.IDLE 
+SD_SM.IDLE 0 0 0 0 0 0 0 
+SD_SM.TRSF0 0 0 0 0 0 1 1 
+SD_SM.TRSF1 0 0 0 0 1 0 1 
+SD_SM.TRSF2 0 0 0 1 0 0 1 
+SD_SM.TRSF3 0 0 1 0 0 0 1 
+SD_SM.DELAY0 0 1 0 0 0 0 1 
+SD_SM.DELAY1 1 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|Top_LPC_Interface:LPC_Interface_Block|wb_lpc_host:LPC_HOST_Block|state
+Name state.00000000000000 state.00100000000000 state.00010000000000 state.00001000000000 state.00000100000000 state.00000010000000 state.00000001000000 state.00000000100000 state.00000000010000 state.00000000001000 state.00000000000100 state.00000000000010 state.00000000000001 
+state.00000000000000 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.00000000000001 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.00000000000010 1 0 0 0 0 0 0 0 0 0 0 1 0 
+state.00000000000100 1 0 0 0 0 0 0 0 0 0 1 0 0 
+state.00000000001000 1 0 0 0 0 0 0 0 0 1 0 0 0 
+state.00000000010000 1 0 0 0 0 0 0 0 1 0 0 0 0 
+state.00000000100000 1 0 0 0 0 0 0 1 0 0 0 0 0 
+state.00000001000000 1 0 0 0 0 0 1 0 0 0 0 0 0 
+state.00000010000000 1 0 0 0 0 1 0 0 0 0 0 0 0 
+state.00000100000000 1 0 0 0 1 0 0 0 0 0 0 0 0 
+state.00001000000000 1 0 0 1 0 0 0 0 0 0 0 0 0 
+state.00010000000000 1 0 1 0 0 0 0 0 0 0 0 0 0 
+state.00100000000000 1 1 0 0 0 0 0 0 0 0 0 0 0 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|Top_LPC_Interface:LPC_Interface_Block|BUS_2_LPC_interface:Bus_2_LPC|StateMachine
+Name StateMachine.WRITE_FIFO1 StateMachine.WRITE_FIFO0 StateMachine.END_CYCLE StateMachine.ACK_CYCLE StateMachine.START_CYCLE StateMachine.FIFO_READ1 StateMachine.FIFO_READ0 StateMachine.IDLE 
+StateMachine.IDLE 0 0 0 0 0 0 0 0 
+StateMachine.FIFO_READ0 0 0 0 0 0 0 1 1 
+StateMachine.FIFO_READ1 0 0 0 0 0 1 0 1 
+StateMachine.START_CYCLE 0 0 0 0 1 0 0 1 
+StateMachine.ACK_CYCLE 0 0 0 1 0 0 0 1 
+StateMachine.END_CYCLE 0 0 1 0 0 0 0 1 
+StateMachine.WRITE_FIFO0 0 1 0 0 0 0 0 1 
+StateMachine.WRITE_FIFO1 1 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|Top_LPC_Interface:LPC_Interface_Block|BUS_2_LPC_interface:Bus_2_LPC|MiniSTST
+Name MiniSTST.CPU_TERMINATE 
+MiniSTST.CPU_READ0 0 
+MiniSTST.CPU_TERMINATE 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|Top_LPC_Interface:LPC_Interface_Block|BUS_2_LPC_interface:Bus_2_LPC|MiniST
+Name MiniST.CPU_TERMINATE MiniST.CPU_READ2 MiniST.CPU_READ1 MiniST.CPU_READ0 MiniST.CPU_WRITE_END MiniST.CPU_WRITE MiniST.CPU_IDLE 
+MiniST.CPU_IDLE 0 0 0 0 0 0 0 
+MiniST.CPU_WRITE 0 0 0 0 0 1 1 
+MiniST.CPU_WRITE_END 0 0 0 0 1 0 1 
+MiniST.CPU_READ0 0 0 0 1 0 0 1 
+MiniST.CPU_READ1 0 0 1 0 0 0 1 
+MiniST.CPU_READ2 0 1 0 0 0 0 1 
+MiniST.CPU_TERMINATE 1 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|RGB_STATUS_LED_Driver_Module40Mhz:STATUS_RGB_MOD|SmallSM
+Name SmallSM.11 SmallSM.10 SmallSM.01 SmallSM.00 
+SmallSM.00 0 0 0 0 
+SmallSM.01 0 0 1 1 
+SmallSM.10 0 1 0 1 
+SmallSM.11 1 0 0 1 
+
+State Machine - |A2560X40_Top|GAVIN_A2560XEmuTOS_Top:GABE_TOP_LEVEL|RGB_LED_Driver_Module40Mhz:PowerOn_RGB_LED_A2560K|SmallSM
+Name SmallSM.11 SmallSM.10 SmallSM.01 SmallSM.00 
+SmallSM.00 0 0 0 0 
+SmallSM.01 0 0 1 1 
+SmallSM.10 0 1 0 1 
+SmallSM.11 1 0 0 1 
+
+State Machine - |A2560X40_Top|MERA_A2560X_Top:MERA_THE_BEAUTIFUL|MiniSDRAM_Init_SM
+Name MiniSDRAM_Init_SM.11 MiniSDRAM_Init_SM.10 MiniSDRAM_Init_SM.01 MiniSDRAM_Init_SM.00 
+MiniSDRAM_Init_SM.00 0 0 0 0 
+MiniSDRAM_Init_SM.01 0 0 1 1 
+MiniSDRAM_Init_SM.10 0 1 0 1 
+MiniSDRAM_Init_SM.11 1 0 0 1 
+
+State Machine - |A2560X40_Top|MC68040V_Plus_Arbiter:M68040V|SmallST
+Name SmallST.ST2 SmallST.ST1 SmallST.ST0 SmallST.IDLE SmallST.ST3 
+SmallST.IDLE 0 0 0 0 0 
+SmallST.ST0 0 0 1 1 0 
+SmallST.ST1 0 1 0 1 0 
+SmallST.ST2 1 0 0 1 0 
+SmallST.ST3 0 0 0 1 1 
+
+State Machine - |A2560X40_Top|MC68040V_Plus_Arbiter:M68040V|SmallBootSM
+Name SmallBootSM.SB_SM_LETBGBE SmallBootSM.SB_SM_WAIT22 SmallBootSM.SB_SM_REMOVE SmallBootSM.SB_SM_RELEASE SmallBootSM.SB_SM_CFG SmallBootSM.SB_SM_WAIT2 SmallBootSM.SB_SM_WAIT1 SmallBootSM.SB_SM_IDLE 
+SmallBootSM.SB_SM_IDLE 0 0 0 0 0 0 0 0 
+SmallBootSM.SB_SM_WAIT1 0 0 0 0 0 0 1 1 
+SmallBootSM.SB_SM_WAIT2 0 0 0 0 0 1 0 1 
+SmallBootSM.SB_SM_CFG 0 0 0 0 1 0 0 1 
+SmallBootSM.SB_SM_RELEASE 0 0 0 1 0 0 0 1 
+SmallBootSM.SB_SM_REMOVE 0 0 1 0 0 0 0 1 
+SmallBootSM.SB_SM_WAIT22 0 1 0 0 0 0 0 1 
+SmallBootSM.SB_SM_LETBGBE 1 0 0 0 0 0 0 1 
+
+State Machine - |A2560X40_Top|MC68040V_Plus_Arbiter:M68040V|MC680xx_BusArbiter:CPU_BUS_Arbiter|Arbiter_SM
+Name Arbiter_SM.ARBT_SDMA2 Arbiter_SM.ARBT_SDMA3 Arbiter_SM.ARBT_SDMA1 Arbiter_SM.ARBT_SDMA0 Arbiter_SM.ARBT_VDMA1 Arbiter_SM.ARBT_VDMA0 Arbiter_SM.ARBT_VDMA2 Arbiter_SM.ARBT_VDMA3 Arbiter_SM.ARBT_MTXT1 Arbiter_SM.ARBT_MTXT0 Arbiter_SM.ARBT_MTXT2 Arbiter_SM.ARBT_MTXT3 Arbiter_SM.ARBT_CPU1 Arbiter_SM.ARBT_CPU2 Arbiter_SM.ARBT_CPU0 Arbiter_SM.ARBT_IDLE 
+Arbiter_SM.ARBT_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Arbiter_SM.ARBT_CPU0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Arbiter_SM.ARBT_CPU2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Arbiter_SM.ARBT_CPU1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Arbiter_SM.ARBT_MTXT3 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+Arbiter_SM.ARBT_MTXT2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+Arbiter_SM.ARBT_MTXT0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+Arbiter_SM.ARBT_MTXT1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_VDMA3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_VDMA2 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_VDMA0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_VDMA1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_SDMA0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_SDMA1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_SDMA3 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Arbiter_SM.ARBT_SDMA2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

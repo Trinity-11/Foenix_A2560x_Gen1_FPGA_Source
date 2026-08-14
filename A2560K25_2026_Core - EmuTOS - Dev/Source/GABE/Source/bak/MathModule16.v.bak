@@ -1,0 +1,119 @@
+`timescale 1 ps / 1 ps
+
+module Math_Module16 (
+input		wire				CPU_Clk_i,
+input 	wire	[31:0]	CPU_A_i,
+input 	wire	[7:0]		CPU_D_i,
+input 	wire				CPU_R_Wn_i,
+input		wire				CS_UNSIGNED_MULT_i,
+input		wire				CS_SIGNED_MULT_i,
+input		wire				CS_UNSIGNED_DIV_i,
+input		wire				CS_SIGNED_DIV_i,
+output 	reg 	[7:0]		CPU_D_o
+);
+
+reg	[7:0]	SignedMult[3:0];
+reg	[7:0] UnsignedMult[3:0];
+reg	[7:0] SignedDiv[3:0];
+reg	[7:0] UnsignedDiv[3:0];
+
+wire	[31:0]	UnsignedMultOutput;
+wire	[31:0]	SignedMultOutput;
+
+wire	[15:0]	UnsignedDivisionQuotient;
+wire	[15:0]	UnsignedDivisionremain;
+
+wire	[15:0]	SignedDivisionQuotient;
+wire	[15:0]	SignedDivisionremain;
+
+
+// Keep the Input Value in Registers
+always @ (negedge CPU_Clk_i)
+begin
+
+	if (CS_UNSIGNED_MULT_i & !CPU_R_Wn_i)
+		UnsignedMult[CPU_A_i[1:0]] <= CPU_D_i;
+
+	if (CS_SIGNED_MULT_i & !CPU_R_Wn_i)
+		SignedMult[CPU_A_i[1:0]] <= CPU_D_i;	
+
+	if (CS_UNSIGNED_DIV_i & !CPU_R_Wn_i)
+		UnsignedDiv[CPU_A_i[1:0]] <= CPU_D_i;
+
+	if (CS_SIGNED_DIV_i & !CPU_R_Wn_i)
+		SignedDiv[CPU_A_i[1:0]] <= CPU_D_i;
+end
+
+
+SIGNED_MULT SIGNEDMULT(
+	.dataa({SignedMult[1],SignedMult[0]}),
+	.datab({SignedMult[3],SignedMult[2]}),
+	.result(SignedMultOutput)
+);
+
+UNSIGNED_MULT UNSIGNEDMULT(
+	.dataa({UnsignedMult[1],UnsignedMult[0]}),
+	.datab({UnsignedMult[3],UnsignedMult[2]}),
+	.result(UnsignedMultOutput)
+);
+
+UNSIGNED_DIV UNSIGNEDDIV(
+	.denom({UnsignedDiv[1],UnsignedDiv[0]}),
+	.numer({UnsignedDiv[3],UnsignedDiv[2]}),
+	.quotient(UnsignedDivisionQuotient),
+	.remain(UnsignedDivisionremain)
+);
+
+SIGNED_DIV SIGNEDDIV(
+//	.clock( CPU_2xClk_i ),
+	.denom({SignedDiv[1],SignedDiv[0]}),
+	.numer({SignedDiv[3],SignedDiv[2]}),
+	.quotient(SignedDivisionQuotient),
+	.remain(SignedDivisionremain)
+);
+
+
+always @ (*)
+begin
+	case(CPU_A_i[4:0])
+		// Unsigned Mult
+		5'b00000: CPU_D_o = UnsignedMult[0];
+		5'b00001: CPU_D_o = UnsignedMult[1];
+		5'b00010: CPU_D_o = UnsignedMult[2];
+		5'b00011: CPU_D_o = UnsignedMult[3];
+		5'b00100: CPU_D_o = UnsignedMultOutput[7:0];
+		5'b00101: CPU_D_o = UnsignedMultOutput[15:8];
+		5'b00110: CPU_D_o = UnsignedMultOutput[23:16];
+		5'b00111: CPU_D_o = UnsignedMultOutput[31:24];
+		// Signed Mult
+		5'b01000: CPU_D_o = SignedMult[0];
+		5'b01001: CPU_D_o = SignedMult[1];
+		5'b01010: CPU_D_o = SignedMult[2];
+		5'b01011: CPU_D_o = SignedMult[3];
+		5'b01100: CPU_D_o = SignedMultOutput[7:0];
+		5'b01101: CPU_D_o = SignedMultOutput[15:8];
+		5'b01110: CPU_D_o = SignedMultOutput[23:16];
+		5'b01111: CPU_D_o = SignedMultOutput[31:24];
+		// Unsigned Div
+		5'b10000: CPU_D_o = UnsignedDiv[0];
+		5'b10001: CPU_D_o = UnsignedDiv[1];
+		5'b10010: CPU_D_o = UnsignedDiv[2];
+		5'b10011: CPU_D_o = UnsignedDiv[3];
+		5'b10100: CPU_D_o = UnsignedDivisionQuotient[7:0];
+		5'b10101: CPU_D_o = UnsignedDivisionQuotient[15:8];
+		5'b10110: CPU_D_o = UnsignedDivisionremain[7:0];
+		5'b10111: CPU_D_o = UnsignedDivisionremain[15:8];
+		// Signed Div
+		5'b11000: CPU_D_o = SignedDiv[0];
+		5'b11001: CPU_D_o = SignedDiv[1];
+		5'b11010: CPU_D_o = SignedDiv[2];
+		5'b11011: CPU_D_o = SignedDiv[3];
+		5'b11100: CPU_D_o = SignedDivisionQuotient[7:0];
+		5'b11101: CPU_D_o = SignedDivisionQuotient[15:8];
+		5'b11110: CPU_D_o = SignedDivisionremain[7:0];
+		5'b11111: CPU_D_o = SignedDivisionremain[15:8];
+	endcase
+end
+
+endmodule
+

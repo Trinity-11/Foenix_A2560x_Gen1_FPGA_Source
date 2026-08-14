@@ -1,0 +1,221 @@
+module A2560X_GAVIN_CS_And_Dout (
+// CPU Interface
+input		wire				iBUS_1xClk_i,
+input       wire    			iBUS_2xClk_i,
+input		wire				Reset_i,
+input		wire	[31:0]	    iBUS_A_i,
+input		wire				iBUS_A_Valid_i,
+output	    wire				iBUS_D_Valid_o,
+input		wire	[7:0]		iBUS_D8_i,
+input		wire	[15:0]	    iBUS_D16_i,
+input		wire	[31:0]	    iBUS_D32_i,
+input		wire	[1:0]		iBUS_D_Siz_i,
+input		wire				iBUS_RWn_i,
+input		wire	[3:0]		iBUS_BE_i,
+input		wire				iBUS_CS_GAVIN_i,
+// Data Out Inputs
+// Data Path from the different Block
+input		wire	[31:0]	    DataOut_LPC_Interface_i,		//x1
+input		wire	[31:0]	    DataOut_Math_Fixed_i,			//x4
+input		wire	[31:0]	    DataOut_Math_Float_i,			//x1
+input		wire	[31:0]	    DataOut_Interrupt_Ctrl_i,		//x1
+input		wire	[31:0]	    DataOut_Timer_i,					//x1
+input		wire	[31:0]	    DataOut_SDCARD_CTRL_i,			//x1
+input    	wire    [31:0]		DataOut_WizFi360_i,				//x1
+input       wire   	[31:0]		DataOut_VDMA_i,
+input  		wire    [31:0]		DataOut_MEMTEXT_i,
+input  		wire   	[31:0]		DataOut_MEMTEXT_LUT_i,
+input  		wire    [31:0]		DataOut_MEMTEXT_FONT_i,
+input       wire   	[31:0]		DataOut_SDMA_i,
+input		wire	[31:0]	    DataOut_IDE_ETH_DPS_i,				//x3
+input		wire	[31:0]	    DataOut_Trinity_i,				//x1
+input		wire	[31:0]	    DataOut_RTC_i,		
+input		wire	[31:0]	    DataOut_GABE_Config_i,			//x1
+input 		wire   	[31:0]		DataOut_EMUTOS_Graph_i,			//
+
+output	    wire				CS_LPC_o,					// LPC
+output	    wire				CS_MATH_FIXED_o,		// Math Block
+output	    wire				CS_MATH_FLOAT_o,  		// Data Come through here - Internal Registers
+output	    wire				CS_Interrupt_Ctrl_o,		// Interrupt Controller
+output	    wire				CS_Timer_o,					// Timer Block
+output	    wire				CS_SDCard_o,				// SDCard Controller
+output	    wire				CS_IDE_o,					// IDE Controller
+output	    wire				CS_NIC_o,					// Network Interface Controller
+output	    wire				CS_Trinity_o,				// Joystick
+output	    wire				CS_RTC_o,
+output      wire  				CS_WIZFI360_o, 				// WiFi360
+output	    wire				CS_GABE_Config_o,			// GABE Control Registers
+output  	wire   				CS_MEMTEXT_o,
+output 		wire   				CS_MEMTEXT_LUT_o,
+output 		wire   				CS_MEMTEXT_FONT_o,
+output      wire                CS_SDMA_o,
+output  	wire   				CS_EMUTOS_GRAPH_o,
+
+output	    reg	    [31:0]	    DataOut_o
+
+//output	wire				Wait_SDCard_TA_o
+);
+
+wire CS_A2560K_KB_o;
+
+//$00C0_0000 - $00C1_FFFF - GABE Registers (SuperIO/Math Block/SDCard/IDE/Ethernet/SDMA)assign CS_UNSIGNED_MULT_o 		= ( CPU_A_i[23:3]  == 21'b0000_0000_0000_0001_0000_0) & Valid_Address;	// $00:0100..$00:0107
+//assign 	CS_GABE    		= ( Internal_Address[23:17] == 7'b1100_000 ) & ( UserData  | SuperData ); //$C0
+
+// Control and Media
+assign CS_GABE_Config_o			= ( iBUS_A_i[16:6] == 11'b0_0000_0000_00) & iBUS_CS_GAVIN_i;	// $FEC00000..$FEC0003F	- Control Registers
+assign CS_A2560K_KB_o			= ( iBUS_A_i[16:6] == 11'b0_0000_0000_01) & iBUS_CS_GAVIN_i;	// $FEC00040..$FEC0007F	- Control Registers
+assign CS_RTC_o					= ( iBUS_A_i[16:7] == 10'b0_0000_0000_1) & iBUS_CS_GAVIN_i;		// $FEC00080..$FEC0008F	- Control Registers
+assign CS_Interrupt_Ctrl_o		= ( iBUS_A_i[16:8] == 9'b0_0000_0001) & iBUS_CS_GAVIN_i;		// $FEC00100..$FEC001FF - Interrupt Controllers
+assign CS_Timer_o				= ( iBUS_A_i[16:8] == 9'b0_0000_0010) & iBUS_CS_GAVIN_i;		// $FEC00200..$FEC002FF - Timer Block
+assign CS_SDCard_o				= ( iBUS_A_i[16:8] == 9'b0_0000_0011) & iBUS_CS_GAVIN_i;		// $FEC00300..$FEC003FF - SD Card Controller
+assign CS_IDE_o					= ( iBUS_A_i[16:8] == 9'b0_0000_0100) & iBUS_CS_GAVIN_i;		// $FEC00400..$FEC004FF - IDE
+assign CS_Trinity_o				= ( iBUS_A_i[16:8] == 9'b0_0000_0101) & iBUS_CS_GAVIN_i;		// $FEC00500..$FEC005FF - JOYSTICK/JOYPAD
+assign CS_NIC_o					= ( iBUS_A_i[16:9] == 8'b0_0000_011) & iBUS_CS_GAVIN_i;			// $FEC00600..$FEC007FF - NIC
+assign CS_WIZFI360_o			= ( iBUS_A_i[16:9] 	== 8'b0_0000_100) & iBUS_CS_GAVIN_i;		// $FEC00800..$FEC009FF - WIZFI360
+// LPC Block
+assign CS_LPC_o               = (iBUS_A_i[16:10] == 7'b0_0010_00) & iBUS_CS_GAVIN_i;			// $FEC02000..$FEC023FF - LPC 
+
+//assign CS_DMA_LPC_o				= (iBUS_A_i[16:10] == 7'b0_0020_01) & iBUS_CS_GAVIN_i;		// $FEC02400..$FEC027FF - DMA DP Memory 
+// Math Block
+assign CS_MATH_FIXED_o		   = ( iBUS_A_i[16:7] == 10'b0_0011_0000_0) & iBUS_CS_GAVIN_i;		// $FEC03000..$FEC0301F	- 32 x 32 Unsigned 
+assign CS_MATH_FLOAT_o  		= ( iBUS_A_i[16:9] ==  8'b0_0100_000) & iBUS_CS_GAVIN_i; 		// $FEC04000..$FEC041FF - Float Module  
+assign CS_VDMA_o   				= ( iBUS_A_i[16:12] == 5'b0_0110) & iBUS_CS_GAVIN_i;			// $FEC06000..$FEC06FFF - (4K)   - VDMA          
+// New Elements
+assign CS_EMUTOS_GRAPH_o  		= ( iBUS_A_i[16:12] == 5'b0_0111) & iBUS_CS_GAVIN_i;			// $FEC07000..$FEC07FFF - (4K) - EMUTOS Graphics
+assign CS_MEMTEXT_o				= ( iBUS_A_i[16:12] == 5'b0_1000) & iBUS_CS_GAVIN_i;			// $FEC08000..$FEC08FFF - (4K) - MEMTEXT Control Registers
+assign CS_MEMTEXT_LUT_o			= ( iBUS_A_i[16:12] == 5'b0_1001) & iBUS_CS_GAVIN_i;			// $FEC09000..$FEC09FFF - (4K) - MEMTEXT LUT TABLES
+assign CS_MEMTEXT_FONT_o 		= ( iBUS_A_i[16:13] == 4'b0_101) & iBUS_CS_GAVIN_i;				// $FEC0A000..$FEC0BFFF - (4K) - MEMTEXT FONT MEMORY
+assign CS_SDMA_o				= ( iBUS_A_i[16:12] == 5'b0_1100) & iBUS_CS_GAVIN_i;			// $FEC0C000..$FEC0CFFF - (4K) - SDMA CONTROLLER
+
+wire [8:0] CS_Combined_A;
+wire CS_OR_A;
+wire [9:0] CS_Combined_B;
+wire CS_OR_B;
+reg [31:0] DataOut_A;
+reg [31:0] DataOut_B;
+
+assign CS_Combined_A = ( { CS_NIC_o, CS_Trinity_o, CS_IDE_o, CS_SDCard_o, CS_Timer_o, CS_Interrupt_Ctrl_o, CS_RTC_o, CS_A2560K_KB_o, CS_GABE_Config_o });
+assign CS_OR_A = (   CS_NIC_o | CS_Trinity_o | CS_IDE_o | CS_SDCard_o | CS_Timer_o | CS_Interrupt_Ctrl_o | CS_RTC_o | CS_A2560K_KB_o | CS_GABE_Config_o );
+
+always @ ( posedge CPU_2xClk_i) begin
+	case (CS_Combined_A)
+		9'b000_000_000: begin DataOut_A = 32'hDEAD_BEEF; 				end
+		9'b000_000_001: begin DataOut_A = DataOut_GABE_Config_i; 		end		
+		9'b000_000_010: begin DataOut_A = 32'hC000_0000; 				end
+		9'b000_000_100: begin DataOut_A = DataOut_RTC_i; 				end
+		9'b000_001_000: begin DataOut_A = DataOut_Interrupt_Ctrl_i;		end
+		9'b000_010_000: begin DataOut_A = DataOut_Timer_i; 				end
+		9'b000_100_000: begin DataOut_A = DataOut_SDCARD_CTRL_i; 		end
+		9'b001_000_000: begin DataOut_A = DataOut_IDE_ETH_DPS_i; 		end
+		9'b010_000_000: begin DataOut_A = DataOut_Trinity_i; 			end
+		9'b100_000_000: begin DataOut_A = DataOut_IDE_ETH_DPS_i; 		end
+		default: begin DataOut_A = 32'hB00B_FEED; 						end
+	endcase
+end
+
+assign CS_Combined_B = ( { CS_SDMA_o, CS_MEMTEXT_FONT_o, CS_MEMTEXT_LUT_o, CS_MEMTEXT_o, CS_VDMA_o, CS_MATH_FLOAT_o, CS_MATH_FIXED_o, CS_LPC_o, CS_WIZFI360_o});
+assign CS_OR_B = (  CS_WIZFI360_o | CS_SDMA_o | CS_MEMTEXT_FONT_o | CS_MEMTEXT_LUT_o | CS_MEMTEXT_o | CS_EMUTOS_GRAPH_o | CS_VDMA_o | CS_MATH_FLOAT_o | CS_MATH_FIXED_o | CS_LPC_o | CS_WIZFI360_o  );
+
+always @ ( posedge CPU_2xClk_i) begin
+	case (CS_Combined_B)
+		10'b00_0000_0000: begin DataOut_B = 32'hDEAD_BEEF; 				end
+		10'b00_0000_0001: begin DataOut_B = DataOut_WizFi360_i;			end		
+		10'b00_0000_0010: begin DataOut_B = DataOut_LPC_Interface_i;	end
+		10'b00_0000_0100: begin DataOut_B = DataOut_Math_Fixed_i; 		end
+		10'b00_0000_1000: begin DataOut_B = DataOut_Math_Float_i; 		end
+		10'b00_0001_0000: begin DataOut_B = DataOut_VDMA_i;				end
+		10'b00_0010_0000: begin DataOut_B = DataOut_EMUTOS_Graph_i;		end
+		10'b00_0100_0000: begin DataOut_B = DataOut_MEMTEXT_i;     		end
+		10'b00_1000_0000: begin DataOut_B = DataOut_MEMTEXT_LUT_i;     	end
+		10'b01_0000_0000: begin DataOut_B = DataOut_MEMTEXT_FONT_i;     end
+		10'b10_0000_0000: begin DataOut_B = DataOut_SDMA_i;     		end
+		default: begin DataOut_B = 32'hB00B_FEED; 						end
+	endcase
+end
+
+always @ (*) begin 
+	case( { CS_OR_B, CS_OR_A} )
+		2'b00: DataOut_o = 32'hB00B_FEED;
+		2'b01: DataOut_o = DataOut_A;
+		2'b10: DataOut_o = DataOut_B;
+		2'b11: DataOut_o = 32'hB00B_FEED;
+	endcase
+end 
+
+assign iBUS_D_Valid_o = 1'b0;
+
+/*
+reg [15:0]	SDCard_Slide;
+
+
+always @ ( posedge CPU_Clk_i ) begin
+	if (Reset_i) begin
+		SDCard_Slide <= 16'h0000;
+	
+	end 
+	else begin
+		if ( CS_SDCard_o ) begin
+			SDCard_Slide <= {SDCard_Slide[14:0], iBUS_A_Valid_i};
+		end
+		else begin
+			SDCard_Slide <= 16'h0000;		
+		end
+	end
+end
+*/
+//assign Wait_SDCard_TA_o = iBUS_RWn_i ? SDCard_Slide[2] : SDCard_Slide[0];	// 
+
+//assign Wait_SDCard_TA_o = SDCard_Slide[2];	// 
+
+// Wait State insertion for the SDCard Controller
+
+/*
+reg 	[1:0]	TinySM;
+reg	[15:0] CountDownDTACK;
+
+
+always @ (posedge CPU_Clk_i) begin
+	if (Reset_i) begin
+		CountDownDTACK	<= 16'h0000;
+		TinySM			<= 2'b00;
+	end
+	else begin
+		CountDownDTACK <= CountDownDTACK << 1'b1;
+	
+		case (TinySM) 
+			2'b00: begin
+				if (CS_SDCard_o & iBUS_RWn_i)  begin
+						CountDownDTACK <= 16'hFFFE;					
+					TinySM <= 2'b01;
+				end
+				else begin
+					CountDownDTACK <= 16'h0000;
+					TinySM <= 2'b00;				
+				end
+			end
+		
+			2'b01: begin 
+				if (iBUS_D_Valid_o) begin
+					TinySM <= 2'b01;				
+				end
+				else begin
+					TinySM <= 2'b10;				
+				end
+			end
+		
+			2'b10: begin 
+					TinySM <= 2'b11;
+			end
+		
+			2'b11: begin 
+					TinySM <= 2'b00;			
+			end
+		
+		endcase
+	
+	end
+
+end
+*/
+endmodule
+

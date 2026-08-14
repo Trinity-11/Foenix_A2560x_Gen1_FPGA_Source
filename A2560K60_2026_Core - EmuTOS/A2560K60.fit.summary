@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Apr 21 02:52:43 2026
+Quartus II 64-Bit Version : 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Revision Name : A2560K60
+Top-level Entity Name : A2560K60_Top
+Family : Cyclone III
+Device : EP3C120F780C8
+Timing Models : Final
+Total logic elements : 32,864 / 119,088 ( 28 % )
+    Total combinational functions : 26,018 / 119,088 ( 22 % )
+    Dedicated logic registers : 18,825 / 119,088 ( 16 % )
+Total registers : 18875
+Total pins : 516 / 532 ( 97 % )
+Total virtual pins : 0
+Total memory bits : 1,051,284 / 3,981,312 ( 26 % )
+Embedded Multiplier 9-bit elements : 30 / 576 ( 5 % )
+Total PLLs : 3 / 4 ( 75 % )

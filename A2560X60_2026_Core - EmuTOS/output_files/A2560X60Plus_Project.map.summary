@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Apr 20 14:27:24 2026
+Quartus II 64-Bit Version : 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Revision Name : A2560X60Plus_Project
+Top-level Entity Name : A2560X60Plus_Top
+Family : Cyclone III
+Total logic elements : 35,083
+    Total combinational functions : 25,497
+    Dedicated logic registers : 17,856
+Total registers : 17906
+Total pins : 522
+Total virtual pins : 0
+Total memory bits : 1,079,956
+Embedded Multiplier 9-bit elements : 30
+Total PLLs : 3

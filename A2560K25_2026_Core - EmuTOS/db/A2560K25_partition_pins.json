@@ -1,0 +1,1833 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "MEM_A2_o",
+					"strict" : false
+				},
+				{
+					"name" : "MEM_A3_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_BCLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_BGn_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_AVECn_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_IPL0n_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_IPL1n_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_IPL2n_o",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_RESET_INn_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_FLASH_CS0n_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_FLASH_CS1n_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_FLASH_OEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_FLASH_WEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_BEn_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_BEn_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_BEn_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_BEn_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_CS0n_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_CS1n_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_OEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "LOCAL_MEM_SRAM_WEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_CTRL_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_CTRL_IN_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_CTRL_LATCH_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_DATA_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_DATA_IN0_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_DATA_IN1_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_DATA_LATCH_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_SID_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_SID_IN_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_SID_LATCH_o",
+					"strict" : false
+				},
+				{
+					"name" : "ABUS_RSTn_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD_PDn_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD2_BICK_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD2_LRCK_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD2_MCLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD2_SDTI_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD3_BICK_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD3_LRCK_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD3_MCLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "AUD3_SDTI_o",
+					"strict" : false
+				},
+				{
+					"name" : "AMP_MUTE_o",
+					"strict" : false
+				},
+				{
+					"name" : "AMP_SDBY_o",
+					"strict" : false
+				},
+				{
+					"name" : "BTX_BUZZER_o",
+					"strict" : false
+				},
+				{
+					"name" : "CHIPTUNE_RSTn_o",
+					"strict" : false
+				},
+				{
+					"name" : "DCSG_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_DAC_BCLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_DAC_DAT_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_DAC_LRCK_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_DAC_MCLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_DI_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_CE_o",
+					"strict" : false
+				},
+				{
+					"name" : "CODEC_CL_o",
+					"strict" : false
+				},
+				{
+					"name" : "BLU_POWER_LED_o",
+					"strict" : false
+				},
+				{
+					"name" : "RGB_POWER_LED_o",
+					"strict" : false
+				},
+				{
+					"name" : "SDCARD_LED_o",
+					"strict" : false
+				},
+				{
+					"name" : "DBG_TX_o",
+					"strict" : false
+				},
+				{
+					"name" : "F_SD_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "F_SD_CMD_o",
+					"strict" : false
+				},
+				{
+					"name" : "F_SD_DAT3_io",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[4]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[6]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_A_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_RDn_o",
+					"strict" : false
+				},
+				{
+					"name" : "IO_WRn_o",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_CSn_o",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_FIFO_SEL_o",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_RSTn_o",
+					"strict" : false
+				},
+				{
+					"name" : "IDE_CS0n_o",
+					"strict" : false
+				},
+				{
+					"name" : "IDE_CS1n_o",
+					"strict" : false
+				},
+				{
+					"name" : "IDE_DATA_DIR_o",
+					"strict" : false
+				},
+				{
+					"name" : "IDE_DATA_OEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "IDE_RESETn_o",
+					"strict" : false
+				},
+				{
+					"name" : "JOYSTICK0_RLY_o",
+					"strict" : false
+				},
+				{
+					"name" : "JOYSTICK1_RLY_o",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_CLK_32Khz_o",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_LFRAMEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_RSTn_o",
+					"strict" : false
+				},
+				{
+					"name" : "KBD_MISO_o",
+					"strict" : false
+				},
+				{
+					"name" : "MTX_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "MTX_LATCH_o",
+					"strict" : false
+				},
+				{
+					"name" : "MTX_SERIAL_IN_o",
+					"strict" : false
+				},
+				{
+					"name" : "STS_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "STS_LATCH_o",
+					"strict" : false
+				},
+				{
+					"name" : "STS_SERIAL_IN_o",
+					"strict" : false
+				},
+				{
+					"name" : "OPL3_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "OPM_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "OPN2_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "SID_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_A_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_A_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_A_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_A_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_OEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_CSn_o",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_RWn_o",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQM_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQM_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQM_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQM_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[8]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[11]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_A_o[12]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_BA0_o",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_BA1_o",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_CASn_o",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_RASn_o",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_WEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_CLK_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_DE_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_HSYNC_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_VSYNC_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[8]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[9]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[10]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_PIX_o[11]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_DE_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_HSYNC_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_VSYNC_o",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[8]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[9]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[10]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_PIX_o[11]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_BEn_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_BEn_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_BEn_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_BEn_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[8]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[9]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[10]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[11]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[12]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[13]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[14]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[15]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[16]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[17]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[18]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_Addy_o[19]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_OEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_WEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_BEn_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_BEn_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_BEn_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_BEn_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[8]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[9]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[10]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[11]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[12]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[13]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[14]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[15]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[16]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[17]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[18]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_Addy_o[19]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_OEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_WEn_o",
+					"strict" : false
+				},
+				{
+					"name" : "COLD_RESETn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[8]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[9]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[10]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[11]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[12]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[13]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[14]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[15]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[16]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[17]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[18]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[19]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[20]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[21]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[22]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[23]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[24]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[25]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[26]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[27]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[28]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[29]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[30]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_A_io[31]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[8]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[9]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[10]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[11]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[12]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[13]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[14]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[15]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[16]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[17]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[18]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[19]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[20]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[21]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[22]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[23]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[24]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[25]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[26]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[27]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[28]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[29]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[30]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_D_io[31]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_RWn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_SIZ0_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_SIZ1_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TSn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TAn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TBIn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TEAn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TCIn_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TT0_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TT1_io",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[8]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[9]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[10]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[11]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[12]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[13]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[14]",
+					"strict" : false
+				},
+				{
+					"name" : "IO_D_io[15]",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_BTN0_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_BTN1_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_BTN2_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_BTN0_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_BTN1_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_BTN2_io",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_IRQn_io",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_LAD_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_LAD_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_LAD_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LPC_LAD_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_D_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[8]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[11]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[12]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[13]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[14]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[15]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[16]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[17]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[18]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[19]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[20]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[21]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[22]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[23]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[24]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[25]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[26]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[27]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[28]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[29]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[30]",
+					"strict" : false
+				},
+				{
+					"name" : "SYSRAM_DQ_io[31]",
+					"strict" : false
+				},
+				{
+					"name" : "VID_SPC_io",
+					"strict" : false
+				},
+				{
+					"name" : "VID_SPD_io",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[8]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[9]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[10]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[11]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[12]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[13]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[14]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[15]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[16]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[17]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[18]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[19]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[20]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[21]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[22]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[23]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[24]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[25]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[26]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[27]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[28]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[29]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[30]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_A_DQ_io[31]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[0]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[1]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[2]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[3]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[8]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[9]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[10]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[11]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[12]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[13]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[14]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[15]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[16]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[17]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[18]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[19]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[20]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[21]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[22]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[23]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[24]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[25]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[26]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[27]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[28]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[29]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[30]",
+					"strict" : false
+				},
+				{
+					"name" : "VRAM_B_DQ_io[31]",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_BRn_i",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TIPn_i",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TM0_i",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_TM1_i",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_CLK_22_579Mhz_i",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_CLK_24_576Mhz_i",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_CLK_14_318Mhz_i",
+					"strict" : false
+				},
+				{
+					"name" : "DBG_RX_i",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_CLK_80_000Mhz_i",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_CLK_40_000Mhz_A_i",
+					"strict" : false
+				},
+				{
+					"name" : "OSC_CLK_33_333Mhz_i",
+					"strict" : false
+				},
+				{
+					"name" : "KBD_CLK_i",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_GAMMA_MODE_i[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_GAMMA_MODE_i[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_HIRES_MODE_i[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_HIRES_MODE_i[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_BOOT_MODE_i[0]",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_UP_io",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_BOOT_MODE_i[1]",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_DWN_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_LFT_io",
+					"strict" : false
+				},
+				{
+					"name" : "CPU_SPEED_i",
+					"strict" : false
+				},
+				{
+					"name" : "JOY1_RGHT_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_UP_io",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_USER_i[0]",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_DWN_io",
+					"strict" : false
+				},
+				{
+					"name" : "DIP_USER_i[1]",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_LFT_io",
+					"strict" : false
+				},
+				{
+					"name" : "JOY0_RGHT_io",
+					"strict" : false
+				},
+				{
+					"name" : "F_SD_CD_i",
+					"strict" : false
+				},
+				{
+					"name" : "F_SD_WP_i",
+					"strict" : false
+				},
+				{
+					"name" : "VID_A_HP_INT1n_i",
+					"strict" : false
+				},
+				{
+					"name" : "VID_B_HP_INT1n_i",
+					"strict" : false
+				},
+				{
+					"name" : "IDE_INTRQ_i",
+					"strict" : false
+				},
+				{
+					"name" : "OPM_INTn_i",
+					"strict" : false
+				},
+				{
+					"name" : "OPL3_INTn_i",
+					"strict" : false
+				},
+				{
+					"name" : "OPN2_INTn_i",
+					"strict" : false
+				},
+				{
+					"name" : "F_SD_DAT0_io",
+					"strict" : false
+				},
+				{
+					"name" : "ETH_IRQn_i",
+					"strict" : false
+				},
+				{
+					"name" : "RTC_INTn_i",
+					"strict" : false
+				},
+				{
+					"name" : "KBD_CSn_i",
+					"strict" : false
+				},
+				{
+					"name" : "KBD_MOSI_i",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
